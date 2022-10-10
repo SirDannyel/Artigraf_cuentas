@@ -6,6 +6,7 @@ $dbname = "test";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
+// Test db user ivette
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 } 
