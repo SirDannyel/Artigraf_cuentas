@@ -14,44 +14,8 @@
   </head>
    
    <script> 
-    let i = 0 ;
-    function addInput()
-    {   
-        i++; 
-        var div = document.createElement("div");
-        div.setAttribute("class", "d-flex text-muted p-3 border-bottom caja");
-        var iddiv = "div"+i; 
-        div.setAttribute("id", iddiv);
-        document.getElementById("panel").appendChild(div); 
-
-        var input = document.createElement("input");
-        input.setAttribute("type", "text");
-        input.setAttribute("name", "inputclave");  
-        input.setAttribute("placeholder", "####.####.####.####.####.####.####"); 
-
-         input.setAttribute("class", "form-control masked");  
-         input.setAttribute("data-pattern", "****.****.****.****.****.****.****");  
-        
-        document.getElementById(iddiv).appendChild(input);  
-         
-        var boton = document.createElement("button");
-        var node = document.createTextNode("Eliminar");
-        boton.appendChild(node);
-        boton.setAttribute("name", "deletebutton");   
-        boton.onclick = function(){
-        var el = document.getElementById(iddiv); 
-           panel.removeChild(el);
-        }; 
-        boton.setAttribute("class", "btn btn-danger pl-3");
-        document.getElementById(iddiv).appendChild(boton); 
-      
-        setMaskedInputListener(input);
-         
-    }
-
-    function eliminar(identificador){
-      panel.removeChild(document.getElementById(identificador));
-    }
+  
+ 
 
     function validar(){
       
@@ -106,38 +70,85 @@
             console.log('I was closed by the timer')
           }
         });
-      // fin 
-      document.querySelectorAll('.caja').forEach( n => n.remove() );
-    
-       addInput();
+      // fin  
+     
        document.getElementById('boton_enviar').disabled=false;
 
-    }
+    } 
+
+        function getEstados() {
+            return new Promise(function (resolve, reject) {
+                const objXMLHttpRequest = new XMLHttpRequest();
+        
+                objXMLHttpRequest.onreadystatechange = function () {
+                    if (objXMLHttpRequest.readyState === 4) {
+                        if (objXMLHttpRequest.status == 200) {
+                             resolve(objXMLHttpRequest.responseText);
+                        } else {
+                            reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                        }
+                    }
+                }
+        
+                objXMLHttpRequest.open('GET', 'EstadosDb.php');
+                objXMLHttpRequest.send();
+            });
+        }
+        
+        getEstados().then(
+            data => { console.log('Success Response: ' + data) 
+                const myArr = JSON.parse(data);
+                var select = document.getElementById("EstadoSelect");
+                for(var i = 0; i < myArr.length; i++) {
+                    var opt = myArr[i];
+                    var el = document.createElement("option");
+                    el.textContent = opt;
+                    el.value = opt;
+                    select.appendChild(el);
+                }
+            },
+            error => { console.log(error) }
+        );
       
 
  
    </script>
   
-  <body class="bg-light" onload="addInput()"> 
+  <body class="bg-light" onload="getEstados()"> 
     
     <nav class="navbar navbar-expand-lg fixed-top navbar-white bg-white border-bottom" aria-label="Main navigation">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"> 
         <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>  
+        <select id="EstadoSelect" class="form-select m-1" role="listbox" placeholder="Estado"> 
+        </select>
+        <input class="form-control m-1" placeholder="Rubro"></input>
+        <input class="form-control m-1" placeholder="Descripción"></input>
+        <select class="form-select m-1" placeholder="Nivel">
+            <option class="option" value ="Mayor">Mayor</option>
+            <option class="option" value ="Fijo">Fijo</option>
+            <option class="option" value ="EF1">EF1</option>
+            <option class="option" value ="EF2">EF2</option> 
+            <option class="option" value ="EF3">EF3</option> 
+            <option class="option" value ="EF4">EF4</option> 
+            <option class="option" value ="EF5">EF5</option> 
+            <option class="option" value ="EF6">EF6</option> 
+            <option class="option" value ="EF7">EF7</option> 
+        </select>
+        <button class="btn btn-primary" onclick="addConcepto()"><i class="plus"></i>Agregar</button>
       </div>
     </nav> 
     <div style="padding-top:90px;"> </div>
     <main class="container">  
         <div class="my-3 p-5 bg-body rounded shadow-sm" id="panel">
           <div class="d-flex flex-row">
-            <h6 class="border-bottom pb-2 mb-0 w-100">Clave</h6>
-            <button class="btn btn-primary" onclick="addInput()"><i class="plus"></i>Agregar</button>
+            <h6 class="border-bottom pb-2 mb-0 w-100">Conceptos</h6>
           </div>
         </div> 
         <div class="d-flex flex-row my-3 p-3 bg-body rounded shadow-sm">
           <div class="pb-2 mb-0 w-25"> </div>
-          <button id='boton_enviar' class="btn btn-success w-100" onclick="validar();">Enviar</button>
+          <button id='boton_enviar' class="btn btn-success w-100" onclick="validar();">Confirmar</button>
           <div class="pb-2 mb-0 w-25"> </div>
         </div> 
     </main>

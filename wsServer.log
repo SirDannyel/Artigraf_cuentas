@@ -1,0 +1,496 @@
+2022-10-10 21:43:56 :: EjecutaSQL - Select Estado  from Dim_Estado where   order by 1 
+2022-10-10 21:43:57 :: EjecutaSQL - Select Estado  from Dim_Estado where   order by 1 
+2022-10-10 21:46:22 :: EjecutaSQL - Select Estados
+2022-10-10 21:46:23 :: EjecutaSQL - Select Estados
+2022-10-10 21:48:35 :: EjecutaSQL - Select Estados
+2022-10-10 21:48:35 :: EjecutaSQL - Select Estados
+2022-10-10 21:49:00 :: EjecutaSQL - Select Estado from Dim_Estado where order by 1 
+2022-10-10 21:49:01 :: EjecutaSQL - Select Estado from Dim_Estado where order by 1 
+2022-10-10 21:49:21 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 21:49:22 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 21:52:31 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 21:52:32 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 21:52:48 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 21:52:49 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 21:53:30 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 21:53:31 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 21:54:12 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 21:54:13 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 22:00:52 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 22:00:52 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 22:04:16 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 22:04:17 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 22:05:05 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 22:05:05 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 22:05:57 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 22:05:58 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
+2022-10-10 22:09:59 :: EjecutaSQL - Select Estado
+2022-10-10 22:09:59 :: EjecutaSQL - Select Estado
+2022-10-10 22:11:53 :: EjecutaSQL - Select Estado DESKTOP-907DBP9\SQLEXPRESS  allity
+2022-10-10 22:11:54 :: EjecutaSQL - Select Estado DESKTOP-907DBP9\SQLEXPRESS  allity
+2022-10-10 22:13:01 :: EjecutaSQL - Select Estado allity
+2022-10-10 22:13:01 :: EjecutaSQL - Select Estado allity
+2022-10-10 22:13:29 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:13:30 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:14:11 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:14:11 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:14:31 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:14:32 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:19:06 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:19:07 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:26:59 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:27:00 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:30:03 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:30:03 :: Conexión no se pudo establecer.
+2022-10-10 22:30:04 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:30:04 :: Conexión no se pudo establecer.
+2022-10-10 22:34:44 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:34:44 :: Conexión no se pudo establecer.
+2022-10-10 22:34:45 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:34:45 :: Conexión no se pudo establecer.
+2022-10-10 22:36:19 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:36:19 :: Conexión no se pudo establecer.
+2022-10-10 22:36:20 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:36:20 :: Conexión no se pudo establecer.
+2022-10-10 22:36:38 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:36:38 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:56:02 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:56:03 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:57:41 :: EjecutaSQL - Select Estado - allity
+2022-10-10 22:57:42 :: EjecutaSQL - Select Estado - allity
+2022-10-10 23:15:00 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:15:01 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:15:11 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:15:11 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:15:46 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:15:47 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:15:54 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:15:55 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:16:31 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:16:32 :: EjecutaSQL - Select Estado - 
+2022-10-10 23:16:53 :: EjecutaSQL - Select Estado
+2022-10-10 23:16:54 :: EjecutaSQL - Select Estado
+2022-10-11 17:44:55 :: EjecutaSQL - Select Estado
+2022-10-11 17:44:55 :: EjecutaSQL - Select Estado
+2022-10-11 17:45:07 :: EjecutaSQL - Select Estado
+2022-10-11 17:45:08 :: EjecutaSQL - Select Estado
+2022-10-11 18:20:32 :: EjecutaSQL - Select Estado
+2022-10-11 18:20:33 :: EjecutaSQL - Select Estado
+2022-10-11 18:24:03 :: EjecutaSQL - Select Estado
+2022-10-11 18:24:03 :: EjecutaSQL - Select Estado
+2022-10-11 18:25:19 :: EjecutaSQL - Select Estado
+2022-10-11 18:25:19 :: EjecutaSQL - Select Estado
+2022-10-11 18:35:20 :: EjecutaSQL - Select Estado
+2022-10-11 18:35:21 :: EjecutaSQL - Select Estado
+2022-10-11 18:41:14 :: EjecutaSQL - Select Estado
+2022-10-11 18:41:15 :: EjecutaSQL - Select Estado
+2022-10-11 18:42:45 :: EjecutaSQL - Select Estado
+2022-10-11 18:42:46 :: EjecutaSQL - Select Estado
+2022-10-11 18:43:54 :: EjecutaSQL - Select Estado
+2022-10-11 18:43:54 :: EjecutaSQL - Select Estado
+2022-10-11 18:50:45 :: EjecutaSQL - Select Estado
+2022-10-11 18:50:45 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 18:50:46 :: EjecutaSQL - Select Estado
+2022-10-11 18:50:46 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 18:56:32 :: EjecutaSQL - Select Estado
+2022-10-11 18:56:32 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 18:56:33 :: EjecutaSQL - Select Estado
+2022-10-11 18:56:33 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 18:57:42 :: EjecutaSQL - Select Estado
+2022-10-11 18:57:42 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 18:57:43 :: EjecutaSQL - Select Estado
+2022-10-11 18:57:43 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 18:58:34 :: EjecutaSQL - Select Estado
+2022-10-11 18:58:34 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 18:58:34 :: EjecutaSQL - Select Estado
+2022-10-11 18:58:34 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 18:58:38 :: EjecutaSQL - Select Estado
+2022-10-11 18:58:38 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 18:58:39 :: EjecutaSQL - Select Estado
+2022-10-11 18:58:39 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:05:57 :: EjecutaSQL - Select Estado
+2022-10-11 19:05:57 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:05:57 :: EjecutaSQL - Select Estado
+2022-10-11 19:05:57 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:06:48 :: EjecutaSQL - Select Estado
+2022-10-11 19:06:48 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:06:49 :: EjecutaSQL - Select Estado
+2022-10-11 19:06:49 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:07:01 :: EjecutaSQL - Select Estado
+2022-10-11 19:07:01 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:07:01 :: EjecutaSQL - Select Estado
+2022-10-11 19:07:01 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:07:17 :: EjecutaSQL - Select Estado
+2022-10-11 19:07:17 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:07:18 :: EjecutaSQL - Select Estado
+2022-10-11 19:07:18 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:07:55 :: EjecutaSQL - Select Estado
+2022-10-11 19:07:55 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:07:55 :: EjecutaSQL - Select Estado
+2022-10-11 19:07:55 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:09:36 :: EjecutaSQL - Select Estado
+2022-10-11 19:09:36 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:09:36 :: EjecutaSQL - Select Estado
+2022-10-11 19:09:36 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:12:08 :: EjecutaSQL - Select Estado
+2022-10-11 19:12:08 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:12:08 :: EjecutaSQL - Select Estado
+2022-10-11 19:12:08 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:12:36 :: EjecutaSQL - Select Estado
+2022-10-11 19:12:36 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:12:36 :: EjecutaSQL - Select Estado
+2022-10-11 19:12:36 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:21:14 :: EjecutaSQL - Select Estado
+2022-10-11 19:21:14 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:21:15 :: EjecutaSQL - Select Estado
+2022-10-11 19:21:15 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:21:44 :: EjecutaSQL - Select Estado
+2022-10-11 19:21:44 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:21:44 :: 
+2022-10-11 19:21:45 :: EjecutaSQL - Select Estado
+2022-10-11 19:21:45 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:21:45 :: 
+2022-10-11 19:25:16 :: EjecutaSQL - Select Estado
+2022-10-11 19:25:16 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:25:16 :: 
+2022-10-11 19:25:17 :: EjecutaSQL - Select Estado
+2022-10-11 19:25:17 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:25:17 :: 
+2022-10-11 19:26:16 :: EjecutaSQL - Select Estado
+2022-10-11 19:26:16 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:26:16 :: EjecutaSQL - Select Estado
+2022-10-11 19:26:16 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:26:31 :: EjecutaSQL - Select Estado
+2022-10-11 19:26:31 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:26:31 :: EjecutaSQL - Select Estado
+2022-10-11 19:26:31 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:27:10 :: EjecutaSQL - Select Estado
+2022-10-11 19:27:10 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:27:10 :: 
+2022-10-11 19:27:11 :: EjecutaSQL - Select Estado
+2022-10-11 19:27:11 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:27:11 :: 
+2022-10-11 19:31:56 :: EjecutaSQL - Select Estado
+2022-10-11 19:31:56 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:31:56 :: 
+2022-10-11 19:31:57 :: EjecutaSQL - Select Estado
+2022-10-11 19:31:57 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:31:57 :: 
+2022-10-11 19:34:22 :: EjecutaSQL - Select Estado
+2022-10-11 19:34:22 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:34:22 :: Array
+(
+    [0] => Array
+        (
+            [Estado] => ER Interno
+        )
+
+)
+
+2022-10-11 19:34:23 :: EjecutaSQL - Select Estado
+2022-10-11 19:34:23 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:34:23 :: Array
+(
+    [0] => Array
+        (
+            [Estado] => ER Interno
+        )
+
+)
+
+2022-10-11 19:35:21 :: EjecutaSQL - Select Estado
+2022-10-11 19:35:21 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:35:21 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:35:21 :: EjecutaSQL - Select Estado
+2022-10-11 19:35:21 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:35:21 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:36:35 :: EjecutaSQL - Select Estado
+2022-10-11 19:36:35 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:36:35 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:36:35 :: EjecutaSQL - Select Estado
+2022-10-11 19:36:35 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:36:35 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:39:14 :: EjecutaSQL - Select Estado
+2022-10-11 19:39:15 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:39:15 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:39:18 :: EjecutaSQL - Select Estado
+2022-10-11 19:39:18 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:39:18 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:40:16 :: EjecutaSQL - Select Estado
+2022-10-11 19:40:16 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:40:16 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:40:16 :: EjecutaSQL - Select Estado
+2022-10-11 19:40:16 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:40:16 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:41:45 :: EjecutaSQL - Select Estado
+2022-10-11 19:41:45 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:41:45 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:41:46 :: EjecutaSQL - Select Estado
+2022-10-11 19:41:46 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:41:46 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:50:14 :: EjecutaSQL - Select Estado
+2022-10-11 19:50:14 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:50:14 :: Resource id #6
+2022-10-11 19:50:15 :: EjecutaSQL - Select Estado
+2022-10-11 19:50:15 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:50:15 :: Resource id #6
+2022-10-11 19:51:17 :: EjecutaSQL - Select Estado
+2022-10-11 19:51:17 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:51:17 :: Array
+(
+    [0] => ER Interno
+    [Estado] => ER Interno
+)
+
+2022-10-11 19:51:18 :: EjecutaSQL - Select Estado
+2022-10-11 19:51:18 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:51:18 :: Array
+(
+    [0] => ER Interno
+    [Estado] => ER Interno
+)
+
+2022-10-11 19:52:07 :: EjecutaSQL - Select Estado
+2022-10-11 19:52:07 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:52:07 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:52:07 :: EjecutaSQL - Select Estado
+2022-10-11 19:52:07 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:52:07 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:53:04 :: EjecutaSQL - Select Estado
+2022-10-11 19:53:04 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:53:04 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:53:05 :: EjecutaSQL - Select Estado
+2022-10-11 19:53:05 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:53:05 :: Array
+(
+    [0] => ER Interno
+)
+
+2022-10-11 19:53:40 :: EjecutaSQL - Select Estado
+2022-10-11 19:53:40 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:53:40 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 19:53:40 :: EjecutaSQL - Select Estado
+2022-10-11 19:53:40 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:53:40 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 19:54:31 :: EjecutaSQL - Select Estado
+2022-10-11 19:54:31 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:54:31 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 19:54:31 :: EjecutaSQL - Select Estado
+2022-10-11 19:54:31 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:54:31 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 19:55:49 :: EjecutaSQL - Select Estado
+2022-10-11 19:55:49 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:55:49 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 19:55:49 :: EjecutaSQL - Select Estado
+2022-10-11 19:55:49 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:55:49 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 19:58:47 :: EjecutaSQL - Select Estado
+2022-10-11 19:58:47 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:58:47 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 19:58:48 :: EjecutaSQL - Select Estado
+2022-10-11 19:58:48 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 19:58:48 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:04:41 :: EjecutaSQL - Select Estado
+2022-10-11 20:04:41 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:04:41 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:04:42 :: EjecutaSQL - Select Estado
+2022-10-11 20:04:42 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:04:42 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:11:03 :: EjecutaSQL - Select Estado
+2022-10-11 20:11:03 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:11:03 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:11:04 :: EjecutaSQL - Select Estado
+2022-10-11 20:11:04 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:11:04 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:11:21 :: EjecutaSQL - Select Estado
+2022-10-11 20:11:21 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:11:21 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:11:21 :: EjecutaSQL - Select Estado
+2022-10-11 20:11:21 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:11:21 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:15:26 :: EjecutaSQL - Select Estado
+2022-10-11 20:15:26 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:15:26 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:15:26 :: EjecutaSQL - Select Estado
+2022-10-11 20:15:26 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:15:26 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:16:20 :: EjecutaSQL - Select Estado
+2022-10-11 20:16:20 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:16:20 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:16:21 :: EjecutaSQL - Select Estado
+2022-10-11 20:16:21 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:16:21 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:17:21 :: EjecutaSQL - Select Estado
+2022-10-11 20:17:21 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:17:21 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:17:22 :: EjecutaSQL - Select Estado
+2022-10-11 20:17:22 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:17:22 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:17:46 :: EjecutaSQL - Select Estado
+2022-10-11 20:17:46 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:17:46 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 20:17:47 :: EjecutaSQL - Select Estado
+2022-10-11 20:17:47 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 20:17:47 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
