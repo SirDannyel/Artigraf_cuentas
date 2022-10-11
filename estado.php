@@ -111,6 +111,75 @@
         );
       
 
+        function getConceptos(estado = 'ER Interno') {  
+            return new Promise(function (resolve, reject) {
+                const objXMLHttpRequest = new XMLHttpRequest();
+        
+                objXMLHttpRequest.onreadystatechange = function () {
+                    if (objXMLHttpRequest.readyState === 4) {
+                        if (objXMLHttpRequest.status == 200) {
+                             resolve(objXMLHttpRequest.responseText);
+                        } else {
+                            reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                        }
+                    }
+                }
+        
+                objXMLHttpRequest.open('POST', 'getConceptos.php');
+                objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                objXMLHttpRequest.send("estado="+estado);
+            });
+        }
+        
+        getConceptos().then(
+            data => { console.log('Success Response: ' + data)   
+                const myArr = JSON.parse(data);
+                var tablabody = document.getElementById("tablabody");    
+
+                for(var i = 0; i < myArr.length; i++) {
+                    var linea = document.createElement("tr");
+                    linea.setAttribute("class", "d-flex flex-row");  
+                    tablabody.appendChild(linea); 
+                    
+                    var opt = myArr[i].Orden;
+                    var campo = document.createElement("td");
+                    campo.setAttribute("style", "width:100px;");  
+                     campo.textContent = opt;
+                     campo.value = opt;
+                     linea.appendChild(campo);
+                    
+                    opt = myArr[i].Rubro;
+                    campo = document.createElement("td");
+                    campo.setAttribute("style", "width:300px;");  
+                    campo.textContent = opt;
+                    campo.value = opt;
+                    linea.appendChild(campo);
+ 
+                    opt = myArr[i].Descripcion;
+                    campo = document.createElement("td");
+                    campo.setAttribute("style", "width:300px;");  
+                    campo.textContent = opt;
+                    campo.value = opt;
+                    linea.appendChild(campo);
+
+                    opt = myArr[i].Nivel;
+                    campo = document.createElement("td");
+                    campo.setAttribute("style", "width:100px;");  
+                    campo.textContent = opt;
+                    campo.value = opt;
+                    linea.appendChild(campo);
+                    
+                    opt = myArr[i].Naturaleza;
+                    campo = document.createElement("td");
+                    campo.setAttribute("style", "width:100px;");  
+                    campo.textContent = opt;
+                    campo.value = opt;
+                    linea.appendChild(campo);
+                }
+                 
+            },
+            error => { console.log(error) }
+        );
  
    </script>
   
@@ -145,6 +214,19 @@
           <div class="d-flex flex-row">
             <h6 class="border-bottom pb-2 mb-0 w-100">Conceptos</h6>
           </div>
+          <table class="table" id="tabla">
+            <thead>
+              <tr class="d-flex flex-row">
+                <th scope="col" style="width:100px;">Orden</th>
+                <th scope="col" style="width:300px;">Rubro</th> 
+                <th scope="col" style="width:300px;">Descripción</th> 
+                <th scope="col" style="width:100px;">Nivel</th> 
+                <th scope="col" style="width:100px;">Naturaleza</th> 
+              </tr>
+            </thead>
+            <tbody  id="tablabody">
+            </tbody>
+            </table>
         </div> 
         <div class="d-flex flex-row my-3 p-3 bg-body rounded shadow-sm">
           <div class="pb-2 mb-0 w-25"> </div>

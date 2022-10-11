@@ -1,494 +1,1199 @@
-2022-10-10 21:43:56 :: EjecutaSQL - Select Estado  from Dim_Estado where   order by 1 
-2022-10-10 21:43:57 :: EjecutaSQL - Select Estado  from Dim_Estado where   order by 1 
-2022-10-10 21:46:22 :: EjecutaSQL - Select Estados
-2022-10-10 21:46:23 :: EjecutaSQL - Select Estados
-2022-10-10 21:48:35 :: EjecutaSQL - Select Estados
-2022-10-10 21:48:35 :: EjecutaSQL - Select Estados
-2022-10-10 21:49:00 :: EjecutaSQL - Select Estado from Dim_Estado where order by 1 
-2022-10-10 21:49:01 :: EjecutaSQL - Select Estado from Dim_Estado where order by 1 
-2022-10-10 21:49:21 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 21:49:22 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 21:52:31 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 21:52:32 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 21:52:48 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 21:52:49 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 21:53:30 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 21:53:31 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 21:54:12 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 21:54:13 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 22:00:52 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 22:00:52 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 22:04:16 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 22:04:17 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 22:05:05 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 22:05:05 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 22:05:57 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 22:05:58 :: EjecutaSQL - Select Estado from Dim_Estado order by 1 
-2022-10-10 22:09:59 :: EjecutaSQL - Select Estado
-2022-10-10 22:09:59 :: EjecutaSQL - Select Estado
-2022-10-10 22:11:53 :: EjecutaSQL - Select Estado DESKTOP-907DBP9\SQLEXPRESS  allity
-2022-10-10 22:11:54 :: EjecutaSQL - Select Estado DESKTOP-907DBP9\SQLEXPRESS  allity
-2022-10-10 22:13:01 :: EjecutaSQL - Select Estado allity
-2022-10-10 22:13:01 :: EjecutaSQL - Select Estado allity
-2022-10-10 22:13:29 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:13:30 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:14:11 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:14:11 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:14:31 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:14:32 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:19:06 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:19:07 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:26:59 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:27:00 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:30:03 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:30:03 :: Conexi贸n no se pudo establecer.
-2022-10-10 22:30:04 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:30:04 :: Conexi贸n no se pudo establecer.
-2022-10-10 22:34:44 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:34:44 :: Conexi贸n no se pudo establecer.
-2022-10-10 22:34:45 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:34:45 :: Conexi贸n no se pudo establecer.
-2022-10-10 22:36:19 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:36:19 :: Conexi贸n no se pudo establecer.
-2022-10-10 22:36:20 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:36:20 :: Conexi贸n no se pudo establecer.
-2022-10-10 22:36:38 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:36:38 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:56:02 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:56:03 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:57:41 :: EjecutaSQL - Select Estado - allity
-2022-10-10 22:57:42 :: EjecutaSQL - Select Estado - allity
-2022-10-10 23:15:00 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:15:01 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:15:11 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:15:11 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:15:46 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:15:47 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:15:54 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:15:55 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:16:31 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:16:32 :: EjecutaSQL - Select Estado - 
-2022-10-10 23:16:53 :: EjecutaSQL - Select Estado
-2022-10-10 23:16:54 :: EjecutaSQL - Select Estado
-2022-10-11 17:44:55 :: EjecutaSQL - Select Estado
-2022-10-11 17:44:55 :: EjecutaSQL - Select Estado
-2022-10-11 17:45:07 :: EjecutaSQL - Select Estado
-2022-10-11 17:45:08 :: EjecutaSQL - Select Estado
-2022-10-11 18:20:32 :: EjecutaSQL - Select Estado
-2022-10-11 18:20:33 :: EjecutaSQL - Select Estado
-2022-10-11 18:24:03 :: EjecutaSQL - Select Estado
-2022-10-11 18:24:03 :: EjecutaSQL - Select Estado
-2022-10-11 18:25:19 :: EjecutaSQL - Select Estado
-2022-10-11 18:25:19 :: EjecutaSQL - Select Estado
-2022-10-11 18:35:20 :: EjecutaSQL - Select Estado
-2022-10-11 18:35:21 :: EjecutaSQL - Select Estado
-2022-10-11 18:41:14 :: EjecutaSQL - Select Estado
-2022-10-11 18:41:15 :: EjecutaSQL - Select Estado
-2022-10-11 18:42:45 :: EjecutaSQL - Select Estado
-2022-10-11 18:42:46 :: EjecutaSQL - Select Estado
-2022-10-11 18:43:54 :: EjecutaSQL - Select Estado
-2022-10-11 18:43:54 :: EjecutaSQL - Select Estado
-2022-10-11 18:50:45 :: EjecutaSQL - Select Estado
-2022-10-11 18:50:45 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 18:50:46 :: EjecutaSQL - Select Estado
-2022-10-11 18:50:46 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 18:56:32 :: EjecutaSQL - Select Estado
-2022-10-11 18:56:32 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 18:56:33 :: EjecutaSQL - Select Estado
-2022-10-11 18:56:33 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 18:57:42 :: EjecutaSQL - Select Estado
-2022-10-11 18:57:42 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 18:57:43 :: EjecutaSQL - Select Estado
-2022-10-11 18:57:43 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 18:58:34 :: EjecutaSQL - Select Estado
-2022-10-11 18:58:34 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 18:58:34 :: EjecutaSQL - Select Estado
-2022-10-11 18:58:34 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 18:58:38 :: EjecutaSQL - Select Estado
-2022-10-11 18:58:38 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 18:58:39 :: EjecutaSQL - Select Estado
-2022-10-11 18:58:39 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:05:57 :: EjecutaSQL - Select Estado
-2022-10-11 19:05:57 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:05:57 :: EjecutaSQL - Select Estado
-2022-10-11 19:05:57 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:06:48 :: EjecutaSQL - Select Estado
-2022-10-11 19:06:48 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:06:49 :: EjecutaSQL - Select Estado
-2022-10-11 19:06:49 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:07:01 :: EjecutaSQL - Select Estado
-2022-10-11 19:07:01 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:07:01 :: EjecutaSQL - Select Estado
-2022-10-11 19:07:01 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:07:17 :: EjecutaSQL - Select Estado
-2022-10-11 19:07:17 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:07:18 :: EjecutaSQL - Select Estado
-2022-10-11 19:07:18 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:07:55 :: EjecutaSQL - Select Estado
-2022-10-11 19:07:55 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:07:55 :: EjecutaSQL - Select Estado
-2022-10-11 19:07:55 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:09:36 :: EjecutaSQL - Select Estado
-2022-10-11 19:09:36 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:09:36 :: EjecutaSQL - Select Estado
-2022-10-11 19:09:36 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:12:08 :: EjecutaSQL - Select Estado
-2022-10-11 19:12:08 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:12:08 :: EjecutaSQL - Select Estado
-2022-10-11 19:12:08 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:12:36 :: EjecutaSQL - Select Estado
-2022-10-11 19:12:36 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:12:36 :: EjecutaSQL - Select Estado
-2022-10-11 19:12:36 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:21:14 :: EjecutaSQL - Select Estado
-2022-10-11 19:21:14 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:21:15 :: EjecutaSQL - Select Estado
-2022-10-11 19:21:15 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:21:44 :: EjecutaSQL - Select Estado
-2022-10-11 19:21:44 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:21:44 :: 
-2022-10-11 19:21:45 :: EjecutaSQL - Select Estado
-2022-10-11 19:21:45 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:21:45 :: 
-2022-10-11 19:25:16 :: EjecutaSQL - Select Estado
-2022-10-11 19:25:16 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:25:16 :: 
-2022-10-11 19:25:17 :: EjecutaSQL - Select Estado
-2022-10-11 19:25:17 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:25:17 :: 
-2022-10-11 19:26:16 :: EjecutaSQL - Select Estado
-2022-10-11 19:26:16 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:26:16 :: EjecutaSQL - Select Estado
-2022-10-11 19:26:16 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:26:31 :: EjecutaSQL - Select Estado
-2022-10-11 19:26:31 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:26:31 :: EjecutaSQL - Select Estado
-2022-10-11 19:26:31 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:27:10 :: EjecutaSQL - Select Estado
-2022-10-11 19:27:10 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:27:10 :: 
-2022-10-11 19:27:11 :: EjecutaSQL - Select Estado
-2022-10-11 19:27:11 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:27:11 :: 
-2022-10-11 19:31:56 :: EjecutaSQL - Select Estado
-2022-10-11 19:31:56 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:31:56 :: 
-2022-10-11 19:31:57 :: EjecutaSQL - Select Estado
-2022-10-11 19:31:57 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:31:57 :: 
-2022-10-11 19:34:22 :: EjecutaSQL - Select Estado
-2022-10-11 19:34:22 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:34:22 :: Array
+2022-10-11 23:28:01 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:28:01 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:28:01 :: param: - ER Interno
+2022-10-11 23:28:01 :: EjecutaSQL - Select Estado
+2022-10-11 23:28:01 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:28:01 :: 1
+2022-10-11 23:28:01 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 23:28:02 :: EjecutaSQL - Select Estado
+2022-10-11 23:28:02 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:28:02 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 23:29:07 :: EjecutaSQL - Select Estado
+2022-10-11 23:29:07 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:29:07 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:29:07 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:29:07 :: param: - ER Interno
+2022-10-11 23:29:07 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 23:29:07 :: Array
 (
     [0] => Array
         (
-            [Estado] => ER Interno
+            [Name] => EstadoResultados
+            [Type] => 12
+            [Size] => 100
+            [Precision] => 
+            [Scale] => 
+            [Nullable] => 1
+        )
+
+    [1] => Array
+        (
+            [Name] => Orden
+            [Type] => 4
+            [Size] => 
+            [Precision] => 10
+            [Scale] => 
+            [Nullable] => 1
+        )
+
+    [2] => Array
+        (
+            [Name] => Rubro
+            [Type] => 12
+            [Size] => 100
+            [Precision] => 
+            [Scale] => 
+            [Nullable] => 1
+        )
+
+    [3] => Array
+        (
+            [Name] => Descripcion
+            [Type] => 12
+            [Size] => 100
+            [Precision] => 
+            [Scale] => 
+            [Nullable] => 1
+        )
+
+    [4] => Array
+        (
+            [Name] => Nivel
+            [Type] => 12
+            [Size] => 50
+            [Precision] => 
+            [Scale] => 
+            [Nullable] => 1
+        )
+
+    [5] => Array
+        (
+            [Name] => Naturaleza
+            [Type] => 4
+            [Size] => 
+            [Precision] => 10
+            [Scale] => 
+            [Nullable] => 1
+        )
+
+    [6] => Array
+        (
+            [Name] => Identado
+            [Type] => 4
+            [Size] => 
+            [Precision] => 10
+            [Scale] => 
+            [Nullable] => 1
+        )
+
+    [7] => Array
+        (
+            [Name] => Formato
+            [Type] => 12
+            [Size] => 100
+            [Precision] => 
+            [Scale] => 
+            [Nullable] => 1
         )
 
 )
 
-2022-10-11 19:34:23 :: EjecutaSQL - Select Estado
-2022-10-11 19:34:23 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:34:23 :: Array
-(
-    [0] => Array
-        (
-            [Estado] => ER Interno
-        )
-
-)
-
-2022-10-11 19:35:21 :: EjecutaSQL - Select Estado
-2022-10-11 19:35:21 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:35:21 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:35:21 :: EjecutaSQL - Select Estado
-2022-10-11 19:35:21 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:35:21 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:36:35 :: EjecutaSQL - Select Estado
-2022-10-11 19:36:35 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:36:35 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:36:35 :: EjecutaSQL - Select Estado
-2022-10-11 19:36:35 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:36:35 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:39:14 :: EjecutaSQL - Select Estado
-2022-10-11 19:39:15 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:39:15 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:39:18 :: EjecutaSQL - Select Estado
-2022-10-11 19:39:18 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:39:18 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:40:16 :: EjecutaSQL - Select Estado
-2022-10-11 19:40:16 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:40:16 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:40:16 :: EjecutaSQL - Select Estado
-2022-10-11 19:40:16 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:40:16 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:41:45 :: EjecutaSQL - Select Estado
-2022-10-11 19:41:45 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:41:45 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:41:46 :: EjecutaSQL - Select Estado
-2022-10-11 19:41:46 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:41:46 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:50:14 :: EjecutaSQL - Select Estado
-2022-10-11 19:50:14 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:50:14 :: Resource id #6
-2022-10-11 19:50:15 :: EjecutaSQL - Select Estado
-2022-10-11 19:50:15 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:50:15 :: Resource id #6
-2022-10-11 19:51:17 :: EjecutaSQL - Select Estado
-2022-10-11 19:51:17 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:51:17 :: Array
-(
-    [0] => ER Interno
-    [Estado] => ER Interno
-)
-
-2022-10-11 19:51:18 :: EjecutaSQL - Select Estado
-2022-10-11 19:51:18 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:51:18 :: Array
-(
-    [0] => ER Interno
-    [Estado] => ER Interno
-)
-
-2022-10-11 19:52:07 :: EjecutaSQL - Select Estado
-2022-10-11 19:52:07 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:52:07 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:52:07 :: EjecutaSQL - Select Estado
-2022-10-11 19:52:07 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:52:07 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:53:04 :: EjecutaSQL - Select Estado
-2022-10-11 19:53:04 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:53:04 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:53:05 :: EjecutaSQL - Select Estado
-2022-10-11 19:53:05 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:53:05 :: Array
-(
-    [0] => ER Interno
-)
-
-2022-10-11 19:53:40 :: EjecutaSQL - Select Estado
-2022-10-11 19:53:40 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:53:40 :: Array
+2022-10-11 23:29:07 :: EjecutaSQL - Select Estado
+2022-10-11 23:29:07 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:29:07 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 19:53:40 :: EjecutaSQL - Select Estado
-2022-10-11 19:53:40 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:53:40 :: Array
+2022-10-11 23:36:51 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:36:51 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:36:51 :: param: - ER Interno
+2022-10-11 23:36:51 :: EjecutaSQL - Select Estado
+2022-10-11 23:36:51 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:36:51 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 19:54:31 :: EjecutaSQL - Select Estado
-2022-10-11 19:54:31 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:54:31 :: Array
+2022-10-11 23:36:51 :: 
+2022-10-11 23:36:51 :: EjecutaSQL - Select Estado
+2022-10-11 23:36:51 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:36:51 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 19:54:31 :: EjecutaSQL - Select Estado
-2022-10-11 19:54:31 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:54:31 :: Array
+2022-10-11 23:37:50 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:37:50 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:37:50 :: param: - ER Interno
+2022-10-11 23:37:50 :: EjecutaSQL - Select Estado
+2022-10-11 23:37:50 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:37:50 :: 
+2022-10-11 23:37:50 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 19:55:49 :: EjecutaSQL - Select Estado
-2022-10-11 19:55:49 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:55:49 :: Array
+2022-10-11 23:37:51 :: EjecutaSQL - Select Estado
+2022-10-11 23:37:51 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:37:51 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 19:55:49 :: EjecutaSQL - Select Estado
-2022-10-11 19:55:49 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:55:49 :: Array
+2022-10-11 23:42:01 :: EjecutaSQL - Select Estado
+2022-10-11 23:42:01 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:42:01 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:42:01 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:42:01 :: param: - ER Interno
+2022-10-11 23:42:01 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 19:58:47 :: EjecutaSQL - Select Estado
-2022-10-11 19:58:47 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:58:47 :: Array
+2022-10-11 23:42:01 :: [ER Interno, 10, PRECIO][ER Interno, 20, TONELADAS][ER Interno, 30, VENDIDAS][ER Interno, 40, PRODUCIDAS][ER Interno, 50, VENTAS][ER Interno, 60, DEVOLUCIONES SOBRE VENTA][ER Interno, 70, VENTA DE DESPERDICIO][ER Interno, 80, MATERIAL RECUPERABLE][ER Interno, 90, VENTAS TOTALES][ER Interno, 100, BONIFICACIONES SOBRE VENTA][ER Interno, 110, VENTAS NETAS][ER Interno, 120, COSTO DE MATERIA PRIMA][ER Interno, 130, COSTO MANO DE OBRA][ER Interno, 140, COSTO DE MAQUILA][ER Interno, 150, UTILIDAD BRUTA][ER Interno, 160, GASTOS FABRRICACION PLANTA][ER Interno, 170, FLETES][ER Interno, 180, GASTOS FABRICACION SUAJES][ER Interno, 190, GASTOS DE FABRICACION GRABADOS][ER Interno, 200, ARRENDAMIENTO DE INMUEBLE][ER Interno, 210, GASTOS DE VENTA][ER Interno, 220, GASTOS DE ADMINISTRACION][ER Interno, 230, GASTOS DE OPERACION][ER Interno, 240, UTILIDAD DE OPERACION][ER Interno, 250, PARTIDAS EXTRAORDINARIAS][ER Interno, 260, ][ER Interno, 270, UTILIDAD DE OPERACION][ER Interno, 270, PARTIDAS EXTRAORDINARIAS][ER Interno, 280, GASTOS FINANCIEROS][ER Interno, 290, FLUCTUACION CAMBIARIA][ER Interno, 300, OTROS GASTOS][ER Interno, 310, OTROS INGRESOS][ER Interno, 320, INGRESOS SUAJES Y GRABADOS][ER Interno, 330, VENTAS DE ACTIVO FIJO][ER Interno, 340, U.A.I.R.][ER Interno, 350, PROVISION ISR][ER Interno, 360, UTILIDAD NETA]
+2022-10-11 23:42:02 :: EjecutaSQL - Select Estado
+2022-10-11 23:42:02 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:42:02 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 19:58:48 :: EjecutaSQL - Select Estado
-2022-10-11 19:58:48 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 19:58:48 :: Array
+2022-10-11 23:43:19 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:43:19 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:43:19 :: EjecutaSQL - Select Estado
+2022-10-11 23:43:19 :: param: - ER Interno
+2022-10-11 23:43:19 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:43:19 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:04:41 :: EjecutaSQL - Select Estado
-2022-10-11 20:04:41 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:04:41 :: Array
+2022-10-11 23:43:19 :: ["ER Interno, 10, PRECIO"]["ER Interno, 20, TONELADAS"]["ER Interno, 30, VENDIDAS"]["ER Interno, 40, PRODUCIDAS"]["ER Interno, 50, VENTAS"]["ER Interno, 60, DEVOLUCIONES SOBRE VENTA"]["ER Interno, 70, VENTA DE DESPERDICIO"]["ER Interno, 80, MATERIAL RECUPERABLE"]["ER Interno, 90, VENTAS TOTALES"]["ER Interno, 100, BONIFICACIONES SOBRE VENTA"]["ER Interno, 110, VENTAS NETAS"]["ER Interno, 120, COSTO DE MATERIA PRIMA"]["ER Interno, 130, COSTO MANO DE OBRA"]["ER Interno, 140, COSTO DE MAQUILA"]["ER Interno, 150, UTILIDAD BRUTA"]["ER Interno, 160, GASTOS FABRRICACION PLANTA"]["ER Interno, 170, FLETES"]["ER Interno, 180, GASTOS FABRICACION SUAJES"]["ER Interno, 190, GASTOS DE FABRICACION GRABADOS"]["ER Interno, 200, ARRENDAMIENTO DE INMUEBLE"]["ER Interno, 210, GASTOS DE VENTA"]["ER Interno, 220, GASTOS DE ADMINISTRACION"]["ER Interno, 230, GASTOS DE OPERACION"]["ER Interno, 240, UTILIDAD DE OPERACION"]["ER Interno, 250, PARTIDAS EXTRAORDINARIAS"]["ER Interno, 260, "]["ER Interno, 270, UTILIDAD DE OPERACION"]["ER Interno, 270, PARTIDAS EXTRAORDINARIAS"]["ER Interno, 280, GASTOS FINANCIEROS"]["ER Interno, 290, FLUCTUACION CAMBIARIA"]["ER Interno, 300, OTROS GASTOS"]["ER Interno, 310, OTROS INGRESOS"]["ER Interno, 320, INGRESOS SUAJES Y GRABADOS"]["ER Interno, 330, VENTAS DE ACTIVO FIJO"]["ER Interno, 340, U.A.I.R."]["ER Interno, 350, PROVISION ISR"]["ER Interno, 360, UTILIDAD NETA"]
+2022-10-11 23:43:19 :: EjecutaSQL - Select Estado
+2022-10-11 23:43:19 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:43:19 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:04:42 :: EjecutaSQL - Select Estado
-2022-10-11 20:04:42 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:04:42 :: Array
+2022-10-11 23:44:09 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:44:09 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:44:09 :: param: - ER Interno
+2022-10-11 23:44:09 :: EjecutaSQL - Select Estado
+2022-10-11 23:44:09 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:44:09 :: [ER Interno, 10, PRECIO][ER Interno, 20, TONELADAS][ER Interno, 30, VENDIDAS][ER Interno, 40, PRODUCIDAS][ER Interno, 50, VENTAS][ER Interno, 60, DEVOLUCIONES SOBRE VENTA][ER Interno, 70, VENTA DE DESPERDICIO][ER Interno, 80, MATERIAL RECUPERABLE][ER Interno, 90, VENTAS TOTALES][ER Interno, 100, BONIFICACIONES SOBRE VENTA][ER Interno, 110, VENTAS NETAS][ER Interno, 120, COSTO DE MATERIA PRIMA][ER Interno, 130, COSTO MANO DE OBRA][ER Interno, 140, COSTO DE MAQUILA][ER Interno, 150, UTILIDAD BRUTA][ER Interno, 160, GASTOS FABRRICACION PLANTA][ER Interno, 170, FLETES][ER Interno, 180, GASTOS FABRICACION SUAJES][ER Interno, 190, GASTOS DE FABRICACION GRABADOS][ER Interno, 200, ARRENDAMIENTO DE INMUEBLE][ER Interno, 210, GASTOS DE VENTA][ER Interno, 220, GASTOS DE ADMINISTRACION][ER Interno, 230, GASTOS DE OPERACION][ER Interno, 240, UTILIDAD DE OPERACION][ER Interno, 250, PARTIDAS EXTRAORDINARIAS][ER Interno, 260, ][ER Interno, 270, UTILIDAD DE OPERACION][ER Interno, 270, PARTIDAS EXTRAORDINARIAS][ER Interno, 280, GASTOS FINANCIEROS][ER Interno, 290, FLUCTUACION CAMBIARIA][ER Interno, 300, OTROS GASTOS][ER Interno, 310, OTROS INGRESOS][ER Interno, 320, INGRESOS SUAJES Y GRABADOS][ER Interno, 330, VENTAS DE ACTIVO FIJO][ER Interno, 340, U.A.I.R.][ER Interno, 350, PROVISION ISR][ER Interno, 360, UTILIDAD NETA]
+2022-10-11 23:44:09 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:11:03 :: EjecutaSQL - Select Estado
-2022-10-11 20:11:03 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:11:03 :: Array
+2022-10-11 23:44:10 :: EjecutaSQL - Select Estado
+2022-10-11 23:44:10 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:44:10 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:11:04 :: EjecutaSQL - Select Estado
-2022-10-11 20:11:04 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:11:04 :: Array
+2022-10-11 23:46:54 :: EjecutaSQL - Select Estado
+2022-10-11 23:46:54 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:46:54 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:11:21 :: EjecutaSQL - Select Estado
-2022-10-11 20:11:21 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:11:21 :: Array
+2022-10-11 23:46:54 :: EjecutaSQL - Select Estado
+2022-10-11 23:46:54 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:46:54 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:11:21 :: EjecutaSQL - Select Estado
-2022-10-11 20:11:21 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:11:21 :: Array
+2022-10-11 23:47:13 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:47:13 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:47:13 :: param: - ER Interno
+2022-10-11 23:47:13 :: EjecutaSQL - Select Estado
+2022-10-11 23:47:13 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:47:13 :: {[ER Interno, 10, PRECIO],[ER Interno, 20, TONELADAS],[ER Interno, 30, VENDIDAS],[ER Interno, 40, PRODUCIDAS],[ER Interno, 50, VENTAS],[ER Interno, 60, DEVOLUCIONES SOBRE VENTA],[ER Interno, 70, VENTA DE DESPERDICIO],[ER Interno, 80, MATERIAL RECUPERABLE],[ER Interno, 90, VENTAS TOTALES],[ER Interno, 100, BONIFICACIONES SOBRE VENTA],[ER Interno, 110, VENTAS NETAS],[ER Interno, 120, COSTO DE MATERIA PRIMA],[ER Interno, 130, COSTO MANO DE OBRA],[ER Interno, 140, COSTO DE MAQUILA],[ER Interno, 150, UTILIDAD BRUTA],[ER Interno, 160, GASTOS FABRRICACION PLANTA],[ER Interno, 170, FLETES],[ER Interno, 180, GASTOS FABRICACION SUAJES],[ER Interno, 190, GASTOS DE FABRICACION GRABADOS],[ER Interno, 200, ARRENDAMIENTO DE INMUEBLE],[ER Interno, 210, GASTOS DE VENTA],[ER Interno, 220, GASTOS DE ADMINISTRACION],[ER Interno, 230, GASTOS DE OPERACION],[ER Interno, 240, UTILIDAD DE OPERACION],[ER Interno, 250, PARTIDAS EXTRAORDINARIAS],[ER Interno, 260, ],[ER Interno, 270, UTILIDAD DE OPERACION],[ER Interno, 270, PARTIDAS EXTRAORDINARIAS],[ER Interno, 280, GASTOS FINANCIEROS],[ER Interno, 290, FLUCTUACION CAMBIARIA],[ER Interno, 300, OTROS GASTOS],[ER Interno, 310, OTROS INGRESOS],[ER Interno, 320, INGRESOS SUAJES Y GRABADOS],[ER Interno, 330, VENTAS DE ACTIVO FIJO],[ER Interno, 340, U.A.I.R.],[ER Interno, 350, PROVISION ISR],[ER Interno, 360, UTILIDAD NETA],}
+2022-10-11 23:47:13 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:15:26 :: EjecutaSQL - Select Estado
-2022-10-11 20:15:26 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:15:26 :: Array
+2022-10-11 23:47:13 :: EjecutaSQL - Select Estado
+2022-10-11 23:47:13 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:47:13 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:15:26 :: EjecutaSQL - Select Estado
-2022-10-11 20:15:26 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:15:26 :: Array
+2022-10-11 23:48:22 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:48:22 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:48:22 :: EjecutaSQL - Select Estado
+2022-10-11 23:48:22 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:48:22 :: {[ER Interno, 10, PRECIO],[ER Interno, 20, TONELADAS],[ER Interno, 30, VENDIDAS],[ER Interno, 40, PRODUCIDAS],[ER Interno, 50, VENTAS],[ER Interno, 60, DEVOLUCIONES SOBRE VENTA],[ER Interno, 70, VENTA DE DESPERDICIO],[ER Interno, 80, MATERIAL RECUPERABLE],[ER Interno, 90, VENTAS TOTALES],[ER Interno, 100, BONIFICACIONES SOBRE VENTA],[ER Interno, 110, VENTAS NETAS],[ER Interno, 120, COSTO DE MATERIA PRIMA],[ER Interno, 130, COSTO MANO DE OBRA],[ER Interno, 140, COSTO DE MAQUILA],[ER Interno, 150, UTILIDAD BRUTA],[ER Interno, 160, GASTOS FABRRICACION PLANTA],[ER Interno, 170, FLETES],[ER Interno, 180, GASTOS FABRICACION SUAJES],[ER Interno, 190, GASTOS DE FABRICACION GRABADOS],[ER Interno, 200, ARRENDAMIENTO DE INMUEBLE],[ER Interno, 210, GASTOS DE VENTA],[ER Interno, 220, GASTOS DE ADMINISTRACION],[ER Interno, 230, GASTOS DE OPERACION],[ER Interno, 240, UTILIDAD DE OPERACION],[ER Interno, 250, PARTIDAS EXTRAORDINARIAS],[ER Interno, 260, ],[ER Interno, 270, UTILIDAD DE OPERACION],[ER Interno, 270, PARTIDAS EXTRAORDINARIAS],[ER Interno, 280, GASTOS FINANCIEROS],[ER Interno, 290, FLUCTUACION CAMBIARIA],[ER Interno, 300, OTROS GASTOS],[ER Interno, 310, OTROS INGRESOS],[ER Interno, 320, INGRESOS SUAJES Y GRABADOS],[ER Interno, 330, VENTAS DE ACTIVO FIJO],[ER Interno, 340, U.A.I.R.],[ER Interno, 350, PROVISION ISR],[ER Interno, 360, UTILIDAD NETA],}
+2022-10-11 23:48:22 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:16:20 :: EjecutaSQL - Select Estado
-2022-10-11 20:16:20 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:16:20 :: Array
+2022-10-11 23:48:22 :: EjecutaSQL - Select Estado
+2022-10-11 23:48:22 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:48:22 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:16:21 :: EjecutaSQL - Select Estado
-2022-10-11 20:16:21 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:16:21 :: Array
+2022-10-11 23:53:43 :: EjecutaSQL - Select Estado
+2022-10-11 23:53:43 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:53:43 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:53:43 :: param: - ER Interno
+2022-10-11 23:53:43 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:17:21 :: EjecutaSQL - Select Estado
-2022-10-11 20:17:21 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:17:21 :: Array
+2022-10-11 23:53:43 :: {[ER Interno, 10, PRECIO],[ER Interno, 20, TONELADAS],[ER Interno, 30, VENDIDAS],[ER Interno, 40, PRODUCIDAS],[ER Interno, 50, VENTAS],[ER Interno, 60, DEVOLUCIONES SOBRE VENTA],[ER Interno, 70, VENTA DE DESPERDICIO],[ER Interno, 80, MATERIAL RECUPERABLE],[ER Interno, 90, VENTAS TOTALES],[ER Interno, 100, BONIFICACIONES SOBRE VENTA],[ER Interno, 110, VENTAS NETAS],[ER Interno, 120, COSTO DE MATERIA PRIMA],[ER Interno, 130, COSTO MANO DE OBRA],[ER Interno, 140, COSTO DE MAQUILA],[ER Interno, 150, UTILIDAD BRUTA],[ER Interno, 160, GASTOS FABRRICACION PLANTA],[ER Interno, 170, FLETES],[ER Interno, 180, GASTOS FABRICACION SUAJES],[ER Interno, 190, GASTOS DE FABRICACION GRABADOS],[ER Interno, 200, ARRENDAMIENTO DE INMUEBLE],[ER Interno, 210, GASTOS DE VENTA],[ER Interno, 220, GASTOS DE ADMINISTRACION],[ER Interno, 230, GASTOS DE OPERACION],[ER Interno, 240, UTILIDAD DE OPERACION],[ER Interno, 250, PARTIDAS EXTRAORDINARIAS],[ER Interno, 260, ],[ER Interno, 270, UTILIDAD DE OPERACION],[ER Interno, 270, PARTIDAS EXTRAORDINARIAS],[ER Interno, 280, GASTOS FINANCIEROS],[ER Interno, 290, FLUCTUACION CAMBIARIA],[ER Interno, 300, OTROS GASTOS],[ER Interno, 310, OTROS INGRESOS],[ER Interno, 320, INGRESOS SUAJES Y GRABADOS],[ER Interno, 330, VENTAS DE ACTIVO FIJO],[ER Interno, 340, U.A.I.R.],[ER Interno, 350, PROVISION ISR],[ER Interno, 360, UTILIDAD NETA],}
+2022-10-11 23:53:44 :: EjecutaSQL - Select Estado
+2022-10-11 23:53:44 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:53:44 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:17:22 :: EjecutaSQL - Select Estado
-2022-10-11 20:17:22 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:17:22 :: Array
+2022-10-11 23:55:14 :: EjecutaSQL - Select Estado
+2022-10-11 23:55:14 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:55:14 :: EjecutaSQL - Select Conceptos
+2022-10-11 23:55:14 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-11 23:55:14 :: param: - ER Interno
+2022-10-11 23:55:14 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:17:46 :: EjecutaSQL - Select Estado
-2022-10-11 20:17:46 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:17:46 :: Array
+2022-10-11 23:55:14 :: {[ER Interno, 10, PRECIO],[ER Interno, 20, TONELADAS],[ER Interno, 30, VENDIDAS],[ER Interno, 40, PRODUCIDAS],[ER Interno, 50, VENTAS],[ER Interno, 60, DEVOLUCIONES SOBRE VENTA],[ER Interno, 70, VENTA DE DESPERDICIO],[ER Interno, 80, MATERIAL RECUPERABLE],[ER Interno, 90, VENTAS TOTALES],[ER Interno, 100, BONIFICACIONES SOBRE VENTA],[ER Interno, 110, VENTAS NETAS],[ER Interno, 120, COSTO DE MATERIA PRIMA],[ER Interno, 130, COSTO MANO DE OBRA],[ER Interno, 140, COSTO DE MAQUILA],[ER Interno, 150, UTILIDAD BRUTA],[ER Interno, 160, GASTOS FABRRICACION PLANTA],[ER Interno, 170, FLETES],[ER Interno, 180, GASTOS FABRICACION SUAJES],[ER Interno, 190, GASTOS DE FABRICACION GRABADOS],[ER Interno, 200, ARRENDAMIENTO DE INMUEBLE],[ER Interno, 210, GASTOS DE VENTA],[ER Interno, 220, GASTOS DE ADMINISTRACION],[ER Interno, 230, GASTOS DE OPERACION],[ER Interno, 240, UTILIDAD DE OPERACION],[ER Interno, 250, PARTIDAS EXTRAORDINARIAS],[ER Interno, 260, ],[ER Interno, 270, UTILIDAD DE OPERACION],[ER Interno, 270, PARTIDAS EXTRAORDINARIAS],[ER Interno, 280, GASTOS FINANCIEROS],[ER Interno, 290, FLUCTUACION CAMBIARIA],[ER Interno, 300, OTROS GASTOS],[ER Interno, 310, OTROS INGRESOS],[ER Interno, 320, INGRESOS SUAJES Y GRABADOS],[ER Interno, 330, VENTAS DE ACTIVO FIJO],[ER Interno, 340, U.A.I.R.],[ER Interno, 350, PROVISION ISR],[ER Interno, 360, UTILIDAD NETA],}
+2022-10-11 23:55:17 :: EjecutaSQL - Select Estado
+2022-10-11 23:55:17 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:55:17 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
 )
 
-2022-10-11 20:17:47 :: EjecutaSQL - Select Estado
-2022-10-11 20:17:47 :: Query: - Select Estado from Dim_Estado order by 1
-2022-10-11 20:17:47 :: Array
+2022-10-11 23:56:52 :: EjecutaSQL - Select Estado
+2022-10-11 23:56:52 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:56:52 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-11 23:56:53 :: EjecutaSQL - Select Estado
+2022-10-11 23:56:53 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-11 23:56:53 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:01:30 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:01:30 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:01:30 :: param: - ER Interno
+2022-10-12 00:01:30 :: EjecutaSQL - Select Estado
+2022-10-12 00:01:30 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:01:30 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:01:30 :: {["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"],}
+2022-10-12 00:01:33 :: EjecutaSQL - Select Estado
+2022-10-12 00:01:33 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:01:33 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:03:00 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:03:00 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:03:00 :: param: - ER Interno
+2022-10-12 00:03:00 :: EjecutaSQL - Select Estado
+2022-10-12 00:03:00 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:03:00 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:03:00 :: {["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"],}
+2022-10-12 00:03:04 :: EjecutaSQL - Select Estado
+2022-10-12 00:03:04 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:03:04 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:05:21 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:05:21 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:05:21 :: param: - ER Interno
+2022-10-12 00:05:21 :: EjecutaSQL - Select Estado
+2022-10-12 00:05:21 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:05:21 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:05:21 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"],
+2022-10-12 00:05:21 :: EjecutaSQL - Select Estado
+2022-10-12 00:05:21 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:05:21 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:07:05 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:07:05 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:07:05 :: param: - ER Interno
+2022-10-12 00:07:05 :: EjecutaSQL - Select Estado
+2022-10-12 00:07:05 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:07:05 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:07:05 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"],
+2022-10-12 00:07:12 :: EjecutaSQL - Select Estado
+2022-10-12 00:07:12 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:07:12 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:07:37 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:07:37 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:07:37 :: param: - ER Interno
+2022-10-12 00:07:37 :: EjecutaSQL - Select Estado
+2022-10-12 00:07:37 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:07:37 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:07:37 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"],
+2022-10-12 00:07:41 :: EjecutaSQL - Select Estado
+2022-10-12 00:07:41 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:07:41 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:08:15 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:08:15 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:08:15 :: param: - ER Interno
+2022-10-12 00:08:15 :: EjecutaSQL - Select Estado
+2022-10-12 00:08:15 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:08:15 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:08:15 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"],
+2022-10-12 00:08:20 :: EjecutaSQL - Select Estado
+2022-10-12 00:08:20 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:08:20 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:08:48 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:08:48 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:08:48 :: param: - ER Interno
+2022-10-12 00:08:48 :: EjecutaSQL - Select Estado
+2022-10-12 00:08:48 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:08:48 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"],
+2022-10-12 00:08:48 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:08:49 :: EjecutaSQL - Select Estado
+2022-10-12 00:08:49 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:08:49 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:08:58 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:08:58 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:08:58 :: param: - ER Interno
+2022-10-12 00:08:58 :: EjecutaSQL - Select Estado
+2022-10-12 00:08:58 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:08:58 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:08:58 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"],
+2022-10-12 00:08:59 :: EjecutaSQL - Select Estado
+2022-10-12 00:08:59 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:08:59 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:18:04 :: EjecutaSQL - Select Estado
+2022-10-12 00:18:04 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:18:04 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:18:04 :: EjecutaSQL - Select Estado
+2022-10-12 00:18:04 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:18:04 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:18:51 :: EjecutaSQL - Select Estado
+2022-10-12 00:18:51 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:18:51 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:18:52 :: EjecutaSQL - Select Estado
+2022-10-12 00:18:52 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:18:52 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:20:13 :: EjecutaSQL - Select Estado
+2022-10-12 00:20:13 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:20:13 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:20:14 :: EjecutaSQL - Select Estado
+2022-10-12 00:20:14 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:20:14 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:22:58 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:22:58 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:22:58 :: param: - ER Interno
+2022-10-12 00:22:58 :: EjecutaSQL - Select Estado
+2022-10-12 00:22:58 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:22:58 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:22:58 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:22:59 :: EjecutaSQL - Select Estado
+2022-10-12 00:22:59 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:22:59 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:23:41 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:23:41 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:23:41 :: param: - ER Interno
+2022-10-12 00:23:41 :: EjecutaSQL - Select Estado
+2022-10-12 00:23:41 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:23:41 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:23:41 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:23:42 :: EjecutaSQL - Select Estado
+2022-10-12 00:23:42 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:23:42 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:24:02 :: EjecutaSQL - Select Estado
+2022-10-12 00:24:02 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:24:02 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:24:02 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:24:02 :: param: - ER Interno
+2022-10-12 00:24:02 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:24:02 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:24:02 :: EjecutaSQL - Select Estado
+2022-10-12 00:24:02 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:24:02 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:24:22 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:24:22 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:24:22 :: param: - ER Interno
+2022-10-12 00:24:22 :: EjecutaSQL - Select Estado
+2022-10-12 00:24:22 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:24:22 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:24:22 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:24:23 :: EjecutaSQL - Select Estado
+2022-10-12 00:24:23 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:24:23 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:24:35 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:24:35 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:24:35 :: param: - ER Interno
+2022-10-12 00:24:35 :: EjecutaSQL - Select Estado
+2022-10-12 00:24:35 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:24:35 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:24:35 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:24:35 :: EjecutaSQL - Select Estado
+2022-10-12 00:24:35 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:24:35 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:24:47 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:24:47 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:24:47 :: param: - ER Interno
+2022-10-12 00:24:47 :: EjecutaSQL - Select Estado
+2022-10-12 00:24:47 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:24:47 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:24:47 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:24:48 :: EjecutaSQL - Select Estado
+2022-10-12 00:24:48 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:24:48 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:25:29 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:25:29 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:25:29 :: param: - ER Interno
+2022-10-12 00:25:29 :: EjecutaSQL - Select Estado
+2022-10-12 00:25:29 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:25:29 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:25:29 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:25:29 :: EjecutaSQL - Select Estado
+2022-10-12 00:25:29 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:25:29 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:25:49 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:25:49 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:25:49 :: param: - ER Interno
+2022-10-12 00:25:49 :: EjecutaSQL - Select Estado
+2022-10-12 00:25:49 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:25:49 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:25:49 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:25:49 :: EjecutaSQL - Select Estado
+2022-10-12 00:25:49 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:25:49 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:26:38 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:26:38 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:26:38 :: param: - ER Interno
+stado
+2022-10-12 00:26:38 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:26:38 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:26:38 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:26:38 :: EjecutaSQL - Select Estado
+2022-10-12 00:26:38 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:26:38 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:26:53 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:26:53 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:26:53 :: param: - ER Interno
+2022-10-12 00:26:53 :: EjecutaSQL - Select Estado
+2022-10-12 00:26:53 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:26:53 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:26:53 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:26:53 :: EjecutaSQL - Select Estado
+2022-10-12 00:26:53 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:26:53 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:27:22 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:27:22 :: EjecutaSQL - Select Estado
+2022-10-12 00:27:22 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:27:22 :: param: - ER Interno
+o from Dim_Estado order by 1
+2022-10-12 00:27:22 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:27:22 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:27:28 :: EjecutaSQL - Select Estado
+2022-10-12 00:27:28 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:27:28 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:27:43 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:27:43 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:27:43 :: param: - ER Interno
+2022-10-12 00:27:43 :: EjecutaSQL - Select Estado
+2022-10-12 00:27:43 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:27:43 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:27:43 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:27:44 :: EjecutaSQL - Select Estado
+2022-10-12 00:27:44 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:27:44 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:28:34 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:28:34 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:28:34 :: EjecutaSQL - Select Estado
+2022-10-12 00:28:34 :: param: - ER Interno
+2022-10-12 00:28:34 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:28:34 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:28:34 :: {["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]}
+2022-10-12 00:28:35 :: EjecutaSQL - Select Estado
+2022-10-12 00:28:35 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:28:35 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:30:17 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:30:17 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:30:17 :: param: - ER Interno
+2022-10-12 00:30:17 :: EjecutaSQL - Select Estado
+2022-10-12 00:30:17 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:30:17 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:30:17 :: {["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]}
+2022-10-12 00:30:18 :: EjecutaSQL - Select Estado
+2022-10-12 00:30:18 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:30:18 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:32:00 :: EjecutaSQL - Select Estado
+2022-10-12 00:32:00 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:32:00 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:32:00 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:32:00 :: param: - ER Interno
+2022-10-12 00:32:00 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:32:00 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:32:27 :: EjecutaSQL - Select Estado
+2022-10-12 00:32:27 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:32:27 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:33:53 :: EjecutaSQL - Select Conceptos
+2022-10-12 00:33:53 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 00:33:53 :: param: - ER Interno
+2022-10-12 00:33:53 :: EjecutaSQL - Select Estado
+2022-10-12 00:33:53 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:33:53 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 00:33:53 :: ["ER Interno","10","PRECIO"],["ER Interno","20","TONELADAS"],["ER Interno","30","VENDIDAS"],["ER Interno","40","PRODUCIDAS"],["ER Interno","50","VENTAS"],["ER Interno","60","DEVOLUCIONES SOBRE VENTA"],["ER Interno","70","VENTA DE DESPERDICIO"],["ER Interno","80","MATERIAL RECUPERABLE"],["ER Interno","90","VENTAS TOTALES"],["ER Interno","100","BONIFICACIONES SOBRE VENTA"],["ER Interno","110","VENTAS NETAS"],["ER Interno","120","COSTO DE MATERIA PRIMA"],["ER Interno","130","COSTO MANO DE OBRA"],["ER Interno","140","COSTO DE MAQUILA"],["ER Interno","150","UTILIDAD BRUTA"],["ER Interno","160","GASTOS FABRRICACION PLANTA"],["ER Interno","170","FLETES"],["ER Interno","180","GASTOS FABRICACION SUAJES"],["ER Interno","190","GASTOS DE FABRICACION GRABADOS"],["ER Interno","200","ARRENDAMIENTO DE INMUEBLE"],["ER Interno","210","GASTOS DE VENTA"],["ER Interno","220","GASTOS DE ADMINISTRACION"],["ER Interno","230","GASTOS DE OPERACION"],["ER Interno","240","UTILIDAD DE OPERACION"],["ER Interno","250","PARTIDAS EXTRAORDINARIAS"],["ER Interno","260",""],["ER Interno","270","UTILIDAD DE OPERACION"],["ER Interno","270","PARTIDAS EXTRAORDINARIAS"],["ER Interno","280","GASTOS FINANCIEROS"],["ER Interno","290","FLUCTUACION CAMBIARIA"],["ER Interno","300","OTROS GASTOS"],["ER Interno","310","OTROS INGRESOS"],["ER Interno","320","INGRESOS SUAJES Y GRABADOS"],["ER Interno","330","VENTAS DE ACTIVO FIJO"],["ER Interno","340","U.A.I.R."],["ER Interno","350","PROVISION ISR"],["ER Interno","360","UTILIDAD NETA"]
+2022-10-12 00:33:56 :: EjecutaSQL - Select Estado
+2022-10-12 00:33:56 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 00:33:56 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:02:04 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:02:04 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:02:04 :: param: - ER Interno
+2022-10-12 01:02:04 :: EjecutaSQL - Select Estado
+2022-10-12 01:02:04 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:02:04 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:02:04 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:02:07 :: EjecutaSQL - Select Estado
+2022-10-12 01:02:07 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:02:07 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:04:46 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:04:46 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:04:46 :: param: - ER Interno
+2022-10-12 01:04:46 :: EjecutaSQL - Select Estado
+2022-10-12 01:04:46 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:04:46 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:04:46 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:04:46 :: EjecutaSQL - Select Estado
+2022-10-12 01:04:46 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:04:46 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:06:23 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:06:23 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:06:23 :: param: - ER Interno
+2022-10-12 01:06:23 :: EjecutaSQL - Select Estado
+2022-10-12 01:06:23 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:06:23 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:06:23 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:06:23 :: EjecutaSQL - Select Estado
+2022-10-12 01:06:23 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:06:23 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:07:58 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:07:58 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:07:58 :: param: - ER Interno
+2022-10-12 01:07:58 :: EjecutaSQL - Select Estado
+2022-10-12 01:07:58 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:07:58 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:07:58 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:07:58 :: EjecutaSQL - Select Estado
+2022-10-12 01:07:58 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:07:58 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:15:27 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:15:27 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:15:27 :: param: - ER Interno
+2022-10-12 01:15:27 :: EjecutaSQL - Select Estado
+2022-10-12 01:15:27 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:15:27 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:15:27 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:15:27 :: EjecutaSQL - Select Estado
+2022-10-12 01:15:27 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:15:27 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:15:59 :: EjecutaSQL - Select Estado
+2022-10-12 01:15:59 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:15:59 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:15:59 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:15:59 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:15:59 :: param: - ER Interno
+2022-10-12 01:15:59 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:16:00 :: EjecutaSQL - Select Estado
+2022-10-12 01:16:00 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:16:00 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:23:17 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:23:17 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:23:17 :: param: - ER Interno
+2022-10-12 01:23:17 :: EjecutaSQL - Select Estado
+2022-10-12 01:23:17 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:23:17 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:23:17 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:23:18 :: EjecutaSQL - Select Estado
+2022-10-12 01:23:18 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:23:18 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:28:58 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:28:58 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:28:58 :: param: - ER Interno
+2022-10-12 01:28:58 :: EjecutaSQL - Select Estado
+2022-10-12 01:28:58 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:28:58 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:28:58 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:28:59 :: EjecutaSQL - Select Estado
+2022-10-12 01:28:59 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:28:59 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:38:44 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:38:44 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:38:44 :: param: - ER Interno
+2022-10-12 01:38:44 :: EjecutaSQL - Select Estado
+2022-10-12 01:38:44 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:38:44 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:38:44 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:38:45 :: EjecutaSQL - Select Estado
+2022-10-12 01:38:45 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:38:45 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:41:14 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:41:14 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:41:14 :: param: - ER Interno
+2022-10-12 01:41:14 :: EjecutaSQL - Select Estado
+2022-10-12 01:41:14 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:41:14 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:41:14 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:41:14 :: EjecutaSQL - Select Estado
+2022-10-12 01:41:14 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:41:14 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:42:09 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:42:09 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:42:09 :: param: - ER Interno
+2022-10-12 01:42:09 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:42:09 :: EjecutaSQL - Select Estado
+2022-10-12 01:42:09 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:42:09 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:42:10 :: EjecutaSQL - Select Estado
+2022-10-12 01:42:10 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:42:10 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:45:02 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:45:02 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:45:02 :: EjecutaSQL - Select Estado
+2022-10-12 01:45:02 :: param: - ER Interno
+2022-10-12 01:45:02 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:45:02 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:45:02 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:45:03 :: EjecutaSQL - Select Estado
+2022-10-12 01:45:03 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:45:03 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:46:24 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:46:24 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:46:24 :: param: - ER Interno
+2022-10-12 01:46:24 :: EjecutaSQL - Select Estado
+2022-10-12 01:46:24 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:46:24 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:46:24 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:46:24 :: EjecutaSQL - Select Estado
+2022-10-12 01:46:24 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:46:25 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:46:51 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:46:51 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:46:51 :: param: - ER Interno
+2022-10-12 01:46:51 :: EjecutaSQL - Select Estado
+2022-10-12 01:46:51 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:46:51 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:46:51 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:46:51 :: EjecutaSQL - Select Estado
+2022-10-12 01:46:51 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:46:51 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:47:58 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:47:58 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:47:58 :: param: - ER Interno
+2022-10-12 01:47:58 :: EjecutaSQL - Select Estado
+2022-10-12 01:47:58 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:47:58 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:47:58 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:47:59 :: EjecutaSQL - Select Estado
+2022-10-12 01:47:59 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:47:59 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:48:28 :: EjecutaSQL - Select Estado
+2022-10-12 01:48:28 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:48:28 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:48:28 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:48:28 :: param: - ER Interno
+2022-10-12 01:48:28 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:48:28 :: [{"EstadoResultados": "ER Interno","Orden": "10","Rubro": "PRECIO"},{"EstadoResultados": "ER Interno","Orden": "20","Rubro": "TONELADAS"},{"EstadoResultados": "ER Interno","Orden": "30","Rubro": "VENDIDAS"},{"EstadoResultados": "ER Interno","Orden": "40","Rubro": "PRODUCIDAS"},{"EstadoResultados": "ER Interno","Orden": "50","Rubro": "VENTAS"},{"EstadoResultados": "ER Interno","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "70","Rubro": "VENTA DE DESPERDICIO"},{"EstadoResultados": "ER Interno","Orden": "80","Rubro": "MATERIAL RECUPERABLE"},{"EstadoResultados": "ER Interno","Orden": "90","Rubro": "VENTAS TOTALES"},{"EstadoResultados": "ER Interno","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA"},{"EstadoResultados": "ER Interno","Orden": "110","Rubro": "VENTAS NETAS"},{"EstadoResultados": "ER Interno","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA"},{"EstadoResultados": "ER Interno","Orden": "130","Rubro": "COSTO MANO DE OBRA"},{"EstadoResultados": "ER Interno","Orden": "140","Rubro": "COSTO DE MAQUILA"},{"EstadoResultados": "ER Interno","Orden": "150","Rubro": "UTILIDAD BRUTA"},{"EstadoResultados": "ER Interno","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA"},{"EstadoResultados": "ER Interno","Orden": "170","Rubro": "FLETES"},{"EstadoResultados": "ER Interno","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES"},{"EstadoResultados": "ER Interno","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE"},{"EstadoResultados": "ER Interno","Orden": "210","Rubro": "GASTOS DE VENTA"},{"EstadoResultados": "ER Interno","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION"},{"EstadoResultados": "ER Interno","Orden": "230","Rubro": "GASTOS DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "240","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "260","Rubro": ""},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "UTILIDAD DE OPERACION"},{"EstadoResultados": "ER Interno","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS"},{"EstadoResultados": "ER Interno","Orden": "280","Rubro": "GASTOS FINANCIEROS"},{"EstadoResultados": "ER Interno","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA"},{"EstadoResultados": "ER Interno","Orden": "300","Rubro": "OTROS GASTOS"},{"EstadoResultados": "ER Interno","Orden": "310","Rubro": "OTROS INGRESOS"},{"EstadoResultados": "ER Interno","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS"},{"EstadoResultados": "ER Interno","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO"},{"EstadoResultados": "ER Interno","Orden": "340","Rubro": "U.A.I.R."},{"EstadoResultados": "ER Interno","Orden": "350","Rubro": "PROVISION ISR"},{"EstadoResultados": "ER Interno","Orden": "360","Rubro": "UTILIDAD NETA"}]
+2022-10-12 01:48:28 :: EjecutaSQL - Select Estado
+2022-10-12 01:48:28 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:48:28 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:54:44 :: EjecutaSQL - Select Conceptos
+2022-10-12 01:54:44 :: EjecutaSQL - Select Estado
+2022-10-12 01:54:44 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:54:44 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Interno' order by Orden
+2022-10-12 01:54:44 :: param: - ER Interno
+2022-10-12 01:54:44 :: Array
+(
+    [0] => ER Interno
+    [1] => ER Test
+)
+
+2022-10-12 01:54:44 :: [{"Descripcion": "PRECIO","Orden": "10","Rubro": "PRECIO","Nivel": "FIJO","Naturaleza": "1"},{"Descripcion": "TONELADAS","Orden": "20","Rubro": "TONELADAS","Nivel": "VACIO","Naturaleza": "1"},{"Descripcion": "VENDIDAS","Orden": "30","Rubro": "VENDIDAS","Nivel": "FIJO","Naturaleza": "1"},{"Descripcion": "PRODUCIDAS","Orden": "40","Rubro": "PRODUCIDAS","Nivel": "FIJO","Naturaleza": "1"},{"Descripcion": "VENTAS (CAJA Y PLIEGO)","Orden": "50","Rubro": "VENTAS","Nivel": "MAYOR","Naturaleza": "-1"},{"Descripcion": "DEVOLUCIONES S/VENTA","Orden": "60","Rubro": "DEVOLUCIONES SOBRE VENTA","Nivel": "MAYOR","Naturaleza": "1"},{"Descripcion": "DESPERDICIO","Orden": "70","Rubro": "VENTA DE DESPERDICIO","Nivel": "MAYOR","Naturaleza": "-1"},{"Descripcion": "MATERIAL RECUPERABLE","Orden": "80","Rubro": "MATERIAL RECUPERABLE","Nivel": "MAYOR","Naturaleza": "-1"},{"Descripcion": "VENTAS TOTALES","Orden": "90","Rubro": "VENTAS TOTALES","Nivel": "EF2","Naturaleza": "-1"},{"Descripcion": "(-)BONIF. S/VENTAS D.P.P","Orden": "100","Rubro": "BONIFICACIONES SOBRE VENTA","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "VENTAS NETAS","Orden": "110","Rubro": "VENTAS NETAS","Nivel": "EF3","Naturaleza": "-1"},{"Descripcion": "(-) COSTO DE M.P. ","Orden": "120","Rubro": "COSTO DE MATERIA PRIMA","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "(-) COSTO MANO OBRA","Orden": "130","Rubro": "COSTO MANO DE OBRA","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "(-) COSTO MAQUILAS","Orden": "140","Rubro": "COSTO DE MAQUILA","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "UTILIDAD BRUTA","Orden": "150","Rubro": "UTILIDAD BRUTA","Nivel": "EF4","Naturaleza": "-1"},{"Descripcion": "GTOS FABRICACION PLANTA","Orden": "160","Rubro": "GASTOS FABRRICACION PLANTA","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "FLETE","Orden": "170","Rubro": "FLETES","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "GTOS. FABRICACION SUAJES","Orden": "180","Rubro": "GASTOS FABRICACION SUAJES","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "GTOS FABRICACION GRABADOS","Orden": "190","Rubro": "GASTOS DE FABRICACION GRABADOS","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "ARRENDAMIENTO DE INMUEBLE","Orden": "200","Rubro": "ARRENDAMIENTO DE INMUEBLE","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "GASTOS DE VENTA","Orden": "210","Rubro": "GASTOS DE VENTA","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "GASTOS DE ADMINISTRACION","Orden": "220","Rubro": "GASTOS DE ADMINISTRACION","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "GASTOS DE OPERACION","Orden": "230","Rubro": "GASTOS DE OPERACION","Nivel": "EF4","Naturaleza": "1"},{"Descripcion": "UTILIDAD DE OPERACION","Orden": "240","Rubro": "UTILIDAD DE OPERACION","Nivel": "EF5","Naturaleza": "-1"},{"Descripcion": "PARTIDAS EXTRAORDINARIAS","Orden": "250","Rubro": "PARTIDAS EXTRAORDINARIAS","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "","Orden": "260","Rubro": "","Nivel": "MAYOR","Naturaleza": "1"},{"Descripcion": "UTILIDAD DE OPERACI覰 PE","Orden": "270","Rubro": "UTILIDAD DE OPERACION","Nivel": "EF5","Naturaleza": "-1"},{"Descripcion": "UTILIDAD DE OPERACI覰 PE","Orden": "270","Rubro": "PARTIDAS EXTRAORDINARIAS","Nivel": "EF1","Naturaleza": "-1"},{"Descripcion": "GASTOS FINANCIEROS","Orden": "280","Rubro": "GASTOS FINANCIEROS","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "FLUCTUACION CAMBIARIA","Orden": "290","Rubro": "FLUCTUACION CAMBIARIA","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "OTROS GASTOS","Orden": "300","Rubro": "OTROS GASTOS","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "OTROS INGRESOS","Orden": "310","Rubro": "OTROS INGRESOS","Nivel": "EF1","Naturaleza": "-1"},{"Descripcion": "INGRESOS SUAJES Y GRABADOS","Orden": "320","Rubro": "INGRESOS SUAJES Y GRABADOS","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "VENTAS DE ACTIVO FIJO","Orden": "330","Rubro": "VENTAS DE ACTIVO FIJO","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "U.A.I.R.","Orden": "340","Rubro": "U.A.I.R.","Nivel": "EF6","Naturaleza": "-1"},{"Descripcion": "PROVISION ISR","Orden": "350","Rubro": "PROVISION ISR","Nivel": "EF1","Naturaleza": "1"},{"Descripcion": "UTILIDAD NETA","Orden": "360","Rubro": "UTILIDAD NETA","Nivel": "EF7","Naturaleza": "-1"}]
+2022-10-12 01:54:45 :: EjecutaSQL - Select Estado
+2022-10-12 01:54:45 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 01:54:45 :: Array
 (
     [0] => ER Interno
     [1] => ER Test
