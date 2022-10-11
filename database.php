@@ -8,67 +8,46 @@ function writeServerLog($msg)
 }
  
 
-function EjecutaSQL($Proceso= '',$sql= '', $sql2= '', $sql3= '', $Alta='')
-{  
-       $conf = include('config.php');  
- 
-		$server  = $conf['server'];
-		$database = $conf['database'];
-	//	$username = $conf['username'];
-	//	$password = $conf['password'];
+function EjecutaSQL($Proceso= '',$sql= '')
+{   
+	$Respuesta;
 
 	 	writeServerLog('EjecutaSQL - ' .$Proceso ); 
+	 	writeServerLog('Query: - ' .$sql ); 
  
-			//$conn = odbc_connect($server, $user, $password,1);
-			$conn = odbc_connect("Driver={SQL Server Native Client 10.0};Server=$server;Database=$database;");
-		
-			if( $conn ) {
-	 		 //    echo "Conexión establecida.<br />";
-	 			writeServerLog("Conexión establecida.");
-			}else{
-				writeServerLog("Conexión no se pudo establecer."); 
+		 
+		  	$serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
+		  	$connectionInfo = array( "Database"=>"DWH_Artigraf");
+			$conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+			if( $conn === false ) { 
+				echo "Conexión no se pudo establecer.";
+				die( print_r( sqlsrv_errors(), true));
+			}
+
+		// SQL1 
+		if($sql <> ''){ 
+			$stmt = sqlsrv_query($conn, $sql);  
+			if( $stmt === false ) {   
 				writeServerLog(sqlsrv_errors()); 
-			     die( print_r( sqlsrv_errors(), true));
+				die( print_r( sqlsrv_errors(), true));   
+			}else{
+				$EstadosCount = 0;  
+				 
+				while($row = sqlsrv_fetch_array($stmt))
+				{
+					$Respuesta[$EstadosCount] = $row['Estado']; 
+					$EstadosCount++;
+				}
+				
+				echo  '["' . implode('", "', $Respuesta) . '"]';
 			}
 		 
-		// SQL1 
-		if($sql <> ''){
-		 $stmt = odbc_prepare( $conn, $sql );
-		 $Result = odbc_execute($stmt);
-		 if( $Result === false ) {   
-			writeServerLog(sqlsrv_errors()); 
-		 	die( print_r( sqlsrv_errors(), true));   
-		 }
-		 
 		}
-		 // SQL2
-		 if($sql2 <> ''){
-		 	 $stmt2 = odbc_prepare( $conn, $sql2 );
-			 $Result1 = odbc_execute($stmt2);
-			 if( $Result1 === false ) {   
-				writeServerLog(sqlsrv_errors()); 
-			 	die( print_r( sqlsrv_errors(), true));   
-			 }
-
-		 }
-
-		 // SQL3 
-		 if($sql3 <> ''){
-		 	// $stmt3 = odbc_prepare( $conn, $sql3 );
-			// $Result2 = odbc_execute($stmt3); 
-			 $Result2 = odbc_exec ($conn, $sql3);
-			 if( $Result2 === false ) {   
-				writeServerLog(sqlsrv_errors()); 
-			 	die( print_r( sqlsrv_errors(), true));   
-			 }
-			 
-				  
-	
-		 
-		 }
-
-
-$cierre = odbc_close($conn); 
+	 
+	return $Respuesta;
+ 
+$cierre = sqlsrv_close($conn); 
 
 } 
  

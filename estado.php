@@ -83,7 +83,7 @@
                 objXMLHttpRequest.onreadystatechange = function () {
                     if (objXMLHttpRequest.readyState === 4) {
                         if (objXMLHttpRequest.status == 200) {
-                            resolve(objXMLHttpRequest.responseText);
+                             resolve(objXMLHttpRequest.responseText);
                         } else {
                             reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
                         }
@@ -96,7 +96,17 @@
         }
         
         getEstados().then(
-            data => { console.log('Success Response: ' + data) },
+            data => { console.log('Success Response: ' + data) 
+                const myArr = JSON.parse(data);
+                var select = document.getElementById("EstadoSelect");
+                for(var i = 0; i < myArr.length; i++) {
+                    var opt = myArr[i];
+                    var el = document.createElement("option");
+                    el.textContent = opt;
+                    el.value = opt;
+                    select.appendChild(el);
+                }
+            },
             error => { console.log(error) }
         );
       
@@ -111,12 +121,11 @@
         <a class="navbar-brand" href="#"> 
         <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>  
-        <select class="form-control m-1" placeholder="Estado">
-            <option class="option" value ="Mayor">Mayor</option> 
+        <select id="EstadoSelect" class="form-select m-1" role="listbox" placeholder="Estado"> 
         </select>
         <input class="form-control m-1" placeholder="Rubro"></input>
         <input class="form-control m-1" placeholder="Descripción"></input>
-        <select class="form-control select m-1" placeholder="Nivel">
+        <select class="form-select m-1" placeholder="Nivel">
             <option class="option" value ="Mayor">Mayor</option>
             <option class="option" value ="Fijo">Fijo</option>
             <option class="option" value ="EF1">EF1</option>
