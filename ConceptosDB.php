@@ -97,10 +97,10 @@ if($_POST['tipo'] === "post"){
 	if($_POST['tipo'] === "delete"){
    
 		$Proceso="Delete Concepto";
-		$sql="Delete from EstadoResultados where EstadoResultados = '{$_POST['estado']}' and Orden = '{$_POST['orden']}' ";
+		$sql="Delete from EstadoResultados where EstadoResultados = '{$_POST['estado']}' and Orden = '{$_POST['orden']}' and Descripcion = '{$_POST['desc']}' ";
 		 
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );  
-			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden']); 
+			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' desc: '.$_POST['desc']); 
 			 
 				  $serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
 				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
@@ -118,6 +118,63 @@ if($_POST['tipo'] === "post"){
 					die( print_r( sqlsrv_errors(), true));   
 				}else{  
 					echo  'Eliminado' ; 
+				}
+			 
+			}
+		  
+	 
+		$cierre = sqlsrv_close($conn); 
+	
+	} 
+	
+	if($_POST['tipo'] === "change"){
+   
+		$Proceso="Cambio Concepto";
+		$sql="Update EstadoResultados set Orden = 999 where EstadoResultados = '{$_POST['estado']}' and Orden = {$_POST['orden']}  "; 
+		$sql2="Update EstadoResultados set Orden = {$_POST['orden']} where EstadoResultados = '{$_POST['estado']}' and Orden = {$_POST['cambio']} "; 
+		$sql3="Update EstadoResultados set Orden = {$_POST['cambio']} where EstadoResultados = '{$_POST['estado']}' and Orden = 999 "; 
+		 
+			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );  
+			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql2 ); 
+			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql3 ); 
+			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' cambio: '.$_POST['cambio']); 
+			 
+				  $serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
+				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
+				$conn = sqlsrv_connect( $serverName, $connectionInfo);
+	
+				if( $conn === false ) { 
+					echo "Conexión no se pudo establecer.";
+					die( print_r( sqlsrv_errors(), true));
+				}
+	 
+			if($sql <> ''){ 
+				$stmt = sqlsrv_query($conn, $sql);  
+				if( $stmt === false ) {   
+					writeServerLog(sqlsrv_errors()); 
+					die( print_r( sqlsrv_errors(), true));   
+				}else{  
+					echo  'cambio 1' ; 
+				}
+			 
+			}
+			if($sql2 <> ''){ 
+				$stmt2 = sqlsrv_query($conn, $sql2);  
+				if( $stmt2 === false ) {   
+					writeServerLog(sqlsrv_errors()); 
+					die( print_r( sqlsrv_errors(), true));   
+				}else{  
+					echo  'cambio 2' ; 
+				}
+			 
+			}
+			if($sql3 <> ''){ 
+				$stmt3 = sqlsrv_query($conn, $sql3);  
+				if( $stmt3 === false ) {   
+					writeServerLog(sqlsrv_errors()); 
+					die( print_r( sqlsrv_errors(), true));   
+				}else{  
+					echo  'cambio 3' ; 
 				}
 			 
 			}

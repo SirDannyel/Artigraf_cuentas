@@ -8,7 +8,7 @@
     <title>ARTIGRAF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-   
+    <script src="https://kit.fontawesome.com/caf35569f5.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="input-mask.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -77,7 +77,7 @@
             });
         }
         
-        const deleteConceptoApi = (estado,orden) => {   
+        const deleteConceptoApi = (estado,orden,desc) => {   
             return new Promise(function (resolve, reject) {
                 const objXMLHttpRequest = new XMLHttpRequest();
         
@@ -93,10 +93,29 @@
         
                 objXMLHttpRequest.open('POST', 'ConceptosDB.php');
                 objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                objXMLHttpRequest.send("tipo="+"delete"+"&estado="+estado+"&orden="+orden );
+                objXMLHttpRequest.send("tipo="+"delete"+"&estado="+estado+"&orden="+orden+"&desc="+desc );
             });
         }
 
+        const changeConceptoApi = (estado,orden,cambio,desc) => {   
+            return new Promise(function (resolve, reject) {
+                const objXMLHttpRequest = new XMLHttpRequest();
+        
+                objXMLHttpRequest.onreadystatechange = function () {
+                    if (objXMLHttpRequest.readyState === 4) {
+                        if (objXMLHttpRequest.status == 200) {
+                             resolve(objXMLHttpRequest.responseText); 
+                        } else {
+                            reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                        }
+                    }
+                }
+        
+                objXMLHttpRequest.open('POST', 'ConceptosDB.php');
+                objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                objXMLHttpRequest.send("tipo="+"change"+"&estado="+estado+"&orden="+orden+"&cambio="+cambio+"&desc="+desc );
+            });
+        }
         /******* Fin Apis  *******/
 
         const deleteChild = () => {
@@ -106,9 +125,19 @@
 
         /******* Services  *******/
 
-        const deleteConcepto = async(estado, orden)=>{
+        const changeConcepto = async(estado, orden, cambio,desc)=>{
           try{ 
-            const response = await deleteConceptoApi(estado,orden); 
+         //   alert('orden: ',orden,'cambio: ',cambio);
+             const response = await changeConceptoApi(estado, orden, cambio,desc); 
+            getConceptos(estado); 
+ 
+          }catch(err){
+                console.log(err)
+          }
+        }
+        const deleteConcepto = async(estado, orden,desc)=>{
+          try{ 
+            const response = await deleteConceptoApi(estado,orden,desc); 
             getConceptos(estado);
           }catch(err){
                 console.log(err)
@@ -240,10 +269,9 @@
                     campo.value = opt;
                     linea.appendChild(campo); 
                     
-                    var boton = document.createElement("button");
-                    var node = document.createTextNode("X");
-                    boton.appendChild(node);
-                    boton.setAttribute("name", "deletebutton");   
+                    var boton = document.createElement("button");  
+                    boton.setAttribute("name", myArr[i].Descripcion);   
+                    boton.setAttribute("id", orden);   
                     boton.onclick = function(){
                       Swal.fire({
                             title: '¿Estas seguro?',
@@ -255,8 +283,8 @@
                             confirmButtonText: 'Eliminarlo',
                             cancelButtonText: 'Cancelar'
                           }).then((result) => {
-                            if (result.isConfirmed) {
-                              deleteConcepto(estado, orden);
+                            if (result.isConfirmed) { 
+                              deleteConcepto(estado, this.id,this.name);
                               Swal.fire(
                                 'Eliminado!',
                                 'Registro Eliminado.',
@@ -267,10 +295,41 @@
                     }; 
                     boton.setAttribute("class", "btn btn-outline-danger px-3");
                     boton.setAttribute("type", "button");
+                    linea.appendChild(boton);  
+                    var icon = document.createElement("i");
+                    icon.setAttribute("class", "fa-solid fa-close"); 
+                    boton.appendChild(icon);  
+                    
+                    boton = document.createElement("button");  
+                    boton.setAttribute("id", orden);   
+                    boton.setAttribute("name", myArr[i].Descripcion);  
+                    boton.onclick = function(){
+                         changeConcepto(estado, Number(this.id), Number(this.id) - 10, this.name);                             
+                    }; 
+                    boton.setAttribute("class", "btn btn-outline-warning px-3");
+                    boton.setAttribute("type", "button");
                     linea.appendChild(boton); 
+                    icon = document.createElement("i");
+                    icon.setAttribute("class", "fa-solid fa-chevron-up"); 
+                    boton.appendChild(icon);  
+                    
+
+                    boton = document.createElement("button");  
+                    boton.setAttribute("id", orden);    
+                    boton.setAttribute("name", myArr[i].Descripcion);  
+                    boton.onclick = function(){
+                         changeConcepto(estado, Number(this.id), Number(this.id) + 10, this.name);                             
+                    }; 
+                    boton.setAttribute("class", "btn btn-outline-warning px-3");
+                    boton.setAttribute("type", "button");
+                    linea.appendChild(boton); 
+                    icon = document.createElement("i");
+                    icon.setAttribute("class", "fa-solid fa-chevron-down"); 
+                    boton.appendChild(icon); 
 
                 } 
                    ult_orden = orden;
+                $("#titulo").text(estado);
                    
             }
             catch(err){
@@ -285,6 +344,7 @@
 
         const handleSelectChange = (estado) => {
             getConceptos(estado);
+            $("#titulo").text(estado);
         }
         const handleAddConcepto = (estado,rubro,desc,nivel,nat,identado,resaltado) => {
          // alert($('#EstadoSelect').val());
@@ -292,68 +352,7 @@
                postConcepto(estado,rubro,desc,nivel,nat,identado,resaltado);
         }
 
-        /******* Fin DOM Events  *******/
-
-        
-
-        const validar = () => {
-          
-            const arr = document.getElementsByName("inputclave"); 
-            for (var x = 0; x < arr.length; x++) {
-                // validacion
-                if(arr[x].value === ''){
-                 // alert('No se admiten valores vacios');
-                  Swal.fire('No se admiten valores vacios')
-                  return;
-                } 
-            } 
-     
-           document.getElementById('boton_enviar').disabled=true;
-
-            for (var x = 0; x < arr.length; x++) {
-            
-              // Create an XMLHttpRequest object
-                const xhttp = new XMLHttpRequest();
-
-                // Define a callback function
-                xhttp.onload = function() {
-                  // Here you can use the Data
-                }
-
-                // Send a request 
-                xhttp.open("POST", "db.php");
-                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhttp.send("descripcion="+arr[x].value);
-     
-            }
-
-          let timerInterval
-            Swal.fire({
-              title: 'Registros Agregados!',
-          //    html: 'I will close in <b></b> milliseconds.',
-              timer: 1000,
-              timerProgressBar: true,
-              didOpen: () => {
-                Swal.showLoading()
-                const b = Swal.getHtmlContainer().querySelector('b')
-                timerInterval = setInterval(() => {
-                  b.textContent = Swal.getTimerLeft()
-                }, 100)
-              },
-              willClose: () => {
-                clearInterval(timerInterval)
-              }
-            }).then((result) => {
-              /* Read more about handling dismissals below */
-              if (result.dismiss === Swal.DismissReason.timer) {
-                console.log('I was closed by the timer')
-              }
-            });
-          // fin  
-         
-           document.getElementById('boton_enviar').disabled=false;
-        } 
-         
+        /******* Fin DOM Events  *******/ 
 
         const init = () => {
             getEstados();
@@ -370,22 +369,34 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="#"> 
         <img class="me-3" src="Artigraf.png" alt="" width="100" >
-        </a>  
-        <select id="EstadoSelect" class="form-select m-1" role="listbox" placeholder="Estado" onchange="handleSelectChange(this.value)" > 
-        </select>
-        <input class="form-control m-1" placeholder="Rubro" id="IdRubro"></input>
-        <input class="form-control m-1" placeholder="Descripción" id="IdDesc"></input>
-        <select class="form-select m-1" placeholder="Nivel" id="IdNivel">
-            <option class="option" value ="Mayor">Mayor</option>
-            <option class="option" value ="Fijo">Fijo</option>
-            <option class="option" value ="EF1">EF1</option>
-            <option class="option" value ="EF2">EF2</option> 
-            <option class="option" value ="EF3">EF3</option> 
-            <option class="option" value ="EF4">EF4</option> 
-            <option class="option" value ="EF5">EF5</option> 
-            <option class="option" value ="EF6">EF6</option> 
-            <option class="option" value ="EF7">EF7</option> 
-        </select>
+        </a>
+        <div class="d-flex flex-column px-4 pb-2 w-100">  
+          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="EstadoSelect">Tipo</p>
+          <select id="EstadoSelect" class="form-select m-1 d-flex justify-content-center" role="listbox" placeholder="Estado" onchange="handleSelectChange(this.value)" > 
+          </select>
+        </div>
+        <div class="d-flex flex-column px-4 pb-2 w-100">  
+          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdRubro">Rubro</p>
+          <input class="form-control m-1" placeholder="Rubro" id="IdRubro"></input>
+        </div>
+        <div class="d-flex flex-column px-4 pb-2 w-100">  
+          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdDesc">Descripción</p>
+          <input class="form-control m-1" placeholder="Descripción" id="IdDesc"></input>
+        </div>
+        <div class="d-flex flex-column px-4 pb-2 w-100">  
+          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdNivel">Descripción</p>
+          <select class="form-select m-1" placeholder="Nivel" id="IdNivel">
+              <option class="option" value ="Mayor">Mayor</option>
+              <option class="option" value ="Fijo">Fijo</option>
+              <option class="option" value ="EF1">EF1</option>
+              <option class="option" value ="EF2">EF2</option> 
+              <option class="option" value ="EF3">EF3</option> 
+              <option class="option" value ="EF4">EF4</option> 
+              <option class="option" value ="EF5">EF5</option> 
+              <option class="option" value ="EF6">EF6</option> 
+              <option class="option" value ="EF7">EF7</option> 
+          </select>
+        </div>
          
         <div class="d-flex flex-column px-4 pb-2">
           <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="pasivoSwitch">Pasivo</p>
@@ -404,14 +415,16 @@
          
         </div>
  
-        <button class="btn btn-primary" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))"><i class="plus"></i>Agregar</button>
+        <button class="btn btn-primary" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))">
+                    Agregar
+                  </button>
       </div>
     </nav> 
     <div style="padding-top:90px;"> </div>
-    <main class="container">  
-        <div class="my-3 p-5 bg-body rounded shadow-sm" id="panel">
+    <main class="container" style="max-width:1420px;">  
+        <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
           <div class="d-flex flex-row">
-            <h6 class="border-bottom pb-2 mb-0 w-100">Conceptos</h6>
+            <h3 class="border-bottom pb-2 mb-0 w-100  d-flex justify-content-center text-primary" id="titulo">Conceptos</h3>
           </div>
           <table class="table" id="tabla">
             <thead>
