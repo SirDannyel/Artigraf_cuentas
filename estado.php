@@ -51,9 +51,49 @@
                     }
                 }
         
-                objXMLHttpRequest.open('POST', 'getConceptos.php');
+                objXMLHttpRequest.open('POST', 'ConceptosDB.php');
                 objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                objXMLHttpRequest.send("estado="+estado);
+                objXMLHttpRequest.send("tipo="+"get&"+"estado="+estado);
+            });
+        }
+
+        const postConceptoApi = (estado,rubro,desc,nivel,nat,identado,resaltado) => {   
+            return new Promise(function (resolve, reject) {
+                const objXMLHttpRequest = new XMLHttpRequest();
+        
+                objXMLHttpRequest.onreadystatechange = function () {
+                    if (objXMLHttpRequest.readyState === 4) {
+                        if (objXMLHttpRequest.status == 200) {
+                             resolve(objXMLHttpRequest.responseText); 
+                        } else {
+                            reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                        }
+                    }
+                }
+        
+                objXMLHttpRequest.open('POST', 'ConceptosDB.php');
+                objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                objXMLHttpRequest.send("tipo="+"post"+"&estado="+estado+"&orden="+(Number(ult_orden)+10)+"&rubro="+rubro+"&desc="+desc+"&nivel="+nivel+"&pasivo="+nat+"&identado="+identado+"&resaltado="+resaltado);
+            });
+        }
+        
+        const deleteConceptoApi = (estado,orden) => {   
+            return new Promise(function (resolve, reject) {
+                const objXMLHttpRequest = new XMLHttpRequest();
+        
+                objXMLHttpRequest.onreadystatechange = function () {
+                    if (objXMLHttpRequest.readyState === 4) {
+                        if (objXMLHttpRequest.status == 200) {
+                             resolve(objXMLHttpRequest.responseText); 
+                        } else {
+                            reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                        }
+                    }
+                }
+        
+                objXMLHttpRequest.open('POST', 'ConceptosDB.php');
+                objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                objXMLHttpRequest.send("tipo="+"delete"+"&estado="+estado+"&orden="+orden );
             });
         }
 
@@ -66,6 +106,55 @@
 
         /******* Services  *******/
 
+        const deleteConcepto = async(estado, orden)=>{
+          try{ 
+            const response = await deleteConceptoApi(estado,orden); 
+            getConceptos(estado);
+          }catch(err){
+                console.log(err)
+          }
+        }
+ 
+        const postConcepto = async (estado,rubro,desc,nivel,pasivo,identado,resaltado) => {
+            try{
+              //  alert('pasivo: '+pasivo+' identado: '+identado+' resaltado: '+resaltado );
+                let nat;
+                if(pasivo === true){
+                  nat =  1;
+                }else{ 
+                  nat = -1;
+                }
+                let iden;
+                if(identado === true){
+                  iden =  1;
+                }else{ 
+                  iden = 0;
+                }
+                let res;
+                if(resaltado === true){
+                  res = 'BOLD';
+                }else{ 
+                  res = '';
+                }
+               // alert('estado: '+estado+' rubro: '+rubro+' desc: '+desc+' nivel: '+nivel+' nat: '+nat+' iden: '+iden+' res: '+res);
+
+                const response = await postConceptoApi(estado,rubro,desc,nivel,nat,iden,res);
+                console.log("postConcepto Response", response); 
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Registro Agregado',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+
+                getConceptos(estado);
+  
+            }
+            catch(err){
+                console.log(err)
+            }           
+        }
         const getEstados = async () => {
             try{
                 const response = await getEstadosApi();
@@ -82,10 +171,10 @@
                 }
             }
             catch(err){
-                console.log(error)
+                console.log(err)
             }           
         }
-
+        var ult_orden;
         const getConceptos = async (estado = 'ER Interno') => {
             try{
                 const response = await getConceptosApi(estado);
@@ -102,14 +191,14 @@
                     linea.setAttribute("class", "d-flex flex-row tr");  
                     tablabody.appendChild(linea); 
                     
-                    var opt = myArr[i].Orden;
+                    var orden = myArr[i].Orden;
                     var campo = document.createElement("td");
                     campo.setAttribute("style", "width:100px;");  
-                     campo.textContent = opt;
-                     campo.value = opt;
+                     campo.textContent = orden;
+                     campo.value = orden;
                      linea.appendChild(campo);
                     
-                    opt = myArr[i].Rubro;
+                     var opt = myArr[i].Rubro;
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:300px;");  
                     campo.textContent = opt;
@@ -149,11 +238,43 @@
                     campo.setAttribute("style", "width:100px;");  
                     campo.textContent = opt;
                     campo.value = opt;
-                    linea.appendChild(campo);
-                }
+                    linea.appendChild(campo); 
+                    
+                    var boton = document.createElement("button");
+                    var node = document.createTextNode("X");
+                    boton.appendChild(node);
+                    boton.setAttribute("name", "deletebutton");   
+                    boton.onclick = function(){
+                      Swal.fire({
+                            title: '¿Estas seguro?',
+                            text: "Se eliminará el registro",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Eliminarlo',
+                            cancelButtonText: 'Cancelar'
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              deleteConcepto(estado, orden);
+                              Swal.fire(
+                                'Eliminado!',
+                                'Registro Eliminado.',
+                                'success'
+                              )
+                            }
+                          });
+                    }; 
+                    boton.setAttribute("class", "btn btn-outline-danger px-3");
+                    boton.setAttribute("type", "button");
+                    linea.appendChild(boton); 
+
+                } 
+                   ult_orden = orden;
+                   
             }
             catch(err){
-                console.log(error)
+                console.log(err)
             }           
         } 
 
@@ -164,6 +285,11 @@
 
         const handleSelectChange = (estado) => {
             getConceptos(estado);
+        }
+        const handleAddConcepto = (estado,rubro,desc,nivel,nat,identado,resaltado) => {
+         // alert($('#EstadoSelect').val());
+        //  alert('estado: '+estado+'rubro: '+rubro+'desc: '+desc+'nivel: '+nivel+'nat: '+nat+'identado: '+identado+'resaltado: '+resaltado);
+               postConcepto(estado,rubro,desc,nivel,nat,identado,resaltado);
         }
 
         /******* Fin DOM Events  *******/
@@ -247,9 +373,9 @@
         </a>  
         <select id="EstadoSelect" class="form-select m-1" role="listbox" placeholder="Estado" onchange="handleSelectChange(this.value)" > 
         </select>
-        <input class="form-control m-1" placeholder="Rubro"></input>
-        <input class="form-control m-1" placeholder="Descripción"></input>
-        <select class="form-select m-1" placeholder="Nivel">
+        <input class="form-control m-1" placeholder="Rubro" id="IdRubro"></input>
+        <input class="form-control m-1" placeholder="Descripción" id="IdDesc"></input>
+        <select class="form-select m-1" placeholder="Nivel" id="IdNivel">
             <option class="option" value ="Mayor">Mayor</option>
             <option class="option" value ="Fijo">Fijo</option>
             <option class="option" value ="EF1">EF1</option>
@@ -260,7 +386,25 @@
             <option class="option" value ="EF6">EF6</option> 
             <option class="option" value ="EF7">EF7</option> 
         </select>
-        <button class="btn btn-primary" onclick="addConcepto()"><i class="plus"></i>Agregar</button>
+         
+        <div class="d-flex flex-column px-4 pb-2">
+          <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="pasivoSwitch">Pasivo</p>
+          <input class="form-switch form-check-input d-flex justify-content-center" type="checkbox" id="pasivoSwitch" checked>
+         
+        </div>
+        <div class="d-flex flex-column px-4 pb-2">
+          <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="identadoSwitch">Identado</p>
+          <input class="form-switch form-check-input d-flex justify-content-center" type="checkbox" id="identadoSwitch" checked>
+         
+        </div>
+        
+        <div class="d-flex flex-column px-4 pb-2">
+          <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="boldSwitch">Resaltado</p>
+          <input class="form-switch form-check-input d-flex justify-content-center" type="checkbox" id="boldSwitch" checked>
+         
+        </div>
+ 
+        <button class="btn btn-primary" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))"><i class="plus"></i>Agregar</button>
       </div>
     </nav> 
     <div style="padding-top:90px;"> </div>
@@ -287,8 +431,7 @@
         </div> 
         <div class="d-flex flex-row my-3 p-3 bg-body rounded shadow-sm">
           <div class="pb-2 mb-0 w-25"> </div>
-          <button id='boton_enviar' class="btn btn-success w-100" onclick="validar();">Confirmar</button>
-          <div class="pb-2 mb-0 w-25"> </div>
+           <div class="pb-2 mb-0 w-25"> </div>
         </div> 
     </main>
      
