@@ -16,7 +16,7 @@ function EjecutaSQL($Proceso= '',$sql= '')
 	 	writeServerLog('Query: - ' .$sql ); 
  
 		 
-		  	$serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
+		  	$serverName = 'DESKTOP-092HCCI';
 		  	$connectionInfo = array( "Database"=>"DWH_Artigraf");
 			$conn = sqlsrv_connect( $serverName, $connectionInfo);
 

@@ -18,7 +18,7 @@ function EjecutaSQL($Proceso= '',$sql= '')
 	 	writeServerLog('param: - ' .$_POST['estado'] ); 
  
 		 
-		  	$serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
+		  	$serverName = 'DESKTOP-092HCCI';
 		  	$connectionInfo = array( "Database"=>"DWH_Artigraf");
 			$conn = sqlsrv_connect( $serverName, $connectionInfo);
 
@@ -28,7 +28,8 @@ function EjecutaSQL($Proceso= '',$sql= '')
 			}
 
 		// SQL1 
-		if($sql <> ''){ 
+		if($sql <> ''){
+
 			$stmt = sqlsrv_query($conn, $sql);  
 			if( $stmt === false ) {   
 				writeServerLog(sqlsrv_errors()); 

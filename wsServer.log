@@ -304,3 +304,14 @@
 2022-10-12 03:37:31 :: Query: - Select * from EstadoResultados where EstadoResultados = 'ER Test' order by Orden
 2022-10-12 03:37:31 :: param: - ER Test
 2022-10-12 03:37:31 :: [{"Descripcion": "PRECIO","Orden": "10","Rubro": "PRECIO","Nivel": "FIJO","Naturaleza": "1","Identado": "0","Formato": "BOLD"},{"Descripcion": "TONELADAS","Orden": "20","Rubro": "TONELADAS","Nivel": "VACIO","Naturaleza": "1","Identado": "0","Formato": "BOLD"}]
+2022-10-12 17:28:33 :: EjecutaSQL - Select Conceptos
+2022-10-12 17:28:33 :: Query: - Select * from EstadoResultados where EstadoResultados = '' order by Orden
+2022-10-12 17:28:33 :: param: - 
+2022-10-12 17:28:50 :: EjecutaSQL - Select Conceptos
+2022-10-12 17:28:50 :: Query: - Select * from EstadoResultados where EstadoResultados = '' order by Orden
+2022-10-12 17:28:50 :: param: - 
+2022-10-12 17:28:50 :: ]
+2022-10-12 17:29:30 :: EjecutaSQL - Select Conceptos
+2022-10-12 17:29:30 :: Query: - Select * from EstadoResultados where EstadoResultados = '' order by Orden
+2022-10-12 17:29:30 :: param: - 
+2022-10-12 17:29:30 :: ]
