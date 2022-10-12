@@ -36,26 +36,18 @@ function EjecutaSQL($Proceso= '',$sql= '')
 			}else{ 
 
                 while( $Response = sqlsrv_fetch_object( $stmt)) {
-                    $Respuesta = $Respuesta.'{"Descripcion": "'.$Response->Descripcion.'","Orden": "'.$Response->Orden.'","Rubro": "'.$Response->Rubro.'","Nivel": "'.$Response->Nivel.'","Naturaleza": "'.$Response->Naturaleza.'"},';
+                    $Respuesta = $Respuesta.'{"Descripcion": "'.$Response->Descripcion.'","Orden": "'.$Response->Orden.'","Rubro": "'.$Response->Rubro.'","Nivel": "'.$Response->Nivel.'","Naturaleza": "'.$Response->Naturaleza.'","Identado": "'.$Response->Identado.'","Formato": "'.$Response->Formato.'"},';
               } 
 
               $Respuesta = substr($Respuesta,0,strlen($Respuesta)-1).']';
+              if($Respuesta === ']'){
+                echo  'Sin resultados' ;
+              }else{
+                echo  $Respuesta ;
+              }
 
               writeServerLog($Respuesta ); 
-              echo   $Respuesta ;
-                /*
-				$ConceptosCount = 0;  
-				  
-				while($row = sqlsrv_fetch_array($stmt))
-				{
-                    $Respuesta[] = $row; 
-					$ConceptosCount++;
-				}
-				
-			//	echo  '["' . implode('", "', $Respuesta) . '"]';
-				writeServerLog($Respuesta ); 
-				echo  json_decode($Respuesta) ;
-                 */
+             
 			}
 		 
 		}
