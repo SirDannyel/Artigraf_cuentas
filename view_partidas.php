@@ -17,7 +17,8 @@
 
     /******* Apis  *******/
 
-    const getEstadosApi = () => {
+    const getCuentas_Contables = () => {
+
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
 
@@ -31,7 +32,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('GET', 'EstadosDb.php');
+            objXMLHttpRequest.open('GET','partidas_especiales.php');
             objXMLHttpRequest.send();
         });
     }
@@ -65,13 +66,13 @@
 
     /******* Services  *******/
 
-    const getEstados = async () => {
+    const getCuentasContables = async () => {
         try{
-            const response = await getEstadosApi();
-            console.log("getEstados Response", response);
+            const response = await getCuentas_Contables;
+            console.log("getCuentas Response", response);
             const myArr = JSON.parse(response);
 
-            var select = document.getElementById("EstadoSelect");
+            var select = document.getElementById("CuentaSelect");
             for(var i = 0; i < myArr.length; i++) {
                 var opt = myArr[i];
                 var el = document.createElement("option");
@@ -229,8 +230,7 @@
 
 
     const init = () => {
-        getEstados();
-        getConceptos();
+        getCuentasContables();
     }
 
     init();
@@ -244,7 +244,7 @@
         <a class="navbar-brand" href="#">
             <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>
-        <select id="EstadoSelect" class="form-select m-1" role="listbox" placeholder="Estado" onchange="handleSelectChange(this.value)" >
+        <select id="CuentaSelect" class="form-select m-1" role="listbox" placeholder="Cuenta">
         </select>
         <input class="form-control m-1" placeholder="Rubro"></input>
         <input class="form-control m-1" placeholder="Descripción"></input>
