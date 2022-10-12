@@ -15,9 +15,43 @@
 
 <script>
 
+  /*  function getEstados() {
+        return new Promise(function (resolve, reject) {
+            const objXMLHttpRequest = new XMLHttpRequest();
+
+            objXMLHttpRequest.onreadystatechange = function () {
+                if (objXMLHttpRequest.readyState === 4) {
+                    if (objXMLHttpRequest.status == 200) {
+                        resolve(objXMLHttpRequest.responseText);
+                    } else {
+                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                    }
+                }
+            }
+
+                objXMLHttpRequest.open('GET', 'partidas_especiales.php');
+            objXMLHttpRequest.send();
+        });
+    }*/
+
+ /*   getEstados().then(
+        data => { console.log('Success Response: ' + data)
+            const myArr = JSON.parse(data);
+            var select = document.getElementById("EstadoSelect");
+            for(var i = 0; i < myArr.length; i++) {
+                var opt = myArr[i].Cuenta_Contable;
+                var el = document.createElement("option");
+                el.textContent = opt;
+                el.value = opt;
+                select.appendChild(el);
+            }
+        },
+        error => { console.log(error) }
+    );*/
+
     /******* Apis  *******/
 
-    const CuentasContables = () => {
+    const CuentasContablesApi = () => {
 
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -37,26 +71,6 @@
         });
     }
 
-    const getConceptosApi = (estado = 'ER Interno') => {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-            objXMLHttpRequest.open('POST', 'getConceptos.php');
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("estado="+estado);
-        });
-    }
-
     /******* Fin Apis  *******/
 
     const deleteChild = () => {
@@ -66,15 +80,14 @@
 
     /******* Services  *******/
 
-    const getCuentasContables = async () => {
+    const getCuentasContables. = async () => {
         try{
-            const response = await CuentasContables;
+            const response = await CuentasContablesApi;
             console.log("getCuentas Response", response);
             const myArr = JSON.parse(response);
-
             var select = document.getElementById("CuentaSelect");
             for(var i = 0; i < myArr.length; i++) {
-                var opt = myArr[i];
+                var opt = myArr[i].Cuenta_Contable;
                 var el = document.createElement("option");
                 el.textContent = opt;
                 el.value = opt;
@@ -82,89 +95,11 @@
             }
         }
         catch(err){
-            console.log(error)
-        }
-    }
-
-    const getConceptos = async (estado = 'ER Interno') => {
-        try{
-            const response = await getConceptosApi(estado);
-            console.log("getEstados Response", response);
-
-            if(response === 'Sin resultados') return;
-
-            deleteChild();
-            const myArr = JSON.parse(response);
-            var tablabody = document.getElementById("tablabody");
-
-            for(var i = 0; i < myArr.length; i++) {
-                var linea = document.createElement("tr");
-                linea.setAttribute("class", "d-flex flex-row tr");
-                tablabody.appendChild(linea);
-
-                var opt = myArr[i].Orden;
-                var campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].Rubro;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:300px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].Descripcion;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:400px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].Nivel;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].Naturaleza;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].Identado;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].Formato;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-            }
-        }
-        catch(err){
-            console.log(error)
+            console.log(err)
         }
     }
 
     /******* Fin Services  *******/
-
-
-    /******* DOM Events  *******/
-
-    const handleSelectChange = (estado) => {
-        getConceptos(estado);
-    }
 
     /******* Fin DOM Events  *******/
 
@@ -263,33 +198,7 @@
     </div>
 </nav>
 <div style="padding-top:90px;"> </div>
-<main class="container">
-    <div class="my-3 p-5 bg-body rounded shadow-sm" id="panel">
-        <div class="d-flex flex-row">
-            <h6 class="border-bottom pb-2 mb-0 w-100">Conceptos</h6>
-        </div>
-        <table class="table" id="tabla">
-            <thead>
-            <tr class="d-flex flex-row">
-                <th scope="col" style="width:100px;">Orden</th>
-                <th scope="col" style="width:300px;">Rubro</th>
-                <th scope="col" style="width:400px;">Descripción</th>
-                <th scope="col" style="width:100px;">Nivel</th>
-                <th scope="col" style="width:100px;">Naturaleza</th>
-                <th scope="col" style="width:100px;">Identado</th>
-                <th scope="col" style="width:100px;">Formato</th>
-            </tr>
-            </thead>
-            <tbody  id="tablabody">
-            </tbody>
-        </table>
-    </div>
-    <div class="d-flex flex-row my-3 p-3 bg-body rounded shadow-sm">
-        <div class="pb-2 mb-0 w-25"> </div>
-        <button id='boton_enviar' class="btn btn-success w-100" onclick="validar();">Confirmar</button>
-        <div class="pb-2 mb-0 w-25"> </div>
-    </div>
-</main>
+
 
 </body>
 </html>

@@ -7,7 +7,7 @@ function writeServerLog($msg)
 	@error_log(date('Y-m-d H:i:s').' :: '.print_r($msg, true).PHP_EOL, 3, 'wsServer.log');
 }
  
-$Conceptos  = EjecutaSQL("Select Conceptos", "Select * from EstadoResultados where EstadoResultados = '{$_POST['estado']}' order by Orden");
+$Conceptos  = EjecutaSQL("Select Conceptos", "Select * from EstadoResultados");
 
 function EjecutaSQL($Proceso= '',$sql= '')
 {   
@@ -15,10 +15,10 @@ function EjecutaSQL($Proceso= '',$sql= '')
 
 	 	writeServerLog('EjecutaSQL - ' .$Proceso ); 
 	 	writeServerLog('Query: - ' .$sql ); 
-	 	writeServerLog('param: - ' .$_POST['estado'] ); 
+	 	//writeServerLog('param: - ' .$_POST['estado'] );
  
 		 
-		  	$serverName = 'DESKTOP-907DBP9';
+		  	$serverName = 'DESKTOP-092HCCI';
 		  	$connectionInfo = array( "Database"=>"DWH_Artigraf");
 			$conn = sqlsrv_connect( $serverName, $connectionInfo);
 

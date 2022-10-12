@@ -34,8 +34,8 @@ if( $getPartidas === false ) {
 sqlsrv_free_stmt($getPartidas);
 
 //Finalizar coneccion
-sqlsrv_close($connec);
-*/
+sqlsrv_close($connec);*/
+
 
 $serverName = "DESKTOP-092HCCI";
 $username = "";
@@ -52,4 +52,5 @@ try {
 $query = "select count(Mayor) as Cuenta, MayorDesc as Cuenta_Contable from Dim_CuentaContable group by MayorDesc";
 $stmt = $conn->query($query);
 $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
+//Imprimir array:
 echo json_encode($registros);
