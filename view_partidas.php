@@ -17,7 +17,7 @@
 
     /******* Apis  *******/
 
-    const getCuentas_Contables = () => {
+    const CuentasContables = () => {
 
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -68,7 +68,7 @@
 
     const getCuentasContables = async () => {
         try{
-            const response = await getCuentas_Contables;
+            const response = await CuentasContables;
             console.log("getCuentas Response", response);
             const myArr = JSON.parse(response);
 
