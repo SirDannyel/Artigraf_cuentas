@@ -230,6 +230,7 @@
                // console.log("getEstados Response", response);
 
                 $(".tr").remove(); 
+                ult_orden = 0;
                 if(response === 'Sin resultados') return;
  
                 const myArr = JSON.parse(response);
@@ -238,16 +239,25 @@
                 for(var i = 0; i < myArr.length; i++) {
                     var linea = document.createElement("tr");
                     linea.setAttribute("class", "d-flex flex-row tr");  
-                    tablabody.appendChild(linea); 
+                    tablabody.appendChild(linea);  
                     
                     var orden = myArr[i].Orden;
                     var campo = document.createElement("td");
                     campo.setAttribute("style", "width:100px;");  
+                    campo.setAttribute("class", "text-center"); 
                      campo.textContent = orden;
                      campo.value = orden;
                      linea.appendChild(campo);
                     
-                     var opt = myArr[i].Rubro;
+                     var opt = myArr[i].Nivel;
+                    campo = document.createElement("td");
+                    campo.setAttribute("style", "width:100px;");  
+                    campo.setAttribute("class", "text-center"); 
+                    campo.textContent = opt;
+                    campo.value = opt;
+                    linea.appendChild(campo);
+
+                     opt = myArr[i].Rubro;
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:300px;");  
                     campo.textContent = opt;
@@ -259,18 +269,18 @@
                     campo.setAttribute("style", "width:400px;");  
                     campo.textContent = opt;
                     campo.value = opt;
-                    linea.appendChild(campo);
-
-                    opt = myArr[i].Nivel;
-                    campo = document.createElement("td");
-                    campo.setAttribute("style", "width:100px;");  
-                    campo.textContent = opt;
-                    campo.value = opt;
-                    linea.appendChild(campo);
+                    linea.appendChild(campo); 
                     
                     opt = myArr[i].Naturaleza;
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:100px;");  
+                    if(opt == 1){
+                      opt = 'Positiva';
+                      campo.setAttribute("class", "text-success text-center");  
+                    }else{
+                      opt = 'Negativa';
+                      campo.setAttribute("class", "text-danger text-center");  
+                    }
                     campo.textContent = opt;
                     campo.value = opt;
                     linea.appendChild(campo);
@@ -278,6 +288,13 @@
                     opt = myArr[i].Identado;
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:100px;");  
+                    if(opt == 1){
+                      opt = 'Si';
+                      campo.setAttribute("class", "text-success fw-bold text-center");  
+                    }else{
+                      opt = 'No';
+                      campo.setAttribute("class", "text-muted text-center");  
+                    }
                     campo.textContent = opt;
                     campo.value = opt;
                     linea.appendChild(campo);
@@ -285,6 +302,10 @@
                     opt = myArr[i].Formato;
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:100px;");  
+                      campo.setAttribute("class", "fw-bold text-center"); 
+                    if(opt == 'BOLD'){
+                      opt = 'Si'; 
+                    }
                     campo.textContent = opt;
                     campo.value = opt;
                     linea.appendChild(campo); 
@@ -381,19 +402,28 @@
               },
               showCancelButton: true,
               confirmButtonText: 'Agregar',
+              cancelButtonText: 'Cancelar',
               showLoaderOnConfirm: true,
+              allowOutsideClick: false,
+              inputValidator: (value) => {
+                if (!value) {
+                  return 'Ingresar nombre del Estado'
+                }
+              },
               preConfirm: (estado) => {
+                if(estado == '') return false;
+
                 return postEstadoApi(estado);
               },
               allowOutsideClick: () => !Swal.isLoading()
             }).then((result) => {
-              if (result) {
+              if (result==='True') { 
 
                 Swal.fire({
-                  title: `Agregado` 
+                  title: result 
                 });
                   
-              }
+              } 
             })
         }
 
@@ -414,9 +444,9 @@
         <a class="navbar-brand" href="#"> 
         <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>
-        <div class="d-flex flex-column px-4  w-100">  
+        <div class="d-flex flex-column  w-100">  
           <p style="height:8px;" class="form-check-label d-flex justify-content-left px-5" for="EstadoSelect">Tipo</p>
-          <div class="d-flex flex-row px-4 pb-2 w-100"> 
+          <div class="d-flex flex-row pb-2 w-100"> 
               <select id="EstadoSelect" class="form-select m-1 d-flex justify-content-left" role="listbox" placeholder="Estado" onchange="handleSelectChange(this.value)" > 
               </select>
               <button class="btn btn-success d-flex justify-content-left mt-1" style="height:38px;" onclick="handleAddEstado()">
@@ -424,16 +454,9 @@
                </button>
           </div>
         </div>
-        <div class="d-flex flex-column px-4 pb-2 w-100">  
-          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdRubro">Rubro</p>
-          <input class="form-control m-1" placeholder="Rubro" id="IdRubro"></input>
-        </div>
-        <div class="d-flex flex-column px-4 pb-2 w-100">  
-          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdDesc">Descripción</p>
-          <input class="form-control m-1" placeholder="Descripción" id="IdDesc"></input>
-        </div>
-        <div class="d-flex flex-column px-4 pb-2 w-100">  
-          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdNivel">Descripción</p>
+        
+        <div class="d-flex flex-column px-2 pb-2 w-100">  
+          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdNivel">Nivel</p>
           <select class="form-select m-1" placeholder="Nivel" id="IdNivel">
               <option class="option" value ="Mayor">Mayor</option>
               <option class="option" value ="Fijo">Fijo</option>
@@ -446,22 +469,33 @@
               <option class="option" value ="EF7">EF7</option> 
           </select>
         </div>
-         
-        <div class="d-flex flex-column px-4 pb-2">
-          <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="pasivoSwitch">Pasivo</p>
-          <input class="form-switch form-check-input d-flex justify-content-center" type="checkbox" id="pasivoSwitch" checked>
-         
+        <div class="d-flex flex-column px-2 pb-2 w-100">  
+          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdRubro">Rubro</p>
+          <input class="form-control m-1" placeholder="Rubro" id="IdRubro"></input>
         </div>
-        <div class="d-flex flex-column px-4 pb-2">
-          <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="identadoSwitch">Identado</p>
-          <input class="form-switch form-check-input d-flex justify-content-center" type="checkbox" id="identadoSwitch" checked>
+        <div class="d-flex flex-column px-2 pb-2 w-100">  
+          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdDesc">Descripción</p>
+          <input class="form-control m-1" placeholder="Descripción" id="IdDesc"></input>
+        </div>
          
+        <div class="d-flex flex-column px-2 pb-3">
+          <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="pasivoSwitch">Positiva</p>
+          <div class="d-flex justify-content-center">
+            <input class="form-switch form-check-input d-flex justify-content-center" style="height:25px;" type="checkbox" id="pasivoSwitch" checked>
+          </div>
+        </div>
+        <div class="d-flex flex-column px-2 pb-3">
+          <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="identadoSwitch">Identado</p>
+          <div class="d-flex justify-content-center">
+            <input class="form-switch form-check-input d-flex justify-content-center" style="height:25px;" type="checkbox" id="identadoSwitch" checked>
+          </div>
         </div>
         
-        <div class="d-flex flex-column px-4 pb-2">
+        <div class="d-flex flex-column px-2 pb-3">
           <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="boldSwitch">Resaltado</p>
-          <input class="form-switch form-check-input d-flex justify-content-center" type="checkbox" id="boldSwitch" checked>
-         
+          <div class="d-flex justify-content-center">
+            <input class="form-switch form-check-input d-flex justify-content-center" style="height:25px;" type="checkbox" id="boldSwitch" checked> 
+          </div>
         </div>
  
         <button class="btn btn-success" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))">
@@ -472,19 +506,20 @@
     <div style="padding-top:90px;"> </div>
     <main class="container" style="max-width:1420px;">  
         <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
-          <div class="d-flex flex-row">
-            <h3 class="border-bottom pb-2 mb-0 w-100  d-flex justify-content-center text-primary" id="titulo">Conceptos</h3>
+          <div class="border-bottom d-flex flex-row">
+            <h6 class="pt-2 w-75  d-flex justify-content-left text-muted" >Configurador de tipos de Estado de Resultados</h6>
+            <h3 class="w-100  d-flex justify-content-left text-primary" id="titulo">Conceptos</h3>
           </div>
           <table class="table" id="tabla">
             <thead>
               <tr class="d-flex flex-row">
-                <th scope="col" style="width:100px;">Orden</th>
-                <th scope="col" style="width:300px;">Rubro</th> 
-                <th scope="col" style="width:400px;">Descripción</th> 
-                <th scope="col" style="width:100px;">Nivel</th> 
-                <th scope="col" style="width:100px;">Naturaleza</th> 
-                <th scope="col" style="width:100px;">Identado</th> 
-                <th scope="col" style="width:100px;">Formato</th> 
+                <th scope="col" style="width:100px;" class="text-center">Orden</th>
+                <th scope="col" style="width:100px;" class="text-center">Nivel</th> 
+                <th scope="col" style="width:300px;" class="text-center">Rubro</th> 
+                <th scope="col" style="width:400px;" class="text-center">Descripción</th> 
+                <th scope="col" style="width:100px;" class="text-center">Naturaleza</th> 
+                <th scope="col" style="width:100px;" class="text-center">Identado</th> 
+                <th scope="col" style="width:100px;" class="text-center">Resaltado</th> 
               </tr>
             </thead>
             <tbody  id="tablabody">
