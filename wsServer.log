@@ -502,3 +502,7 @@
 2022-10-12 00:16:03 :: Query: - Select Estado from Dim_Estado order by 1
 2022-10-12 00:16:20 :: EjecutaSQL - Select Estado
 2022-10-12 00:16:20 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 23:59:17 :: EjecutaSQL - Select Estado
+2022-10-12 23:59:17 :: Query: - Select Estado from Dim_Estado order by 1
+2022-10-12 23:59:34 :: EjecutaSQL - Select Estado
+2022-10-12 23:59:34 :: Query: - Select Estado from Dim_Estado order by 1
