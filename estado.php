@@ -1,5 +1,4 @@
-
-
+ 
     <!doctype html>
 <html lang="en">
   <head>
@@ -32,12 +31,13 @@
                     }
                 }
         
-                objXMLHttpRequest.open('GET', 'EstadosDb.php');
-                objXMLHttpRequest.send();
+                objXMLHttpRequest.open('POST', 'EstadosDb.php');
+                objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                objXMLHttpRequest.send("tipo="+"get" );
             });
         }
 
-        const getConceptosApi = (estado = 'ER Interno') => {   
+        const getConceptosApi = (estado = $('#EstadoSelect').val()) => {   
             return new Promise(function (resolve, reject) {
                 const objXMLHttpRequest = new XMLHttpRequest();
         
@@ -77,6 +77,26 @@
             });
         }
         
+        const postEstadoApi = (estado) => {   
+            return new Promise(function (resolve, reject) {
+                const objXMLHttpRequest = new XMLHttpRequest();
+        
+                objXMLHttpRequest.onreadystatechange = function () {
+                    if (objXMLHttpRequest.readyState === 4) {
+                        if (objXMLHttpRequest.status == 200) {
+                             resolve(objXMLHttpRequest.responseText); 
+                                getEstados();
+                        } else {
+                            reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                        }
+                    }
+                }
+        
+                objXMLHttpRequest.open('POST', 'EstadosDb.php');
+                objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                objXMLHttpRequest.send("tipo="+"post"+"&estado="+estado);
+            });
+        }
         const deleteConceptoApi = (estado,orden,desc) => {   
             return new Promise(function (resolve, reject) {
                 const objXMLHttpRequest = new XMLHttpRequest();
@@ -117,11 +137,7 @@
             });
         }
         /******* Fin Apis  *******/
-
-        const deleteChild = () => {
-          $(".tr").remove(); 
-          console.log('1');             
-        }    
+   
 
         /******* Services  *******/
 
@@ -168,7 +184,7 @@
                // alert('estado: '+estado+' rubro: '+rubro+' desc: '+desc+' nivel: '+nivel+' nat: '+nat+' iden: '+iden+' res: '+res);
 
                 const response = await postConceptoApi(estado,rubro,desc,nivel,nat,iden,res);
-                console.log("postConcepto Response", response); 
+               // console.log("postConcepto Response", response); 
                 Swal.fire({
                   position: 'top-end',
                   icon: 'success',
@@ -187,31 +203,35 @@
         const getEstados = async () => {
             try{
                 const response = await getEstadosApi();
-                console.log("getEstados Response", response);
+               // console.log("getEstados ResponseS", response);
                 const myArr = JSON.parse(response);
 
-                var select = document.getElementById("EstadoSelect");
+                var select = document.getElementById("EstadoSelect"); 
+                $(".optionEstado").remove(); 
                 for(var i = 0; i < myArr.length; i++) {
                     var opt = myArr[i];
                     var el = document.createElement("option");
+                    el.setAttribute("class", "optionEstado");  
                     el.textContent = opt;
                     el.value = opt;
                     select.appendChild(el);
                 }
+                
+                getConceptos($('#EstadoSelect').val());
             }
             catch(err){
                 console.log(err)
             }           
         }
         var ult_orden;
-        const getConceptos = async (estado = 'ER Interno') => {
+        const getConceptos = async (estado = $('#EstadoSelect').val()) => {
             try{
                 const response = await getConceptosApi(estado);
-                console.log("getEstados Response", response);
+               // console.log("getEstados Response", response);
 
+                $(".tr").remove(); 
                 if(response === 'Sin resultados') return;
-
-                deleteChild();
+ 
                 const myArr = JSON.parse(response);
                 var tablabody = document.getElementById("tablabody");    
 
@@ -352,11 +372,35 @@
                postConcepto(estado,rubro,desc,nivel,nat,identado,resaltado);
         }
 
+        const handleAddEstado = () => {
+          Swal.fire({
+              title: 'Nombre del Estado',
+              input: 'text',
+              inputAttributes: {
+                autocapitalize: 'off'
+              },
+              showCancelButton: true,
+              confirmButtonText: 'Agregar',
+              showLoaderOnConfirm: true,
+              preConfirm: (estado) => {
+                return postEstadoApi(estado);
+              },
+              allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+              if (result) {
+
+                Swal.fire({
+                  title: `Agregado` 
+                });
+                  
+              }
+            })
+        }
+
         /******* Fin DOM Events  *******/ 
 
         const init = () => {
             getEstados();
-            getConceptos();
         }
 
         init();
@@ -370,10 +414,15 @@
         <a class="navbar-brand" href="#"> 
         <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>
-        <div class="d-flex flex-column px-4 pb-2 w-100">  
-          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="EstadoSelect">Tipo</p>
-          <select id="EstadoSelect" class="form-select m-1 d-flex justify-content-center" role="listbox" placeholder="Estado" onchange="handleSelectChange(this.value)" > 
-          </select>
+        <div class="d-flex flex-column px-4  w-100">  
+          <p style="height:8px;" class="form-check-label d-flex justify-content-left px-5" for="EstadoSelect">Tipo</p>
+          <div class="d-flex flex-row px-4 pb-2 w-100"> 
+              <select id="EstadoSelect" class="form-select m-1 d-flex justify-content-left" role="listbox" placeholder="Estado" onchange="handleSelectChange(this.value)" > 
+              </select>
+              <button class="btn btn-success d-flex justify-content-left mt-1" style="height:38px;" onclick="handleAddEstado()">
+              <i class="fa-solid fa-plus mt-1"></i>
+               </button>
+          </div>
         </div>
         <div class="d-flex flex-column px-4 pb-2 w-100">  
           <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdRubro">Rubro</p>
@@ -415,7 +464,7 @@
          
         </div>
  
-        <button class="btn btn-primary" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))">
+        <button class="btn btn-success" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))">
                     Agregar
                   </button>
       </div>

@@ -8,12 +8,10 @@ function writeServerLog($msg)
 
 writeServerLog('Tipo: - ' .$_POST['tipo'] );
 
-if($_POST['tipo'] === "get"){
-	writeServerLog('Get  - entra'   ); 
+if($_POST['tipo'] === "get"){ 
  
 		$Proceso="Select Conceptos";
-		$sql="Select * from EstadoResultados where EstadoResultados = '{$_POST['estado']}' order by Orden";
-		writeServerLog('Get  - entra2'   );
+		$sql="Select * from EstadoResultados where EstadoResultados = '{$_POST['estado']}' order by Orden"; 
 		$Respuesta = '[';
 	
 			 writeServerLog('EjecutaSQL - ' .$Proceso ); 
