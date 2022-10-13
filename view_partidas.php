@@ -59,8 +59,8 @@
             objXMLHttpRequest.onreadystatechange = function () {
                 if (objXMLHttpRequest.readyState === 4) {
                     if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                    } else {
+                        resolve(objXMLHttpRequest.responseText); 
+                    } else { 
                         reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
                     }
                 }
@@ -80,10 +80,10 @@
 
     /******* Services  *******/
 
-    const getCuentasContables. = async () => {
-        try{
-            const response = await CuentasContablesApi;
-            console.log("getCuentas Response", response);
+    const getCuentasContables = async () => {
+        try{ 
+            const response = await CuentasContablesApi();
+            console.log("getCuentas Response", JSON.parse(response));
             const myArr = JSON.parse(response);
             var select = document.getElementById("CuentaSelect");
             for(var i = 0; i < myArr.length; i++) {

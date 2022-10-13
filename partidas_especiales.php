@@ -37,7 +37,7 @@ sqlsrv_free_stmt($getPartidas);
 sqlsrv_close($connec);*/
 
 
-$serverName = "DESKTOP-092HCCI";
+$serverName = "DESKTOP-907DBP9\SQLEXPRESS";
 $username = "";
 $password = "";
 $dataBase = "DWH_Artigraf";
