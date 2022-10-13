@@ -37,6 +37,25 @@
             });
         }
 
+        const getRubrosApi = (nivel) => {
+            return new Promise(function (resolve, reject) {
+                const objXMLHttpRequest = new XMLHttpRequest();
+        
+                objXMLHttpRequest.onreadystatechange = function () {
+                    if (objXMLHttpRequest.readyState === 4) {
+                        if (objXMLHttpRequest.status == 200) {
+                             resolve(objXMLHttpRequest.responseText);
+                        } else {
+                            reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                        }
+                    }
+                }
+        
+                objXMLHttpRequest.open('POST', 'CuentasContablesDb.php');
+                objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                objXMLHttpRequest.send("tipo="+"getRubros"+"&nivel="+nivel );
+            });
+        }
         const getConceptosApi = (estado = $('#EstadoSelect').val()) => {   
             return new Promise(function (resolve, reject) {
                 const objXMLHttpRequest = new XMLHttpRequest();
@@ -181,16 +200,21 @@
                 }else{ 
                   res = '';
                 }
+                var rubroName;
+                if(rubro == '')
+                    rubroName = desc;
+                else    
+                    rubroName = rubro;
                // alert('estado: '+estado+' rubro: '+rubro+' desc: '+desc+' nivel: '+nivel+' nat: '+nat+' iden: '+iden+' res: '+res);
 
-                const response = await postConceptoApi(estado,rubro,desc,nivel,nat,iden,res);
+                const response = await postConceptoApi(estado,rubroName,desc,nivel,nat,iden,res);
                // console.log("postConcepto Response", response); 
                 Swal.fire({
                   position: 'top-end',
                   icon: 'success',
                   title: 'Registro Agregado',
                   showConfirmButton: false,
-                  timer: 1500
+                  timer: 1000
                 });
 
                 getConceptos(estado);
@@ -223,6 +247,36 @@
                 console.log(err)
             }           
         }
+        
+        const getRubros = async (nivel) => {
+            try{
+                const response = await getRubrosApi(nivel);  
+                const myArr = JSON.parse(response); 
+
+                var select = document.getElementById("IdRubro"); 
+                if(nivel == 'Fijo'){
+                  select.setAttribute("disabled", ""); 
+                }else{
+                  select.removeAttribute("disabled");   
+                }
+                $(".optionRubro").remove(); 
+                for(var i = 0; i < myArr.length; i++) {
+                    var opt = myArr[i];
+                    var el = document.createElement("option");
+                      el.setAttribute("class", "optionRubro"); 
+                    if(nivel != 'Fijo'){ 
+                      el.textContent = opt;
+                      el.value = opt;
+                    } 
+                    select.appendChild(el);
+                }
+                 
+            }
+            catch(err){
+                console.log(err)
+            }           
+        }
+
         var ult_orden;
         const getConceptos = async (estado = $('#EstadoSelect').val()) => {
             try{
@@ -387,10 +441,11 @@
             getConceptos(estado);
             $("#titulo").text(estado);
         }
-        const handleAddConcepto = (estado,rubro,desc,nivel,nat,identado,resaltado) => {
-         // alert($('#EstadoSelect').val());
-        //  alert('estado: '+estado+'rubro: '+rubro+'desc: '+desc+'nivel: '+nivel+'nat: '+nat+'identado: '+identado+'resaltado: '+resaltado);
+        const handleAddConcepto = (estado,rubro,desc,nivel,nat,identado,resaltado) => { 
                postConcepto(estado,rubro,desc,nivel,nat,identado,resaltado);
+        }
+        const handleChangeNivel = (nivel) => { 
+               getRubros(nivel);
         }
 
         const handleAddEstado = () => {
@@ -431,6 +486,7 @@
 
         const init = () => {
             getEstados();
+            handleChangeNivel('Mayor');
         }
 
         init();
@@ -457,7 +513,7 @@
         
         <div class="d-flex flex-column px-2 pb-2 w-100">  
           <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdNivel">Nivel</p>
-          <select class="form-select m-1" placeholder="Nivel" id="IdNivel">
+          <select class="form-select m-1" placeholder="Nivel" id="IdNivel" onchange="handleChangeNivel(this.value)">
               <option class="option" value ="Mayor">Mayor</option>
               <option class="option" value ="Fijo">Fijo</option>
               <option class="option" value ="EF1">EF1</option>
@@ -469,9 +525,11 @@
               <option class="option" value ="EF7">EF7</option> 
           </select>
         </div>
-        <div class="d-flex flex-column px-2 pb-2 w-100">  
+        <div class="d-flex flex-column px-2 pb-0 w-100">  
           <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdRubro">Rubro</p>
-          <input class="form-control m-1" placeholder="Rubro" id="IdRubro"></input>
+          <div class="d-flex flex-row pb-2 w-100"> 
+              <select id="IdRubro" class="form-select m-1 d-flex justify-content-left" role="listbox" placeholder="Rubro"> </select> 
+          </div> 
         </div>
         <div class="d-flex flex-column px-2 pb-2 w-100">  
           <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdDesc">Descripción</p>
@@ -507,7 +565,7 @@
     <main class="container" style="max-width:1420px;">  
         <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
           <div class="border-bottom d-flex flex-row">
-            <h6 class="pt-2 w-75  d-flex justify-content-left text-muted" >Configurador de tipos de Estado de Resultados</h6>
+            <h6 class="pt-2 w-75  d-flex justify-content-left text-muted" >Configurador de tipos de Estados Financieros</h6>
             <h3 class="w-100  d-flex justify-content-left text-primary" id="titulo">Conceptos</h3>
           </div>
           <table class="table" id="tabla">

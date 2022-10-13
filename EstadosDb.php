@@ -5,6 +5,8 @@ function writeServerLog($msg)
 	@error_log(date('Y-m-d H:i:s').' :: '.print_r($msg, true).PHP_EOL, 3, 'wsServer.log');
 }
 
+writeServerLog('Tipo: - ' .$_POST['tipo'] );
+
 $conf = include('config.php');
  
 $server  = $conf['server']; 
