@@ -22,99 +22,71 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-white bg-white border-bottom" aria-label="Main navigation">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"> 
         <img class="me-3" src="Artigraf.png" alt="" width="100" >
-        </a> 
+          </a>
+          <div class="row">
+            <div class="col-6 col-sm-3">
+              <input class="form-control m-1" placeholder="1001,0001,????" id="inputSearch"></input>
+            </div>
+            <div class="col-6 col-sm-3"> <button class="btn btn-primary" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))">
+                    Buscar
+                  </button></div>
+            
+            <div class="w-100"></div>
+          
+        <!-- AQUI FILAS DE INPUTS EF -->
+        <div class="col">
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf1">EF1</p>
+              <input class="form-control m-1" placeholder="EF1" id="IdEf1"></input>
+            
+        </div>
         
-        <!--<select id="EstadoSelect" class="form-select m-1" role="listbox" placeholder="Estado" onchange="handleSelectChange(this.value)" > 
-        </select>-->
-        <select class="form-select m-1" placeholder="EF1" id="IdNivel">
-            <option class="option" value ="Mayor">1001,0001,0001,0006 </option>
-        </select>
-        <select class="form-select m-1" placeholder="EF1" id="IdNivel">
-            <option class="option" value ="Mayor">PCAJA CHICA DIRECCION</option>
-        </select>
-        <select class="form-select m-1" placeholder="EF1" id="IdNivel">
-            <option class="option" value ="Mayor">PASIVOS x DOCUMENTAR</option>
-            <option class="option" value ="Fijo">RANGO NO UTILIZADO</option>
-            <option class="option" value ="EF1">RETENCIONES AL PERSONAL</option>
-            <option class="option" value ="EF2">ACREEDORES DIVERSOS</option> 
-            <option class="option" value ="EF3">SUELDOS `POR PAGAR</option> 
-            <option class="option" value ="EF4">IVA POR PAGAR</option> 
-            <option class="option" value ="EF5">IMPUESTOS POR PAGAR</option> 
-            <option class="option" value ="EF6">FONDO AHORRO</option> 
-            <option class="option" value ="EF7">IMPUESTOS A LA UTILIDAD DIFERIDO</option> 
-        </select>
-        <select class="form-select m-1" placeholder="EF2" id="IdNivel">
-            <option class="option" value ="Mayor">ACREEDORES DIVERSOS</option>
-            <option class="option" value ="Fijo">BENEFICIOS A LOS EMPLEADOS</option>
-            <option class="option" value ="EF1">ISR DIFERIDO</option>
-            <option class="option" value ="EF2">PTU DIFERIDA</option> 
-            <option class="option" value ="EF3">CAPITAL SOCIAL VARIABLE</option> 
-            <option class="option" value ="EF4">INSUFICIENCIA EN ACT</option> 
-            <option class="option" value ="EF5">RESERVA LEGAL</option> 
-            <option class="option" value ="EF6">RESERVA LEGAL ACTUALIZ</option> 
-            <option class="option" value ="EF7">VENTAS TOTALES</option> 
-        </select>
-        <select class="form-select m-1" placeholder="EF3" id="IdNivel">
-            <option class="option" value ="Mayor">Mayor</option>
-            <option class="option" value ="Fijo">Fijo</option>
-            <option class="option" value ="EF1">EF1</option>
-            <option class="option" value ="EF2">EF2</option> 
-            <option class="option" value ="EF3">EF3</option> 
-            <option class="option" value ="EF4">EF4</option> 
-            <option class="option" value ="EF5">EF5</option> 
-            <option class="option" value ="EF6">EF6</option> 
-            <option class="option" value ="EF7">EF7</option> 
-        </select>
-        <select class="form-select m-1" placeholder="EF4" id="IdNivel">
-            <option class="option" value ="Mayor">Mayor</option>
-            <option class="option" value ="Fijo">Fijo</option>
-            <option class="option" value ="EF1">EF1</option>
-            <option class="option" value ="EF2">EF2</option> 
-            <option class="option" value ="EF3">EF3</option> 
-            <option class="option" value ="EF4">EF4</option> 
-            <option class="option" value ="EF5">EF5</option> 
-            <option class="option" value ="EF6">EF6</option> 
-            <option class="option" value ="EF7">EF7</option> 
-        </select>
-        <select class="form-select m-1" placeholder="EF5" id="IdNivel">
-            <option class="option" value ="Mayor">Mayor</option>
-            <option class="option" value ="Fijo">Fijo</option>
-            <option class="option" value ="EF1">EF1</option>
-            <option class="option" value ="EF2">EF2</option> 
-            <option class="option" value ="EF3">EF3</option> 
-            <option class="option" value ="EF4">EF4</option> 
-            <option class="option" value ="EF5">EF5</option> 
-            <option class="option" value ="EF6">EF6</option> 
-            <option class="option" value ="EF7">EF7</option> 
-        </select>
-        <select class="form-select m-1" placeholder="EF6" id="IdNivel">
-            <option class="option" value ="Mayor">Mayor</option>
-            <option class="option" value ="Fijo">Fijo</option>
-            <option class="option" value ="EF1">EF1</option>
-            <option class="option" value ="EF2">EF2</option> 
-            <option class="option" value ="EF3">EF3</option> 
-            <option class="option" value ="EF4">EF4</option> 
-            <option class="option" value ="EF5">EF5</option> 
-            <option class="option" value ="EF6">EF6</option> 
-            <option class="option" value ="EF7">EF7</option> 
-        </select>
-        <select class="form-select m-1" placeholder="EF7" id="IdNivel">
-            <option class="option" value ="Mayor">Mayor</option>
-            <option class="option" value ="Fijo">Fijo</option>
-            <option class="option" value ="EF1">EF1</option>
-            <option class="option" value ="EF2">EF2</option> 
-            <option class="option" value ="EF3">EF3</option> 
-            <option class="option" value ="EF4">EF4</option> 
-            <option class="option" value ="EF5">EF5</option> 
-            <option class="option" value ="EF6">EF6</option> 
-            <option class="option" value ="EF7">EF7</option> 
-        </select>
-        <button class="btn btn-primary" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))"><i class="plus"></i>Agregar</button>
-        </nav>
+        <div class="col">
+            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF2</p>
+            <input class="form-control m-1" placeholder="EF2" id="IdEf2"></input>
+        </div>
+
+        <div class="col">
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF3</p>
+              <input class="form-control m-1" placeholder="EF3" id="IdEf3"></input>
+        </div>
+
+        <div class="col">
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF4</p>
+              <input class="form-control m-1" placeholder="EF4" id="IdEf4"></input>
+        </div>
+
+        <div class="col"> 
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF5</p>
+              <input class="form-control m-1" placeholder="EF5" id="IdEf5"></input>
+        </div>
+
+        <div class="col">  
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF6</p>
+              <input class="form-control m-1" placeholder="EF6" id="IdEf6"></input>
+        </div>
+
+        <div class="col">
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF7</p>
+              <input class="form-control m-1" placeholder="EF7" id="IdEf7"></input>
+        </div>
+
+        <div class="col">
+        <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3"></p>
+        <div class="col"> <button class="btn btn-primary" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))">
+                    Mofificar
+                  </button></div>
+        </div>
+
+          </div>
+      </div> 
+    </nav> 
+
+
         <div style="padding-top:90px;"> </div>
     <main class="container">  
         <div class="my-3 p-5 bg-body rounded shadow-sm" id="panel">
