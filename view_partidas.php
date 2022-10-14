@@ -51,7 +51,7 @@
 
     /******* Apis  *******/
 
-    const CuentasContablesApi = () => {
+    const Cuentas_Api = () => {
 
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -66,7 +66,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('GET','partidas_especiales.php');
+            objXMLHttpRequest.open('GET','http://localhost/Artigraf/partidas_especiales.php');
             objXMLHttpRequest.send();
         });
     }
@@ -80,19 +80,15 @@
 
     /******* Services  *******/
 
-    const getCuentasContables = async () => {
+    const getCuentas = async (cuenta = $('#Cuenta').val()) => {
         try{ 
-            const response = await CuentasContablesApi();
-            console.log("getCuentas Response", JSON.parse(response));
+            const response = await Cuentas_Api();
+
             const myArr = JSON.parse(response);
-            var select = document.getElementById("CuentaSelect");
-            for(var i = 0; i < myArr.length; i++) {
-                var opt = myArr[i].Cuenta_Contable;
-                var el = document.createElement("option");
-                el.textContent = opt;
-                el.value = opt;
-                select.appendChild(el);
-            }
+            const result = myArr.find(({ Cuenta }) => Cuenta === cuenta);
+            const Descripcion = result.CuentaDesc;
+            console.log("getCuentas",Descripcion);
+            $("#Descripcion").val(Descripcion);
         }
         catch(err){
             console.log(err)
@@ -101,71 +97,15 @@
 
     /******* Fin Services  *******/
 
+    const handleSelectChange = (cuenta) => {
+        getCuentas(cuenta);
+    }
     /******* Fin DOM Events  *******/
 
 
 
-    const validar = () => {
-
-        const arr = document.getElementsByName("inputclave");
-        for (var x = 0; x < arr.length; x++) {
-            // validacion
-            if(arr[x].value === ''){
-                // alert('No se admiten valores vacios');
-                Swal.fire('No se admiten valores vacios')
-                return;
-            }
-        }
-
-        document.getElementById('boton_enviar').disabled=true;
-
-        for (var x = 0; x < arr.length; x++) {
-
-            // Create an XMLHttpRequest object
-            const xhttp = new XMLHttpRequest();
-
-            // Define a callback function
-            xhttp.onload = function() {
-                // Here you can use the Data
-            }
-
-            // Send a request
-            xhttp.open("POST", "db.php");
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("descripcion="+arr[x].value);
-
-        }
-
-        let timerInterval
-        Swal.fire({
-            title: 'Registros Agregados!',
-            //    html: 'I will close in <b></b> milliseconds.',
-            timer: 1000,
-            timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading()
-                const b = Swal.getHtmlContainer().querySelector('b')
-                timerInterval = setInterval(() => {
-                    b.textContent = Swal.getTimerLeft()
-                }, 100)
-            },
-            willClose: () => {
-                clearInterval(timerInterval)
-            }
-        }).then((result) => {
-            /* Read more about handling dismissals below */
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log('I was closed by the timer')
-            }
-        });
-        // fin
-
-        document.getElementById('boton_enviar').disabled=false;
-    }
-
-
     const init = () => {
-        getCuentasContables();
+        //getCuentas();
     }
 
     init();
@@ -179,26 +119,14 @@
         <a class="navbar-brand" href="#">
             <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>
-        <select id="CuentaSelect" class="form-select m-1" role="listbox" placeholder="Cuenta">
-        </select>
-        <input class="form-control m-1" placeholder="Rubro"></input>
-        <input class="form-control m-1" placeholder="Descripción"></input>
-        <select class="form-select m-1" placeholder="Nivel">
-            <option class="option" value ="Mayor">Mayor</option>
-            <option class="option" value ="Fijo">Fijo</option>
-            <option class="option" value ="EF1">EF1</option>
-            <option class="option" value ="EF2">EF2</option>
-            <option class="option" value ="EF3">EF3</option>
-            <option class="option" value ="EF4">EF4</option>
-            <option class="option" value ="EF5">EF5</option>
-            <option class="option" value ="EF6">EF6</option>
-            <option class="option" value ="EF7">EF7</option>
-        </select>
-        <button class="btn btn-primary" onclick="addConcepto()"><i class="plus"></i>Agregar</button>
+        <input id="Cuenta" class="form-control m-1" placeholder="Cuenta" onchange="handleSelectChange(this.value)"></input>
+        <input id="Descripcion" class="form-control m-1" placeholder="Descripcion"></input>
+        <input id="Cargo" class="form-control m-1" placeholder="Cargo"></input>
+        <input id="Abono" class="form-control m-1" placeholder="Abono"></input>
+        <button class="btn btn-primary" ><i class="plus"></i>Agregar</button>
     </div>
 </nav>
 <div style="padding-top:90px;"> </div>
-
 
 </body>
 </html>

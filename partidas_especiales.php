@@ -37,20 +37,32 @@ sqlsrv_free_stmt($getPartidas);
 sqlsrv_close($connec);*/
 
 
-$serverName = "DESKTOP-907DBP9\SQLEXPRESS";
-$username = "";
-$password = "";
-$dataBase = "DWH_Artigraf";
+if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-try {
-    $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase");
-    //echo "Conexion con $serverName";
-}catch (Exception $e){
-    echo "Ocurrio un error en la conexion. ". $e->getMessage();
+    $serverName = "DESKTOP-092HCCI";
+    $username = "";
+    $password = "";
+    $dataBase = "DWH_Artigraf";
+
+    try {
+        $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase");
+        //echo "Conexion con $serverName";
+    }catch (Exception $e){
+        echo "Ocurrio un error en la conexion. ". $e->getMessage();
+    }
+
+    $query = "SELECT Cuenta,CuentaDesc,Mayor FROM Dim_CuentaContable";
+    $stmt = $conn->query($query);
+    $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    //Imprimir json:
+    header_remove('Set-Cookie');
+    $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
+    if (is_array($httpHeaders) && count($httpHeaders)) {
+        foreach ($httpHeaders as $httpHeader) {
+            header($httpHeader);
+        }
+    }
+    echo json_encode($registros);
+    exit();
 }
-
-$query = "select count(Mayor) as Cuenta, MayorDesc as Cuenta_Contable from Dim_CuentaContable group by MayorDesc";
-$stmt = $conn->query($query);
-$registros = $stmt->fetchAll(PDO::FETCH_OBJ);
-//Imprimir array:
-echo json_encode($registros);
