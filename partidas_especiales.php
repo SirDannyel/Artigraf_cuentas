@@ -36,8 +36,36 @@ sqlsrv_free_stmt($getPartidas);
 //Finalizar coneccion
 sqlsrv_close($connec);*/
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+        $serverName = "DESKTOP-092HCCI";
+        $username = "";
+        $password = "";
+        $dataBase = "DWH_Artigraf";
+
+        try {
+            $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase");
+            //echo "Conexion con $serverName";
+        } catch (Exception $e) {
+            echo "Ocurrio un error en la conexion. " . $e->getMessage();
+        }
+
+        $query = "SELECT Cuenta,CuentaDesc,Mayor FROM Dim_CuentaContable";
+        $stmt = $conn->query($query);
+        $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        //Imprimir json:
+        header_remove('Set-Cookie');
+        $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
+        if (is_array($httpHeaders) && count($httpHeaders)) {
+            foreach ($httpHeaders as $httpHeader) {
+                header($httpHeader);
+            }
+        }
+        echo json_encode($registros);
+        exit();
+
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $serverName = "DESKTOP-092HCCI";
     $username = "";
@@ -47,8 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     try {
         $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase");
         //echo "Conexion con $serverName";
-    }catch (Exception $e){
-        echo "Ocurrio un error en la conexion. ". $e->getMessage();
+    } catch (Exception $e) {
+        echo "Ocurrio un error en la conexion. " . $e->getMessage();
     }
 
     $query = "SELECT Cuenta,CuentaDesc,Mayor FROM Dim_CuentaContable";
@@ -65,4 +93,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     }
     echo json_encode($registros);
     exit();
-}
+    }

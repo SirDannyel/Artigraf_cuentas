@@ -15,40 +15,6 @@
 
 <script>
 
-  /*  function getEstados() {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-                objXMLHttpRequest.open('GET', 'partidas_especiales.php');
-            objXMLHttpRequest.send();
-        });
-    }*/
-
- /*   getEstados().then(
-        data => { console.log('Success Response: ' + data)
-            const myArr = JSON.parse(data);
-            var select = document.getElementById("EstadoSelect");
-            for(var i = 0; i < myArr.length; i++) {
-                var opt = myArr[i].Cuenta_Contable;
-                var el = document.createElement("option");
-                el.textContent = opt;
-                el.value = opt;
-                select.appendChild(el);
-            }
-        },
-        error => { console.log(error) }
-    );*/
-
     /******* Apis  *******/
 
     const Cuentas_Api = () => {
@@ -67,6 +33,28 @@
             }
 
             objXMLHttpRequest.open('GET','http://localhost/Artigraf/partidas_especiales.php');
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            objXMLHttpRequest.send();
+        });
+    }
+
+    const PartidasEspeciales_Api = () => {
+
+        return new Promise(function (resolve, reject) {
+            const objXMLHttpRequest = new XMLHttpRequest();
+
+            objXMLHttpRequest.onreadystatechange = function () {
+                if (objXMLHttpRequest.readyState === 4) {
+                    if (objXMLHttpRequest.status == 200) {
+                        resolve(objXMLHttpRequest.responseText);
+                    } else {
+                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                    }
+                }
+            }
+
+            objXMLHttpRequest.open('GET','http://localhost/Artigraf/getpartidas.php');
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
@@ -86,26 +74,91 @@
 
             const myArr = JSON.parse(response);
             const result = myArr.find(({ Cuenta }) => Cuenta === cuenta);
-            const Descripcion = result.CuentaDesc;
-            console.log("getCuentas",Descripcion);
-            $("#Descripcion").val(Descripcion);
+            //const Descripcion = result.CuentaDesc;
+            $("#Descripcion").val(result.CuentaDesc);
         }
         catch(err){
             console.log(err)
         }
     }
 
+
+    const getPartidas = async () => {
+        try {
+            const response = await PartidasEspeciales_Api();
+
+            const myArr = JSON.parse(response);
+            console.log("getCuentas", myArr);
+
+            var tablabody = document.getElementById("tablabody");
+
+            for (var i = 0; i < myArr.length; i++) {
+                var linea = document.createElement("tr");
+                linea.setAttribute("class", "d-flex flex-row tr");
+                tablabody.appendChild(linea);
+
+                var orden = myArr[i].Fecha;
+                var campo = document.createElement("td");
+                campo.setAttribute("style", "width:150px;");
+                campo.textContent = orden;
+                campo.value = orden;
+                linea.appendChild(campo);
+
+                var opt = myArr[i].Descripcion;
+                campo = document.createElement("td");
+                campo.setAttribute("style", "width:400px;");
+                campo.textContent = opt;
+                campo.value = opt;
+                linea.appendChild(campo);
+
+                opt = myArr[i].Cuenta;
+                campo = document.createElement("td");
+                campo.setAttribute("style", "width:200px;");
+                campo.textContent = opt;
+                campo.value = opt;
+                linea.appendChild(campo);
+
+                opt = myArr[i].Cargos;
+                campo = document.createElement("td");
+                campo.setAttribute("style", "width:150px;");
+                campo.textContent = opt;
+                campo.value = opt;
+                linea.appendChild(campo);
+
+                opt = myArr[i].Abonos;
+                campo = document.createElement("td");
+                campo.setAttribute("style", "width:150px;");
+                campo.textContent = opt;
+                campo.value = opt;
+                linea.appendChild(campo);
+
+                opt = myArr[i].Movimientos;
+                campo = document.createElement("td");
+                campo.setAttribute("style", "width:150px;");
+                campo.textContent = opt;
+                campo.value = opt;
+                linea.appendChild(campo);
+            }
+
+            } catch (err)
+            {
+                console.log(err)
+            }
+        }
+
+
     /******* Fin Services  *******/
 
     const handleSelectChange = (cuenta) => {
         getCuentas(cuenta);
     }
+
     /******* Fin DOM Events  *******/
 
 
 
     const init = () => {
-        //getCuentas();
+        getPartidas();
     }
 
     init();
@@ -121,12 +174,38 @@
         </a>
         <input id="Cuenta" class="form-control m-1" placeholder="Cuenta" onchange="handleSelectChange(this.value)"></input>
         <input id="Descripcion" class="form-control m-1" placeholder="Descripcion"></input>
-        <input id="Cargo" class="form-control m-1" placeholder="Cargo"></input>
-        <input id="Abono" class="form-control m-1" placeholder="Abono"></input>
-        <button class="btn btn-primary" ><i class="plus"></i>Agregar</button>
+        <input type=number id="Cargo" class="form-control m-1" placeholder="0.0"></input>
+        <input type=number id="Abono" class="form-control m-1" placeholder="0.0"></input>
+        <button class="btn btn-primary" ><i class="plus" ></i>Agregar</button>
     </div>
 </nav>
 <div style="padding-top:90px;"> </div>
+
+<main class="container" style="max-width:1420px;">
+    <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
+        <div class="d-flex flex-row">
+            <h3 class="border-bottom pb-2 mb-0 w-100  d-flex justify-content-center text-primary" id="titulo">Partidas Especiales</h3>
+        </div>
+        <table class="table" id="tabla">
+            <thead>
+            <tr class="d-flex flex-row">
+                <th scope="col" style="width:150px;">Fecha</th>
+                <th scope="col" style="width:400px;">Descripcion</th>
+                <th scope="col" style="width:200px;">Cuenta</th>
+                <th scope="col" style="width:150px;">Cargo</th>
+                <th scope="col" style="width:150px;">Abono</th>
+                <th scope="col" style="width:150px;">Movimiento</th>
+            </tr>
+            </thead>
+            <tbody  id="tablabody">
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex flex-row my-3 p-3 bg-body rounded shadow-sm">
+        <div class="pb-2 mb-0 w-25"> </div>
+        <div class="pb-2 mb-0 w-25"> </div>
+    </div>
+</main>
 
 </body>
 </html>
