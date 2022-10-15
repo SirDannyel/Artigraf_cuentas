@@ -87,24 +87,29 @@
     </nav> 
 
 
-        <div style="padding-top:90px;"> </div>
-    <main class="container">  
-        <div class="my-3 p-5 bg-body rounded shadow-sm" id="panel">
-          <div class="d-flex flex-row">
-            <h6 class="border-bottom pb-2 mb-0 w-100">Cuentas Contables</h6>
+    <div style="padding-top:90px;"> </div>
+    <main class="container" style="max-width:1822px;">  
+        <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
+          <div class="border-bottom d-flex flex-row">
+            <h3 class="w-100  d-flex justify-content-center text-primary" id="titulo">Conceptos</h3>
           </div>
           <table class="table" id="tabla">
             <thead>
               <tr class="d-flex flex-row">
-                <th scope="col" style="width:100px;">Cuenta</th>
-                <th scope="col" style="width:300px;">Descripción</th> 
-                <th scope="col" style="width:400px;">EF1</th> 
-                <th scope="col" style="width:100px;">EF2</th> 
-                <th scope="col" style="width:100px;">EF3</th> 
-                <th scope="col" style="width:100px;">EF4</th> 
-                <th scope="col" style="width:100px;">EF5</th> 
-                <th scope="col" style="width:100px;">EF6</th>
-                <th scope="col" style="width:100px;">EF7</th>
+                <th scope="col" style="width:100px;" class="text-center">EF1</th>
+                <th scope="col" style="width:150px;" class="text-center">Descripción EF1</th> 
+                <th scope="col" style="width:100px;" class="text-center">EF2</th> 
+                <th scope="col" style="width:150px;" class="text-center">Descripción EF2</th> 
+                <th scope="col" style="width:100px;" class="text-center">EF3</th> 
+                <th scope="col" style="width:150px;" class="text-center">Descripción EF3</th> 
+                <th scope="col" style="width:100px;" class="text-center">EF4</th>
+                <th scope="col" style="width:150px;" class="text-center">Descripción EF4</th>
+                <th scope="col" style="width:100px;" class="text-center">EF5</th>
+                <th scope="col" style="width:150px;" class="text-center">Descripción EF5</th>
+                <th scope="col" style="width:100px;" class="text-center">EF6</th>
+                <th scope="col" style="width:150px;" class="text-center">Descripción EF6</th>
+                <th scope="col" style="width:100px;" class="text-center">EF7</th>
+                <th scope="col" style="width:150px;" class="text-center">Descripción EF7</th> 
               </tr>
             </thead>
             <tbody  id="tablabody">
