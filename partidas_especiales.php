@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo "Ocurrio un error en la conexion. " . $e->getMessage();
     }
 
-    $query = "SELECT Cuenta,CuentaDesc,Mayor FROM Dim_CuentaContable";
+    $query = "Select Fecha, Cuenta, Descripcion, Cargos, Abonos, Movimientos from Fact_Saldos where fecha = 20220801";
     $stmt = $conn->query($query);
     $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
 

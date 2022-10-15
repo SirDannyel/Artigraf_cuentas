@@ -88,7 +88,7 @@
             const response = await PartidasEspeciales_Api();
 
             const myArr = JSON.parse(response);
-            console.log("getCuentas", myArr);
+            //console.log("getCuentas", myArr);
 
             var tablabody = document.getElementById("tablabody");
 
