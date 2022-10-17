@@ -81,9 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $abono = $_POST['abono'];
     $movimiento = $cargo - $abono;
 
-    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$movimiento}','0','0') ";
-    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','{$_POST['abono']}') ";
-
     $connectionInfo = array( "Database"=>$dataBase);
     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
@@ -91,6 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo "Conexión no se pudo establecer.";
         die( print_r( sqlsrv_errors(), true));
     }
+
+
+    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$movimiento}','0','0') ";
 
     if( $sql <> ''){
         $stmt = sqlsrv_query($conn, $sql);
@@ -102,6 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     }
 
+    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','{$_POST['abono']}') ";
+
     if( $sql2 <> '' ){
         $stmt2 = sqlsrv_query($conn, $sql2);
         if($stmt2 === false) {
@@ -112,6 +114,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     }
 
-    sqlsrv_close($conn);
+    $cierre = sqlsrv_close($conn);
 
     }
