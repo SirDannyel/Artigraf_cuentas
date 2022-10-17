@@ -68,14 +68,18 @@
 
     /******* Services  *******/
 
-    const getCuentas = async (cuenta = $('#Cuenta').val()) => {
+    const getCuentas = async (cuenta = $('#Cuenta').val() ) => {
         try{ 
             const response = await Cuentas_Api();
 
             const myArr = JSON.parse(response);
-            const result = myArr.find(({ Cuenta }) => Cuenta === cuenta);
+
+            const result = myArr.find( ({ Cuenta }) => Cuenta === cuenta);
+            //const result2 = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));
+            //console.log("getCuentas2", result2);
             //const Descripcion = result.CuentaDesc;
             $("#Descripcion").val(result.CuentaDesc);
+            $("#Mayor").val(result.Mayor);
         }
         catch(err){
             console.log(err)
@@ -174,6 +178,7 @@
         </a>
         <input id="Cuenta" class="form-control m-1" placeholder="Cuenta" onchange="handleSelectChange(this.value)"></input>
         <input id="Descripcion" class="form-control m-1" placeholder="Descripcion"></input>
+        <input id="Mayor" class="form-control m-1" placeholder="Mayor"></input>
         <input type=number id="Cargo" class="form-control m-1" placeholder="0.0"></input>
         <input type=number id="Abono" class="form-control m-1" placeholder="0.0"></input>
         <button class="btn btn-primary" ><i class="plus" ></i>Agregar</button>

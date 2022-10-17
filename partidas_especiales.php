@@ -72,25 +72,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $password = "";
     $dataBase = "DWH_Artigraf";
 
-    try {
-        $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase");
-        //echo "Conexion con $serverName";
-    } catch (Exception $e) {
-        echo "Ocurrio un error en la conexion. " . $e->getMessage();
+    //Establecer Zona horaria
+    date_default_timezone_set("America/Monterrey");
+    $fecha = date("Y-m-d");
+    $fecha_nueva = preg_replace('[-]', '', $fecha);
+    //echo $fecha_nueva;
+    $cargo = $_POST['cargo'];
+    $abono = $_POST['abono'];
+    $movimiento = $cargo - $abono;
+
+    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$movimiento}','0','0') ";
+    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','{$_POST['abono']}') ";
+
+    $connectionInfo = array( "Database"=>$dataBase);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+    if( $conn === false ) {
+        echo "Conexión no se pudo establecer.";
+        die( print_r( sqlsrv_errors(), true));
     }
 
-    $query = "Select Fecha, Cuenta, Descripcion, Cargos, Abonos, Movimientos from Fact_Saldos where fecha = 20220801";
-    $stmt = $conn->query($query);
-    $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-    //Imprimir json:
-    header_remove('Set-Cookie');
-    $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
-    if (is_array($httpHeaders) && count($httpHeaders)) {
-        foreach ($httpHeaders as $httpHeader) {
-            header($httpHeader);
+    if( $sql <> ''){
+        $stmt = sqlsrv_query($conn, $sql);
+        if($stmt === false) {
+            die( print_r( sqlsrv_errors(), true));
+        }else{
+            echo  'Insertado' ;
         }
+
     }
-    echo json_encode($registros);
-    exit();
+
+    if( $sql2 <> '' ){
+        $stmt2 = sqlsrv_query($conn, $sql2);
+        if($stmt2 === false) {
+            die( print_r( sqlsrv_errors(), true));
+        }else{
+            echo  'Insertado' ;
+        }
+
+    }
+
+    sqlsrv_close($conn);
+
     }
