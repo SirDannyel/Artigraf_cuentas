@@ -86,7 +86,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('GET', 'http://localhost/Artigraf/getpartidas.php');
+            objXMLHttpRequest.open('GET', 'getpartidas.php');
             objXMLHttpRequest.send();
         });
     }
@@ -106,7 +106,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('POST','http://localhost/Artigraf/partidas_especiales.php');
+            objXMLHttpRequest.open('POST','partidas_especiales.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send("cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor);
         });
