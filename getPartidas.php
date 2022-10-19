@@ -1,6 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 
+    //Conectar a DB mediante PDO
     $serverName = "DESKTOP-092HCCI";
     $username = "";
     $password = "";
@@ -13,7 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
         echo "Ocurrio un error en la conexion. " . $e->getMessage();
     }
 
-    $query = "Select top (10) Fecha, Cuenta, Descripcion, Cargos, Abonos, Movimientos from Fact_Saldos where fecha = 20220801";
+
+    //Establecer Zona horaria
+    date_default_timezone_set("America/Monterrey");
+    $fecha = date("Y-m-d");
+    $fecha_nueva = preg_replace('[-]', '', $fecha);
+    //$fecha_post = $_GET["fecha"];
+
+    //Ejecutar Select
+    $query = "Select Fecha as fecha, Cuenta as cuenta, Descripcion as descripcion, Cargos as cargo, Abonos as abono, Movimientos as movimiento from Fact_Saldos where fecha = '$fecha_nueva'";
     $stmt = $conn->query($query);
     $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -26,6 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
         }
     }
     echo json_encode($registros);
+
+    //salir
     exit();
 
 }

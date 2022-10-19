@@ -37,7 +37,7 @@ sqlsrv_free_stmt($getPartidas);
 sqlsrv_close($connec);*/
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
+        //Conexion a BD con PDO
         $serverName = "DESKTOP-092HCCI";
         $username = "";
         $password = "";
@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             echo "Ocurrio un error en la conexion. " . $e->getMessage();
         }
 
+        //Ejecutar Query
         $query = "SELECT Cuenta,CuentaDesc,Mayor FROM Dim_CuentaContable";
         $stmt = $conn->query($query);
         $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -62,11 +63,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 header($httpHeader);
             }
         }
+
         echo json_encode($registros);
+
+        //Salir
         exit();
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+    header("Access-Control-Allow-Origin: *");
+    //Datos de BD
     $serverName = "DESKTOP-092HCCI";
     $username = "";
     $password = "";
@@ -77,10 +82,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $fecha = date("Y-m-d");
     $fecha_nueva = preg_replace('[-]', '', $fecha);
     //echo $fecha_nueva;
+
+    //Captar parametros recibidos
     $cargo = $_POST['cargo'];
     $abono = $_POST['abono'];
     $movimiento = $cargo - $abono;
 
+    //Conexion mediante driver sqlsrv
     $connectionInfo = array( "Database"=>$dataBase);
     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
@@ -89,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         die( print_r( sqlsrv_errors(), true));
     }
 
-
+    //Ejecuccion de Insert a Fact Saldos
     $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$movimiento}','0','0') ";
 
     if( $sql <> ''){
@@ -102,6 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     }
 
+    //Ejecucion de insert a Partidas especiales
     $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','{$_POST['abono']}') ";
 
     if( $sql2 <> '' ){
@@ -114,6 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     }
 
-    $cierre = sqlsrv_close($conn);
+    //Desconectar servicio
+    sqlsrv_close($conn);
 
     }
