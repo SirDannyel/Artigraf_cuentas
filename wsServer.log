@@ -571,3 +571,27 @@ _Estado order by 1
 2022-10-15 01:41:00 :: Nivel: - Mayor
 2022-10-15 01:41:00 :: EjecutaSQL - Select Rubros
 2022-10-15 01:41:00 :: Query: - Select MayorDesc from Dim_CuentaContable group by MayorDesc order by 1
+2022-10-15 08:26:36 :: Tipo: - get
+2022-10-15 08:26:36 :: EjecutaSQL - Select Estados Query: - Select Estado from Dim_Estado order by 1
+2022-10-15 08:26:36 :: Tipo:getRubros
+2022-10-15 08:26:36 :: Nivel: - Mayor
+2022-10-15 08:26:36 :: EjecutaSQL - Select Rubros
+2022-10-15 08:26:36 :: Query: - Select MayorDesc from Dim_CuentaContable group by MayorDesc order by 1
+2022-10-15 09:16:32 :: Tipo: - get
+2022-10-15 09:16:32 :: EjecutaSQL - Select Estados Query: - Select Estado from Dim_Estado order by 1
+2022-10-15 09:16:32 :: Tipo:getRubros
+2022-10-15 09:16:32 :: Nivel: - Mayor
+2022-10-15 09:16:32 :: EjecutaSQL - Select Rubros
+2022-10-15 09:16:32 :: Query: - Select MayorDesc from Dim_CuentaContable group by MayorDesc order by 1
+2022-10-17 01:43:21 :: Tipo:getRubros
+2022-10-17 01:43:21 :: EjecutaSQL - Select Estados Query: - Select Estado from Dim_Estado order by 1
+2022-10-17 01:43:21 :: Nivel: - Mayor
+2022-10-17 01:43:22 :: EjecutaSQL - Select Rubros
+2022-10-17 01:43:22 :: Query: - Select MayorDesc from Dim_CuentaContable group by MayorDesc order by 1
+2022-10-18 21:08:45 :: Tipo: - get
+s
+2022-10-18 21:08:45 :: Nivel: - Mayor
+2022-10-18 21:08:45 :: EjecutaSQL - Select Estados Query: - Select Estado from Dim_Estado order by 1
+2022-10-18 21:08:45 :: EjecutaSQL - Select Rubros
+2022-10-18 21:08:45 :: Query: - Select MayorDesc from Dim_CuentaContable group by MayorDesc order by 1
+2022-10-20 20:31:54 :: inputSearch: - 
