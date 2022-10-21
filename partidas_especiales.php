@@ -70,7 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         exit();
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     header("Access-Control-Allow-Origin: *");
+
     //Datos de BD
     $serverName = "DESKTOP-092HCCI";
     $username = "";

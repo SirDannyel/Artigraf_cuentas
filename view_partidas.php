@@ -90,7 +90,7 @@
                     }
                 }
             }
-            var url = "http://localhost/Artigraf/getpartidas.php";
+            //var url = "http://localhost/Artigraf/getpartidas.php";
             //var parametro = "?fecha=";
             //var fecha = n;
             //var UrltoSend = url + parametro + url;
@@ -378,7 +378,7 @@
                     <input id="Descripcion" class="form-control" placeholder="Descripcion" required></input>
                 </div>
                 <div class="col">
-                    <input id="Mayor" class="form-control" placeholder="Tipo" required></input>
+                    <input id="Mayor" class="form-control" placeholder="Tipo de cuenta" required></input>
                 </div>
                 <div class="col">
                     <input type=number id="Cargo" class="form-control" placeholder="Cargo" required></input>
