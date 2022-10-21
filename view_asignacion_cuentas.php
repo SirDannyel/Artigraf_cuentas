@@ -54,9 +54,13 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
                     }
                 }
             }
-            objXMLHttpRequest.open('GET','http://localhost/Artigraf/getCuentasContables.php');
+
+            var url = "http://localhost/Artigraf/getCuentasContables.php";
+            var Parametro = "?filtro=";
+            var UrltoSend = url + Parametro + filtro;
+            objXMLHttpRequest.open('GET', UrltoSend);
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("filtro="+filtro);
+            objXMLHttpRequest.send();
         });
     }
 
@@ -66,7 +70,7 @@ const getCuentasContables = async () => {
         try {
             const response = await CuentasContables_Api();
             console.log("getCuentasContables", response);
-            const myArr = response;
+            const myArr = JSON.parse(response);
             /*const nuevoArr = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));*/
             $("#IdEf1").val(myArr[0].EF1);
             $("#IdEf1Desc").val(myArr[0].EF1Desc);
