@@ -151,7 +151,7 @@
         return strNumero
     }
 
-    const getCuentas = async (cuenta) => {
+    const getCuentas = async () => {
         try{
             const response = await Cuentas_Api();
             const myArr = JSON.parse(response);
@@ -162,12 +162,12 @@
                 const nuevaCuenta = new cuentasContables(cuentaSN,myArr[i].CuentaDesc,myArr[i].Mayor);
                 cuentascontables.push(nuevaCuenta);
             }
-            const result = cuentascontables.find( ({ Cuenta }) => Cuenta === cuenta);
+     /*       const result = cuentascontables.find( ({ Cuenta }) => Cuenta === cuenta);
             //const result2 = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));
             //console.log("getCuentas2", result2);
             //const Descripcion = result.CuentaDesc;
             $("#Descripcion").val(result.CuentaDesc);
-            $("#Mayor").val(result.Mayor);
+            $("#Mayor").val(result.Mayor);*/
         }
         catch(err){
             console.log(err)
@@ -329,7 +329,14 @@
 
     const handleSelectChange = (cuenta) => {
         if (cuenta) {
-            getCuentas(cuenta);
+            //getCuentas(cuenta);
+            //getCuentas();
+            const result = cuentascontables.find( ({ Cuenta }) => Cuenta === cuenta);
+            //const result2 = cuentascontables.filter( ({ Cuenta }) => Cuenta.includes(cuenta));
+            //console.log("getCuentas2", result);
+            //const Descripcion = result.CuentaDesc;
+            $("#Descripcion").val(result.CuentaDesc);
+            $("#Mayor").val(result.Mayor)
         } else {
             $("#Descripcion").val("");
             $("#Mayor").val("");
@@ -374,6 +381,7 @@
 
     const init = () => {
         //Iniciar tabla vacio
+        getCuentas();
         getPartidas();
     }
 
@@ -394,17 +402,18 @@
 
                 <div class="form-group col-md">
                     <label for="InputCuenta">Cuenta</label>
-                    <input type="text" id="Cuenta" class="form-control" placeholder="1201,0001,0003,3020" onchange="handleSelectChange(this.value)"></input>
+                    <input type="text" id="Cuenta" class="form-control" placeholder="1201,0001,0001,1351"  onchange="handleSelectChange(this.value)"></input>
+
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="InputDescripcion">Descripción</label>
-                    <input id="Descripcion" class="form-control-plaintext"" readonly placeholder="COMERCIALIZADORA DE LACTEOS Y DERIV"></input>
+                    <input id="Descripcion" class="form-control-plaintext" readonly placeholder="COMERCIALIZADORA DE LACTEOS Y DERIV"></input>
                 </div>
 
                 <div class="form-group col-md-1">
                     <label for="InputMayor">Mayor</label>
-                    <input id="Mayor" class="form-control-plaintext"" readonly placeholder="1201"></input>
+                    <input id="Mayor" class="form-control-plaintext" readonly placeholder="1201"></input>
                 </div>
 
                 <div class="col-md flex-column">
