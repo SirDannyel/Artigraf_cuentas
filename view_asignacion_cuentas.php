@@ -64,6 +64,27 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
         });
     }
 
+    const UpdateCuentas_Api = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc) => {
+
+          return new Promise(function (resolve, reject) {
+            const objXMLHttpRequest = new XMLHttpRequest();
+            objXMLHttpRequest.onreadystatechange = function () {
+                if (objXMLHttpRequest.readyState === 4) {
+                  if (objXMLHttpRequest.status == 200) {
+                    resolve(objXMLHttpRequest.responseText);
+                  } else {
+                    reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                  }
+              }
+            }
+
+            objXMLHttpRequest.open('POST','getCuentasContables.php');
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            objXMLHttpRequest.send("ef1="+ef1+"&ef1desc="+ef1desc+"&ef2="+ef2+"&ef2desc="+ef2desc+"&ef3="+ef3+"&ef3desc="+ef3desc+"&ef4="+ef4+"&ef4desc="+ef4desc+"&ef5="+ef5+"&ef5desc="+ef5desc+"&ef6="+ef6+"&ef6desc="+ef6desc+"&ef7="+ef7+"&ef7desc="+ef7desc);
+        });
+      }
+
+
 
 //Controlador de FrontEnd
 const getCuentasContables = async () => {
@@ -74,6 +95,18 @@ const getCuentasContables = async () => {
             /*const nuevoArr = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));*/
             $("#IdEf1").val(myArr[0].EF1);
             $("#IdEf1Desc").val(myArr[0].EF1Desc);
+            $("#IdEf2").val(myArr[0].EF2);
+            $("#IdEf2Desc").val(myArr[0].EF2Desc);
+            $("#IdEf3").val(myArr[0].EF3);
+            $("#IdEf3Desc").val(myArr[0].EF3Desc);
+            $("#IdEf4").val(myArr[0].EF4);
+            $("#IdEf4Desc").val(myArr[0].EF4Desc);
+            $("#IdEf5").val(myArr[0].EF5);
+            $("#IdEf5Desc").val(myArr[0].EF5Desc);
+            $("#IdEf6").val(myArr[0].EF6);
+            $("#IdEf6Desc").val(myArr[0].EF6Desc);
+            $("#IdEf7").val(myArr[0].EF7);
+            $("#IdEf7Desc").val(myArr[0].EF7Desc);
             var tablabody = document.getElementById("tablabody");
             for (var i = 0; i < myArr.length; i++) { //cambiar myArr por nuevoArr.length
                 var linea = document.createElement("tr");
@@ -195,6 +228,25 @@ const getCuentasContables = async () => {
         }
 
 
+    const handleUpdateCuenta = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc) => {
+        try {
+          UpdateCuentas_Api (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc);
+          Swal.fire({
+            icon: 'success',
+            title: 'Registros Actualizados',
+            showConfirmButton: false,
+            timer: 1500
+        });
+
+        } catch (err) {
+            console.log(err)
+        }
+
+       //AQUI
+    }
+
+
+
         const init = () => {
         //getCuentasContables();
     }
@@ -276,6 +328,8 @@ const getCuentasContables = async () => {
 
         <div class="w-100"></div>
 
+        <!-- AQUI FILAS DE INPUTS EF Descripciones -->
+
         <div class="col">
               <input class="form-control m-1" placeholder="EF1" id="IdEf1Desc"></input>
         </div>
@@ -289,23 +343,23 @@ const getCuentasContables = async () => {
         </div>
 
         <div class="col">
-              <input class="form-control m-1" placeholder="EF4" id="IdEf4"></input>
+              <input class="form-control m-1" placeholder="EF4" id="IdEf4Desc"></input>
         </div>
 
         <div class="col"> 
-          <input class="form-control m-1" placeholder="EF5" id="IdEf5"></input>
+          <input class="form-control m-1" placeholder="EF5" id="IdEf5Desc"></input>
         </div>
 
         <div class="col">
-          <input class="form-control m-1" placeholder="EF6" id="IdEf6"></input>
+          <input class="form-control m-1" placeholder="EF6" id="IdEf6Desc"></input>
         </div>
 
         <div class="col">
-          <input class="form-control m-1" placeholder="EF7" id="IdEf7"></input>
+          <input class="form-control m-1" placeholder="EF7" id="IdEf7Desc"></input>
         </div>
 
         <div class="col">
-          <div class="col"> <button class="btn btn-primary" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))">
+          <div class="col"> <button class="btn btn-primary" onclick="handleUpdateCuenta($('#IdEf1').val(),$('#IdEf1Desc').val(),$('#IdEf2').val(),$('#IdEf2Desc').val(),$('#IdEf3').val(),$('#IdEf3Desc').val(),$('#IdEf4').val(),$('#IdEf4Desc').val(),$('#IdEf5').val(),$('#IdEf5Desc').val(),$('#IdEf6').val(),$('#IdEf6Desc').val(),$('#IdEf7').val(),$('#IdEf7Desc').val())">
                     Mofificar
                   </button></div>
         </div>
