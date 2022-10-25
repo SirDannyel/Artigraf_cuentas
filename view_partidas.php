@@ -402,28 +402,29 @@
 
                 <div class="form-group col-md">
                     <label for="InputCuenta">Cuenta</label>
-                    <input type="text" id="Cuenta" class="form-control" placeholder="1201,0001,0001,1351"  onchange="handleSelectChange(this.value)"></input>
+                    <input type="text" id="Cuenta" class="form-control" placeholder="####,####,####,####"  onchange="handleSelectChange(this.value)"></input>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="InputDescripcion">Descripción</label>
-                    <input id="Descripcion" class="form-control-plaintext" readonly placeholder="COMERCIALIZADORA DE LACTEOS Y DERIV"></input>
+                    <input id="Descripcion" class="form-control-plaintext" readonly></input>
                 </div>
 
                 <div class="form-group col-md-1">
                     <label for="InputMayor">Mayor</label>
-                    <input id="Mayor" class="form-control-plaintext" readonly placeholder="1201"></input>
+                    <input id="Mayor" class="form-control-plaintext" readonly></input>
                 </div>
 
                 <div class="col-md flex-column">
                     <label for="InputCargo">Cargo</label>
-                    <input type=number id="Cargo" class="form-control" placeholder="1500"></input>
+                    <input type=number id="Cargo" class="form-control"></input>
                 </div>
 
                 <div class="col-md flex-column">
                     <label for="InputAbono">Abono</label>
-                    <input type=number id="Abono" class="form-control" onkeyup="toggleButton()" placeholder="1000"></input>
+                    <input type=number id="Abono" class="form-control" onkeyup="toggleButton()"></input>
                 </div>
+
                 <div class="col-md mt-4 flex-column">
                     <button id="submitButton" class="btn btn-success" onclick="handleInsertPartida($('#Cuenta').val(),$('#Descripcion').val(),$('#Cargo').val(),$('#Abono').val(),$('#Mayor').val())" disabled>Agregar</button>
                 </div>
