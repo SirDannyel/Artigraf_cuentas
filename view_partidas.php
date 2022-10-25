@@ -209,14 +209,14 @@
 
                 var opt = partidasdia[i].descripcion;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:370px;");
+                campo.setAttribute("style", "width:390px;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
 
                 opt = partidasdia[i].cuenta;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
+                campo.setAttribute("style", "width:350px;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
@@ -271,14 +271,14 @@
 
                 var opt = partidasdia[i].descripcion;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:370px;");
+                campo.setAttribute("style", "width:390px;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
 
                 opt = partidasdia[i].cuenta;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
+                campo.setAttribute("style", "width:350px;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
@@ -320,7 +320,7 @@
         var campo4 = $("#Cargo").val();
         var campo5 = $("#Abono").val();
 
-        if (campo1 && campo2 && campo3 && campo4 && campo5) {
+        if (campo1 && campo2 && campo3 && (campo4 || campo5)) {
             $("#submitButton").removeAttr("disabled");
         } else {
             $("#submitButton").attr("disabled", "disabled");
@@ -344,9 +344,25 @@
     }
 
     const handleInsertPartida = (cuenta,descripcion,cargo,abono,mayor) => {
+
         try {
-            var mov = cargo - abono;
-            InsertPartidas_Api (cuenta,descripcion,cargo,abono,mayor,mov.toFixed(2));
+
+            var nvo_cargo = 0;
+            var nvo_abono = 0;
+            var mov = 0 ;
+
+            if (cargo && abono){
+                mov = cargo - abono;
+            }
+
+            if (cargo){
+                nvo_cargo = cargo;
+            }
+            if (abono){
+                nvo_abono = abono;
+            }
+
+            InsertPartidas_Api (cuenta,descripcion,nvo_cargo,nvo_abono,mayor,mov);
 
             const nuevaPartida = new PartidasEspeciales(fechaNueva,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov));
 
@@ -417,7 +433,7 @@
 
                 <div class="col-md flex-column">
                     <label for="InputCargo">Cargo</label>
-                    <input type=number id="Cargo" class="form-control"></input>
+                    <input type=number id="Cargo" class="form-control" onkeyup="toggleButton()"></input>
                 </div>
 
                 <div class="col-md flex-column">
@@ -445,8 +461,8 @@
             <thead>
             <tr class="d-flex flex-row">
                 <th scope="col" style="width:150px;">Fecha</th>
-                <th scope="col" style="width:370px;">Descripcion</th>
-                <th scope="col" style="width:200px;">Cuenta</th>
+                <th scope="col" style="width:390px;">Descripcion</th>
+                <th scope="col" style="width:350px;">Cuenta</th>
                 <th scope="col" style="width:150px;">Cargo</th>
                 <th scope="col" style="width:150px;">Abono</th>
                 <th scope="col" style="width:150px;">Movimiento</th>

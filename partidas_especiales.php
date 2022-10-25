@@ -91,8 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     //echo $fecha_nueva;
 
     //Captar parametros recibidos
-    //$cargo = $_POST['cargo'];
-    //$abono = $_POST['abono'];
+  //  $cargo = $_POST['cargo'];
+  //  $abono = $_POST['abono'];
     //$movimiento = $cargo - $abono;
 
     //Conexion mediante driver sqlsrv
