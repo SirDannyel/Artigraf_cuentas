@@ -1,5 +1,6 @@
 <?php
-    $nombreServidor= "LAPTOP-SPVHJIUH\SQLEXPRESS";
+$conf = include('config.php');  
+    $nombreServidor= $conf['server'];
     $nombreBaseDatos = "DWH_Artigraf";
 
     try {

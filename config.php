@@ -2,12 +2,10 @@
 
 
 return array(
- 'server' => 'DESKTOP-092HCCI',//ODBC
+// 'server' => 'DESKTOP-092HCCI', 
+ 'server' => 'DESKTOP-907DBP9\SQLEXPRESS', // Daniel
  'database' => 'DWH_Artigraf',
- 'connectionInfo' => array( "Database"=>"DWH_Artigraf")
- //'username' => 'allity',
-// 'password' => 'allity'
-
+ 'connectionInfo' => array( "Database"=>"DWH_Artigraf")  
  
 );
 

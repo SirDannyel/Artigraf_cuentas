@@ -6,6 +6,8 @@ function writeServerLog($msg)
 	@error_log(date('Y-m-d H:i:s').' :: '.print_r($msg, true).PHP_EOL, 3, 'wsServer.log');
 }
 
+$conf = include('config.php'); 
+$serverName  = $conf['server'];
 writeServerLog('Tipo: - ' .$_POST['tipo'] );
 
 if($_POST['tipo'] === "get"){ 
@@ -18,8 +20,7 @@ if($_POST['tipo'] === "get"){
 			 writeServerLog('Query: - ' .$sql ); 
 			 writeServerLog('param: - ' .$_POST['estado'] ); 
 	 
-			 
-				  $serverName = 'DESKTOP-092HCCI';
+			  
 				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
 				$conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
@@ -66,8 +67,7 @@ if($_POST['tipo'] === "post"){
 		 
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );  
 			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' rubro: '.$_POST['rubro'].' desc: '.$_POST['desc'].' nivel: '.$_POST['nivel'].' pasivo: '.$_POST['pasivo'].' identado: '.$_POST['identado'].' resaltado: '.$_POST['resaltado'] ); 
-			 
-				  $serverName = 'DESKTOP-092HCCI';
+			  
 				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
 				$conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
@@ -99,8 +99,7 @@ if($_POST['tipo'] === "post"){
 		 
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );  
 			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' desc: '.$_POST['desc']); 
-			 
-				  $serverName = 'DESKTOP-092HCCI';
+			  
 				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
 				$conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
@@ -136,8 +135,7 @@ if($_POST['tipo'] === "post"){
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql2 ); 
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql3 ); 
 			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' cambio: '.$_POST['cambio']); 
-			 
-				  $serverName = 'DESKTOP-092HCCI';
+			  
 				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
 				$conn = sqlsrv_connect( $serverName, $connectionInfo);
 	

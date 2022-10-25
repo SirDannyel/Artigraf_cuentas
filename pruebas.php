@@ -1,6 +1,7 @@
 <?php
 
-$serverName = "DESKTOP-092HCCI";
+$conf = include('config.php'); 
+$serverName  = $conf['server']; 
 $username = "";
 $password = "";
 $dataBase = "DWH_Artigraf";
