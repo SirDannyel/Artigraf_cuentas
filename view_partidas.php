@@ -455,10 +455,6 @@
             </tbody>
         </table>
     </div>
-    <div class="d-flex flex-row my-3 p-3 bg-body rounded shadow-sm">
-        <div class="pb-2 mb-0 w-25"> </div>
-        <div class="pb-2 mb-0 w-25"> </div>
-    </div>
 </main>
 
 </body>
