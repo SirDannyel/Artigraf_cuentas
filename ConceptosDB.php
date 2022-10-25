@@ -19,7 +19,7 @@ if($_POST['tipo'] === "get"){
 			 writeServerLog('param: - ' .$_POST['estado'] ); 
 	 
 			 
-				  $serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
+				  $serverName = 'DESKTOP-092HCCI';
 				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
 				$conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
@@ -67,7 +67,7 @@ if($_POST['tipo'] === "post"){
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );  
 			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' rubro: '.$_POST['rubro'].' desc: '.$_POST['desc'].' nivel: '.$_POST['nivel'].' pasivo: '.$_POST['pasivo'].' identado: '.$_POST['identado'].' resaltado: '.$_POST['resaltado'] ); 
 			 
-				  $serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
+				  $serverName = 'DESKTOP-092HCCI';
 				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
 				$conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
@@ -100,7 +100,7 @@ if($_POST['tipo'] === "post"){
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );  
 			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' desc: '.$_POST['desc']); 
 			 
-				  $serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
+				  $serverName = 'DESKTOP-092HCCI';
 				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
 				$conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
@@ -137,7 +137,7 @@ if($_POST['tipo'] === "post"){
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql3 ); 
 			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' cambio: '.$_POST['cambio']); 
 			 
-				  $serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
+				  $serverName = 'DESKTOP-092HCCI';
 				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
 				$conn = sqlsrv_connect( $serverName, $connectionInfo);
 	

@@ -36,9 +36,13 @@ sqlsrv_free_stmt($getPartidas);
 //Finalizar coneccion
 sqlsrv_close($connec);*/
 
+$conf = include('config.php');
+
+$server  = $conf['server'];
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //Conexion a BD con PDO
-        $serverName = "DESKTOP-907DBP9\SQLEXPRESS";
+        $serverName = $server;
         $username = "";
         $password = "";
         $dataBase = "DWH_Artigraf";
@@ -74,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     header("Access-Control-Allow-Origin: *");
 
     //Datos de BD
-    $serverName = "DESKTOP-907DBP9\SQLEXPRESS";
+    $serverName = $server;
     $username = "";
     $password = "";
     $dataBase = "DWH_Artigraf";
@@ -82,13 +86,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     //Establecer Zona horaria
     date_default_timezone_set("America/Monterrey");
     $fecha = date("Y-m-d");
+    $fechayhora = date("Y-m-d H:i:s");
     $fecha_nueva = preg_replace('[-]', '', $fecha);
     //echo $fecha_nueva;
 
     //Captar parametros recibidos
-    $cargo = $_POST['cargo'];
-    $abono = $_POST['abono'];
-    $movimiento = $cargo - $abono;
+    //$cargo = $_POST['cargo'];
+    //$abono = $_POST['abono'];
+    //$movimiento = $cargo - $abono;
 
     //Conexion mediante driver sqlsrv
     $connectionInfo = array( "Database"=>$dataBase);
@@ -100,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
     //Ejecuccion de Insert a Fact Saldos
-    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$movimiento}','0','0') ";
+    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0')";
 
     if( $sql <> ''){
         $stmt = sqlsrv_query($conn, $sql);
@@ -113,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
     //Ejecucion de insert a Partidas especiales
-    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','{$_POST['abono']}') ";
+    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Descripcion,Monto,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0') ";
 
     if( $sql2 <> '' ){
         $stmt2 = sqlsrv_query($conn, $sql2);

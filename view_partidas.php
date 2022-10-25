@@ -101,7 +101,7 @@
         });
     }
 
-    const InsertPartidas_Api = (cuenta,descripcion,cargo,abono,mayor) => {
+    const InsertPartidas_Api = (cuenta,descripcion,cargo,abono,mayor,movimiento) => {
 
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -118,7 +118,7 @@
 
             objXMLHttpRequest.open('POST','partidas_especiales.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor);
+            objXMLHttpRequest.send("cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor+"&mov="+movimiento);
         });
     }
 
@@ -128,14 +128,30 @@
     const fechaZona = fecha.toLocaleString("es-MX", {timeZone: "America/Monterrey"});
     const fechaNueva = fechaZona.slice(0,10);
 
-    /******* Controladores  *******/
+    /******* Controladores y funciones *******/
 
     const deleteChild = () => {
         $(".tr").remove();
-        console.log('1');
     }
 
-    const getCuentas = async (cuenta) => {
+    const formato = new Intl.NumberFormat('en-MX', {
+        style: 'currency',
+        currency: 'MXN',
+        minimumFractionDigits: 2
+    })
+
+   function formatter(value) {
+        const formatter = new Intl.NumberFormat('en-MX', {
+            style: 'currency',
+            currency: 'MXN',
+            minimumFractionDigits: 2
+        })
+        const numero = formatter.format(value);
+        var strNumero = numero.replace("MX","");
+        return strNumero
+    }
+
+    const getCuentas = async () => {
         try{
             const response = await Cuentas_Api();
             const myArr = JSON.parse(response);
@@ -146,12 +162,12 @@
                 const nuevaCuenta = new cuentasContables(cuentaSN,myArr[i].CuentaDesc,myArr[i].Mayor);
                 cuentascontables.push(nuevaCuenta);
             }
-            const result = cuentascontables.find( ({ Cuenta }) => Cuenta === cuenta);
+     /*       const result = cuentascontables.find( ({ Cuenta }) => Cuenta === cuenta);
             //const result2 = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));
             //console.log("getCuentas2", result2);
             //const Descripcion = result.CuentaDesc;
             $("#Descripcion").val(result.CuentaDesc);
-            $("#Mayor").val(result.Mayor);
+            $("#Mayor").val(result.Mayor);*/
         }
         catch(err){
             console.log(err)
@@ -165,9 +181,10 @@
             const response = await PartidasEspeciales_Api();
 
             const myArr = JSON.parse(response);
-             console.log("getCuentas", response);
+             //console.log("getCuentas", response);
             for (var i = 0; i < myArr.length; i++) {
-                const nuevaPartida = new PartidasEspeciales(fechaNueva,myArr[i].descripcion,myArr[i].cuenta,myArr[i].cargo,myArr[i].abono,myArr[i].movimiento);
+
+            const nuevaPartida = new PartidasEspeciales(fechaNueva,myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento));
                 partidasdia.unshift(nuevaPartida);
             }
 
@@ -304,24 +321,34 @@
         var campo5 = $("#Abono").val();
 
         if (campo1 && campo2 && campo3 && campo4 && campo5) {
-            //document.getElementById("submitButton").disabled=true;
             $("#submitButton").removeAttr("disabled");
         } else {
-            //document.getElementById("submitButton").disabled=false;
             $("#submitButton").attr("disabled", "disabled");
         }
     }
 
     const handleSelectChange = (cuenta) => {
-        getCuentas(cuenta);
+        if (cuenta) {
+            //getCuentas(cuenta);
+            //getCuentas();
+            const result = cuentascontables.find( ({ Cuenta }) => Cuenta === cuenta);
+            //const result2 = cuentascontables.filter( ({ Cuenta }) => Cuenta.includes(cuenta));
+            //console.log("getCuentas2", result);
+            //const Descripcion = result.CuentaDesc;
+            $("#Descripcion").val(result.CuentaDesc);
+            $("#Mayor").val(result.Mayor)
+        } else {
+            $("#Descripcion").val("");
+            $("#Mayor").val("");
+        }
     }
 
     const handleInsertPartida = (cuenta,descripcion,cargo,abono,mayor) => {
         try {
-           InsertPartidas_Api (cuenta,descripcion,cargo,abono,mayor);
-
             var mov = cargo - abono;
-            const nuevaPartida = new PartidasEspeciales(fechaNueva,descripcion,cuenta,cargo,abono,mov);
+            InsertPartidas_Api (cuenta,descripcion,cargo,abono,mayor,mov.toFixed(2));
+
+            const nuevaPartida = new PartidasEspeciales(fechaNueva,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov));
 
             if (partidasdia[0].descripcion === "Sin Registro") {
                 partidasdia.shift();
@@ -354,8 +381,8 @@
 
     const init = () => {
         //Iniciar tabla vacio
+        getCuentas();
         getPartidas();
-
     }
 
     init();
@@ -365,32 +392,45 @@
 <body class="bg-light">
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-white bg-white border-bottom" aria-label="Main navigation">
-    <div class="container-fluid">
+    <div class="container-fluid align-items-center">
         <a class="navbar-brand" href="#">
             <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>
-        <form class="form" >
-            <div class="row">
-                <div class="col">
-                    <input id="Cuenta" class="form-control" placeholder="Cuenta" onchange="handleSelectChange(this.value)" required></input>
+
+        <form>
+            <div class="form-group mb-2 row align-items-center">
+
+                <div class="form-group col-md">
+                    <label for="InputCuenta">Cuenta</label>
+                    <input type="text" id="Cuenta" class="form-control" placeholder="1201,0001,0001,1351"  onchange="handleSelectChange(this.value)"></input>
                 </div>
-                <div class="col">
-                    <input id="Descripcion" class="form-control" placeholder="Descripcion" required></input>
+
+                <div class="form-group col-md-4">
+                    <label for="InputDescripcion">Descripción</label>
+                    <input id="Descripcion" class="form-control-plaintext" readonly placeholder="COMERCIALIZADORA DE LACTEOS Y DERIV"></input>
                 </div>
-                <div class="col">
-                    <input id="Mayor" class="form-control" placeholder="Tipo de cuenta" required></input>
+
+                <div class="form-group col-md-1">
+                    <label for="InputMayor">Mayor</label>
+                    <input id="Mayor" class="form-control-plaintext" readonly placeholder="1201"></input>
                 </div>
-                <div class="col">
-                    <input type=number id="Cargo" class="form-control" placeholder="Cargo" required></input>
+
+                <div class="col-md flex-column">
+                    <label for="InputCargo">Cargo</label>
+                    <input type=number id="Cargo" class="form-control" placeholder="1500"></input>
                 </div>
-                <div class="col">
-                    <input type=number id="Abono" class="form-control"  onkeyup="toggleButton()" placeholder="Abono" required></input>
+
+                <div class="col-md flex-column">
+                    <label for="InputAbono">Abono</label>
+                    <input type=number id="Abono" class="form-control" onkeyup="toggleButton()" placeholder="1000"></input>
                 </div>
-                <div class="col">
+                <div class="col-md mt-4 flex-column">
                     <button id="submitButton" class="btn btn-success" onclick="handleInsertPartida($('#Cuenta').val(),$('#Descripcion').val(),$('#Cargo').val(),$('#Abono').val(),$('#Mayor').val())" disabled>Agregar</button>
                 </div>
             </div>
+
         </form>
+
     </div>
 </nav>
 <div style="padding-top:90px;"> </div>

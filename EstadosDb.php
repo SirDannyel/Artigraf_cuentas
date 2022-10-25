@@ -6,8 +6,8 @@ function writeServerLog($msg)
 }
 
 $conf = include('config.php');
- 
-$server  = $conf['server']; 
+
+$server  = $conf['server'];
 switch ($_POST['tipo']) {
     case "get": 
             $Respuesta;
