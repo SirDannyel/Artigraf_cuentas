@@ -523,6 +523,7 @@
               <option class="option" value ="EF5">EF5</option> 
               <option class="option" value ="EF6">EF6</option> 
               <option class="option" value ="EF7">EF7</option> 
+              <option class="option" value ="EF8">EF8</option> 
           </select>
         </div>
         <div class="d-flex flex-column px-2 pb-0 w-100">  
