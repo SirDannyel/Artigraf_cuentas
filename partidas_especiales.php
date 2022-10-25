@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
     //Ejecuccion de Insert a Fact Saldos
-    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0')";
+    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEspeciales) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1')";
 
     if( $sql <> ''){
         $stmt = sqlsrv_query($conn, $sql);
