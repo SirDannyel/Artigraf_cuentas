@@ -64,7 +64,7 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
         });
     }
 
-    const UpdateCuentas_Api = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc) => {
+    const UpdateCuentas_Api = (cuenta,ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc) => {
 
           return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -80,7 +80,7 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
 
             objXMLHttpRequest.open('POST','getCuentasContables.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("ef1="+ef1+"&ef1desc="+ef1desc+"&ef2="+ef2+"&ef2desc="+ef2desc+"&ef3="+ef3+"&ef3desc="+ef3desc+"&ef4="+ef4+"&ef4desc="+ef4desc+"&ef5="+ef5+"&ef5desc="+ef5desc+"&ef6="+ef6+"&ef6desc="+ef6desc+"&ef7="+ef7+"&ef7desc="+ef7desc);
+            objXMLHttpRequest.send("cuenta="+cuenta+"ef1="+ef1+"&ef1desc="+ef1desc+"&ef2="+ef2+"&ef2desc="+ef2desc+"&ef3="+ef3+"&ef3desc="+ef3desc+"&ef4="+ef4+"&ef4desc="+ef4desc+"&ef5="+ef5+"&ef5desc="+ef5desc+"&ef6="+ef6+"&ef6desc="+ef6desc+"&ef7="+ef7+"&ef7desc="+ef7desc);
         });
       }
 
@@ -230,7 +230,10 @@ const getCuentasContables = async () => {
 
     const handleUpdateCuenta = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc) => {
         try {
-          UpdateCuentas_Api (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc);
+          //var cuenta = '1001,0001,0001,0006 ';
+         lent cuenta =  ['1001,0001,0001,0006 ' , '1001,0001,0001,0012 ' , '1001,0001,0001,0017 '];
+          //let ef1 [];
+          UpdateCuentas_Api (cuenta,ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc);
           Swal.fire({
             icon: 'success',
             title: 'Registros Actualizados',
