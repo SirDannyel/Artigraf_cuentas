@@ -92,6 +92,7 @@ const getCuentasContables = async () => {
             const response = await CuentasContables_Api();
             console.log("getCuentasContables", response);
             const myArr = JSON.parse(response);
+            console.log("getCuentasContables", myArr);
             /*const nuevoArr = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));*/
             $("#IdEf1").val(myArr[0].EF1);
             $("#IdEf1Desc").val(myArr[0].EF1Desc);
@@ -230,8 +231,8 @@ const getCuentasContables = async () => {
 
     const handleUpdateCuenta = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc) => {
         try {
-          //var cuenta = '1001,0001,0001,0006 ';
-         lent cuenta =  ['1001,0001,0001,0006 ' , '1001,0001,0001,0012 ' , '1001,0001,0001,0017 '];
+          var cuenta = '1001,0001,0001,0006 ';
+         //lent cuenta =  ['1001,0001,0001,0006 ' , '1001,0001,0001,0012 ' , '1001,0001,0001,0017 '];
           //let ef1 [];
           UpdateCuentas_Api (cuenta,ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc);
           Swal.fire({
