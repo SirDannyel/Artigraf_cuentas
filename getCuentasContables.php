@@ -32,38 +32,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             die(print_r(sqlsrv_errors(), true));  
         }  
         
-        $cuenta =  $_POST['cuenta']; 
-
-         //Captar parametros recibidos
-         $ef1 = $_POST['ef1'];
-         $ef1Desc = $_POST['ef1desc'];
-         $ef2 = $_POST['ef2'];
-         $ef2Desc = $_POST['ef2desc'];
-         $ef3 = $_POST['ef3'];
-         $ef3Desc = $_POST['ef3desc'];
-         $ef4 = $_POST['ef4'];
-         $ef4Desc = $_POST['ef4desc'];
-         $ef5 = $_POST['ef5'];
-         $ef5Desc = $_POST['ef5desc'];
-         $ef6 = $_POST['ef6'];
-         $ef6Desc = $_POST['ef6desc'];
-         $ef7 = $_POST['ef7'];
-         $ef7Desc = $_POST['ef7desc'];
-
-        foreach ($cuenta as $valor){
-            //var_dump($valor);
+        
+        header("Content-Type: application/json");
+ 
+        $data = json_decode(file_get_contents("php://input"));
+        for ($i = 0; $i < count($data); $i++) {
+            $cuenta = $data[$i]->Cuenta;
+            $ef1 = $data[$i]->EF1;
+            $ef1Desc = $data[$i]->EF1Desc;
+            $ef2 = $data[$i]->EF2;
+            $ef2Desc = $data[$i]->EF2Desc;
+            $ef3 = $data[$i]->EF3;
+            $ef3Desc = $data[$i]->EF3Desc;
+            $ef4 = $data[$i]->EF4;
+            $ef4Desc = $data[$i]->EF4Desc;
+            $ef5 = $data[$i]->EF5;
+            $ef5Desc = $data[$i]->EF5Desc;
+            $ef6 = $data[$i]->EF6;
+            $ef6Desc = $data[$i]->EF6Desc;
+            $ef7 = $data[$i]->EF7;
+            $ef7Desc = $data[$i]->EF7Desc;
 
             /* Set up the parameterized query. */  
+            
             $tsql = "UPDATE DWH_Artigraf.dbo.Dim_CuentaContable   
             SET EF1 = (?), EF1Desc = (?), EF2 = (?), EF2Desc = (?), EF3 = (?), EF3Desc = (?),
             EF4 = (?), EF4Desc = (?), EF5 = (?), EF5Desc = (?), EF6 = (?), EF6Desc = (?),
             EF7 = (?), EF7Desc = (?)    
             WHERE Cuenta = (?)";
+            
 
-            /* Assign literal parameter values. */  
-            $params = array($ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $valor); 
-  
+            /* Assign literal parameter values. */ 
+           
+            $params = array($ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $cuenta); 
+            
              /* Execute the query. */  
+             
             if (sqlsrv_query($conn, $tsql, $params)) {  
                 echo "Statement executed.\n";  
             } else {  
@@ -72,11 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             }  
 
         }
-        
-       
-        
-        /* Free connection resources. */  
-        sqlsrv_close($conn);  
+
+         /* Free connection resources. */  
+         sqlsrv_close($conn); 
+
+    }   
     
-    }
+    
 ?>
