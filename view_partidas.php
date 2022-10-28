@@ -179,69 +179,19 @@
 
         try {
             const response = await PartidasEspeciales_Api();
-
             const myArr = JSON.parse(response);
              //console.log("getCuentas", response);
-            for (var i = 0; i < myArr.length; i++) {
+                for (var i = 0; i < myArr.length; i++) {
+                    const nuevaPartida = new PartidasEspeciales(fechaNueva,myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento));
+                    partidasdia.unshift(nuevaPartida);
+                }
 
-            const nuevaPartida = new PartidasEspeciales(fechaNueva,myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento));
-                partidasdia.unshift(nuevaPartida);
-            }
+                if (!partidasdia.length){
+                    const nuevaPartida = new PartidasEspeciales("Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro");
+                    partidasdia.push(nuevaPartida);
+                 }
 
-            if (!partidasdia.length){
-                const nuevaPartida = new PartidasEspeciales("Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro");
-                partidasdia.push(nuevaPartida);
-             }
-
-            var tablabody = document.getElementById("tablabody");
-
-            for (var i = 0; i < partidasdia.length; i++) {
-                var linea = document.createElement("tr");
-                linea.setAttribute("class", "d-flex flex-row tr");
-                tablabody.appendChild(linea);
-
-                var opt = partidasdia[i].fecha;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:150px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                var opt = partidasdia[i].descripcion;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:390px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = partidasdia[i].cuenta;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:350px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = partidasdia[i].cargo;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:150px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = partidasdia[i].abono;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:150px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = partidasdia[i].movimiento;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:150px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-            }
+                getPartidas_Table();
 
             } catch (err)
             {
@@ -250,7 +200,7 @@
 
         }
 
-    const getPartidaslocal = async () => {
+    const getPartidas_Table = async () => {
 
         try {
             deleteChild ();
@@ -269,7 +219,7 @@
                 campo.value = opt;
                 linea.appendChild(campo);
 
-                var opt = partidasdia[i].descripcion;
+                opt = partidasdia[i].descripcion;
                 campo = document.createElement("td");
                 campo.setAttribute("style", "width:390px;");
                 campo.textContent = opt;
@@ -328,41 +278,28 @@
     }
 
     const handleSelectChange = (cuenta) => {
+
         if (cuenta) {
-            //getCuentas(cuenta);
-            //getCuentas();
             const result = cuentascontables.find( ({ Cuenta }) => Cuenta === cuenta);
             //const result2 = cuentascontables.filter( ({ Cuenta }) => Cuenta.includes(cuenta));
             //console.log("getCuentas2", result);
-            //const Descripcion = result.CuentaDesc;
+
             $("#Descripcion").val(result.CuentaDesc);
             $("#Mayor").val(result.Mayor)
         } else {
             $("#Descripcion").val("");
             $("#Mayor").val("");
         }
+
     }
 
     const handleInsertPartida = (cuenta,descripcion,cargo,abono,mayor) => {
 
         try {
 
-            var nvo_cargo = 0;
-            var nvo_abono = 0;
-            var mov = 0 ;
+            var  mov = abono - cargo;
 
-            if (cargo && abono){
-                mov = cargo - abono;
-            }
-
-            if (cargo){
-                nvo_cargo = cargo;
-            }
-            if (abono){
-                nvo_abono = abono;
-            }
-
-            InsertPartidas_Api (cuenta,descripcion,nvo_cargo,nvo_abono,mayor,mov);
+            InsertPartidas_Api (cuenta,descripcion,cargo,abono,mayor,mov);
 
             const nuevaPartida = new PartidasEspeciales(fechaNueva,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov));
 
@@ -376,11 +313,12 @@
             $("#Cuenta").val("");
             $("#Descripcion").val("");
             $("#Mayor").val("");
-            $("#Cargo").val("");
-            $("#Abono").val("");
-
-            getPartidaslocal();
+            $("#Cargo").val("0.00");
+            $("#Abono").val("0.00");
             $("#submitButton").attr("disabled", "disabled");
+
+            getPartidas_Table();
+
         } catch (err) {
             console.log(err)
         }
@@ -413,40 +351,37 @@
             <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>
 
-        <form>
-            <div class="form-group mb-2 row align-items-center">
+            <div class="row align-items-center">
 
-                <div class="form-group col-md">
+                <div class="col flex-column">
                     <label for="InputCuenta">Cuenta</label>
                     <input type="text" id="Cuenta" class="form-control" placeholder="####,####,####,####"  onchange="handleSelectChange(this.value)"></input>
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="col-md-4">
                     <label for="InputDescripcion">Descripción</label>
                     <input id="Descripcion" class="form-control-plaintext" readonly></input>
                 </div>
 
-                <div class="form-group col-md-1">
+                <div class="col-md-1">
                     <label for="InputMayor">Mayor</label>
                     <input id="Mayor" class="form-control-plaintext" readonly></input>
                 </div>
 
-                <div class="col-md flex-column">
+                <div class="col flex-column">
                     <label for="InputCargo">Cargo</label>
-                    <input type=number id="Cargo" class="form-control" onkeyup="toggleButton()"></input>
+                    <input type=number id="Cargo" class="form-control" value="0.00" onkeyup="toggleButton()"></input>
                 </div>
 
-                <div class="col-md flex-column">
+                <div class="col flex-column">
                     <label for="InputAbono">Abono</label>
-                    <input type=number id="Abono" class="form-control" onkeyup="toggleButton()"></input>
+                    <input type=number id="Abono" class="form-control" value="0.00"  onkeyup="toggleButton()"></input>
                 </div>
 
-                <div class="col-md mt-4 flex-column">
+                <div class="col mt-4 flex-column">
                     <button id="submitButton" class="btn btn-success" onclick="handleInsertPartida($('#Cuenta').val(),$('#Descripcion').val(),$('#Cargo').val(),$('#Abono').val(),$('#Mayor').val())" disabled>Agregar</button>
                 </div>
             </div>
-
-        </form>
 
     </div>
 </nav>
