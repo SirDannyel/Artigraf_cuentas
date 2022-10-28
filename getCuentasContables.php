@@ -4,25 +4,47 @@ include_once 'conexion.php';
 include_once 'config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-  $Parametro = $_GET['filtro'];
-  $cantidad = 0;
-  $query = "SELECT Cuenta, CuentaDesc, EF1, EF1Desc, EF2, EF2Desc, EF3, EF3Desc, EF4, EF4Desc, EF5, EF5Desc, EF6, EF6Desc, EF7, EF7Desc 
-  FROM DWH_Artigraf.dbo.Dim_CuentaContable WHERE Cuenta LIKE '$Parametro'";
-  $stmt = $conn->query($query);
-  $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $serverName = $conf['server'];
+    $connectionInfo = array("Database"=>"DWH_Artigraf");  
+    $conn = sqlsrv_connect($serverName, $connectionInfo);  
+    if ($conn === false) {
+        echo "Could not connect.\n";  
+        die(print_r(sqlsrv_errors(), true));  
+    } else {
 
-      //Imprimir json:
-      header_remove('Set-Cookie');
-      $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
-      if (is_array($httpHeaders) && count($httpHeaders)) {
+        $Parametro = $_GET['filtro'];
+        $query = "SELECT Cuenta, CuentaDesc, EF1, EF1Desc, EF2, EF2Desc, EF3, EF3Desc, EF4, EF4Desc, EF5, EF5Desc, EF6, EF6Desc, EF7, EF7Desc 
+        FROM DWH_Artigraf.dbo.Dim_CuentaContable WHERE Cuenta LIKE '$Parametro'";
+        $stmt = sqlsrv_query($conn, $query);
+
+        if($stmt === false) {
+            die( print_r( sqlsrv_errors(), true));
+        }else{
+
+            $cantidad = 0;
+            while($Response = sqlsrv_fetch_object($stmt)) {
+
+                $registros [$cantidad] = $Response;
+                $cantidad = $cantidad + 1;
+
+            }
+
+        header_remove('Set-Cookie');
+        $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
+        if (is_array($httpHeaders) && count($httpHeaders)) {
           foreach ($httpHeaders as $httpHeader) {
               header($httpHeader);
           }
-      }
-      echo json_encode($registros);
-      exit();
+        }
 
-    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      echo json_encode($registros);
+        
+        }
+    //Desconectar servicio
+    sqlsrv_close($conn);
+    }
+
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
 
         $serverName = $conf['server'];
@@ -39,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $data = json_decode(file_get_contents("php://input"));
         for ($i = 0; $i < count($data); $i++) {
             $cuenta = $data[$i]->Cuenta;
+            $cuentadesc = $data[$i]->CuentaDesc;
             $ef1 = $data[$i]->EF1;
             $ef1Desc = $data[$i]->EF1Desc;
             $ef2 = $data[$i]->EF2;
@@ -104,12 +127,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                         $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $cuenta);
                     } else {
                         $tsqli = "INSERT INTO DWH_Artigraf.dbo.CuentasAuto  
-                        (CuentaB, EF1B, EF1DescB, EF2B, EF2DescB, EF3B, EF3DescB, EF4B, EF4DescB, 
+                        (CuentaB, CuentaDescB, EF1B, EF1DescB, EF2B, EF2DescB, EF3B, EF3DescB, EF4B, EF4DescB, 
                         EF5B, EF5DescB, EF6B, EF6DescB, EF7B, EF7DescB) VALUES 
-                        ((?), (?), (?), (?), (?), (?), (?), (?), (?), 
+                        ((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), 
                         (?), (?), (?), (?), (?), (?))";
     
-                        $parametros = array($cuenta, $ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, 
+                        $parametros = array($cuenta,$cuentadesc ,$ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, 
                         $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc);
                     }
     
