@@ -14,7 +14,11 @@
 </head>
 <body>
 
-<script>  
+<script>
+
+/******* Models ************/
+
+    let cuentascontables = [];
 
 /******* Servicios  *******/
 
@@ -41,15 +45,15 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
     }
 
     const UpdateCuentas_Api = () => {
-        const form = myArr.slice();
-        const data = JSON.stringify(form);
+        //const form = cuentascontables.slice();
+        const data = JSON.stringify(cuentascontables);
           return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
                 if (objXMLHttpRequest.readyState === 4) {
                   if (objXMLHttpRequest.status == 200) {
-                    resolve(objXMLHttpRequest.response);
-                    console.log(data);
+                      resolve(objXMLHttpRequest.responseText);
+                      //console.log(data);
                   } else {
                     reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
                   }
@@ -65,8 +69,6 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
 
 /******* Controladores y funciones *******/
 
-let myArr = [];
-
 const deleteChild = () => {
     $(".tr").remove();
 }
@@ -74,207 +76,269 @@ const deleteChild = () => {
 const getCuentasContables = async () => {
         try {
             const response = await CuentasContables_Api();
-            myArr = JSON.parse(response);
+            cuentascontables = JSON.parse(response);
+            getCuentasContables_Table();
 
-            deleteChild ();
-            /*const nuevoArr = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));*/
-            $("#IdEf1").val(myArr[0].EF1);
-            $("#IdEf1Desc").val(myArr[0].EF1Desc);
-            $("#IdEf2").val(myArr[0].EF2);
-            $("#IdEf2Desc").val(myArr[0].EF2Desc);
-            $("#IdEf3").val(myArr[0].EF3);
-            $("#IdEf3Desc").val(myArr[0].EF3Desc);
-            $("#IdEf4").val(myArr[0].EF4);
-            $("#IdEf4Desc").val(myArr[0].EF4Desc);
-            $("#IdEf5").val(myArr[0].EF5);
-            $("#IdEf5Desc").val(myArr[0].EF5Desc);
-            $("#IdEf6").val(myArr[0].EF6);
-            $("#IdEf6Desc").val(myArr[0].EF6Desc);
-            $("#IdEf7").val(myArr[0].EF7);
-            $("#IdEf7Desc").val(myArr[0].EF7Desc);
-
-            var tablabody = document.getElementById("tablabody");
-            for (var i = 0; i < myArr.length; i++) { //cambiar myArr por nuevoArr.length
-
-                var linea = document.createElement("tr");
-                linea.setAttribute("class", "d-flex flex-row tr");
-                tablabody.appendChild(linea);
-
-                var cuenta = myArr[i].Cuenta; //cambiar por nuevoArr con todos los campos
-                var campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = cuenta;
-                campo.value = cuenta;
-                linea.appendChild(campo);
-
-                var opt = myArr[i].CuentaDesc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:300px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF1;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF1Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF2;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF2Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF3;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF3Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF4;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF4Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF5;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF5Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF6;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF6Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF7;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                opt = myArr[i].EF7Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-
-                var boton = document.createElement("button");
-                boton.setAttribute("name",myArr[i].Cuenta);
-                boton.setAttribute("id", cuenta);
-
-                boton.onclick = function(){
-                    Swal.fire({
-                        title: '¿Estas seguro?',
-                        text: "Se eliminará el registro",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Eliminarlo',
-                        cancelButtonText: 'Cancelar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire(
-                                'Eliminado!',
-                                'Registro Eliminado.',
-                                'success'
-                            )
-                        }
-                    });
-                };
-
-                boton.setAttribute("class", "btn btn-outline-danger px-3");
-                boton.setAttribute("type", "button");
-                linea.appendChild(boton);
-
-                var icon = document.createElement("i");
-                icon.setAttribute("class", "fa-solid fa-close");
-                boton.appendChild(icon);
-
-            }
             } catch (err) 
             {
                 console.log(err)
             }
         }
-        
+
+const getCuentasContables_Table = async () => {
+    try {
+
+        deleteChild ();
+        /*const nuevoArr = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));*/
+
+        var tablabody = document.getElementById("tablabody");
+        for (var i = 0; i < cuentascontables.length; i++) { //cambiar myArr por nuevoArr.length
+
+            var linea = document.createElement("tr");
+            linea.setAttribute("class", "d-flex flex-row tr");
+            tablabody.appendChild(linea);
+
+            var cuenta = cuentascontables[i].Cuenta; //cambiar por nuevoArr con todos los campos
+            var campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = cuenta;
+            campo.value = cuenta;
+            linea.appendChild(campo);
+
+            var opt = cuentascontables[i].CuentaDesc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:300px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF1;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF1Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF2;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF2Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF3;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF3Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF4;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF4Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF5;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF5Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF6;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF6Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF7;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF7Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            var boton = document.createElement("button");
+            boton.setAttribute("name",cuentascontables[i].Cuenta);
+            boton.setAttribute("id", cuenta);
+
+            boton.onclick = function(){
+
+                Swal.fire({
+                    title: '¿Estas seguro?',
+                    text: "Se eliminará el registro",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Eliminarlo',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        let indice = cuentascontables.findIndex(cuenta => cuenta.Cuenta === this.id);
+                        cuentascontables.splice(indice, 1);
+                        getCuentasContables_Table();
+
+                        Swal.fire(
+                            'Eliminado!',
+                            'Registro Eliminado.',
+                            'success'
+                        )
+                    }
+                });
+
+            };
+
+            boton.setAttribute("class", "btn btn-outline-danger px-3");
+            boton.setAttribute("type", "button");
+            linea.appendChild(boton);
+
+            var icon = document.createElement("i");
+            icon.setAttribute("class", "fa-solid fa-close");
+            boton.appendChild(icon);
+
+        }
+    } catch (err)
+    {
+        console.log(err)
+    }
+}
          //Botón para Buscar cuentas con base al valor ingresado en el input del search.
         const handleChangeCuenta = () => {
-          try{ 
-
+          try{
             getCuentasContables();
-
           }catch(err){
                 console.log(err);
           }
         }
 
-
-    const handleUpdateCuenta = () => {
+    const handleUpdateCuenta = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc) => {
         try {
 
-          UpdateCuentas_Api ();
+            for (var i = 0; i < cuentascontables.length; i++) {
+
+                var cuenta = cuentascontables[i].Cuenta;
+
+                cuentascontables.map(function (dato) {
+                    if (dato.Cuenta == cuenta) {
+
+                        if (ef1 && ef1desc) {
+                            dato.EF1 = ef1;
+                            dato.EF1Desc = ef1desc;
+                        }
+
+                        if (ef2 && ef2desc) {
+                            dato.EF2 = ef2;
+                            dato.EF2Desc = ef2desc;
+                        }
+
+                        if(ef3 && ef3desc) {
+                            dato.EF3 = ef3;
+                            dato.EF3Desc = ef3desc;
+                        }
+
+                        if(ef4 && ef4desc) {
+                            dato.EF4 = ef4;
+                            dato.EF4Desc = ef4desc;
+                        }
+
+                        if(ef5 && ef5desc) {
+                            dato.EF5 = ef5;
+                            dato.EF5Desc = ef5desc;
+                        }
+
+                        if(ef6 && ef6desc) {
+                            dato.EF6 = ef6;
+                            dato.EF6Desc = ef6desc;
+                        }
+
+                        if(ef7 && ef7desc) {
+                            dato.EF7 = ef7;
+                            dato.EF7Desc = ef7desc;
+                        }
+                    }
+
+                    return dato;
+                });
+            }
+
+            UpdateCuentas_Api();
+            getCuentasContables_Table();
 
             Swal.fire({
             icon: 'success',
             title: 'Registros Actualizados',
             showConfirmButton: false,
             timer: 1500
-        });
+            });
+
+            $('#IdEf1').val("");
+            $('#IdEf1Desc').val("");
+            $('#IdEf2').val("");
+            $('#IdEf2Desc').val("");
+            $('#IdEf3').val("");
+            $('#IdEf3Desc').val("");
+            $('#IdEf4').val("");
+            $('#IdEf4Desc').val("");
+            $('#IdEf5').val("");
+            $('#IdEf5Desc').val("");
+            $('#IdEf6').val("");
+            $('#IdEf6Desc').val("");
+            $('#IdEf7').val("");
+            $('#IdEf7Desc').val("");
 
         } catch (err) {
             console.log(err)
@@ -282,8 +346,6 @@ const getCuentasContables = async () => {
 
        //AQUI
     }
-
-
 
         const init = () => {
         //getCuentasContables();
@@ -397,7 +459,7 @@ const getCuentasContables = async () => {
         </div>
 
         <div class="col">
-          <div class="col"> <button class="btn btn-primary" onclick="handleUpdateCuenta()">
+          <div class="col"> <button class="btn btn-primary" onclick="handleUpdateCuenta(filtro = $('#IdEf1').val(),filtro = $('#IdEf1Desc').val(),filtro = $('#IdEf2').val(),filtro = $('#IdEf2Desc').val(),filtro = $('#IdEf3').val(),filtro = $('#IdEf3Desc').val(),filtro = $('#IdEf4').val(),filtro = $('#IdEf4Desc').val(),filtro = $('#IdEf5').val(),filtro = $('#IdEf5Desc').val(),filtro = $('#IdEf6').val(),filtro = $('#IdEf6Desc').val(),filtro = $('#IdEf7').val(),filtro = $('#IdEf7Desc').val())">
                     Modificar
                   </button></div>
         </div>
@@ -407,8 +469,8 @@ const getCuentasContables = async () => {
     </nav> 
 
 
-    <div style="padding-top:170px;"> </div>
-    <main class="container" style="max-width:1822px;">  
+    <div style="padding-top:200px;"> </div>
+    <main class="container" style="max-width:1822px;">
         <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
           <div class="border-bottom d-flex flex-row">
             <h3 class="w-100  d-flex justify-content-center text-primary" id="titulo">Cuentas Contables</h3>
