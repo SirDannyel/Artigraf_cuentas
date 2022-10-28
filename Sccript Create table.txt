@@ -1,0 +1,18 @@
+CREATE TABLE dbo.CuentasAuto  
+   (CuentaB varchar(100) PRIMARY KEY NOT NULL,  
+   CuentaDescB varchar(100) NULL,  
+   EF1B int NULL,  
+   EF1DescB varchar(100) NULL,
+   EF2B int NULL,  
+   EF2DescB varchar(100) NULL,
+   EF3B int NULL,  
+   EF3DescB varchar(100) NULL,
+   EF4B int NULL,  
+   EF4DescB varchar(100) NULL,
+   EF5B int NULL, 
+   EF5DescB varchar(100) NULL,
+   EF6B int NULL,
+   EF6DescB varchar(100) NULL,  
+   EF7B int NULL,
+   EF7DescB varchar(100) NULL)
+GO

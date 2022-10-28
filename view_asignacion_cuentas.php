@@ -114,6 +114,9 @@ const getCuentasContables = async () => {
                 linea.setAttribute("class", "d-flex flex-row tr");
                 tablabody.appendChild(linea);
                 var orden = myArr[i].Cuenta; //cambiar por nuevoArr con todos los campos
+                var posicion = i;
+                console.log("posición", i);
+                console.log("posición variable", posicion);
                 var campo = document.createElement("td");
                 campo.setAttribute("style", "width:200px;");
                 campo.textContent = orden;
@@ -210,6 +213,10 @@ const getCuentasContables = async () => {
                 campo.value = opt;
                 linea.appendChild(campo);
               }
+              console.log("posición final varianle", posicion);
+              console.log("posición final", i);
+              myArr.splice(1,1);
+              console.log("elemento eliminado", myArr);
             } catch (err) 
             {
                 console.log(err)

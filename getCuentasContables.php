@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $ef7 = $data[$i]->EF7;
             $ef7Desc = $data[$i]->EF7Desc;
 
+            /*-------------------ACTUALIZAR TABLA DE DIM_CUENTACONTABLES-------------------*/
             /* Set up the parameterized query. */  
             
             $tsql = "UPDATE DWH_Artigraf.dbo.Dim_CuentaContable   
@@ -73,14 +74,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             } else {  
                 echo "Error in statement execution.\n";  
                 die(print_r(sqlsrv_errors(), true));  
-            }  
+            }
 
-        }
+            /*------------------------------------------------------------------------------*/
+            /*-------INSERTAR O ACTUALIZAR SEGUN CORRESPONDA REGISTROS A TABLA ESPEJO-------*/
+            
+            $tsqle = "SELECT CuentaB FROM DWH_Artigraf.dbo.CuentasAuto WHERE CuentaB = (?)";
+            $pa = array($cuenta);
 
+            $stmt = sqlsrv_query($conn, $tsqle, $pa);
+
+            if ($stmt === false) {
+                echo "Error in statement execution.\n"; 
+            } else {
+                $actualizar = 0;
+                while( $Response = sqlsrv_fetch_object( $stmt)) {
+                    $actualizar = 1; 
+                    } 
+                    
+                    if ( $actualizar === 1) {
+                        $tsqli = "UPDATE DWH_Artigraf.dbo.CuentasAuto   
+                        SET EF1B = (?), EF1DescB = (?), EF2B = (?), EF2DescB = (?), EF3B = (?), EF3DescB = (?),
+                        EF4B = (?), EF4DescB = (?), EF5B = (?), EF5DescB = (?), EF6B = (?), EF6DescB = (?),
+                        EF7B = (?), EF7DescB = (?)    
+                        WHERE CuentaB = (?)";
+    
+                        $parametros = array($ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, 
+                        $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $cuenta);
+                    } else {
+                        $tsqli = "INSERT INTO DWH_Artigraf.dbo.CuentasAuto  
+                        (CuentaB, EF1B, EF1DescB, EF2B, EF2DescB, EF3B, EF3DescB, EF4B, EF4DescB, 
+                        EF5B, EF5DescB, EF6B, EF6DescB, EF7B, EF7DescB) VALUES 
+                        ((?), (?), (?), (?), (?), (?), (?), (?), (?), 
+                        (?), (?), (?), (?), (?), (?))";
+    
+                        $parametros = array($cuenta, $ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, 
+                        $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc);
+                    }
+    
+                    if (sqlsrv_query($conn, $tsqli, $parametros)) {  
+                        echo "Statement executed new table.\n";  
+                    } else {  
+                        echo "Error in statement execution Insert.\n";  
+                        die(print_r(sqlsrv_errors(), true));  
+                    }  
+
+                }
+
+            }
+            
          /* Free connection resources. */  
          sqlsrv_close($conn); 
 
-    }   
-    
+        }
+
     
 ?>
