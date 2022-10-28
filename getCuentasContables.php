@@ -1,8 +1,8 @@
 <?php
 
-
+include_once 'conexion.php';
+include_once 'config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  include_once 'conexion.php';
 
   $Parametro = $_GET['filtro'];
   $cantidad = 0;
@@ -23,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
       exit();
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
 
-
-        $serverName = ("LAPTOP-SPVHJIUH\SQLEXPRESS");
+        $serverName = $conf['server'];
         $connectionInfo = array("Database"=>"DWH_Artigraf");  
         $conn = sqlsrv_connect($serverName, $connectionInfo);  
         if ($conn === false) {  

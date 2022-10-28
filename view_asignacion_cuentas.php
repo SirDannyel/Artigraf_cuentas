@@ -76,132 +76,186 @@ const deleteChild = () => {
 const getCuentasContables = async () => {
         try {
             const response = await CuentasContables_Api();
-            console.log("getCuentasContables", response);
-            const myArr = JSON.parse(response);
-            console.log("getCuentasContables", myArr);
-            /*const nuevoArr = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));*/
-            $("#IdEf1").val(myArr[0].EF1);
-            $("#IdEf1Desc").val(myArr[0].EF1Desc);
-            $("#IdEf2").val(myArr[0].EF2);
-            $("#IdEf2Desc").val(myArr[0].EF2Desc);
-            $("#IdEf3").val(myArr[0].EF3);
-            $("#IdEf3Desc").val(myArr[0].EF3Desc);
-            $("#IdEf4").val(myArr[0].EF4);
-            $("#IdEf4Desc").val(myArr[0].EF4Desc);
-            $("#IdEf5").val(myArr[0].EF5);
-            $("#IdEf5Desc").val(myArr[0].EF5Desc);
-            $("#IdEf6").val(myArr[0].EF6);
-            $("#IdEf6Desc").val(myArr[0].EF6Desc);
-            $("#IdEf7").val(myArr[0].EF7);
-            $("#IdEf7Desc").val(myArr[0].EF7Desc);
-            var tablabody = document.getElementById("tablabody");
-            for (var i = 0; i < myArr.length; i++) { //cambiar myArr por nuevoArr.length
-                var linea = document.createElement("tr");
-                linea.setAttribute("class", "d-flex flex-row tr");
-                tablabody.appendChild(linea);
-                var orden = myArr[i].Cuenta; //cambiar por nuevoArr con todos los campos
-                var campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = orden;
-                campo.value = orden;
-                linea.appendChild(campo);
-                var opt = myArr[i].CuentaDesc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:300px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF1;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF1Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF2;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF2Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF3;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF3Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF4;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF4Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF5;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF5Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF6;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF6Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF7;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:100px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-                opt = myArr[i].EF7Desc;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:200px;");
-                campo.textContent = opt;
-                campo.value = opt;
-                linea.appendChild(campo);
-              }
+            cuentascontables = JSON.parse(response);
+            getCuentasContables_Table();
+
             } catch (err) 
             {
                 console.log(err)
             }
         }
-        
+
+const getCuentasContables_Table = async () => {
+    try {
+
+        deleteChild ();
+        /*const nuevoArr = myArr.filter( ({ Cuenta }) => Cuenta.includes(cuenta));*/
+
+        var tablabody = document.getElementById("tablabody");
+        for (var i = 0; i < cuentascontables.length; i++) { //cambiar myArr por nuevoArr.length
+
+            var linea = document.createElement("tr");
+            linea.setAttribute("class", "d-flex flex-row tr");
+            tablabody.appendChild(linea);
+
+            var cuenta = cuentascontables[i].Cuenta; //cambiar por nuevoArr con todos los campos
+            var campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = cuenta;
+            campo.value = cuenta;
+            linea.appendChild(campo);
+
+            var opt = cuentascontables[i].CuentaDesc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:300px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF1;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF1Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF2;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF2Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF3;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF3Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF4;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF4Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF5;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF5Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF6;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF6Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF7;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF7Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            var boton = document.createElement("button");
+            boton.setAttribute("name",cuentascontables[i].Cuenta);
+            boton.setAttribute("id", cuenta);
+
+            boton.onclick = function(){
+
+                Swal.fire({
+                    title: '¿Estas seguro?',
+                    text: "Se eliminará el registro",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Eliminarlo',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        let indice = cuentascontables.findIndex(cuenta => cuenta.Cuenta === this.id);
+                        cuentascontables.splice(indice, 1);
+                        getCuentasContables_Table();
+
+                        Swal.fire(
+                            'Eliminado!',
+                            'Registro Eliminado.',
+                            'success'
+                        )
+                    }
+                });
+
+            };
+
+            boton.setAttribute("class", "btn btn-outline-danger px-3");
+            boton.setAttribute("type", "button");
+            linea.appendChild(boton);
+
+            var icon = document.createElement("i");
+            icon.setAttribute("class", "fa-solid fa-close");
+            boton.appendChild(icon);
+
+        }
+    } catch (err)
+    {
+        console.log(err)
+    }
+}
          //Botón para Buscar cuentas con base al valor ingresado en el input del search.
         const handleChangeCuenta = () => {
           try{
