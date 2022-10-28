@@ -7,6 +7,8 @@ function writeServerLog($msg)
 	@error_log(date('Y-m-d H:i:s').' :: '.print_r($msg, true).PHP_EOL, 3, 'wsServer.log');
 }
  
+$conf = include('config.php'); 
+$serverName  = $conf['server'];
 $Conceptos  = EjecutaSQL("Select Conceptos", "Select * from EstadoResultados");
 
 function EjecutaSQL($Proceso= '',$sql= '')
@@ -17,8 +19,7 @@ function EjecutaSQL($Proceso= '',$sql= '')
 	 	writeServerLog('Query: - ' .$sql ); 
 	 	//writeServerLog('param: - ' .$_POST['estado'] );
  
-		 
-		  	$serverName = 'DESKTOP-907DBP9\SQLEXPRESS';
+		  
 		  	$connectionInfo = array( "Database"=>"DWH_Artigraf");
 			$conn = sqlsrv_connect( $serverName, $connectionInfo);
 

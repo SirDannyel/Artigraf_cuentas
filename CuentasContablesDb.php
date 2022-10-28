@@ -46,6 +46,9 @@ if($_POST['tipo'] === "getRubros"){
         case "EF7": 
             $campo = 'EF7Desc';   
             break;
+        case "EF8": 
+            $campo = 'EF8Desc';   
+            break;
         }
 
         if($campo == 'Fijo'){

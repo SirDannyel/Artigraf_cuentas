@@ -21,7 +21,8 @@ if ($conn->multi_query($sql) === TRUE) {
 $conn->close();*/
 //Conección a base SQL SERVER: Instalar ultima versiones de php agregar extensiones pdo, odbc para sql
 // y reinicar windows despues de agregar conf en el php.init
-$serverName = 'LAPTOP-SPVHJIUH\SQLEXPRESS';
+$conf = include('config.php'); 
+$serverName  = $conf['server']; 
 $connectionInfo = array( "Database"=>"DWH_Artigraf");
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
