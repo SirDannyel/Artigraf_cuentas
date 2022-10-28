@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $serverName = ("DESKTOP-092HCCI");
+        $serverName = ("LAPTOP-SPVHJIUH\SQLEXPRESS");
         $connectionInfo = array("Database"=>"DWH_Artigraf");  
         $conn = sqlsrv_connect($serverName, $connectionInfo);  
         if ($conn === false) {  
