@@ -469,7 +469,7 @@ const getCuentasContables_Table = async () => {
     </nav> 
 
 
-    <div style="padding-top:230px;"> </div>
+    <div style="padding-top:200px;"> </div>
     <main class="container" style="max-width:1822px;">
         <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
           <div class="border-bottom d-flex flex-row">
