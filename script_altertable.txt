@@ -1,0 +1,18 @@
+/*-----Modificar tabla de Fact_Saldos-----*/
+
+ALTER TABLE dbo.Fact_Saldos
+ADD
+PartidasEspeciales tinyint NULL DEFAULT 0;
+
+
+
+/*-----Modificar tabla de PartidasEspeciales-----*/
+
+ALTER TABLE dbo.PartidasEspeciales
+ADD
+Descripcion varchar(200) NULL DEFAULT 0,
+SaldoAnterior decimal(20,4) NULL,
+Cargo decimal(20,4) NULL,
+Abono decimal(20,4) NULL,
+Movimiento decimal(20,4) NULL,
+SaldoFinal decimal(20,4) NULL;

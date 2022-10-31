@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
     //Ejecucion de insert a Partidas especiales
-    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Descripcion,Monto,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0') ";
+    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0') ";
 
     if( $sql2 <> '' ){
         $stmt2 = sqlsrv_query($conn, $sql2);
