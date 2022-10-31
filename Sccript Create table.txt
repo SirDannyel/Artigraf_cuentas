@@ -1,6 +1,5 @@
 CREATE TABLE dbo.CuentasAuto  
-   (CuentaB varchar(100) PRIMARY KEY NOT NULL,  
-   CuentaDescB varchar(100) NULL,  
+   (CuentaB varchar(100) PRIMARY KEY NOT NULL,   
    EF1B int NULL,  
    EF1DescB varchar(100) NULL,
    EF2B int NULL,  
@@ -14,5 +13,18 @@ CREATE TABLE dbo.CuentasAuto
    EF6B int NULL,
    EF6DescB varchar(100) NULL,  
    EF7B int NULL,
-   EF7DescB varchar(100) NULL)
+   EF7DescB varchar(100) NULL,
+   EF8B int NULL,
+   EF8DescB varchar(100) NULL)
 GO
+
+/*---En caso de ya haber creado la tabla con el script anterior, ejecutar el sig comando para 
+     eliminar columna de descripción y añadir columnas de EF8 y EF8 Descripción-----*/
+
+ALTER TABLE dbo.CuentasAuto DROP COLUMN CuentaDescB;
+GO
+
+ALTER TABLE dbo.CuentasAuto
+ADD
+EF8B int NULL,
+EF8DescB varchar(100) NULL;
