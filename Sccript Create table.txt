@@ -28,12 +28,16 @@ ALTER TABLE dbo.CuentasAuto
 ADD
 EF8B int NULL,
 EF8DescB varchar(100) NULL;
-
-
-   EF7DescB varchar(100) NULL)
 GO
+
+/*---Añadir columnas EF8s a Dim_CuentasContables----*/
+ALTER TABLE dbo.Dim_CuentaContable
+ADD
+EF8 int NULL,
+EF8Desc varchar(100) NULL;
   
  
+ /*--------------Crear tabla de Estados-------------*/
 
 CREATE TABLE [dbo].[Dim_Estado](
 	[Estado] [nvarchar](20) NOT NULL,

@@ -19,6 +19,10 @@
 /******* Models ************/
 
     let cuentascontables = [];
+    const parameters = {};
+    parameters.inputSearch = $("#inputSearch").val();
+    
+    
 
 /******* Servicios  *******/
 
@@ -47,6 +51,8 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
     const UpdateCuentas_Api = () => {
         //const form = cuentascontables.slice();
         const data = JSON.stringify(cuentascontables);
+        const cta = JSON.stringify(parameters);
+        console.log('CTA' , cta);
           return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -54,6 +60,8 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
                   if (objXMLHttpRequest.status == 200) {
                       resolve(objXMLHttpRequest.responseText);
                       //console.log(data);
+                       console.log(cta);
+                       //console.log(ctapost);
                   } else {
                     reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
                   }
@@ -210,6 +218,20 @@ const getCuentasContables_Table = async () => {
             campo.value = opt;
             linea.appendChild(campo);
 
+            opt = cuentascontables[i].EF8;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:100px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
+            opt = cuentascontables[i].EF8Desc;
+            campo = document.createElement("td");
+            campo.setAttribute("style", "width:200px;");
+            campo.textContent = opt;
+            campo.value = opt;
+            linea.appendChild(campo);
+
             var boton = document.createElement("button");
             boton.setAttribute("name",cuentascontables[i].Cuenta);
             boton.setAttribute("id", cuenta);
@@ -218,12 +240,12 @@ const getCuentasContables_Table = async () => {
 
                 Swal.fire({
                     title: '¿Estas seguro?',
-                    text: "Se eliminará el registro",
+                    text: "Se descartará el registro",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Eliminarlo',
+                    confirmButtonText: 'Descartar',
                     cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
@@ -233,9 +255,9 @@ const getCuentasContables_Table = async () => {
                         getCuentasContables_Table();
 
                         Swal.fire(
-                            'Eliminado!',
-                            'Registro Eliminado.',
-                            'success'
+                            '¡Descartado!',
+                            'Registro Descartado.',
+                            'Success'
                         )
                     }
                 });
@@ -265,7 +287,7 @@ const getCuentasContables_Table = async () => {
           }
         }
 
-    const handleUpdateCuenta = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc) => {
+    const handleUpdateCuenta = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
         try {
 
             for (var i = 0; i < cuentascontables.length; i++) {
@@ -309,6 +331,11 @@ const getCuentasContables_Table = async () => {
                             dato.EF7 = ef7;
                             dato.EF7Desc = ef7desc;
                         }
+
+                        if(ef8 && ef8desc) {
+                            dato.EF8 = ef8;
+                            dato.EF8Desc = ef8desc;
+                        }
                     }
 
                     return dato;
@@ -339,6 +366,8 @@ const getCuentasContables_Table = async () => {
             $('#IdEf6Desc').val("");
             $('#IdEf7').val("");
             $('#IdEf7Desc').val("");
+            $('#IdEf8').val("");
+            $('#IdEf8Desc').val("");
 
         } catch (err) {
             console.log(err)
@@ -373,7 +402,7 @@ const getCuentasContables_Table = async () => {
           </a>
           <div class="row">
             <div class="col-6 col-sm-3">
-              <input class="form-control m-1" placeholder="1001,0001,????" id="inputSearch"></input>
+              <input class="form-control m-1" placeholder="1001,0001,%%%%" id="inputSearch"></input>
             </div>
             <div class="col-6 col-sm-3"> <button class="btn btn-primary" onclick="handleChangeCuenta()">
                     Buscar
@@ -393,28 +422,33 @@ const getCuentasContables_Table = async () => {
         </div>
 
         <div class="col">
-              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF3</p>
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf3">EF3</p>
               <input class="form-control m-1" placeholder="EF3" id="IdEf3"></input>
         </div>
 
         <div class="col">
-              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF4</p>
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf4">EF4</p>
               <input class="form-control m-1" placeholder="EF4" id="IdEf4"></input>
         </div>
 
         <div class="col"> 
-              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF5</p>
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf5">EF5</p>
               <input class="form-control m-1" placeholder="EF5" id="IdEf5"></input>
         </div>
 
         <div class="col">  
-              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF6</p>
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf6">EF6</p>
               <input class="form-control m-1" placeholder="EF6" id="IdEf6"></input>
         </div>
 
         <div class="col">
-              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF7</p>
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf7">EF7</p>
               <input class="form-control m-1" placeholder="EF7" id="IdEf7"></input>
+        </div>
+
+        <div class="col">
+              <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf8">EF8</p>
+              <input class="form-control m-1" placeholder="EF8" id="IdEf8"></input>
         </div>
 
         <div class="col">
@@ -459,7 +493,11 @@ const getCuentasContables_Table = async () => {
         </div>
 
         <div class="col">
-          <div class="col"> <button class="btn btn-primary" onclick="handleUpdateCuenta(filtro = $('#IdEf1').val(),filtro = $('#IdEf1Desc').val(),filtro = $('#IdEf2').val(),filtro = $('#IdEf2Desc').val(),filtro = $('#IdEf3').val(),filtro = $('#IdEf3Desc').val(),filtro = $('#IdEf4').val(),filtro = $('#IdEf4Desc').val(),filtro = $('#IdEf5').val(),filtro = $('#IdEf5Desc').val(),filtro = $('#IdEf6').val(),filtro = $('#IdEf6Desc').val(),filtro = $('#IdEf7').val(),filtro = $('#IdEf7Desc').val())">
+          <input class="form-control m-1" placeholder="EF8" id="IdEf8Desc"></input>
+        </div>
+
+        <div class="col">
+          <div class="col"> <button class="btn btn-primary" onclick="handleUpdateCuenta(filtro = $('#IdEf1').val(),filtro = $('#IdEf1Desc').val(),filtro = $('#IdEf2').val(),filtro = $('#IdEf2Desc').val(),filtro = $('#IdEf3').val(),filtro = $('#IdEf3Desc').val(),filtro = $('#IdEf4').val(),filtro = $('#IdEf4Desc').val(),filtro = $('#IdEf5').val(),filtro = $('#IdEf5Desc').val(),filtro = $('#IdEf6').val(),filtro = $('#IdEf6Desc').val(),filtro = $('#IdEf7').val(),filtro = $('#IdEf7Desc').val(),filtro = $('#IdEf8').val(),filtro = $('#IdEf8Desc').val())">
                     Modificar
                   </button></div>
         </div>
@@ -494,6 +532,8 @@ const getCuentasContables_Table = async () => {
                 <th scope="col" style="width:200px;" class="text-center">Descripción EF6</th>
                 <th scope="col" style="width:100px;" class="text-center">EF7</th>
                 <th scope="col" style="width:200px;" class="text-center">Descripción EF7</th> 
+                <th scope="col" style="width:100px;" class="text-center">EF8</th>
+                <th scope="col" style="width:200px;" class="text-center">Descripción EF8</th>
               </tr>
             </thead>
             <tbody  id="tablabody">

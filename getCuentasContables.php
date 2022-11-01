@@ -76,6 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $ef6Desc = $data[$i]->EF6Desc;
             $ef7 = $data[$i]->EF7;
             $ef7Desc = $data[$i]->EF7Desc;
+            $ef8 = $data[$i]->EF8;
+            $ef8Desc = $data[$i]->EF8Desc;
 
             /*-------------------ACTUALIZAR TABLA DE DIM_CUENTACONTABLES-------------------*/
             /* Set up the parameterized query. */  
@@ -83,13 +85,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $tsql = "UPDATE DWH_Artigraf.dbo.Dim_CuentaContable   
             SET EF1 = (?), EF1Desc = (?), EF2 = (?), EF2Desc = (?), EF3 = (?), EF3Desc = (?),
             EF4 = (?), EF4Desc = (?), EF5 = (?), EF5Desc = (?), EF6 = (?), EF6Desc = (?),
-            EF7 = (?), EF7Desc = (?)    
+            EF7 = (?), EF7Desc = (?), EF8 = (?), EF8Desc = (?)
             WHERE Cuenta = (?)";
             
 
             /* Assign literal parameter values. */ 
            
-            $params = array($ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $cuenta); 
+            $params = array($ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $ef8, $ef8Desc, $cuenta); 
             
              /* Execute the query. */  
              
@@ -120,20 +122,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                         $tsqli = "UPDATE DWH_Artigraf.dbo.CuentasAuto   
                         SET EF1B = (?), EF1DescB = (?), EF2B = (?), EF2DescB = (?), EF3B = (?), EF3DescB = (?),
                         EF4B = (?), EF4DescB = (?), EF5B = (?), EF5DescB = (?), EF6B = (?), EF6DescB = (?),
-                        EF7B = (?), EF7DescB = (?)    
+                        EF7B = (?), EF7DescB = (?), EF8B = (?), EF8DescB = (?)    
                         WHERE CuentaB = (?)";
     
                         $parametros = array($ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, 
-                        $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $cuenta);
+                        $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $ef8, $ef8Desc, $cuenta);
                     } else {
                         $tsqli = "INSERT INTO DWH_Artigraf.dbo.CuentasAuto  
-                        (CuentaB, CuentaDescB, EF1B, EF1DescB, EF2B, EF2DescB, EF3B, EF3DescB, EF4B, EF4DescB, 
-                        EF5B, EF5DescB, EF6B, EF6DescB, EF7B, EF7DescB) VALUES 
-                        ((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), 
-                        (?), (?), (?), (?), (?), (?))";
+                        (CuentaB, EF1B, EF1DescB, EF2B, EF2DescB, EF3B, EF3DescB, EF4B, EF4DescB, 
+                        EF5B, EF5DescB, EF6B, EF6DescB, EF7B, EF7DescB, EF7B, EF7DescB) VALUES 
+                        ((?), (?), (?), (?), (?), (?), (?), (?), (?), 
+                        (?), (?), (?), (?), (?), (?), (?), (?))";
     
-                        $parametros = array($cuenta,$cuentadesc ,$ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, 
-                        $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc);
+                        $parametros = array($cuenta, $ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, 
+                        $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $ef8, $ef8Desc);
                     }
     
                     if (sqlsrv_query($conn, $tsqli, $parametros)) {  
