@@ -105,9 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
     //Ejecuccion de Insert a Fact Saldos
-    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEspeciales) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1')";
+    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$_POST['linea']}')";
 
-    if( $sql <> ''){
         $stmt = sqlsrv_query($conn, $sql);
         if($stmt === false) {
             die( print_r( sqlsrv_errors(), true));
@@ -115,20 +114,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             echo  'Insertado' ;
         }
 
-    }
-
     //Ejecucion de insert a Partidas especiales
-    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0') ";
+    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal,Linea) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','{$_POST['linea']}') ";
 
-    if( $sql2 <> '' ){
+
         $stmt2 = sqlsrv_query($conn, $sql2);
         if($stmt2 === false) {
             die( print_r( sqlsrv_errors(), true));
         }else{
             echo  'Insertado' ;
         }
-
-    }
 
     //Desconectar servicio
     sqlsrv_close($conn);
