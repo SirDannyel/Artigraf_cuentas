@@ -7,7 +7,7 @@
     <title>ARTIGRAF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
+    <script src="https://kit.fontawesome.com/caf35569f5.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="input-mask.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -25,7 +25,8 @@
         cargo;
         abono;
         movimiento;
-        constructor(fecha,descripcion,cuenta,cargo,abono,movimiento) {
+        Linea;
+        constructor(fecha,descripcion,cuenta,cargo,abono,movimiento,linea) {
             // Hacemos referencia a la propiedad name del objeto instanciado
             this.fecha = fecha;
             this.descripcion = descripcion;
@@ -33,6 +34,7 @@
             this.cargo = cargo;
             this.abono = abono;
             this.movimiento = movimiento;
+            this.Linea = linea;
         }
     }
 
@@ -52,6 +54,7 @@
 
     let partidasdia = [];
     let cuentascontables = [];
+    var contador_linea = 0;
 
     /******* Servicios  *******/
 
@@ -101,7 +104,7 @@
         });
     }
 
-    const InsertPartidas_Api = (cuenta,descripcion,cargo,abono,mayor,movimiento) => {
+    const InsertPartidas_Api = (cuenta,descripcion,cargo,abono,mayor,movimiento,linea) => {
 
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -118,7 +121,29 @@
 
             objXMLHttpRequest.open('POST','partidas_especiales.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor+"&mov="+movimiento);
+            objXMLHttpRequest.send("cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor+"&mov="+movimiento+"&linea="+linea);
+        });
+    }
+
+    const DeletePartidas_Api = (linea) => {
+
+        return new Promise(function (resolve, reject) {
+            const objXMLHttpRequest = new XMLHttpRequest();
+
+            objXMLHttpRequest.onreadystatechange = function () {
+                if (objXMLHttpRequest.readyState === 4) {
+                    if (objXMLHttpRequest.status == 200) {
+                        resolve(objXMLHttpRequest.responseText);
+                    } else {
+                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+
+                    }
+                }
+            }
+
+            objXMLHttpRequest.open('POST','getPartidas.php');
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            objXMLHttpRequest.send("linea="+linea);
         });
     }
 
@@ -181,14 +206,17 @@
             const response = await PartidasEspeciales_Api();
             const myArr = JSON.parse(response);
              //console.log("getCuentas", response);
+
                 for (var i = 0; i < myArr.length; i++) {
-                    const nuevaPartida = new PartidasEspeciales(fechaNueva,myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento));
-                    partidasdia.unshift(nuevaPartida);
+                    const nuevaPartida = new PartidasEspeciales(fechaNueva,myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento),myArr[i].linea);
+                    partidasdia.push(nuevaPartida);
+
                 }
 
                 if (!partidasdia.length){
-                    const nuevaPartida = new PartidasEspeciales("Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro");
+                    const nuevaPartida = new PartidasEspeciales("Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro", contador_linea);
                     partidasdia.push(nuevaPartida);
+
                  }
 
                 getPartidas_Table();
@@ -206,53 +234,93 @@
             deleteChild ();
 
             var tablabody = document.getElementById("tablabody");
-
+            var contador = 1;
             for (var i = 0; i < partidasdia.length; i++) {
+
                 var linea = document.createElement("tr");
                 linea.setAttribute("class", "d-flex flex-row tr");
                 tablabody.appendChild(linea);
 
                 var opt = partidasdia[i].fecha;
-                campo = document.createElement("td");
-                campo.setAttribute("style", "width:150px;");
+                var campo = document.createElement("td");
+                campo.setAttribute("style", "width:8%;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
 
                 opt = partidasdia[i].descripcion;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:390px;");
+                campo.setAttribute("style", "width:34%;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
 
-                opt = partidasdia[i].cuenta;
+                var cuenta = partidasdia[i].cuenta;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:350px;");
-                campo.textContent = opt;
-                campo.value = opt;
+                campo.setAttribute("style", "width:25%;");
+                campo.textContent = cuenta;
+                campo.value = cuenta;
                 linea.appendChild(campo);
 
                 opt = partidasdia[i].cargo;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:150px;");
+                campo.setAttribute("style", "width:10%;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
 
                 opt = partidasdia[i].abono;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:150px;");
+                campo.setAttribute("style", "width:10%;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
 
                 opt = partidasdia[i].movimiento;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:150px;");
+                campo.setAttribute("style", "width:10%;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
+
+                var boton = document.createElement("button");
+                boton.setAttribute("name",partidasdia[i].cuenta);
+                boton.setAttribute("id",partidasdia[i].Linea);
+
+                boton.onclick = function() {
+
+                    Swal.fire({
+                        title: '¿Estas seguro?',
+                        text: "Se eliminará el registro",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Eliminarlo',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            handleDeletePartida(this.id);
+                            //console.log(indice);
+                            Swal.fire(
+                                'Eliminado!',
+                                'Registro Eliminado.',
+                                'success'
+                            )
+                        }
+                    });
+
+                };
+
+                boton.setAttribute("class", "btn btn-outline-danger px-3");
+                boton.setAttribute("type", "button");
+                linea.appendChild(boton);
+
+                var icon = document.createElement("i");
+                icon.setAttribute("class", "fa-solid fa-close");
+                boton.appendChild(icon);
+
+                contador++
             }
 
         } catch (err)
@@ -299,16 +367,23 @@
 
             var  mov = abono - cargo;
 
-            InsertPartidas_Api (cuenta,descripcion,cargo,abono,mayor,mov);
-
-            const nuevaPartida = new PartidasEspeciales(fechaNueva,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov));
-
             if (partidasdia[0].descripcion === "Sin Registro") {
                 partidasdia.shift();
-                partidasdia.unshift(nuevaPartida);
+                contador_linea = 1;
+                const nuevaPartida = new PartidasEspeciales(fechaNueva,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),contador_linea);
+                partidasdia.push(nuevaPartida);
+
             } else {
+                var cont = partidasdia[0].Linea;
+                contador_linea = cont + 1;
+                //const last = $(partidasdia).get(-1);
+                //console.log(contador_linea);
+                const nuevaPartida = new PartidasEspeciales(fechaNueva,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),contador_linea);
                 partidasdia.unshift(nuevaPartida);
+
             }
+
+            InsertPartidas_Api (cuenta,descripcion,cargo,abono,mayor,mov,contador_linea);
 
             $("#Cuenta").val("");
             $("#Descripcion").val("");
@@ -329,6 +404,18 @@
             showConfirmButton: false,
             timer: 1500
         });
+    }
+
+    const handleDeletePartida = (linea) => {
+
+        var line = Number(linea);
+
+        let indice = partidasdia.findIndex(linea => linea.Linea === line);
+        partidasdia.splice(indice, 1);
+
+        getPartidas_Table();
+        DeletePartidas_Api(linea);
+
     }
 
     /******* Fin Events  *******/
@@ -395,12 +482,12 @@
         <table class="table" id="tabla">
             <thead>
             <tr class="d-flex flex-row">
-                <th scope="col" style="width:150px;">Fecha</th>
-                <th scope="col" style="width:390px;">Descripcion</th>
-                <th scope="col" style="width:350px;">Cuenta</th>
-                <th scope="col" style="width:150px;">Cargo</th>
-                <th scope="col" style="width:150px;">Abono</th>
-                <th scope="col" style="width:150px;">Movimiento</th>
+                <th scope="col" style="width:8%;">Fecha</th>
+                <th scope="col" style="width:34%;">Descripcion</th>
+                <th scope="col" style="width:25%;">Cuenta</th>
+                <th scope="col" style="width:10%;">Cargo</th>
+                <th scope="col" style="width:10%;">Abono</th>
+                <th scope="col" style="width:10%;">Movimiento</th>
             </tr>
             </thead>
             <tbody  id="tablabody">

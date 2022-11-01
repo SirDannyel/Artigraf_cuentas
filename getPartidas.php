@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
         die( print_r( sqlsrv_errors(), true));
     } else {
 
-        $query = "Select CuentaContable as cuenta, Descripcion as descripcion, Cargo as cargo, Abono as abono, Movimiento as movimiento from PartidasEspeciales where fecha = '$fecha' order by fecha";
+        $query = "Select CuentaContable as cuenta, Descripcion as descripcion, Cargo as cargo, Abono as abono, Movimiento as movimiento, Linea as linea from PartidasEspeciales where Fecha = '$fecha' order by Linea Desc";
         $stmt = sqlsrv_query($conn, $query);
 
         if($stmt === false) {
@@ -53,6 +53,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 
             echo json_encode($Respuesta);
         }
+    }
+
+    //Desconectar servicio
+    sqlsrv_close($conn);
+
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $serverName = $server;
+    $username = "";
+    $password = "";
+    $dataBase = "DWH_Artigraf";
+
+
+    //Conexion mediante driver sqlsrv
+    $connectionInfo = array( "Database"=>$dataBase);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+    if( $conn === false ) {
+        echo "Conexión no se pudo establecer.";
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    $Linea = $_POST['linea'];
+    $query="Delete from PartidasEspeciales where Linea = $Linea ";
+
+        $stmt1 = sqlsrv_query($conn, $query);
+        if($query === false) {
+            die( print_r( sqlsrv_errors(), true));
+        }else{
+            echo 'Partida borrada' ;
+        }
+
+
+    $query2="Delete from Fact_Saldos where PartidaLinea = $Linea";
+
+    $stmt2 = sqlsrv_query($conn, $query2);
+    if($query2 === false) {
+        die( print_r( sqlsrv_errors(), true));
+    }else{
+        echo 'Registro borrado Fact Saldos' ;
     }
 
     //Desconectar servicio
