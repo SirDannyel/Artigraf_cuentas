@@ -19,10 +19,6 @@
 /******* Models ************/
 
     let cuentascontables = [];
-    const parameters = {};
-    parameters.inputSearch = $("#inputSearch").val();
-    
-    
 
 /******* Servicios  *******/
 
@@ -51,8 +47,6 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
     const UpdateCuentas_Api = () => {
         //const form = cuentascontables.slice();
         const data = JSON.stringify(cuentascontables);
-        const cta = JSON.stringify(parameters);
-        console.log('CTA' , cta);
           return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -60,8 +54,6 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
                   if (objXMLHttpRequest.status == 200) {
                       resolve(objXMLHttpRequest.responseText);
                       //console.log(data);
-                       console.log(cta);
-                       //console.log(ctapost);
                   } else {
                     reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
                   }
@@ -74,6 +66,29 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
         });
 
       }
+
+const RegistrarCambios_Api = (cuentasInput) => {
+
+    const data = JSON.stringify(cuentasInput);
+    return new Promise(function (resolve, reject) {
+        const objXMLHttpRequest = new XMLHttpRequest();
+        objXMLHttpRequest.onreadystatechange = function () {
+            if (objXMLHttpRequest.readyState === 4) {
+                if (objXMLHttpRequest.status == 200) {
+                    resolve(objXMLHttpRequest.responseText);
+                    //console.log(data);
+                } else {
+                    reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                }
+            }
+        }
+
+        objXMLHttpRequest.open('POST','postAsignacion.php');
+        objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+        objXMLHttpRequest.send(data);
+    });
+
+}
 
 /******* Controladores y funciones *******/
 
@@ -287,7 +302,7 @@ const getCuentasContables_Table = async () => {
           }
         }
 
-    const handleUpdateCuenta = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
+    const handleUpdateCuenta = (filtro,ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
         try {
 
             for (var i = 0; i < cuentascontables.length; i++) {
@@ -342,7 +357,28 @@ const getCuentasContables_Table = async () => {
                 });
             }
 
+            let cuentasInput = {
+                filtro : filtro,
+                ef1 : ef1,
+                ef1desc : ef1desc,
+                ef2 : ef2,
+                ef2desc : ef2desc,
+                ef3 : ef3,
+                ef3desc : ef3desc,
+                ef4 : ef4,
+                ef4desc : ef4desc,
+                ef5 : ef5,
+                ef5desc : ef5desc,
+                ef6 : ef6,
+                ef6desc : ef6desc,
+                ef7 : ef7,
+                ef7desc : ef7desc,
+                ef8 : ef8,
+                ef8desc : ef8desc
+            };
+
             UpdateCuentas_Api();
+            RegistrarCambios_Api(cuentasInput);
             getCuentasContables_Table();
 
             Swal.fire({
@@ -497,7 +533,7 @@ const getCuentasContables_Table = async () => {
         </div>
 
         <div class="col">
-          <div class="col"> <button class="btn btn-primary" onclick="handleUpdateCuenta(filtro = $('#IdEf1').val(),filtro = $('#IdEf1Desc').val(),filtro = $('#IdEf2').val(),filtro = $('#IdEf2Desc').val(),filtro = $('#IdEf3').val(),filtro = $('#IdEf3Desc').val(),filtro = $('#IdEf4').val(),filtro = $('#IdEf4Desc').val(),filtro = $('#IdEf5').val(),filtro = $('#IdEf5Desc').val(),filtro = $('#IdEf6').val(),filtro = $('#IdEf6Desc').val(),filtro = $('#IdEf7').val(),filtro = $('#IdEf7Desc').val(),filtro = $('#IdEf8').val(),filtro = $('#IdEf8Desc').val())">
+          <div class="col"> <button class="btn btn-primary" onclick="handleUpdateCuenta($('#inputSearch').val(),$('#IdEf1').val(),$('#IdEf1Desc').val(),$('#IdEf2').val(),$('#IdEf2Desc').val(),$('#IdEf3').val(),$('#IdEf3Desc').val(),$('#IdEf4').val(),$('#IdEf4Desc').val(),$('#IdEf5').val(),$('#IdEf5Desc').val(),$('#IdEf6').val(),$('#IdEf6Desc').val(),$('#IdEf7').val(),$('#IdEf7Desc').val(),$('#IdEf8').val(),$('#IdEf8Desc').val())">
                     Modificar
                   </button></div>
         </div>

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     } else {
 
         $Parametro = $_GET['filtro'];
-        $query = "SELECT Cuenta, CuentaDesc, EF1, EF1Desc, EF2, EF2Desc, EF3, EF3Desc, EF4, EF4Desc, EF5, EF5Desc, EF6, EF6Desc, EF7, EF7Desc 
+        $query = "SELECT Cuenta, CuentaDesc, EF1, EF1Desc, EF2, EF2Desc, EF3, EF3Desc, EF4, EF4Desc, EF5, EF5Desc, EF6, EF6Desc, EF7, EF7Desc, EF8, EF8Desc
         FROM DWH_Artigraf.dbo.Dim_CuentaContable WHERE Cuenta LIKE '$Parametro'";
         $stmt = sqlsrv_query($conn, $query);
 
@@ -45,114 +45,64 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
 
-        $serverName = $conf['server'];
-        $connectionInfo = array("Database"=>"DWH_Artigraf");  
-        $conn = sqlsrv_connect($serverName, $connectionInfo);  
-        if ($conn === false) {  
-            echo "Could not connect.\n";  
-            die(print_r(sqlsrv_errors(), true));  
-        }  
-        
-        
-        header("Content-Type: application/json");
- 
-        $data = json_decode(file_get_contents("php://input"));
-        for ($i = 0; $i < count($data); $i++) {
-            $cuenta = $data[$i]->Cuenta;
-            $cuentadesc = $data[$i]->CuentaDesc;
-            $ef1 = $data[$i]->EF1;
-            $ef1Desc = $data[$i]->EF1Desc;
-            $ef2 = $data[$i]->EF2;
-            $ef2Desc = $data[$i]->EF2Desc;
-            $ef3 = $data[$i]->EF3;
-            $ef3Desc = $data[$i]->EF3Desc;
-            $ef4 = $data[$i]->EF4;
-            $ef4Desc = $data[$i]->EF4Desc;
-            $ef5 = $data[$i]->EF5;
-            $ef5Desc = $data[$i]->EF5Desc;
-            $ef6 = $data[$i]->EF6;
-            $ef6Desc = $data[$i]->EF6Desc;
-            $ef7 = $data[$i]->EF7;
-            $ef7Desc = $data[$i]->EF7Desc;
-            $ef8 = $data[$i]->EF8;
-            $ef8Desc = $data[$i]->EF8Desc;
+            $serverName = $conf['server'];
+            $connectionInfo = array("Database" => "DWH_Artigraf");
+            $conn = sqlsrv_connect($serverName, $connectionInfo);
+            if ($conn === false) {
+                echo "Could not connect.\n";
+                die(print_r(sqlsrv_errors(), true));
+            }
 
-            /*-------------------ACTUALIZAR TABLA DE DIM_CUENTACONTABLES-------------------*/
-            /* Set up the parameterized query. */  
-            
-            $tsql = "UPDATE DWH_Artigraf.dbo.Dim_CuentaContable   
+            header("Content-Type: application/json");
+            $data = json_decode(file_get_contents("php://input"));
+
+            for ($i = 0; $i < count($data); $i++) {
+                $cuenta = $data[$i]->Cuenta;
+                $cuentadesc = $data[$i]->CuentaDesc;
+                $ef1 = $data[$i]->EF1;
+                $ef1Desc = $data[$i]->EF1Desc;
+                $ef2 = $data[$i]->EF2;
+                $ef2Desc = $data[$i]->EF2Desc;
+                $ef3 = $data[$i]->EF3;
+                $ef3Desc = $data[$i]->EF3Desc;
+                $ef4 = $data[$i]->EF4;
+                $ef4Desc = $data[$i]->EF4Desc;
+                $ef5 = $data[$i]->EF5;
+                $ef5Desc = $data[$i]->EF5Desc;
+                $ef6 = $data[$i]->EF6;
+                $ef6Desc = $data[$i]->EF6Desc;
+                $ef7 = $data[$i]->EF7;
+                $ef7Desc = $data[$i]->EF7Desc;
+                $ef8 = $data[$i]->EF8;
+                $ef8Desc = $data[$i]->EF8Desc;
+
+                /*-------------------ACTUALIZAR TABLA DE DIM_CUENTACONTABLES-------------------*/
+                /* Set up the parameterized query. */
+
+                $tsql = "UPDATE DWH_Artigraf.dbo.Dim_CuentaContable   
             SET EF1 = (?), EF1Desc = (?), EF2 = (?), EF2Desc = (?), EF3 = (?), EF3Desc = (?),
             EF4 = (?), EF4Desc = (?), EF5 = (?), EF5Desc = (?), EF6 = (?), EF6Desc = (?),
             EF7 = (?), EF7Desc = (?), EF8 = (?), EF8Desc = (?)
             WHERE Cuenta = (?)";
-            
 
-            /* Assign literal parameter values. */ 
-           
-            $params = array($ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $ef8, $ef8Desc, $cuenta); 
-            
-             /* Execute the query. */  
-             
-            if (sqlsrv_query($conn, $tsql, $params)) {  
-                echo "Statement executed.\n";  
-            } else {  
-                echo "Error in statement execution.\n";  
-                die(print_r(sqlsrv_errors(), true));  
-            }
 
-            /*------------------------------------------------------------------------------*/
-            /*-------INSERTAR O ACTUALIZAR SEGUN CORRESPONDA REGISTROS A TABLA ESPEJO-------*/
-            
-            $tsqle = "SELECT CuentaB FROM DWH_Artigraf.dbo.CuentasAuto WHERE CuentaB = (?)";
-            $pa = array($cuenta);
+                /* Assign literal parameter values. */
 
-            $stmt = sqlsrv_query($conn, $tsqle, $pa);
+                $params = array($ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $ef8, $ef8Desc, $cuenta);
 
-            if ($stmt === false) {
-                echo "Error in statement execution.\n"; 
-            } else {
-                $actualizar = 0;
-                while( $Response = sqlsrv_fetch_object( $stmt)) {
-                    $actualizar = 1; 
-                    } 
-                    
-                    if ( $actualizar === 1) {
-                        $tsqli = "UPDATE DWH_Artigraf.dbo.CuentasAuto   
-                        SET EF1B = (?), EF1DescB = (?), EF2B = (?), EF2DescB = (?), EF3B = (?), EF3DescB = (?),
-                        EF4B = (?), EF4DescB = (?), EF5B = (?), EF5DescB = (?), EF6B = (?), EF6DescB = (?),
-                        EF7B = (?), EF7DescB = (?), EF8B = (?), EF8DescB = (?)    
-                        WHERE CuentaB = (?)";
-    
-                        $parametros = array($ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, 
-                        $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $ef8, $ef8Desc, $cuenta);
-                    } else {
-                        $tsqli = "INSERT INTO DWH_Artigraf.dbo.CuentasAuto  
-                        (CuentaB, EF1B, EF1DescB, EF2B, EF2DescB, EF3B, EF3DescB, EF4B, EF4DescB, 
-                        EF5B, EF5DescB, EF6B, EF6DescB, EF7B, EF7DescB, EF7B, EF7DescB) VALUES 
-                        ((?), (?), (?), (?), (?), (?), (?), (?), (?), 
-                        (?), (?), (?), (?), (?), (?), (?), (?))";
-    
-                        $parametros = array($cuenta, $ef1, $ef1Desc, $ef2, $ef2Desc, $ef3, $ef3Desc, 
-                        $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $ef8, $ef8Desc);
-                    }
-    
-                    if (sqlsrv_query($conn, $tsqli, $parametros)) {  
-                        echo "Statement executed new table.\n";  
-                    } else {  
-                        echo "Error in statement execution Insert.\n";  
-                        die(print_r(sqlsrv_errors(), true));  
-                    }  
+                /* Execute the query. */
 
+                if (sqlsrv_query($conn, $tsql, $params)) {
+                    echo "Statement executed.\n";
+                } else {
+                    echo "Error in statement execution.\n";
+                    die(print_r(sqlsrv_errors(), true));
                 }
-
+                /*------------------------------------------------------------------------------*/
             }
-            
-         /* Free connection resources. */  
-         sqlsrv_close($conn); 
 
-        }
+            $cierre = sqlsrv_close($conn);
 
-    
+}
 ?>
