@@ -2,7 +2,8 @@
 
 ALTER TABLE dbo.Fact_Saldos
 ADD
-PartidasEspeciales tinyint NULL DEFAULT 0;
+PartidasEsp tinyint NULL DEFAULT 0,
+PartidaLinea int NULL;
 
 
 
@@ -10,9 +11,10 @@ PartidasEspeciales tinyint NULL DEFAULT 0;
 
 ALTER TABLE dbo.PartidasEspeciales
 ADD
-Descripcion varchar(200) NULL DEFAULT 0,
+Descripcion varchar(200) NULL,
 SaldoAnterior decimal(20,4) NULL,
 Cargo decimal(20,4) NULL,
 Abono decimal(20,4) NULL,
 Movimiento decimal(20,4) NULL,
-SaldoFinal decimal(20,4) NULL;
+SaldoFinal decimal(20,4) NULL,
+Linea int NULL;

@@ -19,31 +19,10 @@
 /******* Models ************/
 
     let cuentascontables = [];
-    var cta = "";
-    var cta = $("#inputSearch").val("");
+    const parameters = {};
+    parameters.inputSearch = $("#inputSearch").val();
     
-
-    var ef1s = $('#IdEf1').val("");
-    var ef1descs = $('#IdEf1Desc').val("");
-    var ef2s = $('#IdEf2').val("");
-    var ef2descs = $('#IdEf2Desc').val("");
-    var ef3s = $('#IdEf3').val("");
-    var ef3descs = $('#IdEf3Desc').val("");
-    var ef4s = $('#IdEf4').val("");
-    var ef4descs = $('#IdEf4Desc').val("");
-    var ef5s = $('#IdEf5').val(""); 
-    var ef5descs = $('#IdEf5Desc').val("");
-    var ef6s = $('#IdEf6').val("");
-    var ef6descs = $('#IdEf6Desc').val("");
-    var ef7s = $('#IdEf7').val("");
-    var ef7descs = $('#IdEf7Desc').val("");
-    var ef8s = $('#IdEf8').val("");
-    var ef8descs =$('#IdEf8Desc').val("");
-   
-
-    ctajson = JSON.stringify(cta);
-    console.log('CTA' , ctajson);
-    console.log('ef',ef1descs);
+    
 
 /******* Servicios  *******/
 
@@ -72,8 +51,8 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
     const UpdateCuentas_Api = (ef1s,ef1descs,ef2s,ef2descs,ef3s,ef3descs,ef4s,ef4descs,ef5s,ef5descs,ef6s,ef6descs,ef7s,ef7descs,ef8s,ef8descs) => {
         //const form = cuentascontables.slice();
         const data = JSON.stringify(cuentascontables);
-        const ctajson = JSON.stringify(cta);
-        console.log('CTA' , ctajson);
+        const cta = JSON.stringify(parameters);
+        console.log('CTA' , cta);
           return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -81,8 +60,6 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
                   if (objXMLHttpRequest.status == 200) {
                       resolve(objXMLHttpRequest.responseText);
                       //console.log(data);
-                       console.log(cta);
-                       //console.log(ctapost);
                   } else {
                     reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
                   }
@@ -97,6 +74,29 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
 
       }
 
+const RegistrarCambios_Api = (cuentasInput) => {
+
+    const data = JSON.stringify(cuentasInput);
+    return new Promise(function (resolve, reject) {
+        const objXMLHttpRequest = new XMLHttpRequest();
+        objXMLHttpRequest.onreadystatechange = function () {
+            if (objXMLHttpRequest.readyState === 4) {
+                if (objXMLHttpRequest.status == 200) {
+                    resolve(objXMLHttpRequest.responseText);
+                    //console.log(data);
+                } else {
+                    reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                }
+            }
+        }
+
+        objXMLHttpRequest.open('POST','postAsignacion.php');
+        objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+        objXMLHttpRequest.send(data);
+    });
+
+}
+
 /******* Controladores y funciones *******/
 
 const deleteChild = () => {
@@ -107,7 +107,27 @@ const getCuentasContables = async () => {
         try {
             const response = await CuentasContables_Api();
             cuentascontables = JSON.parse(response);
+
+            $('#IdEf1').val(cuentascontables[0].EF1);
+            $('#IdEf1Desc').val(cuentascontables[0].EF1Desc);
+            $('#IdEf2').val(cuentascontables[0].EF2);
+            $('#IdEf2Desc').val(cuentascontables[0].EF2Desc);
+            $('#IdEf3').val(cuentascontables[0].EF3);
+            $('#IdEf3Desc').val(cuentascontables[0].EF3Desc);
+            $('#IdEf4').val(cuentascontables[0].EF4);
+            $('#IdEf4Desc').val(cuentascontables[0].EF4Desc);
+            $('#IdEf5').val(cuentascontables[0].EF5);
+            $('#IdEf5Desc').val(cuentascontables[0].EF5Desc);
+            $('#IdEf6').val(cuentascontables[0].EF6);
+            $('#IdEf6Desc').val(cuentascontables[0].EF6Desc);
+            $('#IdEf7').val(cuentascontables[0].EF7);
+            $('#IdEf7Desc').val(cuentascontables[0].EF7Desc);
+            $('#IdEf8').val(cuentascontables[0].EF8);
+            $('#IdEf8Desc').val(cuentascontables[0].EF8Desc);
+
             getCuentasContables_Table();
+
+
 
             } catch (err) 
             {
@@ -304,14 +324,12 @@ const getCuentasContables_Table = async () => {
         const handleChangeCuenta = () => {
           try{
             getCuentasContables();
-            //var cta = $("#inputSearch").val("");
-            console.log('CTA' , cta);
           }catch(err){
                 console.log(err);
           }
         }
 
-    const handleUpdateCuenta = (ef1s,ef1descs,ef2s,ef2descs,ef3s,ef3descs,ef4s,ef4descs,ef5s,ef5descs,ef6s,ef6descs,ef7s,ef7descs,ef8s,ef8descs) => {
+    const handleUpdateCuenta = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
         try {
 
             for (var i = 0; i < cuentascontables.length; i++) {
@@ -366,7 +384,28 @@ const getCuentasContables_Table = async () => {
                 });
             }
 
+            let cuentasInput = {
+                filtro : filtro,
+                ef1 : ef1,
+                ef1desc : ef1desc,
+                ef2 : ef2,
+                ef2desc : ef2desc,
+                ef3 : ef3,
+                ef3desc : ef3desc,
+                ef4 : ef4,
+                ef4desc : ef4desc,
+                ef5 : ef5,
+                ef5desc : ef5desc,
+                ef6 : ef6,
+                ef6desc : ef6desc,
+                ef7 : ef7,
+                ef7desc : ef7desc,
+                ef8 : ef8,
+                ef8desc : ef8desc
+            };
+
             UpdateCuentas_Api();
+            RegistrarCambios_Api(cuentasInput);
             getCuentasContables_Table();
 
             Swal.fire({
@@ -521,7 +560,7 @@ const getCuentasContables_Table = async () => {
         </div>
 
         <div class="col">
-          <div class="col"> <button class="btn btn-primary" onclick="handleUpdateCuenta(filtro = $('#IdEf1').val(),filtro = $('#IdEf1Desc').val(),filtro = $('#IdEf2').val(),filtro = $('#IdEf2Desc').val(),filtro = $('#IdEf3').val(),filtro = $('#IdEf3Desc').val(),filtro = $('#IdEf4').val(),filtro = $('#IdEf4Desc').val(),filtro = $('#IdEf5').val(),filtro = $('#IdEf5Desc').val(),filtro = $('#IdEf6').val(),filtro = $('#IdEf6Desc').val(),filtro = $('#IdEf7').val(),filtro = $('#IdEf7Desc').val(),filtro = $('#IdEf8').val(),filtro = $('#IdEf8Desc').val())">
+          <div class="col"> <button class="btn btn-primary" onclick="handleUpdateCuenta($('#inputSearch').val(),$('#IdEf1').val(),$('#IdEf1Desc').val(),$('#IdEf2').val(),$('#IdEf2Desc').val(),$('#IdEf3').val(),$('#IdEf3Desc').val(),$('#IdEf4').val(),$('#IdEf4Desc').val(),$('#IdEf5').val(),$('#IdEf5Desc').val(),$('#IdEf6').val(),$('#IdEf6Desc').val(),$('#IdEf7').val(),$('#IdEf7Desc').val(),$('#IdEf8').val(),$('#IdEf8Desc').val())">
                     Modificar
                   </button></div>
         </div>
