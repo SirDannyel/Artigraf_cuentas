@@ -100,7 +100,27 @@ const getCuentasContables = async () => {
         try {
             const response = await CuentasContables_Api();
             cuentascontables = JSON.parse(response);
+
+            $('#IdEf1').val(cuentascontables[0].EF1);
+            $('#IdEf1Desc').val(cuentascontables[0].EF1Desc);
+            $('#IdEf2').val(cuentascontables[0].EF2);
+            $('#IdEf2Desc').val(cuentascontables[0].EF2Desc);
+            $('#IdEf3').val(cuentascontables[0].EF3);
+            $('#IdEf3Desc').val(cuentascontables[0].EF3Desc);
+            $('#IdEf4').val(cuentascontables[0].EF4);
+            $('#IdEf4Desc').val(cuentascontables[0].EF4Desc);
+            $('#IdEf5').val(cuentascontables[0].EF5);
+            $('#IdEf5Desc').val(cuentascontables[0].EF5Desc);
+            $('#IdEf6').val(cuentascontables[0].EF6);
+            $('#IdEf6Desc').val(cuentascontables[0].EF6Desc);
+            $('#IdEf7').val(cuentascontables[0].EF7);
+            $('#IdEf7Desc').val(cuentascontables[0].EF7Desc);
+            $('#IdEf8').val(cuentascontables[0].EF8);
+            $('#IdEf8Desc').val(cuentascontables[0].EF8Desc);
+
             getCuentasContables_Table();
+
+
 
             } catch (err) 
             {
@@ -297,6 +317,7 @@ const getCuentasContables_Table = async () => {
         const handleChangeCuenta = () => {
           try{
             getCuentasContables();
+
           }catch(err){
                 console.log(err);
           }
