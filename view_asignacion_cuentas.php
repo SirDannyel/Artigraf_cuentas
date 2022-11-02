@@ -19,10 +19,31 @@
 /******* Models ************/
 
     let cuentascontables = [];
-    const parameters = {};
-    parameters.inputSearch = $("#inputSearch").val();
+    var cta = "";
+    var cta = $("#inputSearch").val("");
     
-    
+
+    var ef1s = $('#IdEf1').val("");
+    var ef1descs = $('#IdEf1Desc').val("");
+    var ef2s = $('#IdEf2').val("");
+    var ef2descs = $('#IdEf2Desc').val("");
+    var ef3s = $('#IdEf3').val("");
+    var ef3descs = $('#IdEf3Desc').val("");
+    var ef4s = $('#IdEf4').val("");
+    var ef4descs = $('#IdEf4Desc').val("");
+    var ef5s = $('#IdEf5').val(""); 
+    var ef5descs = $('#IdEf5Desc').val("");
+    var ef6s = $('#IdEf6').val("");
+    var ef6descs = $('#IdEf6Desc').val("");
+    var ef7s = $('#IdEf7').val("");
+    var ef7descs = $('#IdEf7Desc').val("");
+    var ef8s = $('#IdEf8').val("");
+    var ef8descs =$('#IdEf8Desc').val("");
+   
+
+    ctajson = JSON.stringify(cta);
+    console.log('CTA' , ctajson);
+    console.log('ef',ef1descs);
 
 /******* Servicios  *******/
 
@@ -48,11 +69,11 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
         });
     }
 
-    const UpdateCuentas_Api = () => {
+    const UpdateCuentas_Api = (ef1s,ef1descs,ef2s,ef2descs,ef3s,ef3descs,ef4s,ef4descs,ef5s,ef5descs,ef6s,ef6descs,ef7s,ef7descs,ef8s,ef8descs) => {
         //const form = cuentascontables.slice();
         const data = JSON.stringify(cuentascontables);
-        const cta = JSON.stringify(parameters);
-        console.log('CTA' , cta);
+        const ctajson = JSON.stringify(cta);
+        console.log('CTA' , ctajson);
           return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -70,7 +91,8 @@ const CuentasContables_Api = (filtro = $('#inputSearch').val()) => {
 
             objXMLHttpRequest.open('POST','getCuentasContables.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
-            objXMLHttpRequest.send(data);
+            objXMLHttpRequest.send(data,cta);
+            console.log('ef',ef1descs);
         });
 
       }
@@ -282,12 +304,14 @@ const getCuentasContables_Table = async () => {
         const handleChangeCuenta = () => {
           try{
             getCuentasContables();
+            //var cta = $("#inputSearch").val("");
+            console.log('CTA' , cta);
           }catch(err){
                 console.log(err);
           }
         }
 
-    const handleUpdateCuenta = (ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
+    const handleUpdateCuenta = (ef1s,ef1descs,ef2s,ef2descs,ef3s,ef3descs,ef4s,ef4descs,ef5s,ef5descs,ef6s,ef6descs,ef7s,ef7descs,ef8s,ef8descs) => {
         try {
 
             for (var i = 0; i < cuentascontables.length; i++) {
