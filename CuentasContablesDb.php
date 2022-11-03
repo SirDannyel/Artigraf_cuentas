@@ -19,11 +19,11 @@ if($_POST['tipo'] === "getRubros"){
 		$Proceso="Select Rubros";
      $campo;   
     switch ($_POST['nivel']) {
-        case "Mayor": 
+        case "MAYOR": 
             $campo = 'MayorDesc';    
             break;
-        case "Fijo": 
-            $campo = 'Fijo';   
+        case "FIJO": 
+            $campo = 'FIJO';   
             break; 
         case "EF1": 
             $campo = 'EF1Desc';   
@@ -51,8 +51,8 @@ if($_POST['tipo'] === "getRubros"){
             break;
         }
 
-        if($campo == 'Fijo'){
-            $Respuesta = '["Fijo"]';
+        if($campo == 'FIJO'){
+            $Respuesta = '["FIJO"]';
             echo $Respuesta;
             return $Respuesta;
         }

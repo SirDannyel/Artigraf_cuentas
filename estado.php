@@ -254,7 +254,7 @@
                 const myArr = JSON.parse(response); 
 
                 var select = document.getElementById("IdRubro"); 
-                if(nivel == 'Fijo'){
+                if(nivel == 'FIJO'){
                   select.setAttribute("disabled", ""); 
                 }else{
                   select.removeAttribute("disabled");   
@@ -264,7 +264,7 @@
                     var opt = myArr[i];
                     var el = document.createElement("option");
                       el.setAttribute("class", "optionRubro"); 
-                    if(nivel != 'Fijo'){ 
+                    if(nivel != 'FIJO'){ 
                       el.textContent = opt;
                       el.value = opt;
                     } 
@@ -307,6 +307,7 @@
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:100px;");  
                     campo.setAttribute("class", "text-center"); 
+                    campo.setAttribute("id", "Nivel"+orden); 
                     campo.textContent = opt;
                     campo.value = opt;
                     linea.appendChild(campo);
@@ -314,13 +315,14 @@
                      opt = myArr[i].Rubro;
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:300px;");  
+                    campo.setAttribute("id", "Rubro"+orden); 
                     campo.textContent = opt;
                     campo.value = opt;
                     linea.appendChild(campo);
  
                     opt = myArr[i].Descripcion;
                     campo = document.createElement("td");
-                    campo.setAttribute("style", "width:400px;");  
+                    campo.setAttribute("style", "width:400px;");   
                     campo.textContent = opt;
                     campo.value = opt;
                     linea.appendChild(campo); 
@@ -328,6 +330,7 @@
                     opt = myArr[i].Naturaleza;
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:100px;");  
+                    campo.setAttribute("id", "Naturaleza"+orden); 
                     if(opt == 1){
                       opt = 'Positiva';
                       campo.setAttribute("class", "text-success text-center");  
@@ -342,6 +345,7 @@
                     opt = myArr[i].Identado;
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:100px;");  
+                    campo.setAttribute("id", "Identado"+orden); 
                     if(opt == 1){
                       opt = 'Si';
                       campo.setAttribute("class", "text-success fw-bold text-center");  
@@ -356,7 +360,8 @@
                     opt = myArr[i].Formato;
                     campo = document.createElement("td");
                     campo.setAttribute("style", "width:100px;");  
-                      campo.setAttribute("class", "fw-bold text-center"); 
+                    campo.setAttribute("class", "fw-bold text-center"); 
+                    campo.setAttribute("id", "Formato"+orden); 
                     if(opt == 'BOLD'){
                       opt = 'Si'; 
                     }
@@ -366,8 +371,12 @@
                     
                     var boton = document.createElement("button");  
                     boton.setAttribute("name", myArr[i].Descripcion);   
-                    boton.setAttribute("id", orden);   
+                    boton.setAttribute("id", orden);     
                     boton.onclick = function(){
+                  //    alert($('#Naturaleza'+this.id).val() == 'Positiva' ? 1 : 0 );
+                      getRubros($('#Nivel'+this.id).val());
+                      $('#IdNivel').val($('#Nivel'+this.id).val());
+
                       Swal.fire({
                             title: '¿Estas seguro?',
                             text: "Se eliminará el registro",
@@ -379,6 +388,7 @@
                             cancelButtonText: 'Cancelar'
                           }).then((result) => {
                             if (result.isConfirmed) { 
+                              
                               deleteConcepto(estado, this.id,this.name);
                               Swal.fire(
                                 'Eliminado!',
@@ -386,6 +396,12 @@
                                 'success'
                               )
                             }
+                            
+                              $('#IdRubro').val($('#Rubro'+this.id).val());
+                              $('#IdDesc').val(this.name);
+                              $('#pasivoSwitch').val($('#Naturaleza'+this.id).val() == 'Positiva' ? $('#pasivoSwitch').prop('checked', true) : $('#pasivoSwitch').prop('checked', false) );
+                              $('#identadoSwitch').val($('#Identado'+this.id).val() == 'Si' ? $('#identadoSwitch').prop('checked', true) : $('#identadoSwitch').prop('checked', false)  );
+                              $('#boldSwitch').val($('#Formato'+this.id).val() == 'Si' ? $('#boldSwitch').prop('checked', true) : $('#boldSwitch').prop('checked', false)  ); 
                           });
                     }; 
                     boton.setAttribute("class", "btn btn-outline-danger px-3");
@@ -486,7 +502,7 @@
 
         const init = () => {
             getEstados();
-            handleChangeNivel('Mayor');
+            handleChangeNivel('MAYOR');
         }
 
         init();
@@ -514,8 +530,8 @@
         <div class="d-flex flex-column px-2 pb-2 w-100">  
           <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdNivel">Nivel</p>
           <select class="form-select m-1" placeholder="Nivel" id="IdNivel" onchange="handleChangeNivel(this.value)">
-              <option class="option" value ="Mayor">Mayor</option>
-              <option class="option" value ="Fijo">Fijo</option>
+              <option class="option" value ="MAYOR">MAYOR</option>
+              <option class="option" value ="FIJO">FIJO</option>
               <option class="option" value ="EF1">EF1</option>
               <option class="option" value ="EF2">EF2</option> 
               <option class="option" value ="EF3">EF3</option> 
