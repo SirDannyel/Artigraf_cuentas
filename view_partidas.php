@@ -263,13 +263,13 @@
                 tablabody.appendChild(linea);
                 var opt = partidasdia[i].fecha;
                 var campo = document.createElement("td");
-                campo.setAttribute("style", "width:8%;");
+                campo.setAttribute("style", "width:10%;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
                 opt = partidasdia[i].descripcion;
                 campo = document.createElement("td");
-                campo.setAttribute("style", "width:34%;");
+                campo.setAttribute("style", "width:32%;");
                 campo.textContent = opt;
                 campo.value = opt;
                 linea.appendChild(campo);
@@ -479,8 +479,8 @@
         <table class="table" id="tabla">
             <thead>
             <tr class="d-flex flex-row">
-                <th scope="col" style="width:8%;">Fecha</th>
-                <th scope="col" style="width:34%;">Descripcion</th>
+                <th scope="col" style="width:10%;">Fecha</th>
+                <th scope="col" style="width:32%;">Descripcion</th>
                 <th scope="col" style="width:25%;">Cuenta</th>
                 <th scope="col" style="width:10%;">Cargo</th>
                 <th scope="col" style="width:10%;">Abono</th>
