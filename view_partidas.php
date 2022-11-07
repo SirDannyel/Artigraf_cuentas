@@ -50,6 +50,7 @@
     let cuentascontables = [];
     var contador_linea = 0;
     /******* Servicios  *******/
+
     const Cuentas_Api = () => {
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -88,7 +89,7 @@
             objXMLHttpRequest.send();
         });
     }
-    const InsertPartidas_Api = (cuenta,descripcion,cargo,abono,mayor,movimiento,linea) => {
+    const InsertPartidas_Api = (fecha,cuenta,descripcion,cargo,abono,mayor,movimiento,linea) => {
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -102,9 +103,10 @@
             }
             objXMLHttpRequest.open('POST','partidas_especiales.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor+"&mov="+movimiento+"&linea="+linea);
+            objXMLHttpRequest.send("fecha="+fecha+"&cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor+"&mov="+movimiento+"&linea="+linea);
         });
     }
+
     const DeletePartidas_Api = (linea) => {
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -119,13 +121,59 @@
             }
             objXMLHttpRequest.open('POST','getPartidas.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("linea="+linea);
+            objXMLHttpRequest.send("tipo=insert"+"linea="+linea);
         });
     }
+
+    const FiltroPartidas_Api = (fechaini,fechafin) => {
+        return new Promise(function (resolve, reject) {
+            const objXMLHttpRequest = new XMLHttpRequest();
+            objXMLHttpRequest.onreadystatechange = function () {
+                if (objXMLHttpRequest.readyState === 4) {
+                    if (objXMLHttpRequest.status == 200) {
+                        resolve(objXMLHttpRequest.responseText);
+                    } else {
+                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                    }
+                }
+            }
+            objXMLHttpRequest.open('POST','getPartidas.php');
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            objXMLHttpRequest.send("tipo=filtro"+"&fechainit="+fechaini+"&fechafin="+fechafin);
+        });
+    }
+
     /******* Hora *******/
-    const fecha = new Date("2022-10-19");
-    const fechaZona = fecha.toLocaleString("es-MX", {timeZone: "America/Monterrey"});
-    const fechaNueva = fechaZona.slice(0,10);
+    function formatterDate(value) {
+        const fecha = value;
+        const fechaZona = fecha.toLocaleString("es-MX", {timeZone: "America/Monterrey"});
+        const fechaNueva = fechaZona.slice(0,10);
+        return fechaNueva
+        }
+
+  //  function formatterDateInit(value) {
+        const fecha = new Date();
+        //const fechaZona = fecha.toLocaleString("es-MX", {timeZone: "America/Monterrey"});
+       // const fechaNueva = fechaZona.slice(0,9);
+      // console.log(fechaNueva);
+      var primerDia = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+      const fechaZona = primerDia.toLocaleString("es-MX", {timeZone: "America/Monterrey"});
+      const fechaNueva = fechaZona.slice(0,9);
+      console.log(fechaNueva);
+
+   /*   var ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
+       console.log(ultimoDia);
+       // return fechaNueva
+       var ffecha = "2022-11-01";
+       document.getElementById("FechaInical").valueAsDate = ffecha;
+*/
+       //var dateControl = document.getElementById("FechaInical");
+       //var today = moment().format('YYYY-MM-DD');
+       //$('#datePicker').val(ffecha);
+       //dateControl.value = ffecha;
+      // $("#FechaInical").val(ffecha);
+       // $("#FechaFinal").val(ultimoDia);
+
     /******* Controladores y funciones *******/
     const deleteChild = () => {
         $(".tr").remove();
@@ -172,7 +220,7 @@
             const myArr = JSON.parse(response);
             //console.log("getCuentas", response);
             for (var i = 0; i < myArr.length; i++) {
-                const nuevaPartida = new PartidasEspeciales(fechaNueva,myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento),myArr[i].linea);
+                const nuevaPartida = new PartidasEspeciales(formatterDate(myArr[i].fecha.date),myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento),myArr[i].linea);
                 partidasdia.push(nuevaPartida);
             }
             if (!partidasdia.length){
@@ -185,6 +233,25 @@
             console.log(err)
         }
     }
+
+    const getPartidas_filtro = async (fechaini,fechafin) => {
+        try {
+            const response = await FiltroPartidas_Api(fechaini,fechafin);
+            const myArr = JSON.parse(response);
+            //console.log("getCuentas", response);
+            partidasdia = [];
+            for (var i = 0; i < myArr.length; i++) {
+                const nuevaPartida = new PartidasEspeciales(formatterDate(myArr[i].fecha.date),myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento),myArr[i].linea);
+                partidasdia.push(nuevaPartida);
+            }
+            //deleteChild ();
+            getPartidas_Table();
+        } catch (err)
+        {
+            console.log(err)
+        }
+    }
+
     const getPartidas_Table = async () => {
         try {
             deleteChild ();
@@ -293,23 +360,23 @@
             $("#Mayor").val("");
         }
     }
-    const handleInsertPartida = (cuenta,descripcion,cargo,abono,mayor) => {
+    const handleInsertPartida = (fecha,cuenta,descripcion,cargo,abono,mayor) => {
         try {
             var  mov = abono - cargo;
             if (partidasdia[0].descripcion === "Sin Registro") {
                 partidasdia.shift();
                 contador_linea = 1;
-                const nuevaPartida = new PartidasEspeciales(fechaNueva,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),contador_linea);
+                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),contador_linea);
                 partidasdia.push(nuevaPartida);
             } else {
                 var cont = partidasdia[0].Linea;
                 contador_linea = cont + 1;
                 //const last = $(partidasdia).get(-1);
                 //console.log(contador_linea);
-                const nuevaPartida = new PartidasEspeciales(fechaNueva,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),contador_linea);
+                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),contador_linea);
                 partidasdia.unshift(nuevaPartida);
             }
-            InsertPartidas_Api (cuenta,descripcion,cargo,abono,mayor,mov,contador_linea);
+            InsertPartidas_Api (fecha,cuenta,descripcion,cargo,abono,mayor,mov,contador_linea);
             $("#Cuenta").val("");
             $("#Descripcion").val("");
             $("#Mayor").val("");
@@ -334,6 +401,14 @@
         getPartidas_Table();
         DeletePartidas_Api(linea);
     }
+
+    const handleFiltro = (fechaIni, fechaFin) => {
+
+           getPartidas_filtro (fechaIni,fechaFin);
+
+       // getPartidas_Table();
+
+    }
     /******* Fin Events  *******/
     const init = () => {
         //Iniciar tabla vacio
@@ -344,11 +419,18 @@
 </script>
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg fixed-top navbar-white bg-white border-bottom" aria-label="Main navigation">
-    <div class="container-fluid align-items-center">
+    <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>
+
         <div class="row align-items-center">
+
+        <div class="w-100"></div>
+            <div class="col flex-column">
+                <label for="InputFecha">Fecha</label>
+                <input type="date" id="Fecha" class="form-control"></input>
+            </div>
             <div class="col flex-column">
                 <label for="InputCuenta">Cuenta</label>
                 <input type="text" id="Cuenta" class="form-control" placeholder="####,####,####,####"  onchange="handleSelectChange(this.value)"></input>
@@ -370,7 +452,7 @@
                 <input type=number id="Abono" class="form-control" value="0.00"  onkeyup="toggleButton()"></input>
             </div>
             <div class="col mt-4 flex-column">
-                <button id="submitButton" class="btn btn-success" onclick="handleInsertPartida($('#Cuenta').val(),$('#Descripcion').val(),$('#Cargo').val(),$('#Abono').val(),$('#Mayor').val())" disabled>Agregar</button>
+                <button id="submitButton" class="btn btn-success" onclick="handleInsertPartida($('#Fecha').val(),$('#Cuenta').val(),$('#Descripcion').val(),$('#Cargo').val(),$('#Abono').val(),$('#Mayor').val())" disabled>Agregar</button>
             </div>
         </div>
     </div>
@@ -378,6 +460,19 @@
 <div style="padding-top:90px;"> </div>
 <main class="container" style="max-width:1420px;">
     <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
+    <div class="row align-items-center">
+            <div class="col-md-2  flex-column">
+                <label for="InputFechaInicial">Fecha inicial:</label>
+                <input type="date" id="FechaInical" class="form-control"></input>
+            </div>
+            <div class="col-md-2 flex-column">
+                <label for="InputFechaFinal">Fecha final:</label>
+                <input type="date" id="FechaFinal" class="form-control"></input>
+            </div>
+            <div class="col mt-4 flex-column">
+                <button id="submitButtonFiltro" class="btn btn-success" onclick="handleFiltro($('#FechaInical').val(),$('#FechaFinal').val())">Filtrar</button>
+            </div>
+    </div>
         <div class="d-flex flex-row">
             <h3 class="border-bottom pb-2 mb-0 w-100  d-flex justify-content-center text-primary" id="titulo">Partidas Especiales</h3>
         </div>

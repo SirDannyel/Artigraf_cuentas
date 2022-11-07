@@ -87,8 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     date_default_timezone_set("America/Monterrey");
     $fecha = date("Y-m-d");
     $fechayhora = date("Y-m-d H:i:s");
-    $fecha_nueva = preg_replace('[-]', '', $fecha);
-    //echo $fecha_nueva;
+    $Post_Fecha = $_POST['fecha'];
+    $fecha_nueva = preg_replace('[-]', '', $Post_Fecha);
+   // echo $fecha_nueva;
 
     //Captar parametros recibidos
   //  $cargo = $_POST['cargo'];
@@ -115,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
 
     //Ejecucion de insert a Partidas especiales
-    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal,Linea) values('0','{$fecha}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','{$_POST['linea']}') ";
+    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal,Linea) values('0','{$_POST['fecha']}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','{$_POST['linea']}') ";
 
 
         $stmt2 = sqlsrv_query($conn, $sql2);
