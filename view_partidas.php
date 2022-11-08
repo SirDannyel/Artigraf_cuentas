@@ -68,7 +68,8 @@
             objXMLHttpRequest.send();
         });
     }
-    const PartidasEspeciales_Api = () => {
+
+    const PartidasEspeciales_Api = (fechaini,fechafin) => {
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -80,16 +81,19 @@
                     }
                 }
             }
-            //var url = "http://localhost/Artigraf/getpartidas.php";
-            //var parametro = "?fecha=";
-            //var fecha = n;
-            //var UrltoSend = url + parametro + url;
-            objXMLHttpRequest.open('GET', 'getpartidas.php');
+            var url = "http://localhost/Artigraf/getpartidas.php";
+            var parametro = "?fechaini=";
+            var parametro2 = "&fechafin=";
+            var fecha1 = fechaini;
+            var fecha2 = fechafin;
+            var UrltoSend = url + parametro + fecha1 + parametro2 + fechafin;
+            objXMLHttpRequest.open('GET', UrltoSend);
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
-    const InsertPartidas_Api = (fecha,cuenta,descripcion,cargo,abono,mayor,movimiento,linea) => {
+
+    const InsertPartidas_Api = (fecha,cuenta,descripcion,cargo,abono,mayor,movimiento) => {
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -103,7 +107,7 @@
             }
             objXMLHttpRequest.open('POST','partidas_especiales.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("fecha="+fecha+"&cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor+"&mov="+movimiento+"&linea="+linea);
+            objXMLHttpRequest.send("fecha="+fecha+"&cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor+"&mov="+movimiento);
         });
     }
 
@@ -121,25 +125,7 @@
             }
             objXMLHttpRequest.open('POST','getPartidas.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("tipo=insert"+"linea="+linea);
-        });
-    }
-
-    const FiltroPartidas_Api = (fechaini,fechafin) => {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-            objXMLHttpRequest.open('POST','getPartidas.php');
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("tipo=filtro"+"&fechainit="+fechaini+"&fechafin="+fechafin);
+            objXMLHttpRequest.send("linea="+linea);
         });
     }
 
@@ -151,28 +137,16 @@
         return fechaNueva
         }
 
-  //  function formatterDateInit(value) {
-        const fecha = new Date();
-        //const fechaZona = fecha.toLocaleString("es-MX", {timeZone: "America/Monterrey"});
-       // const fechaNueva = fechaZona.slice(0,9);
-      // console.log(fechaNueva);
-      var primerDia = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
-      const fechaZona = primerDia.toLocaleString("es-MX", {timeZone: "America/Monterrey"});
-      const fechaNueva = fechaZona.slice(0,9);
-      console.log(fechaNueva);
+  //  formato de fecha en inputs
 
-   /*   var ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
-       console.log(ultimoDia);
-       // return fechaNueva
-       var ffecha = "2022-11-01";
-       document.getElementById("FechaInical").valueAsDate = ffecha;
-*/
-       //var dateControl = document.getElementById("FechaInical");
-       //var today = moment().format('YYYY-MM-DD');
-       //$('#datePicker').val(ffecha);
-       //dateControl.value = ffecha;
-      // $("#FechaInical").val(ffecha);
-       // $("#FechaFinal").val(ultimoDia);
+            const fecha = new Date();
+
+            var ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
+            const fechaZona = ultimoDia.toLocaleString("es-MX", {timeZone: "America/Monterrey"});
+            var Ultimo_Dia = fechaZona.slice(0,2);
+
+            var ffechaInicial = fecha.getFullYear() + "-" + (fecha.getMonth() + 1) +"-"+ '01';
+            var ffechaFinal = fecha.getFullYear() + "-" + (fecha.getMonth() + 1) +"-"+Ultimo_Dia;
 
     /******* Controladores y funciones *******/
     const deleteChild = () => {
@@ -183,6 +157,7 @@
         currency: 'MXN',
         minimumFractionDigits: 2
     })
+
     function formatter(value) {
         const formatter = new Intl.NumberFormat('en-MX', {
             style: 'currency',
@@ -214,37 +189,19 @@
             console.log(err)
         }
     }
-    const getPartidas = async () => {
+    const getPartidas = async (fechaini,fechafin) => {
         try {
-            const response = await PartidasEspeciales_Api();
+            const response = await PartidasEspeciales_Api(fechaini,fechafin);
             const myArr = JSON.parse(response);
             //console.log("getCuentas", response);
             for (var i = 0; i < myArr.length; i++) {
                 const nuevaPartida = new PartidasEspeciales(formatterDate(myArr[i].fecha.date),myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento),myArr[i].linea);
-                partidasdia.push(nuevaPartida);
+                partidasdia.unshift(nuevaPartida);
             }
             if (!partidasdia.length){
                 const nuevaPartida = new PartidasEspeciales("Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro","Sin Registro", contador_linea);
-                partidasdia.push(nuevaPartida);
+                partidasdia.unshift(nuevaPartida);
             }
-            getPartidas_Table();
-        } catch (err)
-        {
-            console.log(err)
-        }
-    }
-
-    const getPartidas_filtro = async (fechaini,fechafin) => {
-        try {
-            const response = await FiltroPartidas_Api(fechaini,fechafin);
-            const myArr = JSON.parse(response);
-            //console.log("getCuentas", response);
-            partidasdia = [];
-            for (var i = 0; i < myArr.length; i++) {
-                const nuevaPartida = new PartidasEspeciales(formatterDate(myArr[i].fecha.date),myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento),myArr[i].linea);
-                partidasdia.push(nuevaPartida);
-            }
-            //deleteChild ();
             getPartidas_Table();
         } catch (err)
         {
@@ -301,7 +258,8 @@
                 boton.setAttribute("name",partidasdia[i].cuenta);
                 boton.setAttribute("id",partidasdia[i].Linea);
                 boton.onclick = function() {
-                    Swal.fire({
+                handleDeletePartida(this.id);
+    /*                Swal.fire({
                         title: '¿Estas seguro?',
                         text: "Se eliminará el registro",
                         icon: 'warning',
@@ -320,7 +278,7 @@
                                 'success'
                             )
                         }
-                    });
+                    });*/
                 };
                 boton.setAttribute("class", "btn btn-outline-danger px-3");
                 boton.setAttribute("type", "button");
@@ -328,7 +286,7 @@
                 var icon = document.createElement("i");
                 icon.setAttribute("class", "fa-solid fa-close");
                 boton.appendChild(icon);
-                contador++
+
             }
         } catch (err)
         {
@@ -337,12 +295,13 @@
     }
     /******* Eventos *******/
     function toggleButton() {
+        var campo6 = $("#Fecha").val();
         var campo1 = $("#Cuenta").val();
         var campo2 = $("#Descripcion").val();
         var campo3 = $("#Mayor").val();
         var campo4 = $("#Cargo").val();
         var campo5 = $("#Abono").val();
-        if (campo1 && campo2 && campo3 && (campo4 || campo5)) {
+        if (campo1 && campo1 && campo2 && campo3 && (campo4 || campo5)) {
             $("#submitButton").removeAttr("disabled");
         } else {
             $("#submitButton").attr("disabled", "disabled");
@@ -360,30 +319,32 @@
             $("#Mayor").val("");
         }
     }
-    const handleInsertPartida = (fecha,cuenta,descripcion,cargo,abono,mayor) => {
+    const handleInsertPartida =  async (fecha,cuenta,descripcion,cargo,abono,mayor) => {
         try {
             var  mov = abono - cargo;
+            const response = await InsertPartidas_Api (fecha,cuenta,descripcion,cargo,abono,mayor,mov);
+            const myArr = JSON.parse(response);
+
             if (partidasdia[0].descripcion === "Sin Registro") {
                 partidasdia.shift();
-                contador_linea = 1;
-                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),contador_linea);
+                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr.id);
                 partidasdia.push(nuevaPartida);
             } else {
-                var cont = partidasdia[0].Linea;
-                contador_linea = cont + 1;
-                //const last = $(partidasdia).get(-1);
-                //console.log(contador_linea);
-                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),contador_linea);
+
+                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr.id);
                 partidasdia.unshift(nuevaPartida);
             }
-            InsertPartidas_Api (fecha,cuenta,descripcion,cargo,abono,mayor,mov,contador_linea);
+
             $("#Cuenta").val("");
             $("#Descripcion").val("");
             $("#Mayor").val("");
             $("#Cargo").val("0.00");
             $("#Abono").val("0.00");
             $("#submitButton").attr("disabled", "disabled");
+
             getPartidas_Table();
+            //partidasdia = [];
+
         } catch (err) {
             console.log(err)
         }
@@ -395,27 +356,52 @@
         });
     }
     const handleDeletePartida = (linea) => {
-        var line = Number(linea);
-        let indice = partidasdia.findIndex(linea => linea.Linea === line);
-        partidasdia.splice(indice, 1);
-        getPartidas_Table();
-        DeletePartidas_Api(linea);
+    try{
+               var line = linea;
+               Swal.fire({
+                        title: '¿Estas seguro?',
+                        text: "Se eliminará el registro",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Eliminarlo',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+
+                            let indice = partidasdia.findIndex(linea => linea.Linea === line);
+                            partidasdia.splice(indice, 1);
+                            getPartidas_Table();
+                            DeletePartidas_Api(linea);
+                            Swal.fire(
+                                'Eliminado!',
+                                'Registro Eliminado.',
+                                'success'
+                            )
+                        }
+                    });
+        }
+        catch (err){
+        console.log(err)
+        }
     }
 
     const handleFiltro = (fechaIni, fechaFin) => {
-
-           getPartidas_filtro (fechaIni,fechaFin);
-
-       // getPartidas_Table();
+           partidasdia = [];
+           getPartidas(fechaIni,fechaFin);
 
     }
     /******* Fin Events  *******/
     const init = () => {
+
         //Iniciar tabla vacio
         getCuentas();
-        getPartidas();
+        getPartidas(ffechaInicial,ffechaFinal);
     }
+
     init();
+
 </script>
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg fixed-top navbar-white bg-white border-bottom" aria-label="Main navigation">
@@ -437,11 +423,11 @@
             </div>
             <div class="col-md-4">
                 <label for="InputDescripcion">Descripción</label>
-                <input id="Descripcion" class="form-control-plaintext" readonly></input>
+                <input id="Descripcion" class="form-control" ></input>
             </div>
             <div class="col-md-1">
                 <label for="InputMayor">Mayor</label>
-                <input id="Mayor" class="form-control-plaintext" readonly></input>
+                <input id="Mayor" class="form-control" ></input>
             </div>
             <div class="col flex-column">
                 <label for="InputCargo">Cargo</label>
@@ -463,15 +449,19 @@
     <div class="row align-items-center">
             <div class="col-md-2  flex-column">
                 <label for="InputFechaInicial">Fecha inicial:</label>
-                <input type="date" id="FechaInical" class="form-control"></input>
+                <input type="date" id="FechaInicial" class="form-control"></input>
             </div>
             <div class="col-md-2 flex-column">
                 <label for="InputFechaFinal">Fecha final:</label>
                 <input type="date" id="FechaFinal" class="form-control"></input>
             </div>
             <div class="col mt-4 flex-column">
-                <button id="submitButtonFiltro" class="btn btn-success" onclick="handleFiltro($('#FechaInical').val(),$('#FechaFinal').val())">Filtrar</button>
+                <button id="submitButtonFiltro" class="btn btn-success" onclick="handleFiltro($('#FechaInicial').val(),$('#FechaFinal').val())">Filtrar</button>
             </div>
+            <script>
+            $("#FechaFinal").val(ffechaFinal);
+            $("#FechaInicial").val(ffechaInicial);
+            </script>
     </div>
         <div class="d-flex flex-row">
             <h3 class="border-bottom pb-2 mb-0 w-100  d-flex justify-content-center text-primary" id="titulo">Partidas Especiales</h3>
