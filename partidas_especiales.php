@@ -133,14 +133,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
 
     //Ejecuccion de Insert a Fact Saldos
-    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$Response->id}') ";
 
-        $stmt = sqlsrv_query($conn, $sql);
-        if($stmt === false) {
-            die( print_r( sqlsrv_errors(), true));
-        }else{
-            //echo  'Insertado' ;
-        }
+        //Validar si existe en BD la cuenta a insertar
+        $cuenta_espacio = $_POST['cuenta'].' ';
+       // echo $cuenta_espacio;
+        $query3="Select * from Dim_CuentaContable where Cuenta = '$cuenta_espacio'";
+        $stmt3 = sqlsrv_query($conn, $query3);
+
+            $actualizar = 0;
+            while ($Response1 = sqlsrv_fetch_object($stmt3)) {
+                $actualizar = 1;
+            }
+
+            if($actualizar === 0) {
+                //echo 'Registro no existe';
+                //Si no existe Insertar la Cuenta
+                $query4="Insert into Dim_CuentaContable (Cuenta,CuentaDesc,Mayor) values ('{$_POST['cuenta']}','{$_POST['descripcion']}','{$_POST['mayor']}')";
+                $stmt4 = sqlsrv_query($conn, $query4);
+
+                if($stmt4 === false) {
+                    die( print_r( sqlsrv_errors(), true));
+                }else{
+                    //echo 'Registrado en Cuentas Contables';
+                }
+                    //Seguido insertar en fact saldos
+                    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$Response->id}') ";
+
+                        $stmt = sqlsrv_query($conn, $sql);
+                        if($stmt === false) {
+                            die( print_r( sqlsrv_errors(), true));
+                        }else{
+                            //echo  'Insertado' ;
+                        }
+
+            }else{
+            //Si no insertar directo:
+                    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$Response->id}') ";
+
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if($stmt === false) {
+                        die( print_r( sqlsrv_errors(), true));
+                    }else{
+                        //echo  'Insertado' ;
+                    }
+
+            }
+
+
 
 
     //Desconectar servicio

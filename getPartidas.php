@@ -83,21 +83,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     $query="Delete from PartidasEspeciales where Linea = $Linea ";
 
         $stmt1 = sqlsrv_query($conn, $query);
-        if($query === false) {
+        if($stmt1 === false) {
             die( print_r( sqlsrv_errors(), true));
         }else{
             echo 'Partida borrada' ;
         }
 
 
-    $query2="Delete from Fact_Saldos where PartidaLinea = $Linea";
+    $query3="Select * from Fact_Saldos where PartidasEsp = '1' and PartidaLinea = $Linea";
 
-    $stmt2 = sqlsrv_query($conn, $query2);
-    if($query2 === false) {
-        die( print_r( sqlsrv_errors(), true));
-    }else{
-        echo 'Registro borrado Fact Saldos' ;
-    }
+        $stmt3 = sqlsrv_query($conn, $query);
+        if($stmt3 === false) {
+            echo 'Registro no existe';
+        }else{
+
+            $query2="Delete from Fact_Saldos where PartidasEsp = '1' and PartidaLinea = $Linea";
+
+            $stmt2 = sqlsrv_query($conn, $query2);
+            if($stmt2 === false) {
+                die( print_r( sqlsrv_errors(), true));
+            }else{
+                echo 'Registro borrado Fact Saldos' ;
+            }
+
+        }
+
 
     //Desconectar servicio
     sqlsrv_close($conn);

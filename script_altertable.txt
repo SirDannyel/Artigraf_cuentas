@@ -6,8 +6,6 @@ PartidasEsp tinyint NULL DEFAULT 0,
 PartidaLinea bigint NULL;
 GO
 
-
-
 /*-----Modificar tabla de PartidasEspeciales-----*/
 
 ALTER TABLE dbo.PartidasEspeciales

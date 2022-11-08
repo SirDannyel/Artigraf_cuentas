@@ -308,12 +308,13 @@
         }
     }
     const handleSelectChange = (cuenta) => {
+
         if (cuenta) {
             const result = cuentascontables.find( ({ Cuenta }) => Cuenta === cuenta);
             //const result2 = cuentascontables.filter( ({ Cuenta }) => Cuenta.includes(cuenta));
             //console.log("getCuentas2", result);
             $("#Descripcion").val(result.CuentaDesc);
-            $("#Mayor").val(result.Mayor)
+            $("#Mayor").val(result.Mayor);
         } else {
             $("#Descripcion").val("");
             $("#Mayor").val("");
@@ -324,14 +325,16 @@
             var  mov = abono - cargo;
             const response = await InsertPartidas_Api (fecha,cuenta,descripcion,cargo,abono,mayor,mov);
             const myArr = JSON.parse(response);
+            //console.log(myArr);
+            //console.log(myArr[0].id);
 
             if (partidasdia[0].descripcion === "Sin Registro") {
                 partidasdia.shift();
-                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr.id);
+                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr[0].id);
                 partidasdia.push(nuevaPartida);
             } else {
 
-                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr.id);
+                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr[0].id);
                 partidasdia.unshift(nuevaPartida);
             }
 
@@ -358,6 +361,7 @@
     const handleDeletePartida = (linea) => {
     try{
                var line = linea;
+               var lin = Number(linea);
                Swal.fire({
                         title: '¿Estas seguro?',
                         text: "Se eliminará el registro",
@@ -373,7 +377,7 @@
                             let indice = partidasdia.findIndex(linea => linea.Linea === line);
                             partidasdia.splice(indice, 1);
                             getPartidas_Table();
-                            DeletePartidas_Api(linea);
+                            DeletePartidas_Api(lin);
                             Swal.fire(
                                 'Eliminado!',
                                 'Registro Eliminado.',
