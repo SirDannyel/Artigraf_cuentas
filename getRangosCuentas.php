@@ -231,5 +231,68 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 
 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header("Content-Type: application/json");
+    $data = json_decode(file_get_contents("php://input"));
+
+    $serverName = $conf['server'];
+    $connectionInfo = array("Database" => "DWH_Artigraf");
+    $conn = sqlsrv_connect($serverName, $connectionInfo);
+
+    if ($conn === false) {
+        echo "Could not connect.\n";
+        die(print_r(sqlsrv_errors(), true));
+    }
+
+    $param = $data->tipo;
+
+    switch ($param){
+        case "InsertRango":
+
+                $ef1 = $data->EF1;
+                $ef1Desc = $data->EF1Desc;
+                $cuentaInicio = $data->CuentaInicio;
+                $cuentaFin = $data->CuentaFin;
+                $mayor = 'prueba';
+                $almacen = 'Prueba';
+                $nivel1 = '0001';
+                $nivel2 = '0000';
+                $nivel3 = '0000';
+                $nivel4 = '0000';
+                $nivel5 = '0000';
+                $mayorFin = '0000';
+                $almacenFin = '0000';
+                $nivel1Fin = '0000';
+                $nivel2Fin = '0000';
+                $nivel3Fin = '0000';
+                $nivel4Fin = '0000';
+                $nivel5Fin = '0000';
+                $ef2 = $data->EF2;
+                $ef2Desc = $data->EF2Desc;
+                $ef3 = $data->EF3;
+                $ef3Desc = $data->EF3Desc;
+                $ef4 = $data->EF4;
+                $ef4Desc = $data->EF4Desc;
+                $ef5 = $data->EF5;
+                $ef5Desc = $data->EF5Desc;
+                $ef6 = $data->EF6;
+                $ef6Desc = $data->EF6Desc;
+                $ef7 = $data->EF7;
+                $ef7Desc = $data->EF7Desc;
+                $ef8 = $data->EF8;
+                $ef8Desc = $data->EF8Desc;
+                $orden = $data->Orden;
+
+            $query4="Insert into Dim_RangoCuentas (EF1,EF1Desc,CuentaInicio,CuentaFin,Mayor,Almacen,Nivel1,Nivel2,Nivel3,Nivel4,Nivel5,MayorFin,AlmacenFin,Nivel1Fin,Nivel2Fin,Nivel3Fin,Nivel4Fin,Nivel5Fin,EF2,EF2Desc,EF3,EF3Desc,EF4,EF4Desc,EF5,EF5Desc,EF6,EF6Desc,EF7,EF7Desc,EF8,EF8Desc,Orden) values ((?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?))";
+            $parametros = array($ef1, $ef1Desc,$cuentaInicio,$cuentaFin,$mayor,$almacen,$nivel1,$nivel2,$nivel3,$nivel4,$nivel5,$mayorFin,$almacenFin,$nivel1Fin,$nivel2Fin,$nivel3Fin,$nivel4Fin,$nivel5Fin,$ef2, $ef2Desc, $ef3, $ef3Desc, $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $ef8, $ef8Desc,$orden);
+            $stmt4 = sqlsrv_query($conn,$query4,$parametros);
+
+            if($stmt4 === false) {
+                die( print_r( sqlsrv_errors(), true));
+            }else{
+                echo 'Registrado en Rango Cuentas';
+            }
+
+            break;
+    }
 
 }

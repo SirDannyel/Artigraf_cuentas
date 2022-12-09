@@ -13,15 +13,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style type="text/css">
+
+        .headerSiding {
+            position: relative; /* need a non-static position */
+            padding-top: 1.4em; /* place for the fixed header */
+
+        }
+
+        .scrollPane {
+            height: 40em; /* without height no scrollbar ever */
+            overflow: auto; /* show scrollbar when needed */
+            width:4200px
+        }
+
+        .scrollPane {
+            position: absolute; /* pinned to next non-static parent */
+            top: 0; /* at top of parent */
+        }
+
         .my-custom-scrollbar {
             position: relative;
             height: 500px;
             overflow: auto;
         }
-
         .table-wrapper-scroll-y {
             display: block;
         }
+
     </style>
 </head>
 
@@ -249,6 +267,32 @@
             objXMLHttpRequest.open('GET',UrltoSend);
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send();
+        });
+    }
+
+    const InsertRangos_Api = (RangosInput) => {
+        const data = JSON.stringify(RangosInput);
+        return new Promise(function (resolve, reject) {
+            const objXMLHttpRequest = new XMLHttpRequest();
+            objXMLHttpRequest.onreadystatechange = function () {
+                if (objXMLHttpRequest.readyState === 4) {
+                    if (objXMLHttpRequest.status == 200) {
+                        resolve(objXMLHttpRequest.responseText);
+                        //console.log(data);
+                    } else {
+                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                    }
+                }
+            }
+
+            var url = "http://localhost/Artigraf/getRangosCuentas.php";
+            var Parametro = "?tipo=RangoCuentas";
+            var UrltoSend = url + Parametro;
+
+            objXMLHttpRequest.open('POST',UrltoSend);
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            objXMLHttpRequest.send(data);
         });
     }
 
@@ -577,6 +621,88 @@
         }
     }
 
+    const handleInsertRango = (cuentainicio,cuentafin,orden,ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
+        var Tipo = "InsertRango";
+        try {
+         /*   for (var i = 0; i < cuentascontables.length; i++) {
+                var cuenta = cuentascontables[i].Cuenta;
+                cuentascontables.map(function (dato) {
+                    if (dato.Cuenta == cuenta) {
+                        if (ef1 && ef1desc) {
+                            dato.EF1 = ef1;
+                            dato.EF1Desc = ef1desc;
+                        }
+                        if (ef2 && ef2desc) {
+                            dato.EF2 = ef2;
+                            dato.EF2Desc = ef2desc;
+                        }
+                        if(ef3 && ef3desc) {
+                            dato.EF3 = ef3;
+                            dato.EF3Desc = ef3desc;
+                        }
+                        if(ef4 && ef4desc) {
+                            dato.EF4 = ef4;
+                            dato.EF4Desc = ef4desc;
+                        }
+                        if(ef5 && ef5desc) {
+                            dato.EF5 = ef5;
+                            dato.EF5Desc = ef5desc;
+                        }
+                        if(ef6 && ef6desc) {
+                            dato.EF6 = ef6;
+                            dato.EF6Desc = ef6desc;
+                        }
+                        if(ef7 && ef7desc) {
+                            dato.EF7 = ef7;
+                            dato.EF7Desc = ef7desc;
+                        }
+                        if(ef8 && ef8desc) {
+                            dato.EF8 = ef8;
+                            dato.EF8Desc = ef8desc;
+                        }
+                    }
+                    return dato;
+                });
+            }*/
+            let cuentasInput = {
+                CuentaInicio : cuentainicio,
+                CuentaFin : cuentafin,
+                Orden : orden,
+                EF1 : ef1,
+                EF1Desc : ef1desc,
+                EF2 : ef2,
+                EF2Desc : ef2desc,
+                EF3 : ef3,
+                EF3Desc : ef3desc,
+                EF4 : ef4,
+                EF4Desc : ef4desc,
+                EF5 : ef5,
+                EF5Desc : ef5desc,
+                EF6 : ef6,
+                EF6Desc : ef6desc,
+                EF7 : ef7,
+                EF7Desc : ef7desc,
+                EF8 : ef8,
+                EF8Desc : ef8desc,
+                tipo: Tipo
+            };
+
+            InsertRangos_Api(cuentasInput);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Registros Actualizados',
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+        } catch (err) {
+            console.log(err)
+        }
+        //AQUI
+    }
+
+
     const init = () => {
             get_EFs();
             getRangosCuentas();
@@ -643,13 +769,55 @@
         </div>
 
         <div class="col mt-4">
-            <button type="submit" class="btn btn-primary">Agregar Rango</button>
+            <button type="submit" class="btn btn-primary" onclick="handleInsertRango($('#CuentaInicio').val(),$('#CuentaFin').val(),$('#Orden').val(),$('#IdEf1').val(),$('#EF1').val(),$('#IdEf2').val(),$('#EF2').val(),$('#IdEf3').val(),$('#EF3').val(),$('#IdEf4').val(),$('#EF4').val(),$('#IdEf5').val(),$('#EF5').val(),$('#IdEf6').val(),$('#EF6').val(),$('#IdEf7').val(),$('#EF7').val(),$('#IdEf8').val(),$('#EF8').val())">Agregar Rango</button>
         </div>
 
         <div class="col flex-col mt-4">
-            <button type="button"  class="btn btn-success" >Agregar Nivel</button>
+            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick='$("#exampleModal").modal("show");'>Agregar Nivel</button>
         </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">AGREGAR NUEVO NIVEL</h5>
+                        <button type="button" class="btn btn-outline-danger px-3" onclick='$("#exampleModal").modal("hide");'>
+                            <i class="fa-solid fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="Nivel" class="col-form-label">Nivel:</label>
+                                <select class="form-select form-select-sm" id="Nivel" aria-label="Default select example">
+                                    <option selected></option>
+                                    <option>EF1</option>
+                                    <option>EF2</option>
+                                    <option>EF3</option>
+                                    <option>EF4</option>
+                                    <option>EF5</option>
+                                    <option>EF6</option>
+                                    <option>EF7</option>
+                                    <option>EF8</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label id="Label1" for="recipient-name" class="col-form-label">ID</label>
+                                <input type="text" class="form-control form-control-sm" id="ID_EF">
+                            </div>
+                            <div class="form-group">
+                                <label id="Label2" for="recipient-name" class="col-form-label">Descripción</label>
+                                <input type="text" class="form-control form-control-sm" id="EF_DESC">
+                            </div>
+                        </form>
+                    </div>
 
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick='$("#exampleModal").modal("hide");'>Cerrar</button>
+                        <button type="button" class="btn btn-primary">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row flex-row mb-2 align-items-center rounded w-100">
         <div class="col">
@@ -753,34 +921,36 @@
 </div>
 
     <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar shadow-sm border-bottom bg-body rounded">
-
+   <!-- <div class="scrollPane"> -->
         <table class="table" id="tabla">
-            <thead >
+            <thead>
             <tr class="d-flex flex-row">
-                <th class="th" style="width:70px;">EF1</th>
-                <th class="th" style="width:380px;">Descripción EF1</th>
-                <th class="th" style="width:250px;">Cuenta Inicio</th>
-                <th class="th" style="width:250px;">Cuenta Fin</th>
-                <th class="th" style="width:70px;">EF2</th>
-                <th class="th" style="width:380px;">Descripción EF2</th>
-                <th class="th" style="width:70px;">EF3</th>
-                <th class="th" style="width:380px;">Descripción EF3</th>
-                <th class="th" style="width:70px;">EF4</th>
-                <th class="th" style="width:380px;">Descripción EF4</th>
-                <th class="th" style="width:70px;">EF5</th>
-                <th class="th" style="width:380px;">Descripción EF5</th>
-                <th class="th" style="width:70px;">EF6</th>
-                <th class="th" style="width:380px;">Descripción EF6</th>
-                <th class="th" style="width:70px;">EF7</th>
-                <th class="th" style="width:380px;">Descripción EF7</th>
-                <th class="th" style="width:70px;">EF8</th>
-                <th class="th" style="width:380px;">Descripción EF8</th>
+                <th style="width:70px;"><div>EF1</div></th>
+                <th style="width:380px;"><div>Descripción EF1</div></th>
+                <th style="width:250px;"><div>Cuenta Inicio</div></th>
+                <th style="width:250px;"><div>Cuenta Fin</div></th>
+                <th style="width:70px;"><div>EF2</div></th>
+                <th style="width:380px;"><div>Descripción EF2</div></th>
+                <th style="width:70px;"><div>EF3</div></th>
+                <th style="width:380px;"><div>Descripción EF3</div></th>
+                <th style="width:70px;"><div>EF4</div></th>
+                <th style="width:380px;"><div>Descripción EF4</div></th>
+                <th style="width:70px;"><div>EF5</div></th>
+                <th style="width:380px;"><div>Descripción EF5</div></th>
+                <th style="width:70px;"><div>EF6</div></th>
+                <th style="width:380px;"><div>Descripción EF6</div></th>
+                <th style="width:70px;"><div>EF7</div></th>
+                <th style="width:380px;"><div>Descripción EF7</div></th>
+                <th style="width:70px;"><div>EF8</div></th>
+                <th style="width:380px"><div>Descripción EF8</div></th>
             </tr>
             </thead>
             <tbody  id="tablabody">
             </tbody>
         </table>
+    <!--</div>-->
     </div>
+
 </main>
 </body>
 </html>
