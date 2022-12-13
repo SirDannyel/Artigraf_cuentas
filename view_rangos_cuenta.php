@@ -78,6 +78,30 @@
         });
     }
 
+    const RangosSearch_Api = (nivel,dato) => {
+        return new Promise(function (resolve, reject) {
+            const objXMLHttpRequest = new XMLHttpRequest();
+            objXMLHttpRequest.onreadystatechange = function () {
+                if (objXMLHttpRequest.readyState === 4) {
+                    if (objXMLHttpRequest.status == 200) {
+                        resolve(objXMLHttpRequest.responseText);
+                    } else {
+                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                    }
+                }
+            }
+            var url = "http://localhost/Artigraf/getRangosCuentas.php";
+            var Parametro = "?tipo=SearchCuentas";
+            var Parametro2 = "&nivel="+nivel;
+            var Parametro3 = "&dato="+dato;
+            var UrltoSend = url + Parametro+Parametro2+Parametro3;
+
+            objXMLHttpRequest.open('GET', UrltoSend);
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            objXMLHttpRequest.send();
+        });
+    }
+
     const EF1Select_Api = () => {
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -97,7 +121,7 @@
             var UrltoSend = url + Parametro;
 
             objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
@@ -121,7 +145,7 @@
             var UrltoSend = url + Parametro;
 
             objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
@@ -145,7 +169,7 @@
             var UrltoSend = url + Parametro;
 
             objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
@@ -169,7 +193,7 @@
             var UrltoSend = url + Parametro;
 
             objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
@@ -193,7 +217,7 @@
             var UrltoSend = url + Parametro;
 
             objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
@@ -217,7 +241,7 @@
             var UrltoSend = url + Parametro;
 
             objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
@@ -241,7 +265,7 @@
             var UrltoSend = url + Parametro;
 
             objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
@@ -265,7 +289,7 @@
             var UrltoSend = url + Parametro;
 
             objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
@@ -286,12 +310,32 @@
             }
 
             var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=RangoCuentas";
-            var UrltoSend = url + Parametro;
 
-            objXMLHttpRequest.open('POST',UrltoSend);
+            objXMLHttpRequest.open('POST',url);
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            objXMLHttpRequest.send(data);
+        });
+    }
+
+    const UpdateRangos_Api = (RangosInput) => {
+        const data = JSON.stringify(RangosInput);
+        return new Promise(function (resolve, reject) {
+            const objXMLHttpRequest = new XMLHttpRequest();
+            objXMLHttpRequest.onreadystatechange = function () {
+                if (objXMLHttpRequest.readyState === 4) {
+                    if (objXMLHttpRequest.status == 200) {
+                        resolve(objXMLHttpRequest.responseText);
+                        //console.log(data);
+                    } else {
+                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                    }
+                }
+            }
+
+            var url = "http://localhost/Artigraf/getRangosCuentas.php";
+
+            objXMLHttpRequest.open('POST',url);
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
     }
@@ -303,7 +347,7 @@
 
     const get_EFs = async () => {
         try {
-            const responseEF1 = await EF1Select_Api();
+        /*    const responseEF1 = await EF1Select_Api();
             EF1 = JSON.parse(responseEF1);
             var selectEF1 = document.getElementById("IdEf1");
             var selectEF1_Desc = document.getElementById("EF1");
@@ -319,12 +363,12 @@
                 opt.value = ef1.EF1_Desc;
                 selectEF1_Desc.appendChild(opt);
 
-            }
+            }*/
 
             const responseEF2 = await EF2Select_Api();
             EF2 = JSON.parse(responseEF2);
             var selectEF2 = document.getElementById("IdEf2");
-            var selectEF2_Desc = document.getElementById("EF2");
+          //  var selectEF2_Desc = document.getElementById("EF2");
 
             for (let ef2 of EF2) {
                 var option2 = document.createElement("option");
@@ -332,35 +376,24 @@
                 option2.value = ef2.EF2;
                 selectEF2.appendChild(option2);
 
-                var opt2 = document.createElement("option");
-                opt2.text = ef2.EF2_Desc;
-                opt2.value = ef2.EF2_Desc;
-                selectEF2_Desc.appendChild(opt2);
-
             }
 
             const responseEF3 = await EF3Select_Api();
             EF3 = JSON.parse(responseEF3);
             var selectEF3 = document.getElementById("IdEf3");
-            var selectEF3_Desc = document.getElementById("EF3");
+            //var selectEF3_Desc = document.getElementById("EF3");
 
             for (let ef3 of EF3) {
                 var option3 = document.createElement("option");
                 option3.text = ef3.EF3;
                 option3.value = ef3.EF3;
                 selectEF3.appendChild(option3);
-
-                var opt3 = document.createElement("option");
-                opt3.text = ef3.EF3_Desc;
-                opt3.value = ef3.EF3_Desc;
-                selectEF3_Desc.appendChild(opt3);
-
             }
 
             const responseEF4 = await EF4Select_Api();
             EF4 = JSON.parse(responseEF4);
             var selectEF4 = document.getElementById("IdEf4");
-            var selectEF4_Desc = document.getElementById("EF4");
+           // var selectEF4_Desc = document.getElementById("EF4");
 
             for (let ef4 of EF4) {
                 var option4 = document.createElement("option");
@@ -368,35 +401,24 @@
                 option4.value = ef4.EF4;
                 selectEF4.appendChild(option4);
 
-                var opt4 = document.createElement("option");
-                opt4.text = ef4.EF4_Desc;
-                opt4.value = ef4.EF4_Desc;
-                selectEF4_Desc.appendChild(opt4);
-
             }
 
             const responseEF5 = await EF5Select_Api();
             EF5 = JSON.parse(responseEF5);
             var selectEF5 = document.getElementById("IdEf5");
-            var selectEF5_Desc = document.getElementById("EF5");
+           // var selectEF5_Desc = document.getElementById("EF5");
 
             for (let ef5 of EF5) {
                 var option5 = document.createElement("option");
                 option5.text = ef5.EF5;
                 option5.value = ef5.EF5;
                 selectEF5.appendChild(option5);
-
-                var opt5 = document.createElement("option");
-                opt5.text = ef5.EF5_Desc;
-                opt5.value = ef5.EF5_Desc;
-                selectEF5_Desc.appendChild(opt5);
-
             }
 
             const responseEF6 = await EF6Select_Api();
             EF6 = JSON.parse(responseEF6);
             var selectEF6 = document.getElementById("IdEf6");
-            var selectEF6_Desc = document.getElementById("EF6");
+           // var selectEF6_Desc = document.getElementById("EF6");
 
             for (let ef6 of EF6) {
                 var option6 = document.createElement("option");
@@ -404,17 +426,12 @@
                 option6.value = ef6.EF6;
                 selectEF6.appendChild(option6);
 
-                var opt6 = document.createElement("option");
-                opt6.text = ef6.EF6_Desc;
-                opt6.value = ef6.EF6_Desc;
-                selectEF6_Desc.appendChild(opt6);
-
             }
 
             const responseEF7 = await EF7Select_Api();
             EF7 = JSON.parse(responseEF7);
             var selectEF7 = document.getElementById("IdEf7");
-            var selectEF7_Desc = document.getElementById("EF7");
+           // var selectEF7_Desc = document.getElementById("EF7");
 
             for (let ef7 of EF7) {
                 var option7 = document.createElement("option");
@@ -422,28 +439,18 @@
                 option7.value = ef7.EF7;
                 selectEF7.appendChild(option7);
 
-                var opt7 = document.createElement("option");
-                opt7.text = ef7.EF7_Desc;
-                opt7.value = ef7.EF7_Desc;
-                selectEF7_Desc.appendChild(opt7);
-
             }
 
             const responseEF8 = await EF8Select_Api();
             EF8 = JSON.parse(responseEF8);
             var selectEF8 = document.getElementById("IdEf8");
-            var selectEF8_Desc = document.getElementById("EF8");
+           // var selectEF8_Desc = document.getElementById("EF8");
 
             for (let ef8 of EF8) {
                 var option8 = document.createElement("option");
                 option8.text = ef8.EF8;
                 option8.value = ef8.EF8;
                 selectEF8.appendChild(option8);
-
-                var opt8 = document.createElement("option");
-                opt8.text = ef8.EF8_Desc;
-                opt8.value = ef8.EF8_Desc;
-                selectEF8_Desc.appendChild(opt8);
 
             }
 
@@ -457,6 +464,19 @@
         try {
 
             const response = await RangosCuentas_Api();
+            RangosCuentas = JSON.parse(response);
+            // console.log(RangosCuentas);
+            getRangosCuentas_Table();
+        } catch (err)
+        {
+            console.log(err)
+        }
+    }
+
+    const getRangosSearch = async (nivel,dato) => {
+        try {
+
+            const response = await RangosSearch_Api();
             RangosCuentas = JSON.parse(response);
             // console.log(RangosCuentas);
             getRangosCuentas_Table();
@@ -702,6 +722,22 @@
         //AQUI
     }
 
+    const search_ef = (level_id) => {
+        try {
+            var Level = "EF1";
+
+            const result2 = RangosCuentas.filter( ({ EF2 }) => EF2 === level_id);
+
+            console.log("getCuentas2", result2);
+
+            //const nuevoArr = RangosCuentas.filter( ({ EF2 }) => EF2.includes(Level));
+            //console.log(nuevoArr);
+            //deleteChild ();
+            //getEF1();
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     const init = () => {
             get_EFs();
@@ -725,17 +761,24 @@
             <div class="col">
                 <h3 class="d-flex justify-content-center text-primary" id="titulo">Rangos Cuentas Contables</h3>
             </div>
-            <div class="col-4">
-                <input class="form-control" placeholder="Search" id="CuentaSearch"></input>
+            <div class="col-2">
+                <select class="form-select form-select-sm" placeholder="Nivel" id="Select_search" aria-label="Default select example">
+                    <option selected>NIVEL</option>
+                    <option>EF2</option>
+                    <option>EF3</option>
+                    <option>EF4</option>
+                    <option>EF5</option>
+                    <option>EF6</option>
+                    <option>EF7</option>
+                    <option>EF8</option>
+                </select>
             </div>
-            <script>
-                $(document).ready(function(){
-                    $('#CuentaSearch').mask('0000,0000,0000,0000,0000,0000');
-                });
-            </script>
+            <div class="col-2">
+                <input class="form-control" placeholder="ID" id="CuentaSearch" ></input>
+            </div>
 
             <div class="col-1">
-                <button type="submit" class="btn btn-primary">Buscar</button>
+                <button type="submit" class="btn btn-primary" onclick="search_ef($('#CuentaSearch').val())">Buscar</button>
             </div>
 
         </div>
@@ -748,12 +791,19 @@
 <div class="my-3 p-2 shadow-sm border-bottom bg-body rounded" id="panel">
 
     <div class="row  align-items-center w-100">
-
-        <div class="col-4">
+        <div class="col-1">
+            <label>Orden</label>
+            <input class="form-control form-control-sm" id="Orden"></input>
+        </div>
+        <div class="col-2">
+            <label>Descripción</label>
+            <input class="form-control form-control-sm" id="CuentaInicio"></input>
+        </div>
+        <div class="col-3">
             <label>Cuenta Inicio</label>
             <input class="form-control form-control-sm" id="CuentaInicio"></input>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <label>Cuenta Fin</label>
             <input class="form-control form-control-sm" id="CuentaFin"></input>
         </div>
@@ -763,17 +813,13 @@
                 $('#CuentaFin').mask('0000,0000,0000,0000,0000,0000');
             });
         </script>
-        <div class="col">
-            <label>Orden</label>
-            <input class="form-control form-control-sm" id="Orden"></input>
-        </div>
 
         <div class="col mt-4">
             <button type="submit" class="btn btn-primary" onclick="handleInsertRango($('#CuentaInicio').val(),$('#CuentaFin').val(),$('#Orden').val(),$('#IdEf1').val(),$('#EF1').val(),$('#IdEf2').val(),$('#EF2').val(),$('#IdEf3').val(),$('#EF3').val(),$('#IdEf4').val(),$('#EF4').val(),$('#IdEf5').val(),$('#EF5').val(),$('#IdEf6').val(),$('#EF6').val(),$('#IdEf7').val(),$('#EF7').val(),$('#IdEf8').val(),$('#EF8').val())">Agregar Rango</button>
         </div>
 
         <div class="col flex-col mt-4">
-            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick='$("#exampleModal").modal("show");'>Agregar Nivel</button>
+            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick='$("#exampleModal").modal("show");'>Modificar Rangos</button>
         </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -820,12 +866,6 @@
         </div>
     </div>
     <div class="row flex-row mb-2 align-items-center rounded w-100">
-        <div class="col">
-            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf1">EF1</p>
-            <select class="form-select form-select-sm" id="IdEf1" aria-label="Default select example">
-                <option selected></option>
-            </select>
-        </div>
 
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF2</p>
@@ -833,7 +873,6 @@
                 <option selected></option>
             </select>
         </div>
-
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf3">EF3</p>
             <select class="form-select form-select-sm" id="IdEf3" aria-label="Default select example">
@@ -871,52 +910,46 @@
             </select>
         </div>
 
-        <div class="text-center w-100 mt-1 "><h6>DESCRIPCIONES</h6></div>
+        <!--  <div class="text-center w-100 mt-1 "><h6>DESCRIPCIONES</h6></div> -->
 
-        <!-- AQUI FILAS DE INPUTS EF Descripciones -->
-        <div class="col">
-            <select class="form-select form-select-sm" id="EF1" aria-label="Default select example">
-                <option selected></option>
-            </select>
-        </div>
-
-        <div class="col">
-            <select class="form-select form-select-sm" id="EF2" aria-label="Default select example">
-                <option selected></option>
-            </select>
-        </div>
-
-        <div class="col">
-            <select class="form-select form-select-sm" id="EF3" aria-label="Default select example">
-                <option selected></option>
-            </select>
-        </div>
-
-        <div class="col">
-            <select class="form-select form-select-sm" id="EF4" aria-label="Default select example">
-                <option selected></option>
-            </select>
-        </div>
-        <div class="col">
-            <select class="form-select form-select-sm" id="EF5" aria-label="Default select example">
-                <option selected></option>
-            </select>
-        </div>
-        <div class="col">
-            <select class="form-select form-select-sm" id="EF6" aria-label="Default select example">
-                <option selected></option>
-            </select>
-        </div>
-        <div class="col">
-            <select class="form-select form-select-sm" id="EF7" aria-label="Default select example">
-                <option selected></option>
-            </select>
-        </div>
-        <div class="col">
-            <select class="form-select form-select-sm" id="EF8" aria-label="Default select example">
-                <option selected></option>
-            </select>
-        </div>
+          <!-- AQUI FILAS DE INPUTS EF Descripciones -->
+        <!--
+                <div class="col">
+                    <select class="form-select form-select-sm" id="EF2" aria-label="Default select example">
+                        <option selected></option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select form-select-sm" id="EF3" aria-label="Default select example">
+                        <option selected></option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select form-select-sm" id="EF4" aria-label="Default select example">
+                        <option selected></option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select form-select-sm" id="EF5" aria-label="Default select example">
+                        <option selected></option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select form-select-sm" id="EF6" aria-label="Default select example">
+                        <option selected></option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select form-select-sm" id="EF7" aria-label="Default select example">
+                        <option selected></option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select form-select-sm" id="EF8" aria-label="Default select example">
+                        <option selected></option>
+                    </select>
+                </div>
+                -->
     </div>
 </div>
 
