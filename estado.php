@@ -498,6 +498,16 @@
             })
         }
 
+        function UserValidation(){
+             let us = '';
+               us = localStorage.getItem('user');  
+           //    $('#usuarioLogueado').text(us); 
+                console.log(us);
+               if(us === null || us ==='null'){
+                    location.href ="http://localhost/Projects/Artigraf/login.php"; 
+               } 
+
+        }
         /******* Fin DOM Events  *******/ 
 
         const init = () => {
@@ -507,13 +517,14 @@
 
         init();
  
+        $(document).ready(UserValidation); 
    </script>
   
   <body class="bg-light"> 
     
     <nav class="navbar navbar-expand-lg fixed-top navbar-white bg-white border-bottom" aria-label="Main navigation">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"> 
+        <a class="navbar-brand" href="http://localhost/Projects/Artigraf/menu.php">  
         <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>
         <div class="d-flex flex-column  w-100">  
