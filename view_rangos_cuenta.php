@@ -317,8 +317,8 @@
         });
     }
 
-    const UpdateRangos_Api = (RangosInput) => {
-        const data = JSON.stringify(RangosInput);
+    const UpdateRangos_Api = () => {
+        const data = JSON.stringify(RangosCuentas);
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -475,8 +475,8 @@
 
     const getRangosSearch = async (nivel,dato) => {
         try {
-
-            const response = await RangosSearch_Api();
+            RangosCuentas = [];
+            const response = await RangosSearch_Api(nivel,dato);
             RangosCuentas = JSON.parse(response);
             // console.log(RangosCuentas);
             getRangosCuentas_Table();
@@ -605,20 +605,24 @@
                 campo.value = opt;
                 linea.appendChild(campo);
                 var boton = document.createElement("button");
-                boton.setAttribute("name",RangosCuentas[i].Orden);
-                boton.setAttribute("id", cuenta);
+                boton.setAttribute("name",RangosCuentas[i].EF1);
+                boton.setAttribute("id", RangosCuentas[i].RangoCuentas_id);
                 boton.onclick = function(){
                     Swal.fire({
                         title: '¿Estas seguro?',
-                        text: "Se descartará el registro",
+                        text: "Se eliminará el registro de la lista",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
-                        confirmButtonText: 'Descartar',
+                        confirmButtonText: 'Eliminar',
                         cancelButtonText: 'Cancelar'
                     }).then((result) => {
                         if (result.isConfirmed) {
+
+                            let indice = RangosCuentas.findIndex(cuenta => cuenta.RangoCuentas_id === this.id);
+                            RangosCuentas.splice(indice, 1);
+                            getRangosCuentas_Table();
                             Swal.fire(
                                 '¡Descartado!',
                                 'Registro Descartado.',
@@ -641,17 +645,114 @@
         }
     }
 
-    const handleInsertRango = (cuentainicio,cuentafin,orden,ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
+    const handleInsertRango = (cuentainicio,cuentafin,orden,desc,ef2,ef3,ef4,ef5,ef6,ef7,ef8) => {
         var Tipo = "InsertRango";
         try {
-         /*   for (var i = 0; i < cuentascontables.length; i++) {
-                var cuenta = cuentascontables[i].Cuenta;
-                cuentascontables.map(function (dato) {
-                    if (dato.Cuenta == cuenta) {
-                        if (ef1 && ef1desc) {
-                            dato.EF1 = ef1;
-                            dato.EF1Desc = ef1desc;
-                        }
+           // const ef1desc = cuentascontables.find( ({ EF1 }) => EF1 === ef1);
+            //console.log(cuentainicio,cuentafin,orden,desc,ef2,ef3,ef4,ef5,ef6,ef7,ef8);
+            var desc2 = "";
+            if (ef2){
+                const ef2desc = EF2.find( ({ EF2 }) => EF2 === ef2);
+                desc2 = ef2desc.EF2_Desc;
+            }
+
+            var desc3 = "";
+            if (ef3){
+                const ef3desc = EF3.find( ({ EF3 }) => EF3 === ef3);
+                var desc3 = ef3desc.EF3_Desc;
+            }
+
+            var desc4 = "";
+            if (ef4){
+                const ef4desc = EF4.find( ({ EF4 }) => EF4 === ef4);
+                var desc4 = ef4desc.EF4_Desc;
+            }
+
+            var desc5 = ""
+            if (ef5){
+                const ef5desc = EF5.find( ({ EF5 }) => EF5 === ef5);
+                var desc5 = ef5desc.EF5_Desc;
+            }
+
+            var desc6 = ""
+            if (ef6){
+                const ef6desc = EF6.find( ({ EF6 }) => EF6 === ef6);
+                var desc6 = ef6desc.EF6_Desc;
+            }
+
+            var desc7 = ""
+            if (ef7){
+                const ef7desc = EF7.find( ({ EF7 }) => EF7 === ef7);
+                var desc7 = ef7desc.EF7_Desc;
+            }
+
+            var desc8 = ""
+            if (ef8){
+                const ef8desc = EF8.find( ({ EF8 }) => EF8 === ef8);
+                var desc8 = ef8desc.EF8_Desc;
+            }
+
+            let cuentasInput = {
+                CuentaInicio : cuentainicio,
+                CuentaFin : cuentafin,
+                Orden : orden,
+                EF1 : orden,
+                EF1Desc : desc,
+                EF2 : ef2,
+                EF2Desc : desc2,
+                EF3 : ef3,
+                EF3Desc : desc3,
+                EF4 : ef4,
+                EF4Desc : desc4,
+                EF5 : ef5,
+                EF5Desc : desc5,
+                EF6 : ef6,
+                EF6Desc : desc6,
+                EF7 : ef7,
+                EF7Desc : desc7,
+                EF8 : ef8,
+                EF8Desc : desc8,
+                tipo: Tipo
+            };
+
+            InsertRangos_Api(cuentasInput);
+            getRangosCuentas();
+
+            $("#Orden").val("");
+            $("#Descripcion").val("");
+            $("#CuentaInicio").val("");
+            $("#CuentaFin").val("");
+            $("#IdEf2").val("");
+            $("#IdEf3").val("");
+            $("#IdEf4").val("");
+            $("#IdEf5").val("");
+            $("#IdEf6").val("");
+            $("#IdEf7").val("");
+            $("#IdEf8").val("");
+
+
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Registros Actualizados',
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+
+        } catch (err) {
+            console.log(err)
+        }
+        //AQUI
+    }
+
+    const handleUpdateRango = (ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
+        try {
+            for (var i = 0; i < RangosCuentas.length; i++) {
+                var Rango = RangosCuentas[i].RangoCuentas_id;
+
+                RangosCuentas.map(function (dato) {
+                    if (dato.RangoCuentas_id == Rango) {
                         if (ef2 && ef2desc) {
                             dato.EF2 = ef2;
                             dato.EF2Desc = ef2desc;
@@ -683,59 +784,112 @@
                     }
                     return dato;
                 });
-            }*/
-            let cuentasInput = {
-                CuentaInicio : cuentainicio,
-                CuentaFin : cuentafin,
-                Orden : orden,
-                EF1 : ef1,
-                EF1Desc : ef1desc,
-                EF2 : ef2,
-                EF2Desc : ef2desc,
-                EF3 : ef3,
-                EF3Desc : ef3desc,
-                EF4 : ef4,
-                EF4Desc : ef4desc,
-                EF5 : ef5,
-                EF5Desc : ef5desc,
-                EF6 : ef6,
-                EF6Desc : ef6desc,
-                EF7 : ef7,
-                EF7Desc : ef7desc,
-                EF8 : ef8,
-                EF8Desc : ef8desc,
-                tipo: Tipo
-            };
+            }
 
-            InsertRangos_Api(cuentasInput);
 
-            Swal.fire({
-                icon: 'success',
-                title: 'Registros Actualizados',
-                showConfirmButton: false,
-                timer: 1500
-            });
+                Swal.fire({
+                    title: '¿Estas seguro?',
+                    text: "Se modificarán los registros de la lista",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Modificar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                       // UpdateRangos_Api();
+                        getRangosCuentas_Table();
+                    }
+                     if(result.cancel){
+                         getRangosCuentas();
+                     }
 
+                });
+
+
+
+            $('#IdEf2').val("");
+            $('#IdEf3').val("");
+            $('#IdEf4').val("");
+            $('#IdEf5').val("");
+            $('#IdEf6').val("");
+            $('#IdEf7').val("");
+            $('#IdEf8').val("");
+
+            $('#EF2').val("");
+            $('#EF3').val("");
+            $('#EF4').val("");
+            $('#EF5').val("");
+            $('#EF6').val("");
+            $('#EF7').val("");
+            $('#EF8').val("");
         } catch (err) {
             console.log(err)
         }
         //AQUI
     }
 
-    const search_ef = (level_id) => {
-        try {
-            var Level = "EF1";
+    const EF2_onchange = (ef2) => {
+        if (ef2){
+            const ef2desc = EF2.find( ({ EF2 }) => EF2 === ef2);
+            $('#EF2').val(ef2desc.EF2_Desc);
+        } else {
+            $('#EF2').val("");
+        }
+    }
 
-            const result2 = RangosCuentas.filter( ({ EF2 }) => EF2 === level_id);
+    const EF3_onchange = (ef3) => {
+        if (ef3){
+            const ef3desc = EF3.find( ({ EF3 }) => EF3 === ef3);
+            $('#EF3').val(ef3desc.EF3_Desc);
+        } else {
+            $('#EF3').val("");
+        }
+    }
 
-            console.log("getCuentas2", result2);
+    const EF4_onchange = (ef4) => {
+        if (ef4){
+            const ef4desc = EF4.find( ({ EF4 }) => EF4 === ef4);
+            $('#EF4').val(ef4desc.EF4_Desc);
+        } else {
+            $('#EF4').val("");
+        }
+    }
 
-            //const nuevoArr = RangosCuentas.filter( ({ EF2 }) => EF2.includes(Level));
-            //console.log(nuevoArr);
-            //deleteChild ();
-            //getEF1();
-        } catch (err) {
-            console.log(err);
+    const EF5_onchange = (ef5) => {
+        if (ef5){
+            const ef5desc = EF5.find( ({ EF5 }) => EF5 === ef5);
+            $('#EF5').val(ef5desc.EF5_Desc);
+        } else {
+            $('#EF5').val("");
+        }
+    }
+
+    const EF6_onchange = (ef6) => {
+        if (ef6){
+            const ef6desc = EF6.find( ({ EF6 }) => EF6 === ef6);
+            $('#EF6').val(ef6desc.EF6_Desc);
+        } else {
+            $('#EF6').val("");
+        }
+    }
+
+    const EF7_onchange = (ef7) => {
+        if (ef7){
+            const ef7desc = EF7.find( ({ EF7 }) => EF7 === ef7);
+            $('#EF7').val(ef7desc.EF7_Desc);
+        } else {
+            $('#EF7').val("");
+        }
+    }
+
+    const EF8_onchange = (ef8) => {
+        if (ef8){
+            const ef8desc = EF8.find( ({ EF8 }) => EF8 === ef8);
+            $('#EF8').val(ef8desc.EF8_Desc);
+        } else {
+            $('#EF8').val("");
         }
     }
 
@@ -763,7 +917,7 @@
             </div>
             <div class="col-2">
                 <select class="form-select form-select-sm" placeholder="Nivel" id="Select_search" aria-label="Default select example">
-                    <option selected>NIVEL</option>
+                    <option selected>EF1</option>
                     <option>EF2</option>
                     <option>EF3</option>
                     <option>EF4</option>
@@ -778,7 +932,7 @@
             </div>
 
             <div class="col-1">
-                <button type="submit" class="btn btn-primary" onclick="search_ef($('#CuentaSearch').val())">Buscar</button>
+                <button type="submit" class="btn btn-primary" onclick="getRangosSearch($('#Select_search').val(),$('#CuentaSearch').val())">Buscar</button>
             </div>
 
         </div>
@@ -797,7 +951,7 @@
         </div>
         <div class="col-2">
             <label>Descripción</label>
-            <input class="form-control form-control-sm" id="CuentaInicio"></input>
+            <input class="form-control form-control-sm" id="Descripcion"></input>
         </div>
         <div class="col-3">
             <label>Cuenta Inicio</label>
@@ -815,11 +969,11 @@
         </script>
 
         <div class="col mt-4">
-            <button type="submit" class="btn btn-primary" onclick="handleInsertRango($('#CuentaInicio').val(),$('#CuentaFin').val(),$('#Orden').val(),$('#IdEf1').val(),$('#EF1').val(),$('#IdEf2').val(),$('#EF2').val(),$('#IdEf3').val(),$('#EF3').val(),$('#IdEf4').val(),$('#EF4').val(),$('#IdEf5').val(),$('#EF5').val(),$('#IdEf6').val(),$('#EF6').val(),$('#IdEf7').val(),$('#EF7').val(),$('#IdEf8').val(),$('#EF8').val())">Agregar Rango</button>
+            <button type="button" class="btn btn-primary" onclick="handleInsertRango($('#CuentaInicio').val(),$('#CuentaFin').val(),$('#Orden').val(),$('#Descripcion').val(),$('#IdEf2').val(),$('#IdEf3').val(),$('#IdEf4').val(),$('#IdEf5').val(),$('#IdEf6').val(),$('#IdEf7').val(),$('#IdEf8').val())">Agregar Rango</button>
         </div>
 
         <div class="col flex-col mt-4">
-            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick='$("#exampleModal").modal("show");'>Modificar Rangos</button>
+            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick="handleUpdateRango($('#IdEf2').val(),$('#EF2').val(),$('#IdEf3').val(),$('#EF3').val(),$('#IdEf4').val(),$('#EF4').val(),$('#IdEf5').val(),$('#EF5').val(),$('#IdEf6').val(),$('#EF6').val(),$('#IdEf7').val(),$('#EF7').val(),$('#IdEf8').val(),$('#EF8').val())">Modificar Rangos</button>
         </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -869,43 +1023,43 @@
 
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF2</p>
-            <select class="form-select form-select-sm" id="IdEf2" aria-label="Default select example">
+            <select class="form-select form-select-sm" id="IdEf2" aria-label="Default select example" onchange="EF2_onchange(this.value)">
                 <option selected></option>
             </select>
         </div>
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf3">EF3</p>
-            <select class="form-select form-select-sm" id="IdEf3" aria-label="Default select example">
+            <select class="form-select form-select-sm" id="IdEf3" aria-label="Default select example" onchange="EF3_onchange(this.value)">
                 <option selected></option>
             </select>
         </div>
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf4">EF4</p>
-            <select class="form-select form-select-sm" id="IdEf4" aria-label="Default select example">
+            <select class="form-select form-select-sm" id="IdEf4" aria-label="Default select example" onchange="EF4_onchange(this.value)">
                 <option selected></option>
             </select>
         </div>
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf5">EF5</p>
-            <select class="form-select form-select-sm" id="IdEf5" aria-label="Default select example">
+            <select class="form-select form-select-sm" id="IdEf5" aria-label="Default select example" onchange="EF5_onchange(this.value)">
                 <option selected></option>
             </select>
         </div>
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf6">EF6</p>
-            <select class="form-select form-select-sm" id="IdEf6" aria-label="Default select example">
+            <select class="form-select form-select-sm" id="IdEf6" aria-label="Default select example" onchange="EF6_onchange(this.value)">
                 <option selected></option>
             </select>
         </div>
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf7">EF7</p>
-            <select class="form-select form-select-sm" id="IdEf7" aria-label="Default select example">
+            <select class="form-select form-select-sm" id="IdEf7" aria-label="Default select example" onchange="EF7_onchange(this.value)">
                 <option selected></option>
             </select>
         </div>
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf8">EF8</p>
-            <select class="form-select form-select-sm" id="IdEf8" aria-label="Default select example">
+            <select class="form-select form-select-sm" id="IdEf8" aria-label="Default select example" onchange="EF8_onchange(this.value)">
                 <option selected></option>
             </select>
         </div>
@@ -913,43 +1067,29 @@
         <!--  <div class="text-center w-100 mt-1 "><h6>DESCRIPCIONES</h6></div> -->
 
           <!-- AQUI FILAS DE INPUTS EF Descripciones -->
-        <!--
+        <form>
                 <div class="col">
-                    <select class="form-select form-select-sm" id="EF2" aria-label="Default select example">
-                        <option selected></option>
-                    </select>
+                    <input type="hidden" value="" class="form-control form-control-sm" id="EF2">
                 </div>
                 <div class="col">
-                    <select class="form-select form-select-sm" id="EF3" aria-label="Default select example">
-                        <option selected></option>
-                    </select>
+                    <input type="hidden" value="" class="form-control form-control-sm" id="EF3">
                 </div>
                 <div class="col">
-                    <select class="form-select form-select-sm" id="EF4" aria-label="Default select example">
-                        <option selected></option>
-                    </select>
+                    <input type="hidden" value="" class="form-control form-control-sm" id="EF4">
                 </div>
                 <div class="col">
-                    <select class="form-select form-select-sm" id="EF5" aria-label="Default select example">
-                        <option selected></option>
-                    </select>
+                    <input type="hidden" value="" class="form-control form-control-sm" id="EF5">
                 </div>
                 <div class="col">
-                    <select class="form-select form-select-sm" id="EF6" aria-label="Default select example">
-                        <option selected></option>
-                    </select>
+                    <input type="hidden" value="" class="form-control form-control-sm" id="EF6">
                 </div>
                 <div class="col">
-                    <select class="form-select form-select-sm" id="EF7" aria-label="Default select example">
-                        <option selected></option>
-                    </select>
+                    <input type="hidden" value="" class="form-control form-control-sm" id="EF7">
                 </div>
                 <div class="col">
-                    <select class="form-select form-select-sm" id="EF8" aria-label="Default select example">
-                        <option selected></option>
-                    </select>
+                    <input type="hidden" value="" class="form-control form-control-sm" id="EF8">
                 </div>
-                -->
+        </form>
     </div>
 </div>
 
