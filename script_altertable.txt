@@ -3,9 +3,8 @@
 ALTER TABLE dbo.Fact_Saldos
 ADD
 PartidasEsp tinyint NULL DEFAULT 0,
-PartidaLinea int NULL;
-
-
+PartidaLinea bigint NULL;
+GO
 
 /*-----Modificar tabla de PartidasEspeciales-----*/
 
@@ -17,4 +16,5 @@ Cargo decimal(20,4) NULL,
 Abono decimal(20,4) NULL,
 Movimiento decimal(20,4) NULL,
 SaldoFinal decimal(20,4) NULL,
-Linea int NULL;
+Linea bigint IDENTITY NOT NULL;
+GO
