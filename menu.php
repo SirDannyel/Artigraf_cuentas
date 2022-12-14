@@ -11,8 +11,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="input-mask.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="ValidaUser.js"></script>
   </head>
-   
+  
    <script>  
 
         /******* Apis  *******/ 
@@ -80,17 +81,6 @@
 
         /******* DOM Events  *******/
  
-
-        function UserValidation(){
-             let us = '';
-               us = localStorage.getItem('user');  
-           //    $('#usuarioLogueado').text(us); 
-
-               if(us === null || us ==='null'){
-                    location.href ="http://localhost/Projects/Artigraf/login.php"; 
-               }
-
-        }
         
         function logout(){
 
@@ -105,8 +95,33 @@
         const init = () => {  
                UserValidation();
         }
+
+        let salida = 0;
         $(document).ready(init); 
-       
+
+        window.addEventListener("beforeunload", function (e) {
+        var confirmationMessage = "lol"; 
+        if(salida === 0){
+         localStorage.setItem("user", null);
+        }
+       // (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+      //  return confirmationMessage;                            //Webkit, Safari, Chrome
+      });
+
+      function redirecciona(page){
+            salida = 1;
+        switch(page){
+          case "rango":
+            location.href ="http://localhost/Projects/Artigraf/view_rangos_cuenta.php"; 
+            break;
+          case "partidas": 
+            location.href ="http://localhost/Projects/Artigraf/view_partidas.php"; 
+            break;
+          case "estados": 
+            location.href ="http://localhost/Projects/Artigraf/estado.php"; 
+            break;
+        }
+      }
    </script>
   
   <body class="bg-light"> 
@@ -117,9 +132,8 @@
         <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>  
 
-        <button class="btn btn-sm btn-danger" onclick="logout()">x</button>
-        
-           
+      <!--  <button class="btn btn-sm btn-danger" onclick="logout()"><i class="fa-solid fa-power-off"></i></button> -->
+         
       </div>
     </nav> 
     <div style="padding-top:150px;"> </div>
@@ -130,15 +144,14 @@
           </div>
           <div class="p-4">
             
-                <div class="d-flex flex-column px-1 pb-4 w-100">  
-                    <a href="http://localhost/Projects/Artigraf/estado.php">     
-                    <button style="" class="btn btn-outline-primary btn-lg px-3 w-100">Estados Financieros</button> 
-                    </a>
+                <div class="d-flex flex-column px-1 pb-4 w-100">   
+                    <button onclick="redirecciona('rango')" class="btn btn-outline-primary btn-lg px-3 w-100">Cuentas Contables</button>   
                 </div>
-                <div class="d-flex flex-column px-1 pb-4 w-100">  
-                    <a href="http://localhost/Projects/Artigraf/view_partidas.php"> 
-                    <button style="" class="btn btn-outline-primary btn-lg px-3 w-100">Partidas Especiales</button>  
-                    </a>
+                <div class="d-flex flex-column px-1 pb-4 w-100">       
+                    <button onclick="redirecciona('estados')" class="btn btn-outline-primary btn-lg px-3 w-100">Estados Financieros</button>  
+                </div>
+                <div class="d-flex flex-column px-1 pb-4 w-100">   
+                    <button onclick="redirecciona('partidas')" class="btn btn-outline-primary btn-lg px-3 w-100">Partidas Especiales</button>   
                 </div>
                 
 

@@ -13,6 +13,57 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
    
+<style>
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+.myDiv {
+  display: none;
+  text-align: center;
+}
+</style>
    <script>  
 
         /******* Apis  *******/ 
@@ -44,29 +95,35 @@
  
         const validaUser = async (user,pass ) => {
             try{
+              
+                document.getElementById("loader").style.display = "block";
               //  alert('user: '+user+' pass: '+pass ); 
                 let titulo ='Accediendo';
                 let resolucion = 'success';
                 const response = await validaUserApi(user,pass);
               //   console.log("validaUser Response", response); 
              //    console.log("user", response); 
+             
+                  document.getElementById("loader").style.display = "none";
                  if(response == 'Error'){
                    titulo = 'El usuario y/o el password no son correctos';
                    resolucion = 'error';
+                  Swal.fire({
+                    position: 'center',
+                    icon: resolucion,
+                    title: titulo,
+                    showConfirmButton: false,
+                    timer: 2000
+                  });
                  }else{
                     localStorage.setItem("user", response);
                  // alert('userLogueado: '+localStorage.getItem("user")); 
                  } 
 
-                Swal.fire({
-                  position: 'center',
-                  icon: resolucion,
-                  title: titulo,
-                  showConfirmButton: false,
-                  timer: 2000
-                });
-                if(resolucion == 'success')
+                if(resolucion == 'success'){
                     location.href ="http://localhost/Projects/Artigraf/menu.php"; 
+
+                }
   
             }
             catch(err){
@@ -110,8 +167,10 @@
         <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
           <div class="border-bottom d-flex flex-row">
             <h3 class="w-100  d-flex justify-content-center text-primary" id="titulo">Acceso</h3>
+                <div id="loader" style="display:none;"></div>
           </div>
-          <div class="p-4">
+          
+          <div class="p-4" >
             
                 <div class="d-flex flex-column px-1 pb-2 w-100">  
                 <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdUser">Usuario</p>
@@ -119,7 +178,7 @@
                 </div>
                 <div class="d-flex flex-column px-1 pb-2 w-100">  
                 <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdPass">Contraseña</p>
-                <input class="form-control m-1" id="IdPass"  value="admin"> </input>
+                <input type="password" class="form-control m-1" id="IdPass"  value="admin"> </input>
                 </div>
  
                 <div class="d-flex flex-row-reverse">
