@@ -10,6 +10,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="input-mask.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style type="text/css">
+
+        #tabla {
+            width: 100px;
+            margin: 0 auto;
+        }
+
+    </style>
 </head>
 
 <script>
@@ -19,6 +27,9 @@
 
     EF1_Id_AntG = 0;
     const EF1_ID = 0;
+
+    let EF1_Catalogo = [];
+
     const EF1_service = () => {
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -120,19 +131,25 @@
     }
 
     const getEF1 = async () => {
+        const response = await EF1_service();
+        //    console.log("getEFs Response", response);
+        //     console.log(response);
+        const myArr = JSON.parse(response);
+        EF1_Catalogo = myArr;
+        getEF1_table();
+    }
+
+    const getEF1_table = async () => {
         try{
-            const response = await EF1_service();
-            //    console.log("getEFs Response", response);
-            //     console.log(response);
-            const myArr = JSON.parse(response);
+
             var tablabody = document.getElementById("tablabody");
 
-            for(var i = 0; i < myArr.length; i++) {
+            for(var i = 0; i < EF1_Catalogo.length; i++) {
                 var linea = document.createElement("tr");
                 linea.setAttribute("class", "d-flex flex-row tr");
                 tablabody.appendChild(linea);
 
-                var ef1 = myArr[i].EF1;
+                var ef1 = EF1_Catalogo[i].EF1;
                 var campo = document.createElement("td");
                 campo.setAttribute("style", "width:100px;");
                 campo.setAttribute("class", "text-center");
@@ -140,7 +157,7 @@
                 campo.value = ef1;
                 linea.appendChild(campo);
 
-                var opt = myArr[i].EF1_Desc;
+                var opt = EF1_Catalogo[i].EF1_Desc;
                 campo = document.createElement("td");
                 campo.setAttribute("style", "width:400px;");
                 campo.setAttribute("class", "text-center");
@@ -149,12 +166,12 @@
                 linea.appendChild(campo);
 
                 var editar = document.createElement("button");
-                editar.setAttribute("name", myArr[i].EF1_Desc);
-                editar.setAttribute("id", myArr[i].EF1);
+                editar.setAttribute("name", EF1_Catalogo[i].EF1_Desc);
+                editar.setAttribute("id", EF1_Catalogo[i].EF1);
                 editar.setAttribute("class", "btn btn-outline-warning px-3");
                 editar.setAttribute("type", "button");
                 editar.textContent = "Editar";
-                editar.value = myArr[i].id_ef1;
+                editar.value = EF1_Catalogo[i].id_ef1;
                 editar.onclick = function(){
                     $("#exampleModal").modal("show");
                     $("#ID_EF_ANT").val(this.id);
@@ -164,8 +181,8 @@
                 linea.appendChild(editar);
 
                 var boton = document.createElement("button");
-                boton.setAttribute("name", myArr[i].id_ef1);
-                boton.setAttribute("id", myArr[i].id_ef1);
+                boton.setAttribute("name", EF1_Catalogo[i].id_ef1);
+                boton.setAttribute("id", EF1_Catalogo[i].id_ef1);
                 boton.onclick = function(){
 
                     Swal.fire({
@@ -205,30 +222,50 @@
     const insert_ef1 = (ef1_orden_nvo,ef1_desc_nvo) => {
         try {
             EF1Insert_service(ef1_orden_nvo, ef1_desc_nvo);
+
             Swal.fire({
                 icon: 'success',
                 title: 'Registro Agregado',
                 showConfirmButton: false,
                 timer: 1500
             });
+
             deleteChild ();
+            EF1_service();
             getEF1();
+
         } catch (err) {
             console.log(err);
         }
     }
+    function hidemodal (){
+        $("#EF_name_nvo").val("");
+        $("#ID_EF_NVO").val("");
+
+        $("#exampleModal").modal("hide");
+    }
 
     const update_ef1 = (id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo) => {
         try {
+
             EF1Update_service(id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo);
-            Swal.fire({
+
+
+         /*   Swal.fire({
                 icon: 'success',
                 title: 'Registro Agregado',
                 showConfirmButton: false,
                 timer: 1500
-            });
+            });*/
+
             deleteChild ();
+            EF1_service();
             getEF1();
+
+            $("#EF_name_nvo").val("");
+            $("#ID_EF_NVO").val("");
+            $("#exampleModal").modal("hide");
+
         } catch (err) {
             console.log(err);
         }
@@ -243,7 +280,9 @@
                 showConfirmButton: false,
                 timer: 1500
             });
+
             deleteChild ();
+            EF1_service();
             getEF1();
         } catch (err) {
             console.log(err);
@@ -297,28 +336,30 @@
             <h6 class="pt-2 w-75  d-flex justify-content-left text-muted" >Configurador de Agrupadores de Cuentas Financieros</h6>
             <h3 class="w-100  d-flex justify-content-left text-primary" id="titulo">Agrupación EF1</h3>
         </div>
-        <table class="table" id="tabla">
-            <thead>
-            <tr class="d-flex flex-row">
-                <th scope="col" style="width:100px;" class="text-center">ID</th>
-                <th scope="col" style="width:400px;" class="text-center">Descripción</th>
-            </tr>
-            </thead>
-            <tbody  id="tablabody">
-            </tbody>
-        </table>
+
+            <table class="table" id="tabla" align="center">
+                <thead>
+                    <tr class="d-flex flex-row">
+                        <th scope="col" style="width:100px;" class="text-center">ID</th>
+                        <th scope="col" style="width:400px;" class="text-center">Descripción</th>
+                    </tr>
+                </thead>
+                <tbody  id="tablabody">
+                </tbody>
+            </table>
+
     </div>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">EDITAR REGISTRO</h5>
-                    <button type="button" class="btn btn-outline-danger px-3" onclick='$("#exampleModal").modal("hide");'>
+                    <button type="button" class="btn btn-outline-danger px-3" onclick='hidemodal()'>
                         <i class="fa-solid fa-close"></i>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form >
                         <div class="form-group">
                             <input type="hidden"  class="form-control form-control-sm" id="postId" name="postId"" />
                         </div>
@@ -342,12 +383,13 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick='$("#exampleModal").modal("hide");'>Cerrar</button>
-                    <button type="button" class="btn btn-primary" onclick="EF1Update_service($('#postId').val(),$('#ID_EF_ANT').val(),$('#EF_name').val(),$('#ID_EF_NVO').val(),$('#EF_name_nvo').val())">Editar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick='hidemodal()'>Cerrar</button>
+                    <button type="submit" class="btn btn-primary" onclick="update_ef1($('#postId').val(),$('#ID_EF_ANT').val(),$('#EF_name').val(),$('#ID_EF_NVO').val(),$('#EF_name_nvo').val())">Editar</button>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="d-flex flex-row my-3 p-3 bg-body rounded shadow-sm">
         <div class="pb-2 mb-0 w-25"> </div>
         <div class="pb-2 mb-0 w-25"> </div>
