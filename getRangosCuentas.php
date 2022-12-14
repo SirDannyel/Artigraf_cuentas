@@ -207,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
         case "RangoCuentas":
 
             //Ejecutar Query
-            $query = "SELECT * FROM Dim_RangoCuentas";
+            $query = "SELECT * FROM Dim_RangoCuentas order by Orden";
             $stmt = $conn->query($query);
             $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
 
