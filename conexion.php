@@ -7,7 +7,7 @@ $conf = include('config.php');
 
         $conn = new PDO("sqlsrv:server=$nombreServidor;database=$nombreBaseDatos");
 
-        //echo "Conexion exitosa en el servidor $nombreServidor";
+        echo "Conexion exitosa en el servidor $nombreServidor";
     } catch (Exception $e) {
         echo "Ocurrió un error en la conexión . " .$e->getMessage();
     }
