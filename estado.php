@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="input-mask.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="ValidaUser.js"></script>
   </head>
    
    <script>  
@@ -497,7 +498,17 @@
               } 
             })
         }
+        /*
+        function UserValidation(){
+             let us = '';
+               us = localStorage.getItem('user');   
+                 console.log(localStorage.getItem('user'));
+               if(us === null || us ==='null'){
+                    location.href ="http://localhost/Projects/Artigraf/login.php"; 
+               } 
 
+        }
+        */
         /******* Fin DOM Events  *******/ 
 
         const init = () => {
@@ -507,13 +518,14 @@
 
         init();
  
+        $(document).ready(UserValidation); 
    </script>
   
   <body class="bg-light"> 
     
     <nav class="navbar navbar-expand-lg fixed-top navbar-white bg-white border-bottom" aria-label="Main navigation">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"> 
+        <a class="navbar-brand" href="http://localhost/Projects/Artigraf/menu.php">  
         <img class="me-3" src="Artigraf.png" alt="" width="100" >
         </a>
         <div class="d-flex flex-column  w-100">  
@@ -576,6 +588,7 @@
         <button class="btn btn-success" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))">
                     Agregar
                   </button>
+                   
       </div>
     </nav> 
     <div style="padding-top:90px;"> </div>

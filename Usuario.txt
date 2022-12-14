@@ -1,0 +1,28 @@
+USE [DWH_Artigraf]
+GO
+
+/****** Object:  Table [dbo].[Usuario]    Script Date: 14/12/2022 14:08:14 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Usuario](
+	[UserId] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL
+) ON [PRIMARY]
+GO
+
+USE [DWH_Artigraf]
+GO
+
+INSERT INTO [dbo].[Usuario]
+           ([Username]
+           ,[Password])
+     VALUES
+           ('Admin'
+           ,'admin')
+GO
+
