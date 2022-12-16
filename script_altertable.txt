@@ -18,3 +18,10 @@ Movimiento decimal(20,4) NULL,
 SaldoFinal decimal(20,4) NULL,
 Linea bigint IDENTITY NOT NULL;
 GO
+
+/*-----Modificar tabla de RangoCuentas-----*/
+
+ALTER TABLE dbo.PartidasEspeciales
+ADD
+RangoCuentas_id bigint IDENTITY NOT NULL;
+GO

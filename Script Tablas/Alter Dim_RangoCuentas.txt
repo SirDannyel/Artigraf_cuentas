@@ -1,0 +1,6 @@
+/*-----Modificar tabla de RangoCuentas-----*/
+
+ALTER TABLE dbo.PartidasEspeciales
+ADD
+RangoCuentas_id bigint IDENTITY NOT NULL;
+GO
