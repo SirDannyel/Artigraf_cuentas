@@ -223,7 +223,6 @@
     const insert_ef1 = (ef1_orden_nvo,ef1_desc_nvo) => {
         try {
             EF1Insert_service(ef1_orden_nvo, ef1_desc_nvo);
-
             Swal.fire({
                 icon: 'success',
                 title: 'Registro Agregado',
