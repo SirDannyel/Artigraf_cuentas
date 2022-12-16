@@ -371,8 +371,8 @@
 
             for (let ef2 of EF2) {
                 var option2 = document.createElement("option");
-                option2.text = ef2.EF2;
-                option2.value = ef2.EF2;
+                option2.text = ef2.EF2_Desc;
+                option2.value = ef2.EF2_Desc;
                 selectEF2.appendChild(option2);
 
             }
@@ -384,8 +384,8 @@
 
             for (let ef3 of EF3) {
                 var option3 = document.createElement("option");
-                option3.text = ef3.EF3;
-                option3.value = ef3.EF3;
+                option3.text = ef3.EF3_Desc;
+                option3.value = ef3.EF3_Desc;
                 selectEF3.appendChild(option3);
             }
 
@@ -396,8 +396,8 @@
 
             for (let ef4 of EF4) {
                 var option4 = document.createElement("option");
-                option4.text = ef4.EF4;
-                option4.value = ef4.EF4;
+                option4.text = ef4.EF4_Desc;
+                option4.value = ef4.EF4_Desc;
                 selectEF4.appendChild(option4);
 
             }
@@ -409,8 +409,8 @@
 
             for (let ef5 of EF5) {
                 var option5 = document.createElement("option");
-                option5.text = ef5.EF5;
-                option5.value = ef5.EF5;
+                option5.text = ef5.EF5_Desc;
+                option5.value = ef5.EF5_Desc;
                 selectEF5.appendChild(option5);
             }
 
@@ -421,8 +421,8 @@
 
             for (let ef6 of EF6) {
                 var option6 = document.createElement("option");
-                option6.text = ef6.EF6;
-                option6.value = ef6.EF6;
+                option6.text = ef6.EF6_Desc;
+                option6.value = ef6.EF6_Desc;
                 selectEF6.appendChild(option6);
 
             }
@@ -434,8 +434,8 @@
 
             for (let ef7 of EF7) {
                 var option7 = document.createElement("option");
-                option7.text = ef7.EF7;
-                option7.value = ef7.EF7;
+                option7.text = ef7.EF7_Desc;
+                option7.value = ef7.EF7_Desc;
                 selectEF7.appendChild(option7);
 
             }
@@ -447,8 +447,8 @@
 
             for (let ef8 of EF8) {
                 var option8 = document.createElement("option");
-                option8.text = ef8.EF8;
-                option8.value = ef8.EF8;
+                option8.text = ef8.EF8_Desc;
+                option8.value = ef8.EF8_Desc;
                 selectEF8.appendChild(option8);
 
             }
@@ -647,44 +647,44 @@
             //console.log(cuentainicio,cuentafin,orden,desc,ef2,ef3,ef4,ef5,ef6,ef7,ef8);
             var desc2 = "";
             if (ef2){
-                const ef2desc = EF2.find( ({ EF2 }) => EF2 === ef2);
-                desc2 = ef2desc.EF2_Desc;
+                const ef2desc = EF2.find( ({ EF2_Desc }) => EF2_Desc === ef2);
+                desc2 = ef2desc.EF2;
             }
 
             var desc3 = "";
             if (ef3){
-                const ef3desc = EF3.find( ({ EF3 }) => EF3 === ef3);
-                var desc3 = ef3desc.EF3_Desc;
+                const ef3desc = EF3.find( ({ EF3_Desc }) => EF3_Desc === ef3);
+                var desc3 = ef3desc.EF3;
             }
 
             var desc4 = "";
             if (ef4){
-                const ef4desc = EF4.find( ({ EF4 }) => EF4 === ef4);
-                var desc4 = ef4desc.EF4_Desc;
+                const ef4desc = EF4.find( ({ EF4_Desc }) => EF4_Desc === ef4);
+                var desc4 = ef4desc.EF4;
             }
 
             var desc5 = ""
             if (ef5){
-                const ef5desc = EF5.find( ({ EF5 }) => EF5 === ef5);
-                var desc5 = ef5desc.EF5_Desc;
+                const ef5desc = EF5.find( ({ EF5_Desc }) => EF5_Desc === ef5);
+                var desc5 = ef5desc.EF5;
             }
 
             var desc6 = ""
             if (ef6){
-                const ef6desc = EF6.find( ({ EF6 }) => EF6 === ef6);
-                var desc6 = ef6desc.EF6_Desc;
+                const ef6desc = EF6.find( ({ EF6_Desc }) => EF6_Desc === ef6);
+                var desc6 = ef6desc.EF6;
             }
 
             var desc7 = ""
             if (ef7){
-                const ef7desc = EF7.find( ({ EF7 }) => EF7 === ef7);
-                var desc7 = ef7desc.EF7_Desc;
+                const ef7desc = EF7.find( ({ EF7_Desc }) => EF7_Desc === ef7);
+                var desc7 = ef7desc.EF7;
             }
 
             var desc8 = ""
             if (ef8){
-                const ef8desc = EF8.find( ({ EF8 }) => EF8 === ef8);
-                var desc8 = ef8desc.EF8_Desc;
+                const ef8desc = EF8.find( ({ EF8_Desc }) => EF8_Desc === ef8);
+                var desc8 = ef8desc.EF8;
             }
 
             let cuentasInput = {
@@ -739,7 +739,7 @@
         getRangosCuentas();
     }
 
-    const handleUpdateRango = (ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
+    const handleUpdateRango = (ef2desc,ef2,ef3desc,ef3,ef4desc,ef4,ef5desc,ef5,ef6desc,ef6,ef7desc,ef7,ef8desc,ef8) => {
         try {
             for (var i = 0; i < RangosCuentas.length; i++) {
                 var Rango = RangosCuentas[i].RangoCuentas_id;
@@ -920,8 +920,8 @@
                     <option>EF8</option>
                 </select>
             </div>
-            <div class="col-2">
-                <input class="form-control" placeholder="ID" id="CuentaSearch" ></input>
+            <div class="col-4">
+                <input class="form-control" placeholder="Descripción" id="CuentaSearch" ></input>
             </div>
 
             <div class="col-1">
@@ -962,46 +962,24 @@
         </script>
 
         <div class="col mt-4">
-            <button type="button" class="btn btn-primary" onclick="handleInsertRango($('#CuentaInicio').val(),$('#CuentaFin').val(),$('#Orden').val(),$('#Descripcion').val(),$('#IdEf2').val(),$('#IdEf3').val(),$('#IdEf4').val(),$('#IdEf5').val(),$('#IdEf6').val(),$('#IdEf7').val(),$('#IdEf8').val())">Agregar Rango</button>
+            <button type="button" class="btn btn-primary" onclick='$("#exampleModal").modal("show");'>Agregar Rango</button>
         </div>
 
         <div class="col flex-col mt-4">
-            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick="handleUpdateRango($('#IdEf2').val(),$('#EF2').val(),$('#IdEf3').val(),$('#EF3').val(),$('#IdEf4').val(),$('#EF4').val(),$('#IdEf5').val(),$('#EF5').val(),$('#IdEf6').val(),$('#EF6').val(),$('#IdEf7').val(),$('#EF7').val(),$('#IdEf8').val(),$('#EF8').val())">Modificar Rangos</button>
+            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick="handleUpdateRango($('#IdEf2').val(),$('#EF2').val(),$('#IdEf3').val(),$('#EF3').val(),$('#IdEf4').val(),$('#EF4').val(),$('#IdEf5').val(),$('#EF5').val(),$('#IdEf6').val(),$('#EF6').val(),$('#IdEf7').val(),$('#EF7').val(),$('#IdEf8').val(),$('#EF8').val())" >Modificar Rangos</button>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+
+        <div class="modal fade bd-example-modal-l" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">AGREGAR NUEVO NIVEL</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"> Agregar Rango </h5>
                         <button type="button" class="btn btn-outline-danger px-3" onclick='$("#exampleModal").modal("hide");'>
                             <i class="fa-solid fa-close"></i>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="Nivel" class="col-form-label">Nivel:</label>
-                                <select class="form-select form-select-sm" id="Nivel" aria-label="Default select example">
-                                    <option selected></option>
-                                    <option>EF1</option>
-                                    <option>EF2</option>
-                                    <option>EF3</option>
-                                    <option>EF4</option>
-                                    <option>EF5</option>
-                                    <option>EF6</option>
-                                    <option>EF7</option>
-                                    <option>EF8</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label id="Label1" for="recipient-name" class="col-form-label">ID</label>
-                                <input type="text" class="form-control form-control-sm" id="ID_EF">
-                            </div>
-                            <div class="form-group">
-                                <label id="Label2" for="recipient-name" class="col-form-label">Descripción</label>
-                                <input type="text" class="form-control form-control-sm" id="EF_DESC">
-                            </div>
-                        </form>
+
                     </div>
 
                     <div class="modal-footer">
