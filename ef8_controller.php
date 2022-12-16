@@ -19,14 +19,10 @@ try {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     $Respuesta = [];
-
-    $query = "SELECT * FROM EF1_Select Order By EF1";
-    $connectionInfo = array("Database" => "DWH_Artigraf");
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
-
-  /*  $query = "SELECT * FROM EF1_Select where EF1 = 80 Order By EF1";
+//Ejecutar Query
+    $query = "SELECT * FROM Dim_EF8 Order By EF8";
     $stmt = $conn->query($query);
-    $Respuesta = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 //Imprimir json:
     header_remove('Set-Cookie');
@@ -37,32 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
     }
 
-    echo json_encode($Respuesta); */
-
-
-
-    //echo $row["id"];
-    $stmt3 = sqlsrv_query($conn, $query);
-    $cont = 0;
-    while ($Response = sqlsrv_fetch_object($stmt3)) {
-        $Respuesta[$cont] = $Response;
-        $cont = $cont + 1;
-    }
-
-    header_remove('Set-Cookie');
-    $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
-    if (is_array($httpHeaders) && count($httpHeaders)) {
-
-        foreach ($httpHeaders as $httpHeader) {
-            header($httpHeader);
-        }
-
-    }
-
-    echo json_encode($Respuesta);
-
-
-
+    echo json_encode($registros);
+    exit();
 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -74,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         die(print_r(sqlsrv_errors(), true));
     }
 
-    $query4="Insert into EF1_Select (EF1,EF1_Desc) values ('{$_POST['ef1_orden']}','{$_POST['ef1_desc']}')";
+    $query4="Insert into Dim_EF8 (EF8,EF8_Desc) values ('{$_POST['ef1_orden']}','{$_POST['ef1_desc']}')";
     $stmt4 = sqlsrv_query($conn,$query4);
 
     if($stmt4 === false) {
@@ -102,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         die(print_r(sqlsrv_errors(), true));
     }
 
-    $tsql = "UPDATE Dim_RangoCuentas SET EF1 = (?), EF1Desc = (?) WHERE EF1 = (?) AND EF1Desc = (?)";
+    $tsql = "UPDATE Dim_RangoCuentas SET EF8 = (?), EF8Desc = (?) WHERE EF8 = (?) AND EF8Desc = (?)";
     $stmt1 = sqlsrv_query($conn,$tsql,$Params2);
 
     if($stmt1 === false) {
@@ -112,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
 
-    $tsqli = "UPDATE EF1_Select SET EF1 = '{$EF1_Orden}', EF1_Desc = '{$ef1Desc}' WHERE id_ef1 = (?)";
+    $tsqli = "UPDATE Dim_EF8 SET EF8 = '{$EF1_Orden}', EF8_Desc = '{$ef1Desc}' WHERE id_ef8 = (?)";
     $stmt4 = sqlsrv_query($conn,$tsqli,$Params);
 
     if($stmt4 === false) {
@@ -137,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         die(print_r(sqlsrv_errors(), true));
     }
 
-    $query4="Delete From EF1_Select where id_ef1 = (?)";
+    $query4="Delete From Dim_EF8 where id_ef8 = (?)";
     $stmt4 = sqlsrv_query($conn,$query4,$Params);
 
     if($stmt4 === false) {

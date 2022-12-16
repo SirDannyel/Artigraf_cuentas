@@ -68,9 +68,9 @@
                     }
                 }
             }
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=RangoCuentas";
-            var UrltoSend = url + Parametro;
+            var url = "http://localhost/Artigraf/getRangosInicio.php";
+           // var Parametro = "?tipo=RangoCuentas";
+            var UrltoSend = url ;
 
             objXMLHttpRequest.open('GET', UrltoSend);
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -90,11 +90,10 @@
                     }
                 }
             }
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=SearchCuentas";
-            var Parametro2 = "&nivel="+nivel;
+            var url = "http://localhost/Artigraf/search_nivel.php";
+            var Parametro2 = "?nivel="+nivel;
             var Parametro3 = "&dato="+dato;
-            var UrltoSend = url + Parametro+Parametro2+Parametro3;
+            var UrltoSend = url+Parametro2+Parametro3;
 
             objXMLHttpRequest.open('GET', UrltoSend);
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -462,7 +461,7 @@
 
         const getRangosCuentas = async () => {
         try {
-
+            RangosCuentas = [];
             const response = await RangosCuentas_Api();
             RangosCuentas = JSON.parse(response);
             // console.log(RangosCuentas);
@@ -610,7 +609,7 @@
                 boton.onclick = function(){
                     Swal.fire({
                         title: '¿Estas seguro?',
-                        text: "Se eliminará el registro de la lista",
+                        text: "Se descartará el registro de la lista",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
@@ -623,11 +622,7 @@
                             let indice = RangosCuentas.findIndex(cuenta => cuenta.RangoCuentas_id === this.id);
                             RangosCuentas.splice(indice, 1);
                             getRangosCuentas_Table();
-                            Swal.fire(
-                                '¡Descartado!',
-                                'Registro Descartado.',
-                                'Success'
-                            )
+
                         }
                     });
                 };
@@ -716,7 +711,6 @@
             };
 
             InsertRangos_Api(cuentasInput);
-            getRangosCuentas();
 
             $("#Orden").val("");
             $("#Descripcion").val("");
@@ -730,8 +724,6 @@
             $("#IdEf7").val("");
             $("#IdEf8").val("");
 
-
-
             Swal.fire({
                 icon: 'success',
                 title: 'Registros Actualizados',
@@ -743,7 +735,8 @@
         } catch (err) {
             console.log(err)
         }
-        //AQUI
+
+        getRangosCuentas();
     }
 
     const handleUpdateRango = (ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
