@@ -969,26 +969,6 @@
             <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick="handleUpdateRango($('#IdEf2').val(),$('#EF2').val(),$('#IdEf3').val(),$('#EF3').val(),$('#IdEf4').val(),$('#EF4').val(),$('#IdEf5').val(),$('#EF5').val(),$('#IdEf6').val(),$('#EF6').val(),$('#IdEf7').val(),$('#EF7').val(),$('#IdEf8').val(),$('#EF8').val())" >Modificar Rangos</button>
         </div>
 
-        <div class="modal fade bd-example-modal-l" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"> Agregar Rango </h5>
-                        <button type="button" class="btn btn-outline-danger px-3" onclick='$("#exampleModal").modal("hide");'>
-                            <i class="fa-solid fa-close"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick='$("#exampleModal").modal("hide");'>Cerrar</button>
-                        <button type="button" class="btn btn-primary">Agregar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="row flex-row mb-2 align-items-center rounded w-100">
 
@@ -1062,7 +1042,75 @@
                 </div>
         </form>
     </div>
-</div>
+    </div>
+    <div class="modal fade bd-example-modal-l" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Agregar Rango </h5>
+                    <button type="button" class="btn btn-outline-danger px-3" onclick='$("#exampleModal").modal("hide");'>
+                        <i class="fa-solid fa-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="row flex-row mb-2 align-items-center rounded w-100">
+
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF2</p>
+                            <select class="form-select form-select-sm" id="IdEf2" aria-label="Default select example" onchange="EF2_onchange(this.value)">
+                                <option selected></option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf3">EF3</p>
+                            <select class="form-select form-select-sm" id="IdEf3" aria-label="Default select example" onchange="EF3_onchange(this.value)">
+                                <option selected></option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf4">EF4</p>
+                            <select class="form-select form-select-sm" id="IdEf4" aria-label="Default select example" onchange="EF4_onchange(this.value)">
+                                <option selected></option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf5">EF5</p>
+                            <select class="form-select form-select-sm" id="IdEf5" aria-label="Default select example" onchange="EF5_onchange(this.value)">
+                                <option selected></option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf6">EF6</p>
+                            <select class="form-select form-select-sm" id="IdEf6" aria-label="Default select example" onchange="EF6_onchange(this.value)">
+                                <option selected></option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf7">EF7</p>
+                            <select class="form-select form-select-sm" id="IdEf7" aria-label="Default select example" onchange="EF7_onchange(this.value)">
+                                <option selected></option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf8">EF8</p>
+                            <select class="form-select form-select-sm" id="IdEf8" aria-label="Default select example" onchange="EF8_onchange(this.value)">
+                                <option selected></option>
+                            </select>
+                        </div>
+
+                    </div>
+                    </form>
+                </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick='$("#exampleModal").modal("hide");'>Cerrar</button>
+                    <button type="button" class="btn btn-primary">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar shadow-sm border-bottom bg-body rounded">
    <!-- <div class="scrollPane"> -->

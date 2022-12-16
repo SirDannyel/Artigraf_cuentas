@@ -44,7 +44,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('GET', 'http://localhost/Artigraf/ef1_controller.php');
+            objXMLHttpRequest.open('GET', 'ef1_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
@@ -64,7 +64,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('POST', 'http://localhost/Artigraf/ef1_controller.php');
+            objXMLHttpRequest.open('POST', 'ef1_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send("ef1_orden="+ef1_orden_nvo+"&ef1_desc="+ef1_desc_nvo);
         });
@@ -93,7 +93,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('PUT', 'http://localhost/Artigraf/ef1_controller.php');
+            objXMLHttpRequest.open('PUT', 'ef1_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -115,7 +115,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('DELETE', 'http://localhost/Artigraf/ef1_controller.php');
+            objXMLHttpRequest.open('DELETE', 'ef1_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
