@@ -14,16 +14,8 @@
     <script type="text/javascript" src="ValidaUser.js"></script>
   </head>
   
-   <script>   
-    /*
-        function logout(){
-
-            localStorage.setItem('user',null);
-            location.href ="http://localhost/Projects/Artigraf/login.php"; 
- 
-        }
-    */ 
-             
+   <script>  
+  
         const init = () => {  
                UserValidation();
         }
@@ -43,17 +35,29 @@
       function redirecciona(page){
             salida = 1;
         switch(page){
-          case "rango":
-            location.href ="http://localhost/Projects/Artigraf/view_rangos_cuenta.php"; 
+          case "1":
+            location.href ="http://localhost/Projects/Artigraf/EF1.php"; 
             break;
-          case "partidas": 
-            location.href ="http://localhost/Projects/Artigraf/view_partidas.php"; 
+          case "2": 
+            location.href ="http://localhost/Projects/Artigraf/EF2.php"; 
             break;
-          case "estados": 
-            location.href ="http://localhost/Projects/Artigraf/estado.php"; 
+          case "3": 
+            location.href ="http://localhost/Projects/Artigraf/EF3.php"; 
             break;
-          case "submenu_cat": 
-            location.href ="http://localhost/Projects/Artigraf/submenu_cat.php"; 
+          case "4": 
+            location.href ="http://localhost/Projects/Artigraf/EF4.php"; 
+            break;
+          case "5": 
+            location.href ="http://localhost/Projects/Artigraf/EF5.php"; 
+            break;
+          case "6": 
+            location.href ="http://localhost/Projects/Artigraf/EF6.php"; 
+            break;
+          case "7": 
+            location.href ="http://localhost/Projects/Artigraf/EF7.php"; 
+            break;
+          case "8": 
+            location.href ="http://localhost/Projects/Artigraf/EF8.php"; 
             break;
         }
       }
@@ -75,21 +79,33 @@
     <main class="container" style="max-width:600px;">  
         <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
           <div class="border-bottom d-flex flex-row">
-            <h3 class="w-100  d-flex justify-content-center text-primary" id="titulo">MENU</h3>
+            <h3 class="w-100  d-flex justify-content-center text-primary" id="titulo">SUBMENU CATEGORIAS</h3>
           </div>
           <div class="p-4">
             
                 <div class="d-flex flex-column px-1 pb-4 w-100">   
-                    <button onclick="redirecciona('rango')" class="btn btn-outline-primary btn-lg px-3 w-100">Cuentas Contables</button>   
+                    <button onclick="redirecciona('1')" class="btn btn-outline-primary btn-lg px-3 w-100">EF1</button>   
                 </div>
                 <div class="d-flex flex-column px-1 pb-4 w-100">       
-                    <button onclick="redirecciona('estados')" class="btn btn-outline-primary btn-lg px-3 w-100">Estados Financieros</button>  
+                    <button onclick="redirecciona('2')" class="btn btn-outline-primary btn-lg px-3 w-100">EF2</button>  
                 </div>
                 <div class="d-flex flex-column px-1 pb-4 w-100">   
-                    <button onclick="redirecciona('partidas')" class="btn btn-outline-primary btn-lg px-3 w-100">Partidas Especiales</button>   
+                    <button onclick="redirecciona('3')" class="btn btn-outline-primary btn-lg px-3 w-100">EF3</button>   
                 </div>
                 <div class="d-flex flex-column px-1 pb-4 w-100">   
-                    <button onclick="redirecciona('submenu_cat')" class="btn btn-outline-primary btn-lg px-3 w-100">Categorías</button>   
+                    <button onclick="redirecciona('4')" class="btn btn-outline-primary btn-lg px-3 w-100">EF4 </button>   
+                </div>
+                <div class="d-flex flex-column px-1 pb-4 w-100">   
+                    <button onclick="redirecciona('5')" class="btn btn-outline-primary btn-lg px-3 w-100">EF5 </button>   
+                </div>
+                <div class="d-flex flex-column px-1 pb-4 w-100">   
+                    <button onclick="redirecciona('6')" class="btn btn-outline-primary btn-lg px-3 w-100">EF6 </button>   
+                </div>
+                <div class="d-flex flex-column px-1 pb-4 w-100">   
+                    <button onclick="redirecciona('7')" class="btn btn-outline-primary btn-lg px-3 w-100">EF7 </button>   
+                </div>
+                <div class="d-flex flex-column px-1 pb-4 w-100">   
+                    <button onclick="redirecciona('8')" class="btn btn-outline-primary btn-lg px-3 w-100">EF8 </button>   
                 </div>
                 
 
