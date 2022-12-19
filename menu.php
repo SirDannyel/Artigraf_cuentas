@@ -44,16 +44,16 @@
             salida = 1;
         switch(page){
           case "rango":
-            location.href ="http://localhost/Projects/Artigraf/view_rangos_cuenta.php"; 
+            location.href ="http://localhost/Artigraf/view_rangos_cuenta.php";
             break;
           case "partidas": 
-            location.href ="http://localhost/Projects/Artigraf/view_partidas.php"; 
+            location.href ="http://localhost/Artigraf/view_partidas.php";
             break;
           case "estados": 
-            location.href ="http://localhost/Projects/Artigraf/estado.php"; 
+            location.href ="http://localhost/Artigraf/estado.php";
             break;
           case "submenu_cat": 
-            location.href ="http://localhost/Projects/Artigraf/submenu_cat.php"; 
+            location.href ="http://localhost/Artigraf/submenu_cat.php";
             break;
         }
       }
@@ -80,7 +80,7 @@
           <div class="p-4">
             
                 <div class="d-flex flex-column px-1 pb-4 w-100">   
-                    <button onclick="redirecciona('rango')" class="btn btn-outline-primary btn-lg px-3 w-100">Cuentas Contables</button>   
+                    <button onclick="redirecciona('rango')" class="btn btn-outline-primary btn-lg px-3 w-100">Rangos Cuentas Contables</button>
                 </div>
                 <div class="d-flex flex-column px-1 pb-4 w-100">       
                     <button onclick="redirecciona('estados')" class="btn btn-outline-primary btn-lg px-3 w-100">Estados Financieros</button>  
@@ -89,7 +89,7 @@
                     <button onclick="redirecciona('partidas')" class="btn btn-outline-primary btn-lg px-3 w-100">Partidas Especiales</button>   
                 </div>
                 <div class="d-flex flex-column px-1 pb-4 w-100">   
-                    <button onclick="redirecciona('submenu_cat')" class="btn btn-outline-primary btn-lg px-3 w-100">Categorías</button>   
+                    <button onclick="redirecciona('submenu_cat')" class="btn btn-outline-primary btn-lg px-3 w-100">Niveles Cuentas Contables</button>
                 </div>
                 
 

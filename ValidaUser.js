@@ -5,7 +5,7 @@
              //  console.log(us);
 
                if(us === null || us ==='null'){
-                    location.href ="http://localhost/Projects/Artigraf/login.php"; 
+                    location.href ="http://localhost/Artigraf/login.php";
                }
 
         } 

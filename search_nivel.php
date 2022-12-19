@@ -16,29 +16,29 @@ $dato = $_GET["dato"];
 
 switch ($parametro){
     case "EF1":
-        $query = "SELECT * FROM Dim_RangoCuentas where EF1 = '$dato'  order by Orden";
+        $query = "SELECT * FROM Dim_RangoCuentas where EF1Desc = '$dato'  order by Orden";
         break;
     case "EF2":
-        $query = "SELECT * FROM Dim_RangoCuentas where EF2 = '$dato' order by Orden";
+        $query = "SELECT * FROM Dim_RangoCuentas where EF2Desc = '$dato' order by Orden";
         break;
     case "EF3":
-        $query = "SELECT * FROM Dim_RangoCuentas where EF3 = '$dato' order by Orden";
+        $query = "SELECT * FROM Dim_RangoCuentas where EF3Desc = '$dato' order by Orden";
         break;
     case "EF4":
-        $query = "SELECT * FROM Dim_RangoCuentas where EF4 = '$dato' order by Orden";
+        $query = "SELECT * FROM Dim_RangoCuentas where EF4Desc = '$dato' order by Orden";
         break;
     case "EF5":
-        $query = "SELECT * FROM Dim_RangoCuentas where EF5 = '$dato' order by Orden";
+        $query = "SELECT * FROM Dim_RangoCuentas where EF5DESC = '$dato' order by Orden";
         break;
     case "EF6":
-        $query = "SELECT * FROM Dim_RangoCuentas where EF6 = '$dato' order by Orden";
+        $query = "SELECT * FROM Dim_RangoCuentas where EF6Desc = '$dato' order by Orden";
         break;
 
     case "EF7":
-        $query = "SELECT * FROM Dim_RangoCuentas where EF7 = '$dato' order by Orden";
+        $query = "SELECT * FROM Dim_RangoCuentas where EF7Desc = '$dato' order by Orden";
         break;
     case "EF8":
-        $query = "SELECT * FROM Dim_RangoCuentas where EF8 = '$dato' order by Orden";
+        $query = "SELECT * FROM Dim_RangoCuentas where EF8Desc = '$dato' order by Orden";
         break;
 
 }

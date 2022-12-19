@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="input-mask.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="ValidaUser.js"></script>
 </head>
 <script>
     /******* Models ************/
@@ -405,6 +406,7 @@
     }
 
     init();
+    $(document).ready(UserValidation);
 
 </script>
 <body class="bg-light">

@@ -36,28 +36,28 @@
             salida = 1;
         switch(page){
           case "1":
-            location.href ="http://localhost/Projects/Artigraf/EF1.php"; 
+            location.href ="http://localhost/Artigraf/EF1.php";
             break;
           case "2": 
-            location.href ="http://localhost/Projects/Artigraf/EF2.php"; 
+            location.href ="http://localhost/Artigraf/EF2.php";
             break;
           case "3": 
-            location.href ="http://localhost/Projects/Artigraf/EF3.php"; 
+            location.href ="http://localhost/Artigraf/EF3.php";
             break;
           case "4": 
-            location.href ="http://localhost/Projects/Artigraf/EF4.php"; 
+            location.href ="http://localhost/Artigraf/EF4.php";
             break;
           case "5": 
-            location.href ="http://localhost/Projects/Artigraf/EF5.php"; 
+            location.href ="http://localhost/Artigraf/EF5.php";
             break;
           case "6": 
-            location.href ="http://localhost/Projects/Artigraf/EF6.php"; 
+            location.href ="http://localhost/Artigraf/EF6.php";
             break;
           case "7": 
-            location.href ="http://localhost/Projects/Artigraf/EF7.php"; 
+            location.href ="http://localhost/Artigraf/EF7.php";
             break;
           case "8": 
-            location.href ="http://localhost/Projects/Artigraf/EF8.php"; 
+            location.href ="http://localhost/Artigraf/EF8.php";
             break;
         }
       }

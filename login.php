@@ -121,7 +121,7 @@
                  } 
 
                 if(resolucion == 'success'){
-                    location.href ="http://localhost/Projects/Artigraf/menu.php"; 
+                    location.href ="http://localhost/Artigraf/menu.php";
 
                 }
   

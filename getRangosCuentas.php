@@ -220,27 +220,76 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     $param = $data->tipo;
 
+
     switch ($param){
         case "InsertRango":
 
+            $mayor = "";
+            $almacen = "";
+            $nivel1 = "";
+            $nivel2 = "";
+            $nivel3 = "";
+            $nivel4 = "";
+            $nivel5 = "";
+
+            $mayorFin = "";
+            $almacenFin = "";
+            $nivel1Fin = "";
+            $nivel2Fin = "";
+            $nivel3Fin = "";
+            $nivel4Fin = "";
+            $nivel5Fin ="";
+            $cuentainicio_nueva = str_replace('?', '0', $data->CuentaInicio);
+            $cuentafin_nueva = str_replace('?', '9', $data->CuentaFin);
+
+            //print_r($resStr);
+
+            $nivelesinicio_array = explode(',', $data->CuentaInicio);
+            $nivelesfin_array = explode(',', $data->CuentaFin);
+            $contador_inicio = count($nivelesinicio_array);;
+
+            if( $contador_inicio == 6){
+
+                $mayor = $nivelesinicio_array[0];
+                $almacen = $nivelesinicio_array[1];
+                $nivel1 = $nivelesinicio_array[2];
+                $nivel2 = $nivelesinicio_array[3];
+                $nivel3 = $nivelesinicio_array[4];
+                $nivel4 = $nivelesinicio_array[5];
+                $nivel5 = '0000';
+
+                $mayorFin = $nivelesfin_array[0];
+                $almacenFin = $nivelesfin_array[1];
+                $nivel1Fin = $nivelesfin_array[2];
+                $nivel2Fin = $nivelesfin_array[3];
+                $nivel3Fin = $nivelesfin_array[4];
+                $nivel4Fin = $nivelesfin_array[5];
+                $nivel5Fin ='0000';
+
+            } elseif ($contador_inicio == 7){
+
+                $mayor = $nivelesinicio_array[0];
+                $almacen = $nivelesinicio_array[1];
+                $nivel1 = $nivelesinicio_array[2];
+                $nivel2 = $nivelesinicio_array[3];
+                $nivel3 = $nivelesinicio_array[4];
+                $nivel4 = $nivelesinicio_array[5];
+                $nivel5 = $nivelesinicio_array[6];
+
+                $mayorFin = $nivelesfin_array[0];
+                $almacenFin = $nivelesfin_array[1];
+                $nivel1Fin = $nivelesfin_array[2];
+                $nivel2Fin = $nivelesfin_array[3];
+                $nivel3Fin = $nivelesfin_array[4];
+                $nivel4Fin = $nivelesfin_array[5];
+                $nivel5Fin =$nivelesinicio_array[6];
+
+            }
+
                 $ef1 = $data->EF1;
                 $ef1Desc = $data->EF1Desc;
-                $cuentaInicio = $data->CuentaInicio;
-                $cuentaFin = $data->CuentaFin;
-                $mayor = 'prueba';
-                $almacen = 'Prueba';
-                $nivel1 = '0001';
-                $nivel2 = '0000';
-                $nivel3 = '0000';
-                $nivel4 = '0000';
-                $nivel5 = '0000';
-                $mayorFin = '0000';
-                $almacenFin = '0000';
-                $nivel1Fin = '0000';
-                $nivel2Fin = '0000';
-                $nivel3Fin = '0000';
-                $nivel4Fin = '0000';
-                $nivel5Fin = '0000';
+                $cuentaInicio = $cuentainicio_nueva;
+                $cuentaFin = $cuentafin_nueva;
                 $ef2 = $data->EF2;
                 $ef2Desc = $data->EF2Desc;
                 $ef3 = $data->EF3;
@@ -267,7 +316,94 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
                 echo 'Registrado en Rango Cuentas';
             }
 
+            $query_EF1Select="Insert into EF1_Select (EF1,EF1_Desc) values ('{$ef1}','{$ef1Desc}')";
+            //$parametros = array($ef1, $ef1Desc);
+            $stmtEF1 = sqlsrv_query($conn,$query_EF1Select);
+
+            if($stmtEF1 === false) {
+                die( print_r( sqlsrv_errors(), true));
+            }else{
+                echo 'Registrado en EF1_Select';
+            }
+
             break;
     }
 
+}elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+
+    header("Content-Type: application/json");
+    $data = json_decode(file_get_contents("php://input"));
+    $conn = sqlsrv_connect($serverName, $connectionInfo);
+
+    if ($conn === false) {
+        echo "Could not connect.\n";
+        die(print_r(sqlsrv_errors(), true));
+    }
+
+    for ($i = 0; $i < count($data); $i++) {
+
+        $mayor = $data[$i]->Mayor;
+        $almacen = $data[$i]->Almacen;
+        $nivel1 = $data[$i]->Nivel1;
+        $nivel2 = $data[$i]->Nivel2;
+        $nivel3 = $data[$i]->Nivel3;
+        $nivel4 = $data[$i]->Nivel4;
+        $nivel5 = $data[$i]->Nivel5;
+
+        $mayorFin = $data[$i]->MayorFin;
+        $almacenFin = $data[$i]->AlmacenFin;
+        $nivel1Fin = $data[$i]->Nivel1Fin;
+        $nivel2Fin = $data[$i]->Nivel2Fin;
+        $nivel3Fin = $data[$i]->Nivel3Fin;
+        $nivel4Fin = $data[$i]->Nivel4Fin;
+        $nivel5Fin = $data[$i]->Nivel5Fin;
+
+    $ef1 = $data[$i]->EF1;
+    $ef1Desc = $data[$i]->EF1Desc;
+    $cuentaInicio = $data[$i]->CuentaInicio;
+    $cuentaFin = $data[$i]->CuentaFin;
+    $ef2 = $data[$i]->EF2;
+    $ef2Desc = $data[$i]->EF2Desc;
+    $ef3 = $data[$i]->EF3;
+    $ef3Desc = $data[$i]->EF3Desc;
+    $ef4 = $data[$i]->EF4;
+    $ef4Desc = $data[$i]->EF4Desc;
+    $ef5 = $data[$i]->EF5;
+    $ef5Desc = $data[$i]->EF5Desc;
+    $ef6 = $data[$i]->EF6;
+    $ef6Desc = $data[$i]->EF6Desc;
+    $ef7 = $data[$i]->EF7;
+    $ef7Desc = $data[$i]->EF7Desc;
+    $ef8 = $data[$i]->EF8;
+    $ef8Desc = $data[$i]->EF8Desc;
+    $orden = $data[$i]->Orden;
+    $idRangos = $data[$i]->RangoCuentas_id;
+
+
+        /*-------------------ACTUALIZAR TABLA DE DIM_CUENTACONTABLES-------------------*/
+        /* Set up the parameterized query. */
+
+        $tsql = "UPDATE Dim_RangoCuentas   
+            SET EF1 = (?), EF1Desc = (?), CuentaInicio = (?),CuentaFin = (?),
+            Mayor = (?) ,Almacen = (?) ,Nivel1 = (?) ,Nivel2 = (?) , Nivel3 = (?), Nivel4 = (?), Nivel5 = (?),
+            MayorFin = (?), AlmacenFin = (?) , Nivel1Fin = (?), Nivel2Fin = (?), Nivel3Fin = (?), Nivel4Fin = (?), Nivel5Fin = (?), 
+            EF2 = (?), EF2Desc = (?), EF3 = (?), EF3Desc = (?),
+            EF4 = (?), EF4Desc = (?), EF5 = (?), EF5Desc = (?), EF6 = (?), EF6Desc = (?),
+            EF7 = (?), EF7Desc = (?), EF8 = (?), EF8Desc = (?), Orden = (?)
+            WHERE RangoCuentas_id = (?)";
+
+        /* Assign literal parameter values. */
+
+        $parametros = array($ef1, $ef1Desc,$cuentaInicio,$cuentaFin,$mayor,$almacen,$nivel1,$nivel2,$nivel3,$nivel4,$nivel5,$mayorFin,$almacenFin,$nivel1Fin,$nivel2Fin,$nivel3Fin,$nivel4Fin,$nivel5Fin,$ef2, $ef2Desc, $ef3, $ef3Desc, $ef4, $ef4Desc, $ef5, $ef5Desc, $ef6, $ef6Desc, $ef7, $ef7Desc, $ef8, $ef8Desc,$orden,$idRangos);
+
+        /* Execute the query. */
+
+        if (sqlsrv_query($conn, $tsql, $parametros)) {
+            echo "Statement executed.\n";
+        } else {
+            echo "Error in statement execution.\n";
+            die(print_r(sqlsrv_errors(), true));
+        }
+    }
+    sqlsrv_close($conn);
 }

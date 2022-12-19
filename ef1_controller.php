@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     echo json_encode($Respuesta);
 
-
+    sqlsrv_close($conn);
 
 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -84,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
     sqlsrv_close($conn);
+
 } elseif ($_SERVER['REQUEST_METHOD'] === 'PUT'){
 
     header("Content-Type: application/json");
@@ -135,6 +136,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if ($conn === false) {
         echo "Could not connect.\n";
         die(print_r(sqlsrv_errors(), true));
+    }
+
+    $tsql_Rango = "Delete From Dim_RangoCuentas WHERE EF1 = '{$data->ef1}' AND EF1Desc = '{$data->ef1_desc}'";
+    $stmt_Rango = sqlsrv_query($conn,$tsql_Rango);
+
+    if($stmt_Rango === false) {
+        die( print_r( sqlsrv_errors(), true));
+    }else{
+        echo 'Eliminado en Rango Cuentas';
     }
 
     $query4="Delete From EF1_Select where id_ef1 = (?)";

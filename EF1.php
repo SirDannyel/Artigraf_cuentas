@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="input-mask.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="ValidaUser.js"></script>
     <style type="text/css">
 
         #tabla {
@@ -99,9 +100,9 @@
         });
     }
 
-    const EF1Delete_service = (ID) => {
+    const EF1Delete_service = (ID,EF,EFDESC) => {
 
-        const data = JSON.stringify({id : ID});
+        const data = JSON.stringify({id : ID, ef1: EF,ef1_desc: EFDESC});
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
 
@@ -178,12 +179,15 @@
                     $("#ID_EF_ANT").val(this.id);
                     $("#EF_name").val(this.name);
                     $("#postId").val(Number(this.value));
+                    $("#ID_EF_NVO").val(this.id);
+                    $("#EF_name_nvo").val(this.name);
                 };
                 linea.appendChild(editar);
 
                 var boton = document.createElement("button");
-                boton.setAttribute("name", EF1_Catalogo[i].id_ef1);
+                boton.setAttribute("name", EF1_Catalogo[i].EF1);
                 boton.setAttribute("id", EF1_Catalogo[i].id_ef1);
+                boton.value = EF1_Catalogo[i].EF1_Desc;
                 boton.onclick = function(){
 
                     Swal.fire({
@@ -197,7 +201,7 @@
                         cancelButtonText: 'Cancelar'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            delete_ef1(this.id);
+                            delete_ef1(this.id,this.name,this.value);
                             Swal.fire(
                                 'Eliminado!',
                                 'Registro Eliminado.',
@@ -221,10 +225,42 @@
     }
 
     const insert_ef1 = (ef1_orden_nvo,ef1_desc_nvo) => {
+
+        EF1_service();
         try {
             EF1Insert_service(ef1_orden_nvo, ef1_desc_nvo);
 
-            //EF1_Catalogo = [];
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro Agregado',
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+        } catch (err) {
+            console.log(err);
+        }
+
+        deleteChild ();
+        setTimeout(getEF1(), 5000);
+
+    }
+
+    function hidemodal (){
+        $("#EF_name_nvo").val("");
+        $("#ID_EF_NVO").val("");
+
+        $("#exampleModal").modal("hide");
+
+    }
+
+    const update_ef1 = (id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo) => {
+
+        EF1_service();
+
+        try {
+
+            EF1Update_service(id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo);
 
 
             Swal.fire({
@@ -234,52 +270,23 @@
                 timer: 1500
             });
 
-
-        } catch (err) {
-            console.log(err);
-        }
-        deleteChild ();
-        getEF1();
-    }
-    function hidemodal (){
-        $("#EF_name_nvo").val("");
-        $("#ID_EF_NVO").val("");
-
-        $("#exampleModal").modal("hide");
-    }
-
-    const update_ef1 = (id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo) => {
-        try {
-
-            EF1Update_service(id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo);
-
-            //EF1_Catalogo = [];
-
-
-         /*   Swal.fire({
-                icon: 'success',
-                title: 'Registro Agregado',
-                showConfirmButton: false,
-                timer: 1500
-            });*/
+            deleteChild ();
+            setTimeout(getEF1(), 5000);
 
             $("#EF_name_nvo").val("");
             $("#ID_EF_NVO").val("");
 
-
         } catch (err) {
             console.log(err);
         }
-        deleteChild ();
-        getEF1();
+
         $("#exampleModal").modal("hide");
     }
 
-    const delete_ef1 = (id) => {
+    const delete_ef1 = (id,ef1,efe1desc) => {
         try {
-            EF1Delete_service(id);
+            EF1Delete_service(id,ef1,efe1desc);
             deleteChild ();
-            //EF1_Catalogo = [];
 
             Swal.fire({
                 icon: 'success',
@@ -308,6 +315,7 @@
     }
 
     init();
+    $(document).ready(UserValidation);
 
 </script>
 
@@ -369,12 +377,10 @@
                             <input type="hidden"  class="form-control form-control-sm" id="postId" name="postId"" />
                         </div>
                         <div class="form-group">
-                            <label for="ID_EF_ANT" class="col-form-label">ID Anterior:</label>
-                            <input type="text" class="form-control form-control-sm" id="ID_EF_ANT" disabled>
+                            <input type="hidden" class="form-control form-control-sm" id="ID_EF_ANT" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="EF_name" class="col-form-label">Descripción Anterior</label>
-                            <input type="text" class="form-control form-control-sm" id="EF_name" disabled>
+                            <input type="hidden" class="form-control form-control-sm" id="EF_name" disabled>
                         </div>
                         <div class="form-group">
                             <label for="ID_EF_NVO" class="col-form-label">ID Nuevo</label>

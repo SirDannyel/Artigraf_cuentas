@@ -347,3 +347,150 @@ ect Estados Query: - Select Estado from Dim_Estado order by 1
 2022-12-14 23:50:31 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
 2022-12-14 23:50:31 :: param: - Admin
 2022-12-14 23:50:31 :: Admin
+2022-12-17 01:29:08 :: Tipo: - get
+2022-12-17 01:29:08 :: EjecutaSQL - Login
+2022-12-17 01:29:08 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:29:08 :: param: - Admin
+2022-12-17 01:29:08 :: Admin
+2022-12-17 01:33:56 :: Tipo: - get
+2022-12-17 01:33:56 :: EjecutaSQL - Login
+2022-12-17 01:33:56 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:33:56 :: param: - Admin
+2022-12-17 01:33:56 :: Admin
+2022-12-17 01:35:47 :: Tipo: - get
+2022-12-17 01:35:47 :: EjecutaSQL - Login
+2022-12-17 01:35:47 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:35:47 :: param: - Admin
+2022-12-17 01:35:47 :: Admin
+2022-12-17 01:37:44 :: Tipo: - get
+2022-12-17 01:37:44 :: EjecutaSQL - Login
+2022-12-17 01:37:44 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:37:44 :: param: - Admin
+2022-12-17 01:37:44 :: Admin
+2022-12-17 01:38:05 :: Tipo: - get
+2022-12-17 01:38:05 :: EjecutaSQL - Login
+2022-12-17 01:38:05 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:38:05 :: param: - Admin
+2022-12-17 01:38:05 :: Admin
+2022-12-17 01:38:21 :: Tipo: - get
+2022-12-17 01:38:21 :: EjecutaSQL - Login
+2022-12-17 01:38:21 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:38:21 :: param: - Admin
+2022-12-17 01:38:21 :: Admin
+2022-12-17 01:38:37 :: Tipo: - get
+2022-12-17 01:38:37 :: EjecutaSQL - Login
+2022-12-17 01:38:37 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:38:37 :: param: - Admin
+2022-12-17 01:38:37 :: Admin
+2022-12-17 01:44:47 :: Tipo: - get
+2022-12-17 01:44:47 :: EjecutaSQL - Login
+2022-12-17 01:44:47 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:44:47 :: param: - Admin
+2022-12-17 01:44:47 :: Admin
+2022-12-17 01:45:00 :: Tipo:getRubros
+2022-12-17 01:45:00 :: Nivel: - MAYOR
+2022-12-17 01:45:00 :: EjecutaSQL - Select Rubros
+2022-12-17 01:45:00 :: Query: - Select MayorDesc from Dim_CuentaContable group by MayorDesc order by 1
+2022-12-17 01:45:00 :: EjecutaSQL - Select Estados Query: - Select Estado from Dim_Estado order by 1
+2022-12-17 01:45:00 :: ["BALANCE", "Cambios", "ER", "ER Interno", "ERI", "ERPU", "Flujo"]
+2022-12-17 01:45:00 :: ["", "ACREEDORES DIVERSOS", "ACREEDORES PARTES RELACIONADAS", "ACTUALIZ. RESULTADO DE EJERCICIOS A", "ACTUALIZ.DEPN. PROP. PLANTA Y EQ.", "ACTUALIZACION DE ACTIVOS .", "ACUERDOS COMERCIALES", "ALMACEN DE MATERIA PRIMA", "ALMACEN DE PRODUCTO TERMINADO", "ALMACEN DE REF.Y MATERIALES", "AMORTIZACION DE MEJORAS A INMUEBLES", "ANTICIPO CLIENTES", "ANTICIPOS A PROVEEDORES", "BANCOS", "CAJA", "CAJA DE AHORRO", "CAJA DE AHORRO ODESA", "CAPITAL SOCIAL ACTUALIZADO", "CAPITAL SOCIAL FIJO", "CAPITAL SOCIAL VARIABLE", "CLIENTES", "CLIENTES PARTES RELACIONADAS ULTRA", "COSTO VARIABLE DE PRODUCCION", "CREDITOS BANCARIOS M.N.", "DEP'N PROPIEDAD  PLANTA Y EQUIPO", "DEPOSITOS EN GARANTIA", "DESCUENTOS POR PRONTO PAGO", "DEUDORES DIVERSOS", "DEVOLUCIONES SOBRE VENTA", "EFECTO DE FUSIÓN", "ESTIMACION DE CUENTAS INCOBRABLES", "EXCESO EN ACTUALIZACION B-10", "FINIQUITOS POR PAGAR", "FLUCTUACION CAMBIARIA", "FONDO DE AHORRO", "FUNC.EMPLEADOS Y OBREROS", "GASTOS", "GASTOS FINANCIEROS", "I.S.R. CAUSADO EN EL EJERCICIO", "IMPTOS.POR PAGAR", "IMPUESTOS A LA UTILIDAD DIFERIDO", "IMPUESTOS ACREDITABLES", "IMPUESTOS ACREDITABLES PAGADOS", "INMUEBLES", "INSUFICIENCIA EN ACTUALIZACION", "INTERESES", "INTERESES POR PAGAR", "INVERSIONES EN PROCESO", "ISR DIFERIDO
+", "IVA TRASLADADO COBRADO", "IVA TRASLADADO NO COBRADO", "MATERIAL RECUPERABLE", "MEJORAS A INMUEBLES ARRENDADOS", "MERCANCIAS EN TRANSITO", "MERCANCIAS EN TRANSITO PARTES RELAC", "OTRAS CUENTAS DE CAPITAL", "OTROS GASTOS", "OTROS INGRESOS", "OTROS PRODUCTOS", "PAGOS ANTICIPADOS", "PAGOS ANTICIPADOS A PARTES RELACION", "PAGOS PROVISIONALES", "PAPELES ULTRA SA DE CV", "PAPELES ULTRA, SA DE CV", "Partidas Especiales", "PASIVO LABORAL", "PASIVOS POR DOCUMENTAR PARTES RELAC", "PASIVOS x DOCUMENTAR", "PRODUCCION EN PROCESO", "PROPIEDAD PLANTA Y EQUIPO", "PROVEEDORES", "PROVEEDORES PARTES RELACIONADAS", "PTU DIFERIDA", "REPARTO DE UTILIDADES", "RESERVA LEGAL", "RESERVA LEGAL ACTUALIZADA", "RESULTADO DE EJERCICIOS ANTS.", "RESULTADO DEL EJERCICIO", "RETENCIONES AL PERSONAL POR PAGAR", "SUELDOS Y RAYAS POR PAGAR", "SUPERAVIT POR REVALUACION DE A.F.", "TARJETA DE CREDITO", "UT.RET.POR REV.DE A.F.", "VENTA DE ACTIVO", "VENTA DE ACTIVO FIJO", "VENTA DE DESPERDICIO", "VENTAS", "VENTAS DE ACTIVO FIJO", "VTAS. POR ELABORACION DE NEGATIVOS"]
+2022-12-17 01:45:00 :: Tipo: - get
+2022-12-17 01:45:00 :: EjecutaSQL - Select Conceptos
+2022-12-17 01:45:00 :: Query: - Select * from EstadoResultados where EstadoResultados = 'BALANCE' order by Orden
+2022-12-17 01:45:00 :: param: - BALANCE
+2022-12-17 01:45:00 :: Array
+(
+    [0] => Array
+        (
+            [0] => 42S02
+            [SQLSTATE] => 42S02
+            [1] => 208
+            [code] => 208
+            [2] => [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'EstadoResultados'.
+            [message] => [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'EstadoResultados'.
+        )
+
+)
+
+2022-12-17 01:46:55 :: Tipo: - get
+2022-12-17 01:46:55 :: EjecutaSQL - Login
+2022-12-17 01:46:55 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:46:55 :: param: - Admin
+2022-12-17 01:46:55 :: Admin
+2022-12-17 01:51:33 :: Tipo: - get
+2022-12-17 01:51:33 :: EjecutaSQL - Login
+2022-12-17 01:51:33 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:51:33 :: param: - Admin
+2022-12-17 01:51:33 :: Admin
+2022-12-17 01:53:03 :: Tipo: - get
+2022-12-17 01:53:03 :: EjecutaSQL - Login
+2022-12-17 01:53:03 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:53:03 :: param: - Admin
+2022-12-17 01:53:03 :: Admin
+2022-12-17 01:53:30 :: Tipo: - get
+2022-12-17 01:53:30 :: EjecutaSQL - Login
+2022-12-17 01:53:30 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:53:30 :: param: - Admin
+2022-12-17 01:53:31 :: Admin
+2022-12-17 01:54:41 :: Tipo: - get
+2022-12-17 01:54:41 :: EjecutaSQL - Login
+2022-12-17 01:54:41 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:54:41 :: param: - Admin
+2022-12-17 01:54:41 :: Admin
+2022-12-17 01:55:13 :: Tipo: - get
+2022-12-17 01:55:13 :: EjecutaSQL - Login
+2022-12-17 01:55:13 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:55:13 :: param: - Admin
+2022-12-17 01:55:13 :: Admin
+2022-12-17 01:55:15 :: EjecutaSQL - Select Estados Query: - Select Estado from Dim_Estado order by 1
+2022-12-17 01:55:15 :: Tipo:getRubros
+2022-12-17 01:55:15 :: Nivel: - MAYOR
+2022-12-17 01:55:15 :: EjecutaSQL - Select Rubros
+2022-12-17 01:55:15 :: Query: - Select MayorDesc from Dim_CuentaContable group by MayorDesc order by 1
+2022-12-17 01:55:15 :: ["BALANCE", "Cambios", "ER", "ER Interno", "ERI", "ERPU", "Flujo"]
+2022-12-17 01:55:15 :: Tipo: - get
+2022-12-17 01:55:15 :: EjecutaSQL - Select Conceptos
+2022-12-17 01:55:15 :: Query: - Select * from EstadoResultados where EstadoResultados = 'BALANCE' order by Orden
+2022-12-17 01:55:15 :: param: - BALANCE
+2022-12-17 01:55:15 :: ["", "ACREEDORES DIVERSOS", "ACREEDORES PARTES RELACIONADAS", "ACTUALIZ. RESULTADO DE EJERCICIOS A", "ACTUALIZ.DEPN. PROP. PLANTA Y EQ.", "ACTUALIZACION DE ACTIVOS .", "ACUERDOS COMERCIALES", "ALMACEN DE MATERIA PRIMA", "ALMACEN DE PRODUCTO TERMINADO", "ALMACEN DE REF.Y MATERIALES", "AMORTIZACION DE MEJORAS A INMUEBLES", "ANTICIPO CLIENTES", "ANTICIPOS A PROVEEDORES", "BANCOS", "CAJA", "CAJA DE AHORRO", "CAJA DE AHORRO ODESA", "CAPITAL SOCIAL ACTUALIZADO", "CAPITAL SOCIAL FIJO", "CAPITAL SOCIAL VARIABLE", "CLIENTES", "CLIENTES PARTES RELACIONADAS ULTRA", "COSTO VARIABLE DE PRODUCCION", "CREDITOS BANCARIOS M.N.", "DEP'N PROPIEDAD  PLANTA Y EQUIPO", "DEPOSITOS EN GARANTIA", "DESCUENTOS POR PRONTO PAGO", "DEUDORES DIVERSOS", "DEVOLUCIONES SOBRE VENTA", "EFECTO DE FUSIÓN", "ESTIMACION DE CUENTAS INCOBRABLES", "EXCESO EN ACTUALIZACION B-10", "FINIQUITOS POR PAGAR", "FLUCTUACION CAMBIARIA", "FONDO DE AHORRO", "FUNC.EMPLEADOS Y OBREROS", "GASTOS", "GASTOS FINANCIEROS", "I.S.R. CAUSADO EN EL EJERCICIO", "IMPTOS.POR PAGAR", "IMPUESTOS A LA UTILIDAD DIFERIDO", "IMPUESTOS ACREDITABLES", "IMPUESTOS ACREDITABLES PAGADOS", "INMUEBLES", "INSUFICIENCIA EN ACTUALIZACION", "INTERESES", "INTERESES POR PAGAR", "INVERSIONES EN PROCESO", "ISR DIFERIDO
+", "IVA TRASLADADO COBRADO", "IVA TRASLADADO NO COBRADO", "MATERIAL RECUPERABLE", "MEJORAS A INMUEBLES ARRENDADOS", "MERCANCIAS EN TRANSITO", "MERCANCIAS EN TRANSITO PARTES RELAC", "OTRAS CUENTAS DE CAPITAL", "OTROS GASTOS", "OTROS INGRESOS", "OTROS PRODUCTOS", "PAGOS ANTICIPADOS", "PAGOS ANTICIPADOS A PARTES RELACION", "PAGOS PROVISIONALES", "PAPELES ULTRA SA DE CV", "PAPELES ULTRA, SA DE CV", "Partidas Especiales", "PASIVO LABORAL", "PASIVOS POR DOCUMENTAR PARTES RELAC", "PASIVOS x DOCUMENTAR", "PRODUCCION EN PROCESO", "PROPIEDAD PLANTA Y EQUIPO", "PROVEEDORES", "PROVEEDORES PARTES RELACIONADAS", "PTU DIFERIDA", "REPARTO DE UTILIDADES", "RESERVA LEGAL", "RESERVA LEGAL ACTUALIZADA", "RESULTADO DE EJERCICIOS ANTS.", "RESULTADO DEL EJERCICIO", "RETENCIONES AL PERSONAL POR PAGAR", "SUELDOS Y RAYAS POR PAGAR", "SUPERAVIT POR REVALUACION DE A.F.", "TARJETA DE CREDITO", "UT.RET.POR REV.DE A.F.", "VENTA DE ACTIVO", "VENTA DE ACTIVO FIJO", "VENTA DE DESPERDICIO", "VENTAS", "VENTAS DE ACTIVO FIJO", "VTAS. POR ELABORACION DE NEGATIVOS"]
+2022-12-17 01:55:15 :: Array
+(
+    [0] => Array
+        (
+            [0] => 42S02
+            [SQLSTATE] => 42S02
+            [1] => 208
+            [code] => 208
+            [2] => [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'EstadoResultados'.
+            [message] => [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'EstadoResultados'.
+        )
+
+)
+
+2022-12-17 01:55:21 :: Tipo: - get
+2022-12-17 01:55:21 :: EjecutaSQL - Login
+2022-12-17 01:55:21 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:55:21 :: param: - Admin
+2022-12-17 01:55:21 :: Admin
+2022-12-17 01:56:55 :: Tipo: - get
+2022-12-17 01:56:55 :: EjecutaSQL - Login
+2022-12-17 01:56:55 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 01:56:55 :: param: - Admin
+2022-12-17 01:56:55 :: Admin
+2022-12-17 06:34:00 :: Tipo: - get
+2022-12-17 06:34:00 :: EjecutaSQL - Login
+2022-12-17 06:34:00 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-17 06:34:00 :: param: - Admin
+2022-12-17 06:34:00 :: Admin
+2022-12-19 10:20:54 :: Tipo: - get
+2022-12-19 10:20:54 :: EjecutaSQL - Login
+2022-12-19 10:20:54 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 10:20:54 :: param: - Admin
+2022-12-19 10:20:54 :: Admin
+2022-12-19 10:21:09 :: Tipo: - get
+2022-12-19 10:21:09 :: EjecutaSQL - Login
+2022-12-19 10:21:09 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 10:21:09 :: param: - Admin
+2022-12-19 10:21:09 :: Admin

@@ -12,6 +12,7 @@
     <script src="input-mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="ValidaUser.js"></script>
     <style type="text/css">
 
         .headerSiding {
@@ -331,9 +332,9 @@
                 }
             }
 
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
+            var url = "getRangosCuentas.php";
 
-            objXMLHttpRequest.open('POST',url);
+            objXMLHttpRequest.open('PUT',url);
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -346,27 +347,11 @@
 
     const get_EFs = async () => {
         try {
-        /*    const responseEF1 = await EF1Select_Api();
-            EF1 = JSON.parse(responseEF1);
-            var selectEF1 = document.getElementById("IdEf1");
-            var selectEF1_Desc = document.getElementById("EF1");
-
-            for (let ef1 of EF1) {
-                var o = document.createElement("option");
-                o.text = ef1.EF1;
-                o.value = ef1.EF1;
-                selectEF1.appendChild(o);
-
-                var opt = document.createElement("option");
-                opt.text = ef1.EF1_Desc;
-                opt.value = ef1.EF1_Desc;
-                selectEF1_Desc.appendChild(opt);
-
-            }*/
 
             const responseEF2 = await EF2Select_Api();
             EF2 = JSON.parse(responseEF2);
             var selectEF2 = document.getElementById("IdEf2");
+            var selectEF2_Modal = document.getElementById("Ef2");
           //  var selectEF2_Desc = document.getElementById("EF2");
 
             for (let ef2 of EF2) {
@@ -375,24 +360,35 @@
                 option2.value = ef2.EF2_Desc;
                 selectEF2.appendChild(option2);
 
+                var option2_Modal = document.createElement("option");
+                option2_Modal.text = ef2.EF2_Desc;
+                option2_Modal.value = ef2.EF2_Desc;
+                selectEF2_Modal.appendChild(option2_Modal);
+
             }
 
             const responseEF3 = await EF3Select_Api();
             EF3 = JSON.parse(responseEF3);
             var selectEF3 = document.getElementById("IdEf3");
-            //var selectEF3_Desc = document.getElementById("EF3");
+            var selectEF3_Modal = document.getElementById("Ef3");
 
             for (let ef3 of EF3) {
                 var option3 = document.createElement("option");
                 option3.text = ef3.EF3_Desc;
                 option3.value = ef3.EF3_Desc;
                 selectEF3.appendChild(option3);
+
+                var option3_Modal = document.createElement("option");
+                option3_Modal.text = ef3.EF3_Desc;
+                option3_Modal.value = ef3.EF3_Desc;
+                selectEF3_Modal.appendChild(option3_Modal);
             }
 
             const responseEF4 = await EF4Select_Api();
             EF4 = JSON.parse(responseEF4);
             var selectEF4 = document.getElementById("IdEf4");
-           // var selectEF4_Desc = document.getElementById("EF4");
+            var selectEF4_Modal = document.getElementById("Ef4");
+
 
             for (let ef4 of EF4) {
                 var option4 = document.createElement("option");
@@ -400,11 +396,17 @@
                 option4.value = ef4.EF4_Desc;
                 selectEF4.appendChild(option4);
 
+                var option4_Modal = document.createElement("option");
+                option4_Modal.text = ef4.EF4_Desc;
+                option4_Modal.value = ef4.EF4_Desc;
+                selectEF4_Modal.appendChild(option4_Modal);
+
             }
 
             const responseEF5 = await EF5Select_Api();
             EF5 = JSON.parse(responseEF5);
             var selectEF5 = document.getElementById("IdEf5");
+            var selectEF5_Modal = document.getElementById("Ef5");
            // var selectEF5_Desc = document.getElementById("EF5");
 
             for (let ef5 of EF5) {
@@ -412,11 +414,17 @@
                 option5.text = ef5.EF5_Desc;
                 option5.value = ef5.EF5_Desc;
                 selectEF5.appendChild(option5);
+
+                var option5_Modal = document.createElement("option");
+                option5_Modal.text = ef5.EF5_Desc;
+                option5_Modal.value = ef5.EF5_Desc;
+                selectEF5_Modal.appendChild(option5_Modal);
             }
 
             const responseEF6 = await EF6Select_Api();
             EF6 = JSON.parse(responseEF6);
             var selectEF6 = document.getElementById("IdEf6");
+            var selectEF6_Modal = document.getElementById("Ef6");
            // var selectEF6_Desc = document.getElementById("EF6");
 
             for (let ef6 of EF6) {
@@ -425,11 +433,17 @@
                 option6.value = ef6.EF6_Desc;
                 selectEF6.appendChild(option6);
 
+                var option6_Modal = document.createElement("option");
+                option6_Modal.text = ef6.EF6_Desc;
+                option6_Modal.value = ef6.EF6_Desc;
+                selectEF6_Modal.appendChild(option6_Modal);
+
             }
 
             const responseEF7 = await EF7Select_Api();
             EF7 = JSON.parse(responseEF7);
             var selectEF7 = document.getElementById("IdEf7");
+            var selectEF7_Modal = document.getElementById("Ef7");
            // var selectEF7_Desc = document.getElementById("EF7");
 
             for (let ef7 of EF7) {
@@ -438,18 +452,30 @@
                 option7.value = ef7.EF7_Desc;
                 selectEF7.appendChild(option7);
 
+
+                var option7_Modal = document.createElement("option");
+                option7_Modal.text = ef7.EF7_Desc;
+                option7_Modal.value = ef7.EF7_Desc;
+                selectEF7_Modal.appendChild(option7_Modal);
+
             }
 
             const responseEF8 = await EF8Select_Api();
             EF8 = JSON.parse(responseEF8);
             var selectEF8 = document.getElementById("IdEf8");
-           // var selectEF8_Desc = document.getElementById("EF8");
+            var selectEF8_Modal = document.getElementById("Ef8");
+           // var selectEF8_Modal = document.getElementById("Ef8");
 
             for (let ef8 of EF8) {
                 var option8 = document.createElement("option");
                 option8.text = ef8.EF8_Desc;
                 option8.value = ef8.EF8_Desc;
                 selectEF8.appendChild(option8);
+
+                var option8_Modal = document.createElement("option");
+                option8_Modal.text = ef8.EF8_Desc;
+                option8_Modal.value = ef8.EF8_Desc;
+                selectEF8_Modal.appendChild(option8_Modal);
 
             }
 
@@ -641,6 +667,7 @@
     }
 
     const handleInsertRango = (cuentainicio,cuentafin,orden,desc,ef2,ef3,ef4,ef5,ef6,ef7,ef8) => {
+        RangosCuentas_Api();
         var Tipo = "InsertRango";
         try {
            // const ef1desc = cuentascontables.find( ({ EF1 }) => EF1 === ef1);
@@ -693,50 +720,50 @@
                 Orden : orden,
                 EF1 : orden,
                 EF1Desc : desc,
-                EF2 : ef2,
-                EF2Desc : desc2,
-                EF3 : ef3,
-                EF3Desc : desc3,
-                EF4 : ef4,
-                EF4Desc : desc4,
-                EF5 : ef5,
-                EF5Desc : desc5,
-                EF6 : ef6,
-                EF6Desc : desc6,
-                EF7 : ef7,
-                EF7Desc : desc7,
-                EF8 : ef8,
-                EF8Desc : desc8,
+                EF2 : desc2,
+                EF2Desc : ef2,
+                EF3 : desc3,
+                EF3Desc : ef3,
+                EF4 : desc4,
+                EF4Desc : ef4,
+                EF5 : desc5,
+                EF5Desc : ef5,
+                EF6 : desc6,
+                EF6Desc : ef6,
+                EF7 : desc7,
+                EF7Desc : ef7,
+                EF8 : desc8,
+                EF8Desc : ef8,
                 tipo: Tipo
             };
 
-            InsertRangos_Api(cuentasInput);
+             InsertRangos_Api(cuentasInput);
 
             $("#Orden").val("");
             $("#Descripcion").val("");
             $("#CuentaInicio").val("");
             $("#CuentaFin").val("");
-            $("#IdEf2").val("");
-            $("#IdEf3").val("");
-            $("#IdEf4").val("");
-            $("#IdEf5").val("");
-            $("#IdEf6").val("");
-            $("#IdEf7").val("");
-            $("#IdEf8").val("");
+            $("#Ef2").val("");
+            $("#Ef3").val("");
+            $("#Ef4").val("");
+            $("#Ef5").val("");
+            $("#Ef6").val("");
+            $("#Ef7").val("");
+            $("#Ef8").val("");
 
             Swal.fire({
                 icon: 'success',
-                title: 'Registros Actualizados',
+                title: 'Registro Agregado',
                 showConfirmButton: false,
                 timer: 1500
             });
-
 
         } catch (err) {
             console.log(err)
         }
 
-        getRangosCuentas();
+        deleteChild ();
+        setTimeout(getRangosCuentas(), 5000);
     }
 
     const handleUpdateRango = (ef2desc,ef2,ef3desc,ef3,ef4desc,ef4,ef5desc,ef5,ef6desc,ef6,ef7desc,ef7,ef8desc,ef8) => {
@@ -791,42 +818,125 @@
                     cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                       // UpdateRangos_Api();
+                        UpdateRangos_Api();
+
+                        $('#IdEf2').val("");
+                        $('#IdEf3').val("");
+                        $('#IdEf4').val("");
+                        $('#IdEf5').val("");
+                        $('#IdEf6').val("");
+                        $('#IdEf7').val("");
+                        $('#IdEf8').val("");
+
+                        $('#EF2').val("");
+                        $('#EF3').val("");
+                        $('#EF4').val("");
+                        $('#EF5').val("");
+                        $('#EF6').val("");
+                        $('#EF7').val("");
+                        $('#EF8').val("");
                         getRangosCuentas_Table();
                     }
-                     if(result.cancel){
-                         getRangosCuentas();
-                     }
 
                 });
 
-
-
-            $('#IdEf2').val("");
-            $('#IdEf3').val("");
-            $('#IdEf4').val("");
-            $('#IdEf5').val("");
-            $('#IdEf6').val("");
-            $('#IdEf7').val("");
-            $('#IdEf8').val("");
-
-            $('#EF2').val("");
-            $('#EF3').val("");
-            $('#EF4').val("");
-            $('#EF5').val("");
-            $('#EF6').val("");
-            $('#EF7').val("");
-            $('#EF8').val("");
         } catch (err) {
             console.log(err)
         }
         //AQUI
     }
 
+    const Nivel_onchange = (efn) => {
+
+            if(efn === "EF1") {
+                $("#CuentaSearch option").remove();
+                var search = document.getElementById("CuentaSearch");
+                for (let rangoscuentas of RangosCuentas) {
+                    var option_Search = document.createElement("option");
+                    option_Search.text = rangoscuentas.EF1Desc;
+                    option_Search.value = rangoscuentas.EF1Desc;
+                    search.appendChild(option_Search);
+                }
+            } else if (efn === "EF2") {
+                $("#CuentaSearch option").remove();
+                var search = document.getElementById("CuentaSearch");
+                for (let ef2 of EF2) {
+                    var option_Search = document.createElement("option");
+                    option_Search.text = ef2.EF2_Desc;
+                    option_Search.value = ef2.EF2_Desc;
+                    search.appendChild(option_Search);
+                }
+            } else if (efn === "EF3") {
+                $("#CuentaSearch option").remove();
+                var search = document.getElementById("CuentaSearch");
+                for (let ef3 of EF3) {
+                    var option_Search = document.createElement("option");
+                    option_Search.text = ef3.EF3_Desc;
+                    option_Search.value = ef3.EF3_Desc;
+                    search.appendChild(option_Search);
+                }
+            } else if (efn === "EF4") {
+                $("#CuentaSearch option").remove();
+                var search = document.getElementById("CuentaSearch");
+                for (let ef4 of EF4) {
+                    var option_Search = document.createElement("option");
+                    option_Search.text = ef4.EF4_Desc;
+                    option_Search.value = ef4.EF4_Desc;
+                    search.appendChild(option_Search);
+                }
+            } else if (efn === "EF5") {
+                $("#CuentaSearch option").remove();
+                var search = document.getElementById("CuentaSearch");
+                for (let ef5 of EF5) {
+                    var option_Search = document.createElement("option");
+                    option_Search.text = ef5.EF5_Desc;
+                    option_Search.value = ef5.EF5_Desc;
+                    search.appendChild(option_Search);
+                }
+            } else if (efn === "EF6") {
+                $("#CuentaSearch option").remove();
+                var search = document.getElementById("CuentaSearch");
+                for (let ef6 of EF6) {
+                    var option_Search = document.createElement("option");
+                    option_Search.text = ef6.EF6_Desc;
+                    option_Search.value = ef6.EF6_Desc;
+                    search.appendChild(option_Search);
+                }
+            } else if (efn === "EF7") {
+                $("#CuentaSearch option").remove();
+                var search = document.getElementById("CuentaSearch");
+
+                for (let ef7 of EF7) {
+                    var option_Search = document.createElement("option");
+                    option_Search.text = ef7.EF7_Desc;
+                    option_Search.value = ef7.EF7_Desc;
+                    search.appendChild(option_Search);
+                }
+            } else if (efn === "EF8") {
+                $("#CuentaSearch option").remove();
+                var search = document.getElementById("CuentaSearch");
+
+                for (let ef8 of EF8) {
+                    var option_Search = document.createElement("option");
+                    option_Search.text = ef8.EF8_Desc;
+                    option_Search.value = ef8.EF8_Desc;
+                    search.appendChild(option_Search);
+                }
+            } else if (efn === "" ) {
+                $("#CuentaSearch option").remove();
+                var search = document.getElementById("CuentaSearch");
+                var option_Search = document.createElement("option");
+                option_Search.text = "";
+                option_Search.value = "";
+                search.appendChild(option_Search);
+
+        }
+    }
+
     const EF2_onchange = (ef2) => {
         if (ef2){
-            const ef2desc = EF2.find( ({ EF2 }) => EF2 === ef2);
-            $('#EF2').val(ef2desc.EF2_Desc);
+            const ef2desc = EF2.find( ({ EF2_Desc }) => EF2_Desc === ef2);
+            $('#EF2').val(ef2desc.EF2);
         } else {
             $('#EF2').val("");
         }
@@ -834,8 +944,8 @@
 
     const EF3_onchange = (ef3) => {
         if (ef3){
-            const ef3desc = EF3.find( ({ EF3 }) => EF3 === ef3);
-            $('#EF3').val(ef3desc.EF3_Desc);
+            const ef3desc = EF3.find( ({ EF3_Desc }) => EF3_Desc === ef3);
+            $('#EF3').val(ef3desc.EF3);
         } else {
             $('#EF3').val("");
         }
@@ -843,8 +953,8 @@
 
     const EF4_onchange = (ef4) => {
         if (ef4){
-            const ef4desc = EF4.find( ({ EF4 }) => EF4 === ef4);
-            $('#EF4').val(ef4desc.EF4_Desc);
+            const ef4desc = EF4.find( ({ EF4_Desc }) => EF4_Desc === ef4);
+            $('#EF4').val(ef4desc.EF4);
         } else {
             $('#EF4').val("");
         }
@@ -852,8 +962,8 @@
 
     const EF5_onchange = (ef5) => {
         if (ef5){
-            const ef5desc = EF5.find( ({ EF5 }) => EF5 === ef5);
-            $('#EF5').val(ef5desc.EF5_Desc);
+            const ef5desc = EF5.find( ({ EF5_Desc }) => EF5_Desc === ef5);
+            $('#EF5').val(ef5desc.EF5);
         } else {
             $('#EF5').val("");
         }
@@ -861,8 +971,8 @@
 
     const EF6_onchange = (ef6) => {
         if (ef6){
-            const ef6desc = EF6.find( ({ EF6 }) => EF6 === ef6);
-            $('#EF6').val(ef6desc.EF6_Desc);
+            const ef6desc = EF6.find( ({ EF6_Desc }) => EF6_Desc === ef6);
+            $('#EF6').val(ef6desc.EF6);
         } else {
             $('#EF6').val("");
         }
@@ -870,8 +980,8 @@
 
     const EF7_onchange = (ef7) => {
         if (ef7){
-            const ef7desc = EF7.find( ({ EF7 }) => EF7 === ef7);
-            $('#EF7').val(ef7desc.EF7_Desc);
+            const ef7desc = EF7.find( ({ EF7_Desc}) => EF7_Desc === ef7);
+            $('#EF7').val(ef7desc.EF7);
         } else {
             $('#EF7').val("");
         }
@@ -879,11 +989,27 @@
 
     const EF8_onchange = (ef8) => {
         if (ef8){
-            const ef8desc = EF8.find( ({ EF8 }) => EF8 === ef8);
-            $('#EF8').val(ef8desc.EF8_Desc);
+            const ef8desc = EF8.find( ({ EF8_Desc }) => EF8_Desc === ef8);
+            $('#EF8').val(ef8desc.EF8);
         } else {
             $('#EF8').val("");
         }
+    }
+
+    function hidemodal (){
+        $("#exampleModal").modal("hide");
+        $("#Orden").val("");
+        $("#Descripcion").val("");
+        $("#CuentaInicio").val("");
+        $("#CuentaFin").val("");
+        $("#Ef2").val("");
+        $("#Ef3").val("");
+        $("#Ef4").val("");
+        $("#Ef5").val("");
+        $("#Ef6").val("");
+        $("#Ef7").val("");
+        $("#Ef8").val("");
+
     }
 
     const init = () => {
@@ -893,6 +1019,8 @@
 
     //Mandar a llamar getRangosCuentas
     init();
+
+    $(document).ready(UserValidation);
     /******* Fin Apis  *******/
 </script>
 <!-- VISTA -->
@@ -905,29 +1033,12 @@
         </a>
 
         <div class="row  align-items-center w-100">
-            <div class="col">
+            <div class="col" align="center">
                 <h3 class="d-flex justify-content-center text-primary" id="titulo">Rangos Cuentas Contables</h3>
             </div>
-            <div class="col-2">
-                <select class="form-select form-select-sm" placeholder="Nivel" id="Select_search" aria-label="Default select example">
-                    <option selected>EF1</option>
-                    <option>EF2</option>
-                    <option>EF3</option>
-                    <option>EF4</option>
-                    <option>EF5</option>
-                    <option>EF6</option>
-                    <option>EF7</option>
-                    <option>EF8</option>
-                </select>
+            <div class="col" align="right">
+                <button type="button" class="btn btn-primary" onclick='$("#exampleModal").modal("show");'>Agregar Rango</button>
             </div>
-            <div class="col-4">
-                <input class="form-control" placeholder="Descripción" id="CuentaSearch" ></input>
-            </div>
-
-            <div class="col-1">
-                <button type="submit" class="btn btn-primary" onclick="getRangosSearch($('#Select_search').val(),$('#CuentaSearch').val())">Buscar</button>
-            </div>
-
         </div>
 
     </div>
@@ -935,42 +1046,42 @@
 <div style="padding-top:70px;"> </div>
 <main class="container mt-4" style="max-width:1840px">
 
-<div class="my-3 p-2 shadow-sm border-bottom bg-body rounded" id="panel">
+    <div class="my-3 p-2 shadow-sm border-bottom bg-body rounded" id="panel">
 
-    <div class="row  align-items-center w-100">
-        <div class="col-1">
-            <label>Orden</label>
-            <input class="form-control form-control-sm" id="Orden"></input>
-        </div>
+    <div class="row mt-2 align-items-center w-100">
+
         <div class="col-2">
-            <label>Descripción</label>
-            <input class="form-control form-control-sm" id="Descripcion"></input>
+            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="Select_search">Nivel</p>
+            <select class="form-select form-select-sm" id="Select_search" onchange="Nivel_onchange(this.value)" aria-label="Default select example">
+                <option selected></option>
+                <option>EF1</option>
+                <option>EF2</option>
+                <option>EF3</option>
+                <option>EF4</option>
+                <option>EF5</option>
+                <option>EF6</option>
+                <option>EF7</option>
+                <option>EF8</option>
+            </select>
         </div>
-        <div class="col-3">
-            <label>Cuenta Inicio</label>
-            <input class="form-control form-control-sm" id="CuentaInicio"></input>
-        </div>
-        <div class="col-3">
-            <label>Cuenta Fin</label>
-            <input class="form-control form-control-sm" id="CuentaFin"></input>
-        </div>
-        <script>
-            $(document).ready(function(){
-                $('#CuentaInicio').mask('0000,0000,0000,0000,0000,0000');
-                $('#CuentaFin').mask('0000,0000,0000,0000,0000,0000');
-            });
-        </script>
-
-        <div class="col mt-4">
-            <button type="button" class="btn btn-primary" onclick='$("#exampleModal").modal("show");'>Agregar Rango</button>
+        <div class="col-4">
+            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="CuentaSearch">Descripción</p>
+            <select class="form-select form-select-sm" id="CuentaSearch" placeholder="Descripción" aria-label="Default select example">
+                <option selected></option>
+            </select>
         </div>
 
-        <div class="col flex-col mt-4">
-            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick="handleUpdateRango($('#IdEf2').val(),$('#EF2').val(),$('#IdEf3').val(),$('#EF3').val(),$('#IdEf4').val(),$('#EF4').val(),$('#IdEf5').val(),$('#EF5').val(),$('#IdEf6').val(),$('#EF6').val(),$('#IdEf7').val(),$('#EF7').val(),$('#IdEf8').val(),$('#EF8').val())" >Modificar Rangos</button>
+        <div class="col-1">
+                <button type="button" class="btn btn-secondary mt-4" onclick="getRangosSearch($('#Select_search').val(),$('#CuentaSearch').val())">Buscar</button>
+        </div>
+
+        <div class="col flex-col" align="right">
+            <button type="button"  class="btn btn-success mt-4" onclick="handleUpdateRango($('#IdEf2').val(),$('#EF2').val(),$('#IdEf3').val(),$('#EF3').val(),$('#IdEf4').val(),$('#EF4').val(),$('#IdEf5').val(),$('#EF5').val(),$('#IdEf6').val(),$('#EF6').val(),$('#IdEf7').val(),$('#EF7').val(),$('#IdEf8').val(),$('#EF8').val())" >Modificar Rangos</button>
         </div>
 
     </div>
-    <div class="row flex-row mb-2 align-items-center rounded w-100">
+
+    <div class="row flex-row mb-3 mt-2 align-items-center w-100">
 
         <div class="col">
             <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF2</p>
@@ -1015,101 +1126,33 @@
             </select>
         </div>
 
-        <!--  <div class="text-center w-100 mt-1 "><h6>DESCRIPCIONES</h6></div> -->
-
-          <!-- AQUI FILAS DE INPUTS EF Descripciones -->
+        <!-- AQUI FILAS DE INPUTS EF Descripciones -->
         <form>
-                <div class="col">
-                    <input type="hidden" value="" class="form-control form-control-sm" id="EF2">
-                </div>
-                <div class="col">
-                    <input type="hidden" value="" class="form-control form-control-sm" id="EF3">
-                </div>
-                <div class="col">
-                    <input type="hidden" value="" class="form-control form-control-sm" id="EF4">
-                </div>
-                <div class="col">
-                    <input type="hidden" value="" class="form-control form-control-sm" id="EF5">
-                </div>
-                <div class="col">
-                    <input type="hidden" value="" class="form-control form-control-sm" id="EF6">
-                </div>
-                <div class="col">
-                    <input type="hidden" value="" class="form-control form-control-sm" id="EF7">
-                </div>
-                <div class="col">
-                    <input type="hidden" value="" class="form-control form-control-sm" id="EF8">
-                </div>
-        </form>
-    </div>
-    </div>
-    <div class="modal fade bd-example-modal-l" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Agregar Rango </h5>
-                    <button type="button" class="btn btn-outline-danger px-3" onclick='$("#exampleModal").modal("hide");'>
-                        <i class="fa-solid fa-close"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                    <div class="row flex-row mb-2 align-items-center rounded w-100">
-
-                        <div class="col">
-                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf2">EF2</p>
-                            <select class="form-select form-select-sm" id="IdEf2" aria-label="Default select example" onchange="EF2_onchange(this.value)">
-                                <option selected></option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf3">EF3</p>
-                            <select class="form-select form-select-sm" id="IdEf3" aria-label="Default select example" onchange="EF3_onchange(this.value)">
-                                <option selected></option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf4">EF4</p>
-                            <select class="form-select form-select-sm" id="IdEf4" aria-label="Default select example" onchange="EF4_onchange(this.value)">
-                                <option selected></option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf5">EF5</p>
-                            <select class="form-select form-select-sm" id="IdEf5" aria-label="Default select example" onchange="EF5_onchange(this.value)">
-                                <option selected></option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf6">EF6</p>
-                            <select class="form-select form-select-sm" id="IdEf6" aria-label="Default select example" onchange="EF6_onchange(this.value)">
-                                <option selected></option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf7">EF7</p>
-                            <select class="form-select form-select-sm" id="IdEf7" aria-label="Default select example" onchange="EF7_onchange(this.value)">
-                                <option selected></option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="IdEf8">EF8</p>
-                            <select class="form-select form-select-sm" id="IdEf8" aria-label="Default select example" onchange="EF8_onchange(this.value)">
-                                <option selected></option>
-                            </select>
-                        </div>
-
-                    </div>
-                    </form>
-                </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick='$("#exampleModal").modal("hide");'>Cerrar</button>
-                    <button type="button" class="btn btn-primary">Agregar</button>
-                </div>
+            <div class="col">
+                <input type="hidden" value="" class="form-control form-control-sm" id="EF2">
             </div>
-        </div>
+            <div class="col">
+                <input type="hidden" value="" class="form-control form-control-sm" id="EF3">
+            </div>
+            <div class="col">
+                <input type="hidden" value="" class="form-control form-control-sm" id="EF4">
+            </div>
+            <div class="col">
+                <input type="hidden" value="" class="form-control form-control-sm" id="EF5">
+            </div>
+            <div class="col">
+                <input type="hidden" value="" class="form-control form-control-sm" id="EF6">
+            </div>
+            <div class="col">
+                <input type="hidden" value="" class="form-control form-control-sm" id="EF7">
+            </div>
+            <div class="col">
+                <input type="hidden" value="" class="form-control form-control-sm" id="EF8">
+            </div>
+        </form>
+
+    </div>
+
     </div>
 
     <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar shadow-sm border-bottom bg-body rounded">
@@ -1142,6 +1185,110 @@
         </table>
     <!--</div>-->
     </div>
+    <div class="modal fade bd-example-modal-l" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Agregar Rango </h5>
+                    <button type="button" class="btn btn-outline-danger px-3" onclick='hidemodal()'>
+                        <i class="fa-solid fa-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row flex-row mb-2 align-items-x w-100">
+                        <div class="col-2">
+                            <label>Orden</label>
+                            <input class="form-control form-control-sm" id="Orden"></input>
+                        </div>
+                        <div class="col">
+                            <label>Descripción</label>
+                            <input class="form-control form-control-sm" id="Descripcion"></input>
+                        </div>
+                    </div>
+
+                    <div class="row flex-row mb-2 align-items-center w-100">
+                        <div class="col">
+                            <label>Cuenta Inicio</label>
+                            <input class="form-control form-control-sm" id="CuentaInicio"></input>
+                        </div>
+                        <div class="col">
+                            <label>Cuenta Fin</label>
+                            <input class="form-control form-control-sm" id="CuentaFin"></input>
+                        </div>
+
+                   <!-- <script>
+                        $(document).ready(function(){
+                            $('#CuentaInicio').mask('0000,????0000,????0000,????0000,????0000,????0000');
+                            $('#CuentaFin').mask("{1,4},{1,4},{1,4},{1,4},{1,4},{1,4},{1,4}");
+                        });
+                    </script> -->
+                    </div>
+
+                    <div class="row flex-row mb-2 align-items-center w-100">
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="Ef2">EF2</p>
+                            <select class="form-select form-select-sm" id="Ef2" aria-label="Default select example">
+                                <option selected></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row flex-row mb-2 align-items-center w-100">
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="Ef3">EF3</p>
+                            <select class="form-select form-select-sm" id="Ef3" aria-label="Default select example" >
+                                <option selected></option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="Ef4">EF4</p>
+                            <select class="form-select form-select-sm" id="Ef4" aria-label="Default select example" >
+                                <option selected></option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="row flex-row mb-2 align-items-center  w-100">
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="Ef5">EF5</p>
+                            <select class="form-select form-select-sm" id="Ef5" aria-label="Default select example" >
+                                <option selected></option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="Ef6">EF6</p>
+                            <select class="form-select form-select-sm" id="Ef6" aria-label="Default select example" >
+                                <option selected></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row flex-row mb-2 align-items-center  w-100">
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="Ef7">EF7</p>
+                            <select class="form-select form-select-sm" id="Ef7" aria-label="Default select example" >
+                                <option selected></option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <p style="height:8px;" class="form-check-label d-flex justify-content-left px-3" for="Ef8">EF8</p>
+                            <select class="form-select form-select-sm" id="Ef8" aria-label="Default select example" >
+                                <option selected></option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick='hidemodal()'>Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="handleInsertRango($('#CuentaInicio').val(),$('#CuentaFin').val(),$('#Orden').val(),$('#Descripcion').val(),$('#Ef2').val(),$('#Ef3').val(),$('#Ef4').val(),$('#Ef5').val(),$('#Ef6').val(),$('#Ef7').val(),$('#Ef8').val())">Agregar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
 </main>
 </body>

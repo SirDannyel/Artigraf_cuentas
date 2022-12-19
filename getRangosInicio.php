@@ -39,7 +39,7 @@ if( $conn === false ) {
             echo json_encode($registros);
 
             //Salir
-
+            exit();
 
 }
 

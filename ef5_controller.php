@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
 
-    $tsqli = "UPDATE Dim_EF5 SET EF1 = '{$EF1_Orden}', EF5_Desc = '{$ef1Desc}' WHERE id_ef5 = (?)";
+    $tsqli = "UPDATE Dim_EF5 SET EF5 = '{$EF1_Orden}', EF5_Desc = '{$ef1Desc}' WHERE id_ef5 = (?)";
     $stmt4 = sqlsrv_query($conn,$tsqli,$Params);
 
     if($stmt4 === false) {

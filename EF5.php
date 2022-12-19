@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="input-mask.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="ValidaUser.js"></script>
     <style type="text/css">
 
         #tabla {
@@ -177,6 +178,8 @@
                     $("#ID_EF_ANT").val(this.id);
                     $("#EF_name").val(this.name);
                     $("#postId").val(Number(this.value));
+                    $("#ID_EF_NVO").val(this.id);
+                    $("#EF_name_nvo").val(this.name);
                 };
                 linea.appendChild(editar);
 
@@ -220,6 +223,7 @@
     }
 
     const insert_ef1 = (ef1_orden_nvo,ef1_desc_nvo) => {
+        EF1_service();
         try {
             EF1Insert_service(ef1_orden_nvo, ef1_desc_nvo);
 
@@ -230,13 +234,11 @@
                 timer: 1500
             });
 
-            deleteChild ();
-            EF1_service();
-            getEF1();
-
         } catch (err) {
             console.log(err);
         }
+        deleteChild ();
+        setTimeout(getEF1(), 5000);
     }
     function hidemodal (){
         $("#EF_name_nvo").val("");
@@ -246,21 +248,20 @@
     }
 
     const update_ef1 = (id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo) => {
+        EF1_service();
         try {
 
             EF1Update_service(id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo);
 
-
-            /*   Swal.fire({
+               Swal.fire({
                    icon: 'success',
                    title: 'Registro Agregado',
                    showConfirmButton: false,
                    timer: 1500
-               });*/
+               });
 
             deleteChild ();
-            EF1_service();
-            getEF1();
+            setTimeout(getEF1(), 5000);
 
             $("#EF_name_nvo").val("");
             $("#ID_EF_NVO").val("");
@@ -272,21 +273,22 @@
     }
 
     const delete_ef1 = (id) => {
+        EF1_service();
         try {
             EF1Delete_service(id);
+
             Swal.fire({
                 icon: 'success',
                 title: 'Registro Agregado',
                 showConfirmButton: false,
                 timer: 1500
             });
-
             deleteChild ();
-            EF1_service();
-            getEF1();
+
         } catch (err) {
             console.log(err);
         }
+        getEF1();
     }
 
 
@@ -303,6 +305,7 @@
     }
 
     init();
+    $(document).ready(UserValidation);
 
 </script>
 
@@ -364,12 +367,10 @@
                             <input type="hidden"  class="form-control form-control-sm" id="postId" name="postId"" />
                         </div>
                         <div class="form-group">
-                            <label for="ID_EF_ANT" class="col-form-label">ID Anterior:</label>
-                            <input type="text" class="form-control form-control-sm" id="ID_EF_ANT" disabled>
+                            <input type="hidden" class="form-control form-control-sm" id="ID_EF_ANT" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="EF_name" class="col-form-label">Descripción Anterior</label>
-                            <input type="text" class="form-control form-control-sm" id="EF_name" disabled>
+                            <input type="hidden" class="form-control form-control-sm" id="EF_name" disabled>
                         </div>
                         <div class="form-group">
                             <label for="ID_EF_NVO" class="col-form-label">ID Nuevo</label>
