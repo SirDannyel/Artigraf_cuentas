@@ -494,3 +494,13 @@ ect Estados Query: - Select Estado from Dim_Estado order by 1
 2022-12-19 10:21:09 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
 2022-12-19 10:21:09 :: param: - Admin
 2022-12-19 10:21:09 :: Admin
+2022-12-19 16:16:53 :: Tipo: - get
+2022-12-19 16:16:53 :: EjecutaSQL - Login
+2022-12-19 16:16:53 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 16:16:53 :: param: - Admin
+2022-12-19 16:16:53 :: Admin
+2022-12-19 17:52:51 :: Tipo: - get
+2022-12-19 17:52:51 :: EjecutaSQL - Login
+2022-12-19 17:52:51 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 17:52:51 :: param: - Admin
+2022-12-19 17:52:51 :: Admin

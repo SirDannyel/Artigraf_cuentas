@@ -846,6 +846,44 @@
         //AQUI
     }
 
+  /*  const funcion_addcoma = (texto) => {
+        let textoAjustado;
+
+        if(texto.length < 4) {
+
+            $("#CuentaInicio").val(texto);
+
+        } else if(texto.length == 4) {
+            const parte1 = texto.slice(0,4);
+            const parte2 = texto.slice(4,8);
+            textoAjustado = parte1+","+parte2;
+            $("#CuentaInicio").val(textoAjustado);
+        } else if(texto.length == 9) {
+            const parte1 = texto.slice(0,9);
+            const parte2 = texto.slice(9,13);
+            textoAjustado = parte1+","+parte2;
+            $("#CuentaInicio").val(textoAjustado);
+        } else if(texto.length == 14) {
+            const parte1 = texto.slice(0,14);
+            const parte2 = texto.slice(14,18);
+            textoAjustado = parte1+","+parte2;
+            $("#CuentaInicio").val(textoAjustado);
+        } else if(texto.length == 19) {
+            const parte1 = texto.slice(0,19);
+            const parte2 = texto.slice(19,23);
+            textoAjustado = parte1+","+parte2;
+            $("#CuentaInicio").val(textoAjustado);
+        } else if(texto.length == 24) {
+            const parte1 = texto.slice(0,24);
+            const parte2 = texto.slice(24,29);
+            textoAjustado = parte1+","+parte2;
+            $("#CuentaInicio").val(textoAjustado);
+        }
+
+
+
+    }*/
+
     const Nivel_onchange = (efn) => {
 
             if(efn === "EF1") {
@@ -1210,11 +1248,11 @@
                     <div class="row flex-row mb-2 align-items-center w-100">
                         <div class="col">
                             <label>Cuenta Inicio</label>
-                            <input class="form-control form-control-sm" id="CuentaInicio"></input>
+                            <input class="form-control form-control-sm" maxlength="29" placeholder="1001,0001,????" id="CuentaInicio" ></input>
                         </div>
                         <div class="col">
                             <label>Cuenta Fin</label>
-                            <input class="form-control form-control-sm" id="CuentaFin"></input>
+                            <input class="form-control form-control-sm" maxlength="29" placeholder="1001,0001,????" id="CuentaFin" ></input>
                         </div>
 
                    <!-- <script>

@@ -244,9 +244,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 
             //print_r($resStr);
 
-            $nivelesinicio_array = explode(',', $data->CuentaInicio);
-            $nivelesfin_array = explode(',', $data->CuentaFin);
-            $contador_inicio = count($nivelesinicio_array);;
+            $nivelesinicio_array = explode(',', $cuentainicio_nueva);
+            $nivelesfin_array = explode(',', $cuentafin_nueva);
+            $contador_inicio = count($nivelesinicio_array);
 
             if( $contador_inicio == 6){
 
@@ -264,7 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
                 $nivel2Fin = $nivelesfin_array[3];
                 $nivel3Fin = $nivelesfin_array[4];
                 $nivel4Fin = $nivelesfin_array[5];
-                $nivel5Fin ='0000';
+                $nivel5Fin ='9999';
 
             } elseif ($contador_inicio == 7){
 
