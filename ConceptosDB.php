@@ -8,6 +8,8 @@ function writeServerLog($msg)
 
 $conf = include('config.php'); 
 $serverName  = $conf['server'];
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 writeServerLog('Tipo: - ' .$_POST['tipo'] );
 
 if($_POST['tipo'] === "get"){ 
@@ -21,8 +23,9 @@ if($_POST['tipo'] === "get"){
 			 writeServerLog('param: - ' .$_POST['estado'] ); 
 	 
 			  
-				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
-				$conn = sqlsrv_connect( $serverName, $connectionInfo);
+				  //$connectionInfo = array( "Database"=>"DWH_Artigraf");
+                $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
+                $conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
 				if( $conn === false ) { 
 					echo "Conexión no se pudo establecer.";
@@ -68,8 +71,9 @@ if($_POST['tipo'] === "post"){
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );  
 			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' rubro: '.$_POST['rubro'].' desc: '.$_POST['desc'].' nivel: '.$_POST['nivel'].' pasivo: '.$_POST['pasivo'].' identado: '.$_POST['identado'].' resaltado: '.$_POST['resaltado'] ); 
 			  
-				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
-				$conn = sqlsrv_connect( $serverName, $connectionInfo);
+				 // $connectionInfo = array( "Database"=>"DWH_Artigraf");
+                $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
+                $conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
 				if( $conn === false ) { 
 					echo "Conexión no se pudo establecer.";
@@ -100,8 +104,9 @@ if($_POST['tipo'] === "post"){
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );  
 			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' desc: '.$_POST['desc']); 
 			  
-				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
-				$conn = sqlsrv_connect( $serverName, $connectionInfo);
+				  //$connectionInfo = array( "Database"=>"DWH_Artigraf");
+                $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
+                $conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
 				if( $conn === false ) { 
 					echo "Conexión no se pudo establecer.";
@@ -136,8 +141,9 @@ if($_POST['tipo'] === "post"){
 			 writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql3 ); 
 			 writeServerLog('params: - Estado: '.$_POST['estado'].' orden: '.$_POST['orden'].' cambio: '.$_POST['cambio']); 
 			  
-				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
-				$conn = sqlsrv_connect( $serverName, $connectionInfo);
+				  //$connectionInfo = array( "Database"=>"DWH_Artigraf");
+                $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
+                $conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
 				if( $conn === false ) { 
 					echo "Conexión no se pudo establecer.";

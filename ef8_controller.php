@@ -5,119 +5,83 @@ $server  = $conf['server'];
 
 //Conectar a DB mediante PDO
 $serverName = $server;
-$username = "";
-$password = "";
 $dataBase = "DWH_Artigraf";
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 
-try {
-    $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase");
-    //echo "Conexion con $serverName";
-} catch (Exception $e) {
-    echo "Ocurrio un error en la conexion. " . $e->getMessage();
+header("Content-Type: application/json");
+$data = json_decode(file_get_contents("php://input"));
+$Tipo = $data->tipo;
+
+$connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+
+if ($conn === false) {
+    echo "Could not connect.\n";
+    die(print_r(sqlsrv_errors(), true));
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+switch ($Tipo){
 
-    $Respuesta = [];
-//Ejecutar Query
-    $query = "SELECT * FROM Dim_EF8 Order By EF8";
-    $stmt = $conn->query($query);
-    $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
+    CASE "insert":
 
-//Imprimir json:
-    header_remove('Set-Cookie');
-    $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
-    if (is_array($httpHeaders) && count($httpHeaders)) {
-        foreach ($httpHeaders as $httpHeader) {
-            header($httpHeader);
+        $Orden = $data->ef1_orden;
+        $Desc = $data->ef1_desc;
+
+        $query2="Insert into Dim_EF8 (EF8,EF8_Desc) values ('{$Orden}','{$Desc}')";
+        $stmt4 = sqlsrv_query($conn,$query2);
+
+        if($stmt4 === false) {
+            die( print_r( sqlsrv_errors(), true));
+        }else{
+            echo 'Registrado en Dim_EF2';
         }
-    }
 
-    echo json_encode($registros);
-    exit();
+        sqlsrv_close($conn);
+        break;
+    CASE "update":
 
-} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id_number = intval($data->id);
+        $EF1_Orden = intval($data->ef1_orden_nvo);
+        $ef1Desc = $data->ef1_desc_nvo;
 
-    $connectionInfo = array("Database" => "DWH_Artigraf");
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
+        $tsql = "UPDATE Dim_RangoCuentas SET EF8 = (?), EF8Desc = (?) WHERE EF8 = (?) AND EF8Desc = (?)";
+        $Params2 = array($data->ef1_orden_nvo,$data->ef1_desc_nvo,$data->ef1_orden_ant,$data->ef1_desc_ant);
+        $stmt1 = sqlsrv_query($conn,$tsql,$Params2);
 
-    if ($conn === false) {
-        echo "Could not connect.\n";
-        die(print_r(sqlsrv_errors(), true));
-    }
+        if($stmt1 === false) {
+            die( print_r( sqlsrv_errors(), true));
+        }else{
+            echo 'Actualizado en Rango Cuentas';
+        }
 
-    $query4="Insert into Dim_EF8 (EF8,EF8_Desc) values ('{$_POST['ef1_orden']}','{$_POST['ef1_desc']}')";
-    $stmt4 = sqlsrv_query($conn,$query4);
+        $tsqli = "UPDATE Dim_EF8 SET EF8 = '{$EF1_Orden}', EF8_Desc = '{$ef1Desc}' WHERE id_ef8 = (?)";
+        $Params1 = array($id_number);
+        $stmt2 = sqlsrv_query($conn,$tsqli,$Params1);
 
-    if($stmt4 === false) {
-        die( print_r( sqlsrv_errors(), true));
-    }else{
-        echo 'Registrado en Rango Cuentas';
-    }
+        if($stmt2 === false) {
+            die( print_r( sqlsrv_errors(), true));
+        }else{
+            echo 'Actualizado en EF2';
+        }
 
-    sqlsrv_close($conn);
-} elseif ($_SERVER['REQUEST_METHOD'] === 'PUT'){
+        sqlsrv_close($conn);
+        break;
+    CASE "delete" :
 
-    header("Content-Type: application/json");
-    $data = json_decode(file_get_contents("php://input"));
-    $id_number = intval($data->id);
-    $EF1_Orden = intval($data->ef1_orden_nvo);
-    $ef1Desc = $data->ef1_desc_nvo;
-    $Params = array($id_number);
-    $Params2 = array($data->ef1_orden_nvo,$data->ef1_desc_nvo,$data->ef1_orden_ant,$data->ef1_desc_ant);
+        $Params = array($data->id);
 
-    $connectionInfo = array("Database" => "DWH_Artigraf");
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
+        $query3="Delete From Dim_EF8 where id_ef8 = (?)";
+        $stmt1 = sqlsrv_query($conn,$query3,$Params);
 
-    if ($conn === false) {
-        echo "Could not connect.\n";
-        die(print_r(sqlsrv_errors(), true));
-    }
+        if($stmt1 === false) {
+            die( print_r( sqlsrv_errors(), true));
+        }else{
+            echo 'Eliminado en Rango Cuentas';
+        }
 
-    $tsql = "UPDATE Dim_RangoCuentas SET EF8 = (?), EF8Desc = (?) WHERE EF8 = (?) AND EF8Desc = (?)";
-    $stmt1 = sqlsrv_query($conn,$tsql,$Params2);
-
-    if($stmt1 === false) {
-        die( print_r( sqlsrv_errors(), true));
-    }else{
-        echo 'Registrado en Rango Cuentas';
-    }
-
-
-    $tsqli = "UPDATE Dim_EF8 SET EF8 = '{$EF1_Orden}', EF8_Desc = '{$ef1Desc}' WHERE id_ef8 = (?)";
-    $stmt4 = sqlsrv_query($conn,$tsqli,$Params);
-
-    if($stmt4 === false) {
-        die( print_r( sqlsrv_errors(), true));
-    }else{
-        echo 'Registrado en Rango Cuentas';
-    }
-
-    sqlsrv_close($conn);
-
-} elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE'){
-
-    header("Content-Type: application/json");
-    $data = json_decode(file_get_contents("php://input"));
-    $Params = array($data->id);
-
-    $connectionInfo = array("Database" => "DWH_Artigraf");
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
-
-    if ($conn === false) {
-        echo "Could not connect.\n";
-        die(print_r(sqlsrv_errors(), true));
-    }
-
-    $query4="Delete From Dim_EF8 where id_ef8 = (?)";
-    $stmt4 = sqlsrv_query($conn,$query4,$Params);
-
-    if($stmt4 === false) {
-        die( print_r( sqlsrv_errors(), true));
-    }else{
-        echo 'Registrado en Rango Cuentas';
-    }
-
-    sqlsrv_close($conn);
+        sqlsrv_close($conn);
+        break;
 
 }
+

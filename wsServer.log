@@ -504,3 +504,76 @@ ect Estados Query: - Select Estado from Dim_Estado order by 1
 2022-12-19 17:52:51 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
 2022-12-19 17:52:51 :: param: - Admin
 2022-12-19 17:52:51 :: Admin
+2022-12-19 21:04:56 :: Tipo: - get
+2022-12-19 21:04:56 :: EjecutaSQL - Login
+2022-12-19 21:04:56 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 21:04:56 :: param: - Admin
+2022-12-19 21:05:52 :: Tipo: - get
+2022-12-19 21:05:52 :: EjecutaSQL - Login
+2022-12-19 21:05:52 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 21:05:52 :: param: - Admin
+2022-12-19 21:07:50 :: Tipo: - get
+2022-12-19 21:07:50 :: EjecutaSQL - Login
+2022-12-19 21:07:50 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 21:07:50 :: param: - Admin
+2022-12-19 21:07:50 :: Admin
+2022-12-19 21:08:07 :: Tipo: - get
+2022-12-19 21:08:07 :: EjecutaSQL - Login
+2022-12-19 21:08:07 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 21:08:07 :: param: - Admin
+2022-12-19 21:08:12 :: Tipo: - get
+2022-12-19 21:08:12 :: EjecutaSQL - Login
+2022-12-19 21:08:12 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 21:08:12 :: param: - Admin
+2022-12-19 22:31:27 :: Tipo: - get
+2022-12-19 22:31:27 :: EjecutaSQL - Login
+2022-12-19 22:31:27 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 22:31:27 :: param: - Admin
+2022-12-19 22:36:33 :: Tipo: - get
+2022-12-19 22:36:33 :: EjecutaSQL - Login
+2022-12-19 22:36:33 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 22:36:33 :: param: - Admin
+2022-12-19 22:39:11 :: Tipo: - 
+2022-12-19 22:39:31 :: Tipo: - get
+2022-12-19 22:39:31 :: EjecutaSQL - Login
+2022-12-19 22:39:31 :: Query: - Select Username from Usuario Where Username = '' and Password = ''  
+2022-12-19 22:39:31 :: param: - 
+2022-12-19 22:39:47 :: Tipo: - get
+2022-12-19 22:39:47 :: EjecutaSQL - Login
+2022-12-19 22:39:47 :: Query: - Select Username from Usuario Where Username = '' and Password = ''  
+2022-12-19 22:39:47 :: param: - 
+2022-12-19 22:40:33 :: Tipo: - get
+2022-12-19 22:40:33 :: EjecutaSQL - Login
+2022-12-19 22:40:33 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 22:40:33 :: param: - Admin
+2022-12-19 22:43:12 :: Tipo: - get
+2022-12-19 22:43:12 :: EjecutaSQL - Login
+2022-12-19 22:43:12 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 22:43:12 :: param: - Admin
+2022-12-19 22:43:29 :: Tipo: - get
+2022-12-19 22:43:29 :: EjecutaSQL - Login
+2022-12-19 22:43:29 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 22:43:29 :: param: - Admin
+2022-12-19 22:43:55 :: Tipo: - get
+2022-12-19 22:43:55 :: EjecutaSQL - Login
+2022-12-19 22:43:55 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 22:43:55 :: param: - Admin
+2022-12-19 22:44:28 :: Tipo: - get
+2022-12-19 22:44:28 :: EjecutaSQL - Login
+2022-12-19 22:44:28 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 22:44:28 :: param: - Admin
+2022-12-19 22:53:01 :: Tipo: - get
+2022-12-19 22:53:01 :: EjecutaSQL - Login
+2022-12-19 22:53:01 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 22:53:01 :: param: - Admin
+2022-12-19 22:53:01 :: Admin
+2022-12-19 23:33:40 :: Tipo: - get
+2022-12-19 23:33:40 :: EjecutaSQL - Login
+2022-12-19 23:33:40 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-19 23:33:40 :: param: - Admin
+2022-12-19 23:33:40 :: Admin
+2022-12-20 00:08:13 :: Tipo: - get
+2022-12-20 00:08:13 :: EjecutaSQL - Login
+2022-12-20 00:08:13 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2022-12-20 00:08:13 :: param: - Admin
+2022-12-20 00:08:13 :: Admin

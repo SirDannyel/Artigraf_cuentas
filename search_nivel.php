@@ -3,9 +3,11 @@
 $conf = include('config.php');
 $server  = $conf['server'];
 $dataBase = "DWH_Artigraf";
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 
 try {
-    $conn = new PDO ("sqlsrv:server=$server;database=$dataBase");
+    $conn = new PDO ("sqlsrv:server=$server;database=$dataBase",$UID,$PWD);
     //echo "Conexion con $serverName";
 } catch (Exception $e) {
     echo "Ocurrio un error en la conexion. " . $e->getMessage();

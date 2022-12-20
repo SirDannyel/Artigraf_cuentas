@@ -351,7 +351,7 @@
             const responseEF2 = await EF2Select_Api();
             EF2 = JSON.parse(responseEF2);
             var selectEF2 = document.getElementById("IdEf2");
-            var selectEF2_Modal = document.getElementById("Ef2");
+           // var selectEF2_Modal = document.getElementById("Ef2");
           //  var selectEF2_Desc = document.getElementById("EF2");
 
             for (let ef2 of EF2) {
@@ -359,6 +359,139 @@
                 option2.text = ef2.EF2_Desc;
                 option2.value = ef2.EF2_Desc;
                 selectEF2.appendChild(option2);
+
+              /*  var option2_Modal = document.createElement("option");
+                option2_Modal.text = ef2.EF2_Desc;
+                option2_Modal.value = ef2.EF2_Desc;
+                selectEF2_Modal.appendChild(option2_Modal);*/
+
+            }
+
+            const responseEF3 = await EF3Select_Api();
+            EF3 = JSON.parse(responseEF3);
+            var selectEF3 = document.getElementById("IdEf3");
+           // var selectEF3_Modal = document.getElementById("Ef3");
+
+            for (let ef3 of EF3) {
+                var option3 = document.createElement("option");
+                option3.text = ef3.EF3_Desc;
+                option3.value = ef3.EF3_Desc;
+                selectEF3.appendChild(option3);
+
+           /*     var option3_Modal = document.createElement("option");
+                option3_Modal.text = ef3.EF3_Desc;
+                option3_Modal.value = ef3.EF3_Desc;
+                selectEF3_Modal.appendChild(option3_Modal);*/
+            }
+
+            const responseEF4 = await EF4Select_Api();
+            EF4 = JSON.parse(responseEF4);
+            var selectEF4 = document.getElementById("IdEf4");
+           // var selectEF4_Modal = document.getElementById("Ef4");
+
+
+            for (let ef4 of EF4) {
+                var option4 = document.createElement("option");
+                option4.text = ef4.EF4_Desc;
+                option4.value = ef4.EF4_Desc;
+                selectEF4.appendChild(option4);
+
+         /*       var option4_Modal = document.createElement("option");
+                option4_Modal.text = ef4.EF4_Desc;
+                option4_Modal.value = ef4.EF4_Desc;
+                selectEF4_Modal.appendChild(option4_Modal);*/
+
+            }
+
+            const responseEF5 = await EF5Select_Api();
+            EF5 = JSON.parse(responseEF5);
+            var selectEF5 = document.getElementById("IdEf5");
+           // var selectEF5_Modal = document.getElementById("Ef5");
+           // var selectEF5_Desc = document.getElementById("EF5");
+
+            for (let ef5 of EF5) {
+                var option5 = document.createElement("option");
+                option5.text = ef5.EF5_Desc;
+                option5.value = ef5.EF5_Desc;
+                selectEF5.appendChild(option5);
+
+           /*     var option5_Modal = document.createElement("option");
+                option5_Modal.text = ef5.EF5_Desc;
+                option5_Modal.value = ef5.EF5_Desc;
+                selectEF5_Modal.appendChild(option5_Modal);*/
+            }
+
+            const responseEF6 = await EF6Select_Api();
+            EF6 = JSON.parse(responseEF6);
+            var selectEF6 = document.getElementById("IdEf6");
+           // var selectEF6_Modal = document.getElementById("Ef6");
+           // var selectEF6_Desc = document.getElementById("EF6");
+
+            for (let ef6 of EF6) {
+                var option6 = document.createElement("option");
+                option6.text = ef6.EF6_Desc;
+                option6.value = ef6.EF6_Desc;
+                selectEF6.appendChild(option6);
+
+            /*    var option6_Modal = document.createElement("option");
+                option6_Modal.text = ef6.EF6_Desc;
+                option6_Modal.value = ef6.EF6_Desc;
+                selectEF6_Modal.appendChild(option6_Modal);*/
+
+            }
+
+            const responseEF7 = await EF7Select_Api();
+            EF7 = JSON.parse(responseEF7);
+            var selectEF7 = document.getElementById("IdEf7");
+          //  var selectEF7_Modal = document.getElementById("Ef7");
+           // var selectEF7_Desc = document.getElementById("EF7");
+
+            for (let ef7 of EF7) {
+                var option7 = document.createElement("option");
+                option7.text = ef7.EF7_Desc;
+                option7.value = ef7.EF7_Desc;
+                selectEF7.appendChild(option7);
+
+             /*   var option7_Modal = document.createElement("option");
+                option7_Modal.text = ef7.EF7_Desc;
+                option7_Modal.value = ef7.EF7_Desc;
+                selectEF7_Modal.appendChild(option7_Modal);*/
+
+            }
+
+            const responseEF8 = await EF8Select_Api();
+            EF8 = JSON.parse(responseEF8);
+            var selectEF8 = document.getElementById("IdEf8");
+            //var selectEF8_Modal = document.getElementById("Ef8");
+           // var selectEF8_Modal = document.getElementById("Ef8");
+
+            for (let ef8 of EF8) {
+                var option8 = document.createElement("option");
+                option8.text = ef8.EF8_Desc;
+                option8.value = ef8.EF8_Desc;
+                selectEF8.appendChild(option8);
+
+           /*     var option8_Modal = document.createElement("option");
+                option8_Modal.text = ef8.EF8_Desc;
+                option8_Modal.value = ef8.EF8_Desc;
+                selectEF8_Modal.appendChild(option8_Modal);*/
+
+            }
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const get_EFsModal = async () => {
+        try {
+
+            const responseEF2 = await EF2Select_Api();
+            EF2 = JSON.parse(responseEF2);
+            var selectEF2_Modal = document.getElementById("Ef2");
+            //  var selectEF2_Desc = document.getElementById("EF2");
+
+            for (let ef2 of EF2) {
 
                 var option2_Modal = document.createElement("option");
                 option2_Modal.text = ef2.EF2_Desc;
@@ -369,14 +502,9 @@
 
             const responseEF3 = await EF3Select_Api();
             EF3 = JSON.parse(responseEF3);
-            var selectEF3 = document.getElementById("IdEf3");
             var selectEF3_Modal = document.getElementById("Ef3");
 
             for (let ef3 of EF3) {
-                var option3 = document.createElement("option");
-                option3.text = ef3.EF3_Desc;
-                option3.value = ef3.EF3_Desc;
-                selectEF3.appendChild(option3);
 
                 var option3_Modal = document.createElement("option");
                 option3_Modal.text = ef3.EF3_Desc;
@@ -386,15 +514,10 @@
 
             const responseEF4 = await EF4Select_Api();
             EF4 = JSON.parse(responseEF4);
-            var selectEF4 = document.getElementById("IdEf4");
             var selectEF4_Modal = document.getElementById("Ef4");
 
 
             for (let ef4 of EF4) {
-                var option4 = document.createElement("option");
-                option4.text = ef4.EF4_Desc;
-                option4.value = ef4.EF4_Desc;
-                selectEF4.appendChild(option4);
 
                 var option4_Modal = document.createElement("option");
                 option4_Modal.text = ef4.EF4_Desc;
@@ -405,15 +528,10 @@
 
             const responseEF5 = await EF5Select_Api();
             EF5 = JSON.parse(responseEF5);
-            var selectEF5 = document.getElementById("IdEf5");
             var selectEF5_Modal = document.getElementById("Ef5");
-           // var selectEF5_Desc = document.getElementById("EF5");
+            // var selectEF5_Desc = document.getElementById("EF5");
 
             for (let ef5 of EF5) {
-                var option5 = document.createElement("option");
-                option5.text = ef5.EF5_Desc;
-                option5.value = ef5.EF5_Desc;
-                selectEF5.appendChild(option5);
 
                 var option5_Modal = document.createElement("option");
                 option5_Modal.text = ef5.EF5_Desc;
@@ -423,15 +541,10 @@
 
             const responseEF6 = await EF6Select_Api();
             EF6 = JSON.parse(responseEF6);
-            var selectEF6 = document.getElementById("IdEf6");
             var selectEF6_Modal = document.getElementById("Ef6");
-           // var selectEF6_Desc = document.getElementById("EF6");
+            // var selectEF6_Desc = document.getElementById("EF6");
 
             for (let ef6 of EF6) {
-                var option6 = document.createElement("option");
-                option6.text = ef6.EF6_Desc;
-                option6.value = ef6.EF6_Desc;
-                selectEF6.appendChild(option6);
 
                 var option6_Modal = document.createElement("option");
                 option6_Modal.text = ef6.EF6_Desc;
@@ -442,16 +555,10 @@
 
             const responseEF7 = await EF7Select_Api();
             EF7 = JSON.parse(responseEF7);
-            var selectEF7 = document.getElementById("IdEf7");
             var selectEF7_Modal = document.getElementById("Ef7");
-           // var selectEF7_Desc = document.getElementById("EF7");
+            // var selectEF7_Desc = document.getElementById("EF7");
 
             for (let ef7 of EF7) {
-                var option7 = document.createElement("option");
-                option7.text = ef7.EF7_Desc;
-                option7.value = ef7.EF7_Desc;
-                selectEF7.appendChild(option7);
-
 
                 var option7_Modal = document.createElement("option");
                 option7_Modal.text = ef7.EF7_Desc;
@@ -462,15 +569,10 @@
 
             const responseEF8 = await EF8Select_Api();
             EF8 = JSON.parse(responseEF8);
-            var selectEF8 = document.getElementById("IdEf8");
             var selectEF8_Modal = document.getElementById("Ef8");
-           // var selectEF8_Modal = document.getElementById("Ef8");
+            // var selectEF8_Modal = document.getElementById("Ef8");
 
             for (let ef8 of EF8) {
-                var option8 = document.createElement("option");
-                option8.text = ef8.EF8_Desc;
-                option8.value = ef8.EF8_Desc;
-                selectEF8.appendChild(option8);
 
                 var option8_Modal = document.createElement("option");
                 option8_Modal.text = ef8.EF8_Desc;
@@ -846,7 +948,7 @@
         //AQUI
     }
 
-  /*  const funcion_addcoma = (texto) => {
+    const funcion_addcoma = (texto) => {
         let textoAjustado;
 
         if(texto.length < 4) {
@@ -854,35 +956,97 @@
             $("#CuentaInicio").val(texto);
 
         } else if(texto.length == 4) {
+          //  textoAjustado = textoAjustado+",";
             const parte1 = texto.slice(0,4);
             const parte2 = texto.slice(4,8);
             textoAjustado = parte1+","+parte2;
+            //textoAjustado = parte1+",";
             $("#CuentaInicio").val(textoAjustado);
-        } else if(texto.length == 9) {
+        }  else if(texto.length == 9) {
+            //textoAjustado = textoAjustado+",";
+           // $("#CuentaInicio").val(textoAjustado);
             const parte1 = texto.slice(0,9);
             const parte2 = texto.slice(9,13);
             textoAjustado = parte1+","+parte2;
+            //textoAjustado = parte2+",";
             $("#CuentaInicio").val(textoAjustado);
         } else if(texto.length == 14) {
+            //textoAjustado = textoAjustado+",";
+            //$("#CuentaInicio").val(textoAjustado);
             const parte1 = texto.slice(0,14);
             const parte2 = texto.slice(14,18);
+            //textoAjustado = parte3+",";
             textoAjustado = parte1+","+parte2;
             $("#CuentaInicio").val(textoAjustado);
         } else if(texto.length == 19) {
+           // textoAjustado = textoAjustado+",";
+            //$("#CuentaInicio").val(textoAjustado);
             const parte1 = texto.slice(0,19);
             const parte2 = texto.slice(19,23);
+            //textoAjustado = parte4+",";
             textoAjustado = parte1+","+parte2;
             $("#CuentaInicio").val(textoAjustado);
         } else if(texto.length == 24) {
+            //textoAjustado = textoAjustado+",";
+            //$("#CuentaInicio").val(textoAjustado);
             const parte1 = texto.slice(0,24);
             const parte2 = texto.slice(24,29);
+            //textoAjustado = parte5+",";
             textoAjustado = parte1+","+parte2;
             $("#CuentaInicio").val(textoAjustado);
         }
 
+    }
 
+    const funcion_addcomaFin = (texto) => {
+        let textoAjustado;
 
-    }*/
+        if(texto.length < 4) {
+
+            $("#CuentaFin").val(texto);
+
+        } else if(texto.length == 4) {
+            //  textoAjustado = textoAjustado+",";
+            const parte1 = texto.slice(0,4);
+            const parte2 = texto.slice(4,8);
+            textoAjustado = parte1+","+parte2;
+            //textoAjustado = parte1+",";
+            $("#CuentaFin").val(textoAjustado);
+        }  else if(texto.length == 9) {
+            //textoAjustado = textoAjustado+",";
+            // $("#CuentaInicio").val(textoAjustado);
+            const parte1 = texto.slice(0,9);
+            const parte2 = texto.slice(9,13);
+            textoAjustado = parte1+","+parte2;
+            //textoAjustado = parte2+",";
+            $("#CuentaFin").val(textoAjustado);
+        } else if(texto.length == 14) {
+            //textoAjustado = textoAjustado+",";
+            //$("#CuentaInicio").val(textoAjustado);
+            const parte1 = texto.slice(0,14);
+            const parte2 = texto.slice(14,18);
+            //textoAjustado = parte3+",";
+            textoAjustado = parte1+","+parte2;
+            $("#CuentaFin").val(textoAjustado);
+        } else if(texto.length == 19) {
+            // textoAjustado = textoAjustado+",";
+            //$("#CuentaInicio").val(textoAjustado);
+            const parte1 = texto.slice(0,19);
+            const parte2 = texto.slice(19,23);
+            //textoAjustado = parte4+",";
+            textoAjustado = parte1+","+parte2;
+            $("#CuentaFin").val(textoAjustado);
+        } else if(texto.length == 24) {
+            //textoAjustado = textoAjustado+",";
+            //$("#CuentaInicio").val(textoAjustado);
+            const parte1 = texto.slice(0,24);
+            const parte2 = texto.slice(24,29);
+            //textoAjustado = parte5+",";
+            textoAjustado = parte1+","+parte2;
+            $("#CuentaFin").val(textoAjustado);
+        }
+
+    }
 
     const Nivel_onchange = (efn) => {
 
@@ -1052,6 +1216,7 @@
 
     const init = () => {
             get_EFs();
+            get_EFsModal();
             getRangosCuentas();
     }
 
@@ -1248,11 +1413,11 @@
                     <div class="row flex-row mb-2 align-items-center w-100">
                         <div class="col">
                             <label>Cuenta Inicio</label>
-                            <input class="form-control form-control-sm" maxlength="29" placeholder="1001,0001,????" id="CuentaInicio" ></input>
+                            <input class="form-control form-control-sm" maxlength="29" placeholder="1001,0001,????" value="????,????,????,????,????,????" id="CuentaInicio" oninput="funcion_addcoma(this.value)"></input>
                         </div>
                         <div class="col">
                             <label>Cuenta Fin</label>
-                            <input class="form-control form-control-sm" maxlength="29" placeholder="1001,0001,????" id="CuentaFin" ></input>
+                            <input class="form-control form-control-sm" maxlength="29" placeholder="1001,0001,????" value="????,????,????,????,????,????" id="CuentaFin" oninput="funcion_addcomaFin(this.value)"></input>
                         </div>
 
                    <!-- <script>

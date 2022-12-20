@@ -7,7 +7,9 @@ function writeServerLog($msg)
 }
 
 $conf = include('config.php');
-$server  = $conf['server']; 
+$server  = $conf['server'];
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 
  
 writeServerLog('Tipo:' .$_POST['tipo'] );   
@@ -62,8 +64,9 @@ if($_POST['tipo'] === "getRubros"){
 			 writeServerLog('EjecutaSQL - ' .$Proceso ); 
 			 writeServerLog('Query: - ' .$sql );   
 			  
-				$connectionInfo = array( "Database"=>"DWH_Artigraf");
-				$conn = sqlsrv_connect( $server, $connectionInfo);
+				//$connectionInfo = array( "Database"=>"DWH_Artigraf");
+                $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
+                $conn = sqlsrv_connect( $server, $connectionInfo);
 	
 				if( $conn === false ) { 
 					echo "Conexión no se pudo establecer.";

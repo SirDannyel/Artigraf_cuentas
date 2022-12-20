@@ -45,7 +45,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('GET', 'http://localhost/Artigraf/ef8_controller.php');
+            objXMLHttpRequest.open('GET', 'getEF8.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
@@ -53,6 +53,11 @@
 
     const EF1Insert_service = (ef1_orden_nvo,ef1_desc_nvo) => {
         return new Promise(function (resolve, reject) {
+            let data =
+                JSON.stringify({
+                    ef1_orden : ef1_orden_nvo,
+                    ef1_desc :  ef1_desc_nvo,
+                    tipo : "insert"});
             const objXMLHttpRequest = new XMLHttpRequest();
 
             objXMLHttpRequest.onreadystatechange = function () {
@@ -65,9 +70,9 @@
                 }
             }
 
-            objXMLHttpRequest.open('POST', 'http://localhost/Artigraf/ef8_controller.php');
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("ef1_orden="+ef1_orden_nvo+"&ef1_desc="+ef1_desc_nvo);
+            objXMLHttpRequest.open('POST', 'ef8_controller.php');
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.send(data);
         });
     }
 
@@ -79,7 +84,7 @@
                 ef1_orden_ant : Ef1_orden_ant,
                 ef1_desc_ant :  Ef1_desc_ant,
                 ef1_orden_nvo : ID_EF_NVO,
-                ef1_desc_nvo : Ef1_desc_nvo});
+                ef1_desc_nvo : Ef1_desc_nvo, tipo : "update"});
 
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -94,7 +99,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('PUT', 'http://localhost/Artigraf/ef8_controller.php');
+            objXMLHttpRequest.open('POST', 'ef8_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -102,7 +107,7 @@
 
     const EF1Delete_service = (ID) => {
 
-        const data = JSON.stringify({id : ID});
+        const data = JSON.stringify({id : ID, tipo : "delete"});
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
 
@@ -116,7 +121,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('DELETE', 'http://localhost/Artigraf/ef8_controller.php');
+            objXMLHttpRequest.open('POST', 'ef8_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -250,8 +255,24 @@
     }
 
     const update_ef1 = (id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo) => {
-        EF1_service();
+
         try {
+
+            var Rango = id;
+
+            EF1_Catalogo.map(function (dato) {
+                if (dato.id_ef8 == Rango) {
+                    if (ID_EF_NVO) {
+                        dato.EF8 = ID_EF_NVO;
+
+                    }
+                    if(ef1_desc_nvo) {
+                        dato.EF8_Desc = ef1_desc_nvo;
+                    }
+
+                }
+                return dato;
+            });
 
             EF1Update_service(id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo);
 
@@ -263,7 +284,7 @@
                });
 
             deleteChild ();
-            setTimeout(getEF1(), 5000);
+            getEF1_table();
 
             $("#EF_name_nvo").val("");
             $("#ID_EF_NVO").val("");

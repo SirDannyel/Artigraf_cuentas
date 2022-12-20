@@ -39,6 +39,8 @@ sqlsrv_close($connec);*/
 $conf = include('config.php');
 
 $server  = $conf['server'];
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //Conexion a BD con PDO
@@ -48,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $dataBase = "DWH_Artigraf";
 
         try {
-            $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase");
+            $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase",$UID,$PWD);
             //echo "Conexion con $serverName";
         } catch (Exception $e) {
             echo "Ocurrio un error en la conexion. " . $e->getMessage();
@@ -97,7 +99,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     //$movimiento = $cargo - $abono;
 
     //Conexion mediante driver sqlsrv
-    $connectionInfo = array( "Database"=>$dataBase);
+    //$connectionInfo = array( "Database"=>$dataBase);
+    $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
     if( $conn === false ) {

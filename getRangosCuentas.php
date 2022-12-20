@@ -2,6 +2,8 @@
 
 $conf = include('config.php');
 $server  = $conf['server'];
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 
 $Respuesta = [];
 
@@ -16,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     //Conectar a DB mediante PDO
 
     try {
-        $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase");
+        $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase",$UID,$PWD);
         //echo "Conexion con $serverName";
     } catch (Exception $e) {
         echo "Ocurrio un error en la conexion. " . $e->getMessage();
@@ -210,8 +212,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     header("Content-Type: application/json");
     $data = json_decode(file_get_contents("php://input"));
 
-
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
+    $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
+    //$conn = sqlsrv_connect($serverName, $connectionInfo);
 
     if ($conn === false) {
         echo "Could not connect.\n";
@@ -333,7 +335,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     header("Content-Type: application/json");
     $data = json_decode(file_get_contents("php://input"));
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
+    //$conn = sqlsrv_connect($serverName, $connectionInfo);
+    $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
 
     if ($conn === false) {
         echo "Could not connect.\n";

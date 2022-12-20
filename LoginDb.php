@@ -8,6 +8,9 @@ function writeServerLog($msg)
 
 $conf = include('config.php'); 
 $serverName  = $conf['server'];
+$Database  = $conf['database'];
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 writeServerLog('Tipo: - ' .$_POST['tipo'] );
 
 if($_POST['tipo'] === "get"){ 
@@ -23,7 +26,8 @@ if($_POST['tipo'] === "get"){
 			 writeServerLog('param: - ' .$_POST['user'] ); 
 	 
 			  
-				  $connectionInfo = array( "Database"=>"DWH_Artigraf");
+				  //$connectionInfo = array( "Database"=>"DWH_Artigraf");
+                $connectionInfo = array( "Database"=>$Database, "UID"=>$UID, "PWD"=>$PWD);
 				$conn = sqlsrv_connect( $serverName, $connectionInfo);
 	
 				if( $conn === false ) { 

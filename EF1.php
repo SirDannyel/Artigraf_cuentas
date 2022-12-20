@@ -45,13 +45,48 @@
                 }
             }
 
-            objXMLHttpRequest.open('GET', 'ef1_controller.php');
+            objXMLHttpRequest.open('GET', 'getEF1.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             objXMLHttpRequest.send();
         });
     }
 
     const EF1Insert_service = (ef1_orden_nvo,ef1_desc_nvo) => {
+        return new Promise(function (resolve, reject) {
+            let data =
+                JSON.stringify({
+                    ef1_orden : ef1_orden_nvo,
+                    ef1_desc :  ef1_desc_nvo,
+                    tipo : "insert"});
+            const objXMLHttpRequest = new XMLHttpRequest();
+
+            objXMLHttpRequest.onreadystatechange = function () {
+                if (objXMLHttpRequest.readyState === 4) {
+                    if (objXMLHttpRequest.status == 200) {
+                        resolve(objXMLHttpRequest.responseText);
+                    } else {
+                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                    }
+                }
+            }
+
+            objXMLHttpRequest.open('POST', 'ef1_controller.php');
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.send(data);
+        });
+    }
+
+    const EF1Update_service = (ID,Ef1_orden_ant,Ef1_desc_ant,ID_EF_NVO,Ef1_desc_nvo) => {
+        const ID_big = parseInt(ID);
+        let data =
+            JSON.stringify({
+                id : ID_big,
+                ef1_orden_ant : Ef1_orden_ant,
+                ef1_desc_ant :  Ef1_desc_ant,
+                ef1_orden_nvo : ID_EF_NVO,
+                ef1_desc_nvo : Ef1_desc_nvo,
+                tipo: "update"});
+
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
 
@@ -66,35 +101,6 @@
             }
 
             objXMLHttpRequest.open('POST', 'ef1_controller.php');
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("ef1_orden="+ef1_orden_nvo+"&ef1_desc="+ef1_desc_nvo);
-        });
-    }
-
-    const EF1Update_service = (ID,Ef1_orden_ant,Ef1_desc_ant,ID_EF_NVO,Ef1_desc_nvo) => {
-        const ID_big = parseInt(ID);
-        let data =
-            JSON.stringify({
-                id : ID_big,
-                ef1_orden_ant : Ef1_orden_ant,
-                ef1_desc_ant :  Ef1_desc_ant,
-                ef1_orden_nvo : ID_EF_NVO,
-                ef1_desc_nvo : Ef1_desc_nvo});
-
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-            objXMLHttpRequest.open('PUT', 'ef1_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -102,7 +108,7 @@
 
     const EF1Delete_service = (ID,EF,EFDESC) => {
 
-        const data = JSON.stringify({id : ID, ef1: EF,ef1_desc: EFDESC});
+        const data = JSON.stringify({id : ID, ef1: EF, ef1_desc: EFDESC, tipo: "delete"});
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
 
@@ -116,7 +122,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('DELETE', 'ef1_controller.php');
+            objXMLHttpRequest.open('POST', 'ef1_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -256,12 +262,25 @@
 
     const update_ef1 = (id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo) => {
 
-        EF1_service();
-
         try {
 
-            EF1Update_service(id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo);
+            var Rango = id;
 
+            EF1_Catalogo.map(function (dato) {
+                if (dato.id_ef1 == Rango) {
+                    if (ID_EF_NVO) {
+                        dato.EF1 = ID_EF_NVO;
+
+                    }
+                    if(ef1_desc_nvo) {
+                        dato.EF1_Desc = ef1_desc_nvo;
+                    }
+
+                }
+                return dato;
+            });
+
+            EF1Update_service(id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo);
 
             Swal.fire({
                 icon: 'success',
@@ -271,7 +290,7 @@
             });
 
             deleteChild ();
-            setTimeout(getEF1(), 5000);
+            getEF1_table();
 
             $("#EF_name_nvo").val("");
             $("#ID_EF_NVO").val("");

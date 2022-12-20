@@ -7,11 +7,13 @@ $serverName = $server;
 $username = "";
 $password = "";
 $dataBase = "DWH_Artigraf";
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 
 $registros = [];
 
 try {
-    $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase");
+    $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase",$UID,$PWD);
     //echo "Conexion con $serverName";
 } catch (Exception $e) {
     echo "Ocurrio un error en la conexion. " . $e->getMessage();

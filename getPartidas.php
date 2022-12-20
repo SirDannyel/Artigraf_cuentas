@@ -2,6 +2,9 @@
 
 $conf = include('config.php');
 $server  = $conf['server'];
+$Database  = $conf['database'];
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 
 $Respuesta = [];
 
@@ -11,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     $serverName = $server;
     $username = "";
     $password = "";
-    $dataBase = "DWH_Artigraf";
+    $dataBase = $Database;
 
     //Establecer Zona horaria
     date_default_timezone_set("America/Monterrey");
@@ -21,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
   //  echo $date;
 
     //
-    $connectionInfo = array("Database"=>$dataBase);
+
+    $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
     if( $conn === false ) {
@@ -71,7 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 
 
     //Conexion mediante driver sqlsrv
-    $connectionInfo = array( "Database"=>$dataBase);
+    //$connectionInfo = array( "Database"=>$dataBase);
+    $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
     if( $conn === false ) {

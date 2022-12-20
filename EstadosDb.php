@@ -6,18 +6,21 @@ function writeServerLog($msg)
 }
 
 $conf = include('config.php');
+$UID  = $conf['UID'];
+$PWD  = $conf['PWD'];
 
 $server  = $conf['server'];
 switch ($_POST['tipo']) {
-    case "get": 
+    case "get":
             $Respuesta;
 
             $Proceso="Select Estados";
-            $sql="Select Estado from Dim_Estado order by 1"; 
-            writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );   
-            
+            $sql="Select Estado from Dim_Estado order by 1";
+            writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );
+
               //  $server = 'DESKTOP-907DBP9\SQLEXPRESS';
-                $connectionInfo = array( "Database"=>"DWH_Artigraf");
+                //$connectionInfo = array( "Database"=>"DWH_Artigraf");
+            $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
             $conn = sqlsrv_connect( $server, $connectionInfo);
 
             if( $conn === false ) { 
@@ -56,7 +59,10 @@ switch ($_POST['tipo']) {
             writeServerLog('EjecutaSQL - ' .$Proceso.' Query: - ' .$sql );   
             
             //  $server = 'DESKTOP-907DBP9\SQLEXPRESS';
-                $connectionInfo = array( "Database"=>"DWH_Artigraf");
+                //$connectionInfo = array( "Database"=>"DWH_Artigraf");
+
+
+            $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
             $conn = sqlsrv_connect( $server, $connectionInfo);
 
             if( $conn === false ) { 
