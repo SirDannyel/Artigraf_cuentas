@@ -41,20 +41,18 @@ $conf = include('config.php');
 $server  = $conf['server'];
 $UID  = $conf['UID'];
 $PWD  = $conf['PWD'];
+$serverName = $server;
+$dataBase = $conf['database'];
+
+//Conexion a BD con PDO
+try {
+    $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase",$UID,$PWD);
+    //echo "Conexion con $serverName";
+} catch (Exception $e) {
+    echo "Ocurrio un error en la conexion. " . $e->getMessage();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        //Conexion a BD con PDO
-        $serverName = $server;
-        $username = "";
-        $password = "";
-        $dataBase = "DWH_Artigraf";
-
-        try {
-            $conn = new PDO ("sqlsrv:server=$serverName;database=$dataBase",$UID,$PWD);
-            //echo "Conexion con $serverName";
-        } catch (Exception $e) {
-            echo "Ocurrio un error en la conexion. " . $e->getMessage();
-        }
 
         //Ejecutar Query
         $query = "SELECT Cuenta,CuentaDesc,Mayor FROM Dim_CuentaContable";
@@ -71,19 +69,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
 
         echo json_encode($registros);
+        unset($stmt);
+        unset($conn);
 
-        //Salir
-        exit();
 
-    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     header("Access-Control-Allow-Origin: *");
-
-    //Datos de BD
-    $serverName = $server;
-    $username = "";
-    $password = "";
-    $dataBase = "DWH_Artigraf";
 
     //Establecer Zona horaria
     date_default_timezone_set("America/Monterrey");
@@ -98,29 +92,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   //  $abono = $_POST['abono'];
     //$movimiento = $cargo - $abono;
 
-    //Conexion mediante driver sqlsrv
-    //$connectionInfo = array( "Database"=>$dataBase);
-    $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
-    $conn = sqlsrv_connect( $serverName, $connectionInfo);
-
-    if( $conn === false ) {
-        echo "Conexión no se pudo establecer.";
-        die( print_r( sqlsrv_errors(), true));
-    }
-
     //Ejecucion de insert a Partidas especiales
 
-    $sql2="Set nocount on; Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal) values('0','{$_POST['fecha']}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0'); SELECT @@IDENTITY as id; ";
-    $row = [];
-        $stmt2 = sqlsrv_query($conn, $sql2);
+    //$sql2="Set nocount on; Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal) values('0','{$_POST['fecha']}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0'); SELECT @@IDENTITY as id; ";
+    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal) values('0','{$_POST['fecha']}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0')";
 
-        if($stmt2 === false) {
-            die( print_r( sqlsrv_errors(), true));
-        }else{
-
-             $Response = sqlsrv_fetch_object($stmt2);
-             $Respuesta[0] = $Response;
-             //echo $row["id"];
+        $stmt2 = $conn->query($sql2);
+        $lastid = $conn->lastInsertId();
+        $response = ["id"=>$lastid];
 
                          header_remove('Set-Cookie');
                          $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
@@ -132,8 +111,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
                          }
 
-             echo json_encode($Respuesta);
-        }
+            echo json_encode($response);
+            unset($stmt);
 
     //Ejecuccion de Insert a Fact Saldos
 
@@ -141,51 +120,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $cuenta_espacio = $_POST['cuenta'].' ';
        // echo $cuenta_espacio;
         $query3="Select * from Dim_CuentaContable where Cuenta = '$cuenta_espacio'";
-        $stmt3 = sqlsrv_query($conn, $query3);
+        $stmt3 = $conn->query($query3);
+        $existe = $stmt3->fetchAll(PDO::FETCH_OBJ);
 
-            $actualizar = 0;
-            while ($Response1 = sqlsrv_fetch_object($stmt3)) {
-                $actualizar = 1;
-            }
-
-            if($actualizar === 0) {
+            if(empty($existe)) {
                 //echo 'Registro no existe';
                 //Si no existe Insertar la Cuenta
                 $query4="Insert into Dim_CuentaContable (Cuenta,CuentaDesc,Mayor) values ('{$_POST['cuenta']}','{$_POST['descripcion']}','{$_POST['mayor']}')";
-                $stmt4 = sqlsrv_query($conn, $query4);
+                $stmt4 = $conn->query($query4);
+                unset($stmt4);
 
-                if($stmt4 === false) {
-                    die( print_r( sqlsrv_errors(), true));
-                }else{
-                    //echo 'Registrado en Cuentas Contables';
-                }
-                    //Seguido insertar en fact saldos
-                    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$Response->id}') ";
+                //Seguido insertar en fact saldos
+                $sql2="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$lastid}') ";
+                $stmt5 = $conn->query($sql2);
+                unset($stmt5);
 
-                        $stmt = sqlsrv_query($conn, $sql);
-                        if($stmt === false) {
-                            die( print_r( sqlsrv_errors(), true));
-                        }else{
-                            //echo  'Insertado' ;
-                        }
-
-            }else{
+            } else {
             //Si no insertar directo:
-                    $sql="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$Response->id}') ";
-
-                    $stmt = sqlsrv_query($conn, $sql);
-                    if($stmt === false) {
-                        die( print_r( sqlsrv_errors(), true));
-                    }else{
-                        //echo  'Insertado' ;
-                    }
-
+                    $sql3="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$lastid}') ";
+                    $stmt6 = $conn->query($sql3);
+                    unset($stmt6);
             }
 
+                    unset($conn);
 
-
-
-    //Desconectar servicio
-    sqlsrv_close($conn);
 
     }

@@ -25,10 +25,6 @@
 
     /******* Services  *******/
 
-
-    EF1_Id_AntG = 0;
-    const EF1_ID = 0;
-
     let EF1_Catalogo = [];
 
     const EF1_service = () => {
@@ -45,9 +41,9 @@
                 }
             }
 
-            objXMLHttpRequest.open('GET', 'getEF3.php');
+            objXMLHttpRequest.open('POST', 'getEF.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
+            objXMLHttpRequest.send("tabla=Dim_EF3&nivel=EF3");
         });
     }
 
@@ -55,9 +51,13 @@
         return new Promise(function (resolve, reject) {
             let data =
                 JSON.stringify({
-                    ef1_orden : ef1_orden_nvo,
-                    ef1_desc :  ef1_desc_nvo,
-                    tipo : "insert"});
+                    tipo : "insert",
+                    orden : ef1_orden_nvo,
+                    desc :  ef1_desc_nvo,
+                    ef_table : "Dim_EF3",
+                    ef_orden : "EF3",
+                    ef_desc : "EF3_Desc"
+                });
             const objXMLHttpRequest = new XMLHttpRequest();
 
             objXMLHttpRequest.onreadystatechange = function () {
@@ -70,7 +70,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('POST', 'ef3_controller.php');
+            objXMLHttpRequest.open('POST', 'efs_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -80,12 +80,17 @@
         const ID_big = parseInt(ID);
         let data =
             JSON.stringify({
+                tipo : "update",
                 id : ID_big,
                 ef1_orden_ant : Ef1_orden_ant,
                 ef1_desc_ant :  Ef1_desc_ant,
                 ef1_orden_nvo : ID_EF_NVO,
                 ef1_desc_nvo : Ef1_desc_nvo,
-                tipo : "update"});
+                ef_orden : "EF3",
+                ef_desc : "EF3_Desc",
+                ef_table : "Dim_EF3",
+                ef_id : "id_ef3"
+            });
 
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -100,15 +105,21 @@
                 }
             }
 
-            objXMLHttpRequest.open('POST', 'ef3_controller.php');
+            objXMLHttpRequest.open('POST', 'efs_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
     }
 
     const EF1Delete_service = (ID) => {
+        const data = JSON.stringify({
+            tipo: "delete",
+            id : ID,
+            ef_id : "id_ef3",
+            ef_orden : "EF3",
+            ef_desc : "EF3_Desc",
+            ef_table : "Dim_EF3"});
 
-        const data = JSON.stringify({id : ID, tipo : "delete"});
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
 
@@ -122,7 +133,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('POST', 'ef3_controller.php');
+            objXMLHttpRequest.open('POST', 'efs_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -143,7 +154,7 @@
         //     console.log(response);
         const myArr = JSON.parse(response);
         EF1_Catalogo = myArr;
-        getEF1_table();
+        await getEF1_table();
     }
 
     const getEF1_table = async () => {
@@ -206,11 +217,6 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             delete_ef1(this.id);
-                            Swal.fire(
-                                'Eliminado!',
-                                'Registro Eliminado.',
-                                'success'
-                            )
                         }
 
                     });
@@ -228,10 +234,10 @@
         }
     }
 
-    const insert_ef1 = (ef1_orden_nvo,ef1_desc_nvo) => {
+    const insert_ef1 = async (ef1_orden_nvo,ef1_desc_nvo) => {
 
         try {
-            EF1Insert_service(ef1_orden_nvo, ef1_desc_nvo);
+            await EF1Insert_service(ef1_orden_nvo, ef1_desc_nvo);
             Swal.fire({
                 icon: 'success',
                 title: 'Registro Agregado',
@@ -239,12 +245,15 @@
                 timer: 1500
             });
 
+            deleteChild();
+            await getEF1();
+
         } catch (err) {
             console.log(err);
         }
-        deleteChild ();
-        getEF1();
+
     }
+
     function hidemodal (){
         $("#EF_name_nvo").val("");
         $("#ID_EF_NVO").val("");
@@ -252,54 +261,45 @@
         $("#exampleModal").modal("hide");
     }
 
-    const update_ef1 = (id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo) => {
-
+    const update_ef1 = async (id, ef1_orden_ant, ef1_desc_ant, ID_EF_NVO, ef1_desc_nvo) => {
         try {
-            var Rango = id;
 
-            EF1_Catalogo.map(function (dato) {
-                if (dato.id_ef3 == Rango) {
-                    if (ID_EF_NVO) {
-                        dato.EF3 = ID_EF_NVO;
+        await EF1Update_service(id, ef1_orden_ant, ef1_desc_ant, ID_EF_NVO, ef1_desc_nvo);
 
-                    }
-                    if(ef1_desc_nvo) {
-                        dato.EF3_Desc = ef1_desc_nvo;
-                    }
+        deleteChild();
+        await getEF1();
 
-                }
-                return dato;
-            });
 
-            EF1Update_service(id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo);
+        Swal.fire({
+            icon: 'success',
+            title: 'Registro Editado',
+            showConfirmButton: false,
+            timer: 1500
+        });
 
-               Swal.fire({
-                   icon: 'success',
-                   title: 'Registro Agregado',
-                   showConfirmButton: false,
-                   timer: 1500
-               });
 
-            deleteChild ();
-            getEF1_table();
+        $("#EF_name_nvo").val("");
+        $("#ID_EF_NVO").val("");
+        $("#exampleModal").modal("hide");
 
-            $("#EF_name_nvo").val("");
-            $("#ID_EF_NVO").val("");
-            $("#exampleModal").modal("hide");
-
-        } catch (err) {
+    } catch (err) {
             console.log(err);
-        }
+    }
 
     }
 
-    const delete_ef1 = (id) => {
+
+    const delete_ef1 = async (id) => {
 
         try {
-            EF1Delete_service(id);
+            await EF1Delete_service(id);
+
+            deleteChild ();
+            await getEF1();
+
             Swal.fire({
                 icon: 'success',
-                title: 'Registro Agregado',
+                title: 'Registro Eliminado',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -307,8 +307,7 @@
         } catch (err) {
             console.log(err);
         }
-        deleteChild ();
-        getEF1();
+
     }
 
 

@@ -32,7 +32,7 @@
                     }
                 }
         
-                objXMLHttpRequest.open('POST', 'EstadosDb.php');
+                objXMLHttpRequest.open('POST', 'Estados_DB.php');
                 objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 objXMLHttpRequest.send("tipo="+"get" );
             });
@@ -52,7 +52,7 @@
                     }
                 }
         
-                objXMLHttpRequest.open('POST', 'CuentasContablesDb.php');
+                objXMLHttpRequest.open('POST', 'CuentasContables_Db.php');
                 objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 objXMLHttpRequest.send("tipo="+"getRubros"+"&nivel="+nivel );
             });
@@ -71,13 +71,13 @@
                     }
                 }
         
-                objXMLHttpRequest.open('POST', 'ConceptosDB.php');
+                objXMLHttpRequest.open('POST', 'Conceptos_DB.php');
                 objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 objXMLHttpRequest.send("tipo="+"get&"+"estado="+estado);
             });
         }
 
-        const postConceptoApi = (estado,rubro,desc,nivel,nat,identado,resaltado) => {   
+        const postConceptoApi = (estado,rubro,desc,nivel,nat,identado,resaltado,saldo) => {
             return new Promise(function (resolve, reject) {
                 const objXMLHttpRequest = new XMLHttpRequest();
         
@@ -91,9 +91,9 @@
                     }
                 }
         
-                objXMLHttpRequest.open('POST', 'ConceptosDB.php');
+                objXMLHttpRequest.open('POST', 'Conceptos_DB.php');
                 objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                objXMLHttpRequest.send("tipo="+"post"+"&estado="+estado+"&orden="+(Number(ult_orden)+10)+"&rubro="+rubro+"&desc="+desc+"&nivel="+nivel+"&pasivo="+nat+"&identado="+identado+"&resaltado="+resaltado);
+                objXMLHttpRequest.send("tipo="+"post"+"&estado="+estado+"&orden="+(Number(ult_orden)+10)+"&rubro="+rubro+"&desc="+desc+"&nivel="+nivel+"&pasivo="+nat+"&identado="+identado+"&resaltado="+resaltado+"&saldo="+saldo);
             });
         }
         
@@ -112,7 +112,7 @@
                     }
                 }
         
-                objXMLHttpRequest.open('POST', 'EstadosDb.php');
+                objXMLHttpRequest.open('POST', 'Estados_Db.php');
                 objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 objXMLHttpRequest.send("tipo="+"post"+"&estado="+estado);
             });
@@ -131,7 +131,7 @@
                     }
                 }
         
-                objXMLHttpRequest.open('POST', 'ConceptosDB.php');
+                objXMLHttpRequest.open('POST', 'Conceptos_DB.php');
                 objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 objXMLHttpRequest.send("tipo="+"delete"+"&estado="+estado+"&orden="+orden+"&desc="+desc );
             });
@@ -151,7 +151,7 @@
                     }
                 }
         
-                objXMLHttpRequest.open('POST', 'ConceptosDB.php');
+                objXMLHttpRequest.open('POST', 'Conceptos_DB.php');
                 objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 objXMLHttpRequest.send("tipo="+"change"+"&estado="+estado+"&orden="+orden+"&cambio="+cambio+"&desc="+desc );
             });
@@ -180,7 +180,7 @@
           }
         }
  
-        const postConcepto = async (estado,rubro,desc,nivel,pasivo,identado,resaltado) => {
+        const postConcepto = async (estado,rubro,desc,nivel,pasivo,identado,resaltado,saldo) => {
             try{
               //  alert('pasivo: '+pasivo+' identado: '+identado+' resaltado: '+resaltado );
                 let nat;
@@ -201,14 +201,21 @@
                 }else{ 
                   res = '';
                 }
+                let sald;
+                if(saldo === true){
+                    sald = 1;
+                }else{
+                    sald = 0;
+                }
                 var rubroName;
-                if(rubro == '')
+                if(rubro == '') {
                     rubroName = desc;
-                else    
+                }else{
                     rubroName = rubro;
+                }
                // alert('estado: '+estado+' rubro: '+rubro+' desc: '+desc+' nivel: '+nivel+' nat: '+nat+' iden: '+iden+' res: '+res);
 
-                const response = await postConceptoApi(estado,rubroName,desc,nivel,nat,iden,res);
+                const response = await postConceptoApi(estado,rubroName,desc,nivel,nat,iden,res,sald);
                // console.log("postConcepto Response", response); 
                 Swal.fire({
                   position: 'top-end',
@@ -368,9 +375,24 @@
                     }
                     campo.textContent = opt;
                     campo.value = opt;
-                    linea.appendChild(campo); 
+                    linea.appendChild(campo);
+
+                    opt = myArr[i].Diferencia;
+                    campo = document.createElement("td");
+                    campo.setAttribute("style", "width:100px;");
+                    campo.setAttribute("id", "Diferencia"+orden);
+                    if(opt == 1){
+                        opt = 'Saldo';
+                        campo.setAttribute("class", "text-success text-center");
+                    }else{
+                        opt = 'Diferencia';
+                        campo.setAttribute("class", "text-danger text-center");
+                    }
+                    campo.textContent = opt;
+                    campo.value = opt;
+                    linea.appendChild(campo);
                     
-                    var boton = document.createElement("button");  
+                    var boton = document.createElement("button");
                     boton.setAttribute("name", myArr[i].Descripcion);   
                     boton.setAttribute("id", orden);     
                     boton.onclick = function(){
@@ -458,8 +480,8 @@
             getConceptos(estado);
             $("#titulo").text(estado);
         }
-        const handleAddConcepto = (estado,rubro,desc,nivel,nat,identado,resaltado) => { 
-               postConcepto(estado,rubro,desc,nivel,nat,identado,resaltado);
+        const handleAddConcepto = (estado,rubro,desc,nivel,nat,identado,resaltado,saldo) => {
+               postConcepto(estado,rubro,desc,nivel,nat,identado,resaltado,saldo);
         }
         const handleChangeNivel = (nivel) => { 
                getRubros(nivel);
@@ -551,7 +573,7 @@
               <option class="option" value ="EF5">EF5</option> 
               <option class="option" value ="EF6">EF6</option> 
               <option class="option" value ="EF7">EF7</option> 
-              <option class="option" value ="EF8">EF8</option> 
+              <option class="option" value ="EF8">EF8</option>
           </select>
         </div>
         <div class="d-flex flex-column px-2 pb-0 w-100">  
@@ -584,19 +606,26 @@
             <input class="form-switch form-check-input d-flex justify-content-center" style="height:25px;" type="checkbox" id="boldSwitch" checked> 
           </div>
         </div>
+
+          <div class="d-flex flex-column px-2 pb-3">
+              <p style="height:8px;" class="form-check-label d-flex justify-content-center" for="saldoSwitch">Saldo</p>
+              <div class="d-flex justify-content-center">
+                  <input class="form-switch form-check-input d-flex justify-content-center" style="height:25px;" type="checkbox" id="saldoSwitch" checked>
+              </div>
+          </div>
  
-        <button class="btn btn-success" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'))">
+        <button class="btn btn-success" onclick="handleAddConcepto($('#EstadoSelect').val(),$('#IdRubro').val(),$('#IdDesc').val(),$('#IdNivel').val(),$('#pasivoSwitch').is(':checked'),$('#identadoSwitch').is(':checked'),$('#boldSwitch').is(':checked'),$('#saldoSwitch').is(':checked'))">
                     Agregar
                   </button>
                    
       </div>
     </nav> 
     <div style="padding-top:90px;"> </div>
-    <main class="container" style="max-width:1420px;">  
-        <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
+    <main class="container" style="max-width:1420px;">
+        <div class="table-responsive my-3 p-4 bg-body rounded shadow-sm" id="panel">
           <div class="border-bottom d-flex flex-row">
             <h6 class="pt-2 w-75  d-flex justify-content-left text-muted" >Configurador de tipos de Estados Financieros</h6>
-            <h3 class="w-100  d-flex justify-content-left text-primary" id="titulo">Conceptos</h3>
+            <h3 class=" w-100 d-flex justify-content-left text-primary" id="titulo">Conceptos</h3>
           </div>
           <table class="table" id="tabla">
             <thead>
@@ -607,7 +636,8 @@
                 <th scope="col" style="width:400px;" class="text-center">Descripción</th> 
                 <th scope="col" style="width:100px;" class="text-center">Naturaleza</th> 
                 <th scope="col" style="width:100px;" class="text-center">Identado</th> 
-                <th scope="col" style="width:100px;" class="text-center">Resaltado</th> 
+                <th scope="col" style="width:100px;" class="text-center">Resaltado</th>
+                <th scope="col" style="width:100px;" class="text-center">Saldo</th>
               </tr>
             </thead>
             <tbody  id="tablabody">

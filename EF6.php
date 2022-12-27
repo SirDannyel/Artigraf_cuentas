@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EF6</title>
+    <title>EF4</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/caf35569f5.js" crossorigin="anonymous"></script>
@@ -25,10 +25,6 @@
 
     /******* Services  *******/
 
-
-    EF1_Id_AntG = 0;
-    const EF1_ID = 0;
-
     let EF1_Catalogo = [];
 
     const EF1_service = () => {
@@ -45,9 +41,9 @@
                 }
             }
 
-            objXMLHttpRequest.open('GET', 'getEF6.php');
+            objXMLHttpRequest.open('POST', 'getEF.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
+            objXMLHttpRequest.send("tabla=Dim_EF6&nivel=EF6");
         });
     }
 
@@ -55,9 +51,13 @@
         return new Promise(function (resolve, reject) {
             let data =
                 JSON.stringify({
-                    ef1_orden : ef1_orden_nvo,
-                    ef1_desc :  ef1_desc_nvo,
-                    tipo : "insert"});
+                    tipo : "insert",
+                    orden : ef1_orden_nvo,
+                    desc :  ef1_desc_nvo,
+                    ef_table : "Dim_EF6",
+                    ef_orden : "EF6",
+                    ef_desc : "EF6_Desc"
+                });
             const objXMLHttpRequest = new XMLHttpRequest();
 
             objXMLHttpRequest.onreadystatechange = function () {
@@ -70,7 +70,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('POST', 'ef6_controller.php');
+            objXMLHttpRequest.open('POST', 'efs_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -80,12 +80,17 @@
         const ID_big = parseInt(ID);
         let data =
             JSON.stringify({
+                tipo : "update",
                 id : ID_big,
                 ef1_orden_ant : Ef1_orden_ant,
                 ef1_desc_ant :  Ef1_desc_ant,
                 ef1_orden_nvo : ID_EF_NVO,
                 ef1_desc_nvo : Ef1_desc_nvo,
-                tipo : "update"});
+                ef_orden : "EF6",
+                ef_desc : "EF6_Desc",
+                ef_table : "Dim_EF6",
+                ef_id : "id_ef6"
+            });
 
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
@@ -100,7 +105,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('POST', 'ef6_controller.php');
+            objXMLHttpRequest.open('POST', 'efs_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -108,7 +113,14 @@
 
     const EF1Delete_service = (ID) => {
 
-        const data = JSON.stringify({id : ID, tipo : "delete"});
+        const data = JSON.stringify({
+            tipo: "delete",
+            id : ID,
+            ef_id : "id_ef6",
+            ef_orden : "EF6",
+            ef_desc : "EF6_Desc",
+            ef_table : "Dim_EF6"});
+
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
 
@@ -122,7 +134,7 @@
                 }
             }
 
-            objXMLHttpRequest.open('POST', 'ef6_controller.php');
+            objXMLHttpRequest.open('POST', 'efs_controller.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -143,7 +155,7 @@
         //     console.log(response);
         const myArr = JSON.parse(response);
         EF1_Catalogo = myArr;
-        getEF1_table();
+        await getEF1_table();
     }
 
     const getEF1_table = async () => {
@@ -206,11 +218,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             delete_ef1(this.id);
-                            Swal.fire(
-                                'Eliminado!',
-                                'Registro Eliminado.',
-                                'success'
-                            )
+
                         }
 
                     });
@@ -228,10 +236,10 @@
         }
     }
 
-    const insert_ef1 = (ef1_orden_nvo,ef1_desc_nvo) => {
-        EF1_service();
+    const insert_ef1 = async (ef1_orden_nvo, ef1_desc_nvo) => {
+
         try {
-            EF1Insert_service(ef1_orden_nvo, ef1_desc_nvo);
+            await EF1Insert_service(ef1_orden_nvo, ef1_desc_nvo);
 
             Swal.fire({
                 icon: 'success',
@@ -240,11 +248,15 @@
                 timer: 1500
             });
 
+
+            deleteChild();
+            await getEF1();
+
         } catch (err) {
             console.log(err);
         }
-        deleteChild ();
-        setTimeout(getEF1(), 5000);
+
+
     }
     function hidemodal (){
         $("#EF_name_nvo").val("");
@@ -253,36 +265,21 @@
         $("#exampleModal").modal("hide");
     }
 
-    const update_ef1 = (id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo) => {
+    const update_ef1 = async (id, ef1_orden_ant, ef1_desc_ant, ID_EF_NVO, ef1_desc_nvo) => {
 
         try {
-            var Rango = id;
 
-            EF1_Catalogo.map(function (dato) {
-                if (dato.id_ef6 == Rango) {
-                    if (ID_EF_NVO) {
-                        dato.EF6 = ID_EF_NVO;
+            await EF1Update_service(id, ef1_orden_ant, ef1_desc_ant, ID_EF_NVO, ef1_desc_nvo);
 
-                    }
-                    if(ef1_desc_nvo) {
-                        dato.EF6_Desc = ef1_desc_nvo;
-                    }
-
-                }
-                return dato;
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro Editado',
+                showConfirmButton: false,
+                timer: 1500
             });
 
-            EF1Update_service(id,ef1_orden_ant, ef1_desc_ant,ID_EF_NVO,ef1_desc_nvo);
-
-               Swal.fire({
-                   icon: 'success',
-                   title: 'Registro Agregado',
-                   showConfirmButton: false,
-                   timer: 1500
-               });
-
-            deleteChild ();
-            getEF1_table();
+            deleteChild();
+            await getEF1();
 
             $("#EF_name_nvo").val("");
             $("#ID_EF_NVO").val("");
@@ -291,15 +288,20 @@
         } catch (err) {
             console.log(err);
         }
+
+
     }
 
-    const delete_ef1 = (id) => {
+    const delete_ef1 = async (id) => {
+
         try {
-            EF1Delete_service(id);
-            deleteChild ();
+            await EF1Delete_service(id);
+            deleteChild();
+            await getEF1();
+
             Swal.fire({
                 icon: 'success',
-                title: 'Registro Agregado',
+                title: 'Registro Eliminado',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -307,7 +309,6 @@
         } catch (err) {
             console.log(err);
         }
-        getEF1();
     }
 
 
@@ -356,7 +357,7 @@
     <div class="my-3 p-4 bg-body rounded shadow-sm" id="panel">
         <div class="border-bottom d-flex flex-row">
             <h6 class="pt-2 w-75  d-flex justify-content-left text-muted" >Configurador de Agrupadores de Cuentas Financieros</h6>
-            <h3 class="w-100  d-flex justify-content-left text-primary" id="titulo">Agrupación EF6</h3>
+            <h3 class="w-100  d-flex justify-content-left text-primary" id="titulo">Agrupación EF4</h3>
         </div>
         <div class="mt-3">
             <table class="table" id="tabla" align="center">

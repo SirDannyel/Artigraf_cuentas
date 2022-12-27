@@ -6,115 +6,74 @@ $Database  = $conf['database'];
 $UID  = $conf['UID'];
 $PWD  = $conf['PWD'];
 
+try {
+    $conn = new PDO ("sqlsrv:server=$server;database=$Database",$UID,$PWD);
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+} catch(Exception $e) {
+    die( print_r( $e->getMessage() ) );
+}
+
 $Respuesta = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 
-    //Conectar a DB mediante PDO
-    $serverName = $server;
-    $username = "";
-    $password = "";
-    $dataBase = $Database;
-
-    //Establecer Zona horaria
-    date_default_timezone_set("America/Monterrey");
-    $fecha = date("Y-m-d");
-    $date1 = $_GET["fechaini"];
-    $date2 = $_GET["fechafin"];
-  //  echo $date;
-
-    //
-
-    $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
-    $conn = sqlsrv_connect( $serverName, $connectionInfo);
-
-    if( $conn === false ) {
-        echo "Conexión no se pudo establecer.";
-        die( print_r( sqlsrv_errors(), true));
-    } else {
-
+    try {
+        //Establecer Zona horaria
+        date_default_timezone_set("America/Monterrey");
+        $fecha = date("Y-m-d");
+        $date1 = $_GET["fechaini"];
+        $date2 = $_GET["fechafin"];
+        //  echo $date;
 
         $query = "Select Fecha as fecha, CuentaContable as cuenta, Descripcion as descripcion, Cargo as cargo, Abono as abono, Movimiento as movimiento, Linea as linea from PartidasEspeciales where Fecha >= '{$date1}' and Fecha <= '{$date2}' order by Fecha,Linea Desc";
-        $stmt = sqlsrv_query($conn, $query);
+        $stmt = $conn->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-        if($stmt === false) {
-            die( print_r( sqlsrv_errors(), true));
-        }else{
+        header_remove('Set-Cookie');
+        $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
+        if (is_array($httpHeaders) && count($httpHeaders)) {
 
-            $cont = 0;
-            while($Response = sqlsrv_fetch_object($stmt)) {
-
-                $Respuesta [$cont] = $Response;
-                $cont = $cont + 1;
-
+            foreach ($httpHeaders as $httpHeader) {
+                header($httpHeader);
             }
 
-            header_remove('Set-Cookie');
-            $httpHeaders = array('Content-Type: application/json', 'HTTP/1.1 200 OK');
-            if (is_array($httpHeaders) && count($httpHeaders)) {
-
-                foreach ($httpHeaders as $httpHeader) {
-                    header($httpHeader);
-                }
-
-            }
-
-            echo json_encode($Respuesta);
         }
+
+        echo json_encode($result);
+
+        unset($stmt);
+        unset($conn);
+
+    }catch (Exception $e){
+        die( print_r( $e->getMessage() ) );
     }
 
-    //Desconectar servicio
-    sqlsrv_close($conn);
+}
 
-} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $serverName = $server;
-    $username = "";
-    $password = "";
-    $dataBase = "DWH_Artigraf";
-
-
-    //Conexion mediante driver sqlsrv
-    //$connectionInfo = array( "Database"=>$dataBase);
-    $connectionInfo = array("Database"=>$dataBase, "UID"=>$UID, "PWD"=>$PWD);
-    $conn = sqlsrv_connect( $serverName, $connectionInfo);
-
-    if( $conn === false ) {
-        echo "Conexión no se pudo establecer.";
-        die( print_r( sqlsrv_errors(), true));
-    }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $Linea = $_POST['linea'];
     $query="Delete from PartidasEspeciales where Linea = $Linea ";
 
-        $stmt1 = sqlsrv_query($conn, $query);
-        if($stmt1 === false) {
-            die( print_r( sqlsrv_errors(), true));
-        }else{
+            $stmt1 = $conn->query($query);
             echo 'Partida borrada' ;
-        }
-
+            unset($stmt1);
 
     $query3="Select * from Fact_Saldos where PartidasEsp = '1' and PartidaLinea = $Linea";
 
-        $stmt3 = sqlsrv_query($conn, $query);
-        if($stmt3 === false) {
+        $stmt3 = $conn->query($query3);
+        $result = $stmt3->fetchAll(PDO::FETCH_OBJ);
+        //var_dump($result);
+        if(empty($result)) {
             echo 'Registro no existe';
         }else{
 
             $query2="Delete from Fact_Saldos where PartidasEsp = '1' and PartidaLinea = $Linea";
-
-            $stmt2 = sqlsrv_query($conn, $query2);
-            if($stmt2 === false) {
-                die( print_r( sqlsrv_errors(), true));
-            }else{
+            $stmt2 = $conn->query($query2);
                 echo 'Registro borrado Fact Saldos' ;
-            }
-
+                unset($stmt2);
         }
 
-
-    //Desconectar servicio
-    sqlsrv_close($conn);
+    unset($conn);
 
 }

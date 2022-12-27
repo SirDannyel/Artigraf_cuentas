@@ -196,7 +196,7 @@
             const myArr = JSON.parse(response);
             //console.log("getCuentas", response);
             for (var i = 0; i < myArr.length; i++) {
-                const nuevaPartida = new PartidasEspeciales(formatterDate(myArr[i].fecha.date),myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento),myArr[i].linea);
+                const nuevaPartida = new PartidasEspeciales(formatterDate(myArr[i].fecha),myArr[i].descripcion,myArr[i].cuenta,formatter(myArr[i].cargo),formatter(myArr[i].abono),formatter(myArr[i].movimiento),myArr[i].linea);
                 partidasdia.unshift(nuevaPartida);
             }
             if (!partidasdia.length){
@@ -327,15 +327,15 @@
             const response = await InsertPartidas_Api (fecha,cuenta,descripcion,cargo,abono,mayor,mov);
             const myArr = JSON.parse(response);
             //console.log(myArr);
-            //console.log(myArr[0].id);
+            //console.log(myArr.id);
 
             if (partidasdia[0].descripcion === "Sin Registro") {
                 partidasdia.shift();
-                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr[0].id);
+                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr.id);
                 partidasdia.push(nuevaPartida);
             } else {
 
-                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr[0].id);
+                const nuevaPartida = new PartidasEspeciales(fecha,descripcion,cuenta,formatter(cargo),formatter(abono),formatter(mov),myArr.id);
                 partidasdia.unshift(nuevaPartida);
             }
 
@@ -346,7 +346,7 @@
             $("#Abono").val("0.00");
             $("#submitButton").attr("disabled", "disabled");
 
-            getPartidas_Table();
+             await getPartidas_Table();
             //partidasdia = [];
 
         } catch (err) {

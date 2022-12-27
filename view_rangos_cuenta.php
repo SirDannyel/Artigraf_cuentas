@@ -58,6 +58,10 @@
 
     /******* Servicios  *******/
     const RangosCuentas_Api = () => {
+        let data =
+            JSON.stringify({
+                tipo : "RangoInicio"
+            });
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -69,13 +73,10 @@
                     }
                 }
             }
-            var url = "http://localhost/Artigraf/getRangosInicio.php";
-           // var Parametro = "?tipo=RangoCuentas";
-            var UrltoSend = url ;
 
-            objXMLHttpRequest.open('GET', UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
+            objXMLHttpRequest.open('POST', "getRangosCuentas.php");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.send(data);
         });
     }
 
@@ -91,7 +92,7 @@
                     }
                 }
             }
-            var url = "http://localhost/Artigraf/search_nivel.php";
+            var url = "search_nivel.php";
             var Parametro2 = "?nivel="+nivel;
             var Parametro3 = "&dato="+dato;
             var UrltoSend = url+Parametro2+Parametro3;
@@ -102,7 +103,13 @@
         });
     }
 
-    const EF1Select_Api = () => {
+    const EF1Select_Api = (Tabla, Columna) => {
+        let data =
+            JSON.stringify({
+                tipo : "getEFs",
+                tabla : Tabla,
+                columna : Columna
+            });
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -116,181 +123,9 @@
                 }
             }
 
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=EF1";
-            var UrltoSend = url + Parametro;
-
-            objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
-        });
-    }
-
-    const EF2Select_Api = () => {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                        //console.log(data);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=EF2";
-            var UrltoSend = url + Parametro;
-
-            objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
-        });
-    }
-
-    const EF3Select_Api = () => {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                        //console.log(data);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=EF3";
-            var UrltoSend = url + Parametro;
-
-            objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
-        });
-    }
-
-    const EF4Select_Api = () => {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                        //console.log(data);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=EF4";
-            var UrltoSend = url + Parametro;
-
-            objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
-        });
-    }
-
-    const EF5Select_Api = () => {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                        //console.log(data);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=EF5";
-            var UrltoSend = url + Parametro;
-
-            objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
-        });
-    }
-
-    const EF6Select_Api = () => {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                        //console.log(data);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=EF6";
-            var UrltoSend = url + Parametro;
-
-            objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
-        });
-    }
-
-    const EF7Select_Api = () => {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                        //console.log(data);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=EF7";
-            var UrltoSend = url + Parametro;
-
-            objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
-        });
-    }
-
-    const EF8Select_Api = () => {
-        return new Promise(function (resolve, reject) {
-            const objXMLHttpRequest = new XMLHttpRequest();
-            objXMLHttpRequest.onreadystatechange = function () {
-                if (objXMLHttpRequest.readyState === 4) {
-                    if (objXMLHttpRequest.status == 200) {
-                        resolve(objXMLHttpRequest.responseText);
-                        //console.log(data);
-                    } else {
-                        reject('Error Code: ' +  objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
-                    }
-                }
-            }
-
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
-            var Parametro = "?tipo=EF8";
-            var UrltoSend = url + Parametro;
-
-            objXMLHttpRequest.open('GET',UrltoSend);
-            objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send();
+            objXMLHttpRequest.open('POST',"getRangosCuentas.php");
+            objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
+            objXMLHttpRequest.send(data);
         });
     }
 
@@ -309,7 +144,7 @@
                 }
             }
 
-            var url = "http://localhost/Artigraf/getRangosCuentas.php";
+            var url = "getRangosCuentas.php";
 
             objXMLHttpRequest.open('POST',url);
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
@@ -332,9 +167,7 @@
                 }
             }
 
-            var url = "getRangosCuentas.php";
-
-            objXMLHttpRequest.open('PUT',url);
+            objXMLHttpRequest.open('POST',"putRangosCuentas.php");
             objXMLHttpRequest.setRequestHeader("Content-type", "application/json");
             objXMLHttpRequest.send(data);
         });
@@ -347,137 +180,115 @@
 
     const get_EFs = async () => {
         try {
+            let table = "Dim_EF2";
+            let column = "EF2_Desc";
 
-            const responseEF2 = await EF2Select_Api();
+            const responseEF2 = await EF1Select_Api(table, column);
             EF2 = JSON.parse(responseEF2);
-            var selectEF2 = document.getElementById("IdEf2");
-           // var selectEF2_Modal = document.getElementById("Ef2");
-          //  var selectEF2_Desc = document.getElementById("EF2");
 
+            var selectEF2 = document.getElementById("IdEf2");
             for (let ef2 of EF2) {
                 var option2 = document.createElement("option");
                 option2.text = ef2.EF2_Desc;
                 option2.value = ef2.EF2_Desc;
                 selectEF2.appendChild(option2);
 
-              /*  var option2_Modal = document.createElement("option");
-                option2_Modal.text = ef2.EF2_Desc;
-                option2_Modal.value = ef2.EF2_Desc;
-                selectEF2_Modal.appendChild(option2_Modal);*/
-
             }
 
-            const responseEF3 = await EF3Select_Api();
-            EF3 = JSON.parse(responseEF3);
-            var selectEF3 = document.getElementById("IdEf3");
-           // var selectEF3_Modal = document.getElementById("Ef3");
+            table = "EF1_Select";
+            column = "EF1_Desc";
 
+            const responseEF1 = await EF1Select_Api(table, column);
+            EF1 = JSON.parse(responseEF1);
+
+             table = "Dim_EF3";
+             column = "EF3_Desc";
+
+            const responseEF3 = await EF1Select_Api(table, column);
+            EF3 = JSON.parse(responseEF3);
+
+            var selectEF3 = document.getElementById("IdEf3");
             for (let ef3 of EF3) {
                 var option3 = document.createElement("option");
                 option3.text = ef3.EF3_Desc;
                 option3.value = ef3.EF3_Desc;
                 selectEF3.appendChild(option3);
 
-           /*     var option3_Modal = document.createElement("option");
-                option3_Modal.text = ef3.EF3_Desc;
-                option3_Modal.value = ef3.EF3_Desc;
-                selectEF3_Modal.appendChild(option3_Modal);*/
             }
 
-            const responseEF4 = await EF4Select_Api();
+             table = "Dim_EF4";
+             column = "EF4_Desc";
+
+            const responseEF4 = await EF1Select_Api(table, column);
             EF4 = JSON.parse(responseEF4);
+
             var selectEF4 = document.getElementById("IdEf4");
-           // var selectEF4_Modal = document.getElementById("Ef4");
-
-
             for (let ef4 of EF4) {
                 var option4 = document.createElement("option");
                 option4.text = ef4.EF4_Desc;
                 option4.value = ef4.EF4_Desc;
                 selectEF4.appendChild(option4);
 
-         /*       var option4_Modal = document.createElement("option");
-                option4_Modal.text = ef4.EF4_Desc;
-                option4_Modal.value = ef4.EF4_Desc;
-                selectEF4_Modal.appendChild(option4_Modal);*/
-
             }
 
-            const responseEF5 = await EF5Select_Api();
-            EF5 = JSON.parse(responseEF5);
-            var selectEF5 = document.getElementById("IdEf5");
-           // var selectEF5_Modal = document.getElementById("Ef5");
-           // var selectEF5_Desc = document.getElementById("EF5");
+            table = "Dim_EF5";
+            column = "EF5_Desc";
 
+            const responseEF5 = await EF1Select_Api(table, column);
+            EF5 = JSON.parse(responseEF5);
+
+            var selectEF5 = document.getElementById("IdEf5");
             for (let ef5 of EF5) {
                 var option5 = document.createElement("option");
                 option5.text = ef5.EF5_Desc;
                 option5.value = ef5.EF5_Desc;
                 selectEF5.appendChild(option5);
-
-           /*     var option5_Modal = document.createElement("option");
-                option5_Modal.text = ef5.EF5_Desc;
-                option5_Modal.value = ef5.EF5_Desc;
-                selectEF5_Modal.appendChild(option5_Modal);*/
             }
 
-            const responseEF6 = await EF6Select_Api();
-            EF6 = JSON.parse(responseEF6);
-            var selectEF6 = document.getElementById("IdEf6");
-           // var selectEF6_Modal = document.getElementById("Ef6");
-           // var selectEF6_Desc = document.getElementById("EF6");
+            table = "Dim_EF6";
+            column = "EF6_Desc";
 
+            const responseEF6 = await EF1Select_Api(table, column);
+            EF6 = JSON.parse(responseEF6);
+
+            var selectEF6 = document.getElementById("IdEf6");
             for (let ef6 of EF6) {
                 var option6 = document.createElement("option");
                 option6.text = ef6.EF6_Desc;
                 option6.value = ef6.EF6_Desc;
                 selectEF6.appendChild(option6);
 
-            /*    var option6_Modal = document.createElement("option");
-                option6_Modal.text = ef6.EF6_Desc;
-                option6_Modal.value = ef6.EF6_Desc;
-                selectEF6_Modal.appendChild(option6_Modal);*/
-
             }
 
-            const responseEF7 = await EF7Select_Api();
-            EF7 = JSON.parse(responseEF7);
-            var selectEF7 = document.getElementById("IdEf7");
-          //  var selectEF7_Modal = document.getElementById("Ef7");
-           // var selectEF7_Desc = document.getElementById("EF7");
+            table = "Dim_EF7";
+            column = "EF7_Desc";
 
+            const responseEF7 = await EF1Select_Api(table, column);
+            EF7 = JSON.parse(responseEF7);
+
+            var selectEF7 = document.getElementById("IdEf7");
             for (let ef7 of EF7) {
                 var option7 = document.createElement("option");
                 option7.text = ef7.EF7_Desc;
                 option7.value = ef7.EF7_Desc;
                 selectEF7.appendChild(option7);
-
-             /*   var option7_Modal = document.createElement("option");
-                option7_Modal.text = ef7.EF7_Desc;
-                option7_Modal.value = ef7.EF7_Desc;
-                selectEF7_Modal.appendChild(option7_Modal);*/
-
             }
 
-            const responseEF8 = await EF8Select_Api();
-            EF8 = JSON.parse(responseEF8);
-            var selectEF8 = document.getElementById("IdEf8");
-            //var selectEF8_Modal = document.getElementById("Ef8");
-           // var selectEF8_Modal = document.getElementById("Ef8");
+            table = "Dim_EF8";
+            column = "EF8_Desc";
 
+            const responseEF8 = await EF1Select_Api(table, column);
+            EF8 = JSON.parse(responseEF8);
+
+            var selectEF8 = document.getElementById("IdEf8");
             for (let ef8 of EF8) {
                 var option8 = document.createElement("option");
                 option8.text = ef8.EF8_Desc;
                 option8.value = ef8.EF8_Desc;
                 selectEF8.appendChild(option8);
-
-           /*     var option8_Modal = document.createElement("option");
-                option8_Modal.text = ef8.EF8_Desc;
-                option8_Modal.value = ef8.EF8_Desc;
-                selectEF8_Modal.appendChild(option8_Modal);*/
-
             }
 
+            await get_EFsModal();
         } catch (err) {
             console.log(err)
         }
@@ -486,99 +297,60 @@
     const get_EFsModal = async () => {
         try {
 
-            const responseEF2 = await EF2Select_Api();
-            EF2 = JSON.parse(responseEF2);
             var selectEF2_Modal = document.getElementById("Ef2");
-            //  var selectEF2_Desc = document.getElementById("EF2");
-
-            for (let ef2 of EF2) {
-
+            for (var i = 0; i < EF2.length; i++) {
                 var option2_Modal = document.createElement("option");
-                option2_Modal.text = ef2.EF2_Desc;
-                option2_Modal.value = ef2.EF2_Desc;
+                option2_Modal.text = EF2[i].EF2_Desc;
+                option2_Modal.value = EF2[i].EF2_Desc;
                 selectEF2_Modal.appendChild(option2_Modal);
-
             }
 
-            const responseEF3 = await EF3Select_Api();
-            EF3 = JSON.parse(responseEF3);
             var selectEF3_Modal = document.getElementById("Ef3");
-
             for (let ef3 of EF3) {
-
                 var option3_Modal = document.createElement("option");
                 option3_Modal.text = ef3.EF3_Desc;
                 option3_Modal.value = ef3.EF3_Desc;
                 selectEF3_Modal.appendChild(option3_Modal);
             }
 
-            const responseEF4 = await EF4Select_Api();
-            EF4 = JSON.parse(responseEF4);
             var selectEF4_Modal = document.getElementById("Ef4");
-
-
             for (let ef4 of EF4) {
-
                 var option4_Modal = document.createElement("option");
                 option4_Modal.text = ef4.EF4_Desc;
                 option4_Modal.value = ef4.EF4_Desc;
                 selectEF4_Modal.appendChild(option4_Modal);
-
             }
 
-            const responseEF5 = await EF5Select_Api();
-            EF5 = JSON.parse(responseEF5);
             var selectEF5_Modal = document.getElementById("Ef5");
-            // var selectEF5_Desc = document.getElementById("EF5");
-
             for (let ef5 of EF5) {
-
                 var option5_Modal = document.createElement("option");
                 option5_Modal.text = ef5.EF5_Desc;
                 option5_Modal.value = ef5.EF5_Desc;
                 selectEF5_Modal.appendChild(option5_Modal);
             }
-
-            const responseEF6 = await EF6Select_Api();
-            EF6 = JSON.parse(responseEF6);
+            ;
             var selectEF6_Modal = document.getElementById("Ef6");
-            // var selectEF6_Desc = document.getElementById("EF6");
-
             for (let ef6 of EF6) {
-
                 var option6_Modal = document.createElement("option");
                 option6_Modal.text = ef6.EF6_Desc;
                 option6_Modal.value = ef6.EF6_Desc;
                 selectEF6_Modal.appendChild(option6_Modal);
-
             }
 
-            const responseEF7 = await EF7Select_Api();
-            EF7 = JSON.parse(responseEF7);
             var selectEF7_Modal = document.getElementById("Ef7");
-            // var selectEF7_Desc = document.getElementById("EF7");
-
             for (let ef7 of EF7) {
-
                 var option7_Modal = document.createElement("option");
                 option7_Modal.text = ef7.EF7_Desc;
                 option7_Modal.value = ef7.EF7_Desc;
                 selectEF7_Modal.appendChild(option7_Modal);
-
             }
 
-            const responseEF8 = await EF8Select_Api();
-            EF8 = JSON.parse(responseEF8);
             var selectEF8_Modal = document.getElementById("Ef8");
-            // var selectEF8_Modal = document.getElementById("Ef8");
-
-            for (let ef8 of EF8) {
-
+            for (var i = 0; i < EF8.length; i++) {
                 var option8_Modal = document.createElement("option");
-                option8_Modal.text = ef8.EF8_Desc;
-                option8_Modal.value = ef8.EF8_Desc;
+                option8_Modal.text = EF8[i].EF8_Desc;
+                option8_Modal.value = EF8[i].EF8_Desc;
                 selectEF8_Modal.appendChild(option8_Modal);
-
             }
 
         } catch (err) {
@@ -586,14 +358,13 @@
         }
     }
 
-
         const getRangosCuentas = async () => {
         try {
             RangosCuentas = [];
             const response = await RangosCuentas_Api();
             RangosCuentas = JSON.parse(response);
             // console.log(RangosCuentas);
-            getRangosCuentas_Table();
+             await getRangosCuentas_Table();
         } catch (err)
         {
             console.log(err)
@@ -606,7 +377,7 @@
             const response = await RangosSearch_Api(nivel,dato);
             RangosCuentas = JSON.parse(response);
             // console.log(RangosCuentas);
-            getRangosCuentas_Table();
+            await getRangosCuentas_Table();
         } catch (err)
         {
             console.log(err)
@@ -768,78 +539,78 @@
         }
     }
 
-    const handleInsertRango = (cuentainicio,cuentafin,orden,desc,ef2,ef3,ef4,ef5,ef6,ef7,ef8) => {
-        RangosCuentas_Api();
+    const handleInsertRango = async (cuentainicio, cuentafin, orden, desc, ef2, ef3, ef4, ef5, ef6, ef7, ef8) => {
+
         var Tipo = "InsertRango";
         try {
-           // const ef1desc = cuentascontables.find( ({ EF1 }) => EF1 === ef1);
-            //console.log(cuentainicio,cuentafin,orden,desc,ef2,ef3,ef4,ef5,ef6,ef7,ef8);
+
             var desc2 = "";
-            if (ef2){
-                const ef2desc = EF2.find( ({ EF2_Desc }) => EF2_Desc === ef2);
+            if (ef2) {
+                const ef2desc = EF2.find(({EF2_Desc}) => EF2_Desc === ef2);
                 desc2 = ef2desc.EF2;
             }
 
             var desc3 = "";
-            if (ef3){
-                const ef3desc = EF3.find( ({ EF3_Desc }) => EF3_Desc === ef3);
+            if (ef3) {
+                const ef3desc = EF3.find(({EF3_Desc}) => EF3_Desc === ef3);
                 var desc3 = ef3desc.EF3;
             }
 
             var desc4 = "";
-            if (ef4){
-                const ef4desc = EF4.find( ({ EF4_Desc }) => EF4_Desc === ef4);
+            if (ef4) {
+                const ef4desc = EF4.find(({EF4_Desc}) => EF4_Desc === ef4);
                 var desc4 = ef4desc.EF4;
             }
 
             var desc5 = ""
-            if (ef5){
-                const ef5desc = EF5.find( ({ EF5_Desc }) => EF5_Desc === ef5);
+            if (ef5) {
+                const ef5desc = EF5.find(({EF5_Desc}) => EF5_Desc === ef5);
                 var desc5 = ef5desc.EF5;
             }
 
             var desc6 = ""
-            if (ef6){
-                const ef6desc = EF6.find( ({ EF6_Desc }) => EF6_Desc === ef6);
+            if (ef6) {
+                const ef6desc = EF6.find(({EF6_Desc}) => EF6_Desc === ef6);
                 var desc6 = ef6desc.EF6;
             }
 
             var desc7 = ""
-            if (ef7){
-                const ef7desc = EF7.find( ({ EF7_Desc }) => EF7_Desc === ef7);
+            if (ef7) {
+                const ef7desc = EF7.find(({EF7_Desc}) => EF7_Desc === ef7);
                 var desc7 = ef7desc.EF7;
             }
 
             var desc8 = ""
-            if (ef8){
-                const ef8desc = EF8.find( ({ EF8_Desc }) => EF8_Desc === ef8);
+            if (ef8) {
+                const ef8desc = EF8.find(({EF8_Desc}) => EF8_Desc === ef8);
                 var desc8 = ef8desc.EF8;
             }
 
             let cuentasInput = {
-                CuentaInicio : cuentainicio,
-                CuentaFin : cuentafin,
-                Orden : orden,
-                EF1 : orden,
-                EF1Desc : desc,
-                EF2 : desc2,
-                EF2Desc : ef2,
-                EF3 : desc3,
-                EF3Desc : ef3,
-                EF4 : desc4,
-                EF4Desc : ef4,
-                EF5 : desc5,
-                EF5Desc : ef5,
-                EF6 : desc6,
-                EF6Desc : ef6,
-                EF7 : desc7,
-                EF7Desc : ef7,
-                EF8 : desc8,
-                EF8Desc : ef8,
+                CuentaInicio: cuentainicio,
+                CuentaFin: cuentafin,
+                Orden: orden,
+                EF1: orden,
+                EF1Desc: desc,
+                EF2: desc2,
+                EF2Desc: ef2,
+                EF3: desc3,
+                EF3Desc: ef3,
+                EF4: desc4,
+                EF4Desc: ef4,
+                EF5: desc5,
+                EF5Desc: ef5,
+                EF6: desc6,
+                EF6Desc: ef6,
+                EF7: desc7,
+                EF7Desc: ef7,
+                EF8: desc8,
+                EF8Desc: ef8,
                 tipo: Tipo
             };
 
-             InsertRangos_Api(cuentasInput);
+            await InsertRangos_Api(cuentasInput);
+            await getRangosCuentas();
 
             $("#Orden").val("");
             $("#Descripcion").val("");
@@ -864,8 +635,6 @@
             console.log(err)
         }
 
-        deleteChild ();
-        setTimeout(getRangosCuentas(), 5000);
     }
 
     const handleUpdateRango = (ef2desc,ef2,ef3desc,ef3,ef4desc,ef4,ef5desc,ef5,ef6desc,ef6,ef7desc,ef7,ef8desc,ef8) => {
@@ -956,42 +725,30 @@
             $("#CuentaInicio").val(texto);
 
         } else if(texto.length == 4) {
-          //  textoAjustado = textoAjustado+",";
             const parte1 = texto.slice(0,4);
             const parte2 = texto.slice(4,8);
             textoAjustado = parte1+","+parte2;
-            //textoAjustado = parte1+",";
             $("#CuentaInicio").val(textoAjustado);
         }  else if(texto.length == 9) {
-            //textoAjustado = textoAjustado+",";
-           // $("#CuentaInicio").val(textoAjustado);
             const parte1 = texto.slice(0,9);
             const parte2 = texto.slice(9,13);
             textoAjustado = parte1+","+parte2;
-            //textoAjustado = parte2+",";
             $("#CuentaInicio").val(textoAjustado);
         } else if(texto.length == 14) {
-            //textoAjustado = textoAjustado+",";
-            //$("#CuentaInicio").val(textoAjustado);
             const parte1 = texto.slice(0,14);
             const parte2 = texto.slice(14,18);
-            //textoAjustado = parte3+",";
             textoAjustado = parte1+","+parte2;
             $("#CuentaInicio").val(textoAjustado);
         } else if(texto.length == 19) {
-           // textoAjustado = textoAjustado+",";
-            //$("#CuentaInicio").val(textoAjustado);
+
             const parte1 = texto.slice(0,19);
             const parte2 = texto.slice(19,23);
-            //textoAjustado = parte4+",";
             textoAjustado = parte1+","+parte2;
             $("#CuentaInicio").val(textoAjustado);
         } else if(texto.length == 24) {
-            //textoAjustado = textoAjustado+",";
-            //$("#CuentaInicio").val(textoAjustado);
+
             const parte1 = texto.slice(0,24);
             const parte2 = texto.slice(24,29);
-            //textoAjustado = parte5+",";
             textoAjustado = parte1+","+parte2;
             $("#CuentaInicio").val(textoAjustado);
         }
@@ -1006,42 +763,32 @@
             $("#CuentaFin").val(texto);
 
         } else if(texto.length == 4) {
-            //  textoAjustado = textoAjustado+",";
             const parte1 = texto.slice(0,4);
             const parte2 = texto.slice(4,8);
             textoAjustado = parte1+","+parte2;
-            //textoAjustado = parte1+",";
             $("#CuentaFin").val(textoAjustado);
         }  else if(texto.length == 9) {
-            //textoAjustado = textoAjustado+",";
-            // $("#CuentaInicio").val(textoAjustado);
+
             const parte1 = texto.slice(0,9);
             const parte2 = texto.slice(9,13);
             textoAjustado = parte1+","+parte2;
-            //textoAjustado = parte2+",";
             $("#CuentaFin").val(textoAjustado);
         } else if(texto.length == 14) {
-            //textoAjustado = textoAjustado+",";
-            //$("#CuentaInicio").val(textoAjustado);
+
             const parte1 = texto.slice(0,14);
             const parte2 = texto.slice(14,18);
-            //textoAjustado = parte3+",";
             textoAjustado = parte1+","+parte2;
             $("#CuentaFin").val(textoAjustado);
         } else if(texto.length == 19) {
-            // textoAjustado = textoAjustado+",";
-            //$("#CuentaInicio").val(textoAjustado);
+
             const parte1 = texto.slice(0,19);
             const parte2 = texto.slice(19,23);
-            //textoAjustado = parte4+",";
             textoAjustado = parte1+","+parte2;
             $("#CuentaFin").val(textoAjustado);
         } else if(texto.length == 24) {
-            //textoAjustado = textoAjustado+",";
-            //$("#CuentaInicio").val(textoAjustado);
+
             const parte1 = texto.slice(0,24);
             const parte2 = texto.slice(24,29);
-            //textoAjustado = parte5+",";
             textoAjustado = parte1+","+parte2;
             $("#CuentaFin").val(textoAjustado);
         }
@@ -1053,10 +800,10 @@
             if(efn === "EF1") {
                 $("#CuentaSearch option").remove();
                 var search = document.getElementById("CuentaSearch");
-                for (let rangoscuentas of RangosCuentas) {
+                for (let ef1 of EF1) {
                     var option_Search = document.createElement("option");
-                    option_Search.text = rangoscuentas.EF1Desc;
-                    option_Search.value = rangoscuentas.EF1Desc;
+                    option_Search.text = ef1.EF1_Desc;
+                    option_Search.value = ef1.EF1_Desc;
                     search.appendChild(option_Search);
                 }
             } else if (efn === "EF2") {
@@ -1216,7 +963,6 @@
 
     const init = () => {
             get_EFs();
-            get_EFsModal();
             getRangosCuentas();
     }
 

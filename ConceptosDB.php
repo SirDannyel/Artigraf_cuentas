@@ -8,6 +8,7 @@ function writeServerLog($msg)
 
 $conf = include('config.php'); 
 $serverName  = $conf['server'];
+$dataBase = $conf ['database'];
 $UID  = $conf['UID'];
 $PWD  = $conf['PWD'];
 writeServerLog('Tipo: - ' .$_POST['tipo'] );
@@ -15,7 +16,7 @@ writeServerLog('Tipo: - ' .$_POST['tipo'] );
 if($_POST['tipo'] === "get"){ 
  
 		$Proceso="Select Conceptos";
-		$sql="Select * from EstadoResultados where EstadoResultados = '{$_POST['estado']}' order by Orden"; 
+		$sql="Select * from EstadoResultadosResp where EstadoResultados = '{$_POST['estado']}' order by Orden";
 		$Respuesta = '[';
 	
 			 writeServerLog('EjecutaSQL - ' .$Proceso ); 

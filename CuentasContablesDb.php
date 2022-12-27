@@ -10,6 +10,7 @@ $conf = include('config.php');
 $server  = $conf['server'];
 $UID  = $conf['UID'];
 $PWD  = $conf['PWD'];
+$dataBase = $conf['database'];
 
  
 writeServerLog('Tipo:' .$_POST['tipo'] );   
@@ -19,7 +20,7 @@ if($_POST['tipo'] === "getRubros"){
  
     $Respuesta;
 		$Proceso="Select Rubros";
-     $campo;   
+     $campo;
     switch ($_POST['nivel']) {
         case "MAYOR": 
             $campo = 'MayorDesc';    
@@ -59,7 +60,7 @@ if($_POST['tipo'] === "getRubros"){
             return $Respuesta;
         }
 
-		$sql="Select ".$campo." from Dim_CuentaContable group by ".$campo." order by 1" ;  
+		$sql="Select ".$campo." from Dim_CuentaContable group by ".$campo." order by 1" ;
 	
 			 writeServerLog('EjecutaSQL - ' .$Proceso ); 
 			 writeServerLog('Query: - ' .$sql );   

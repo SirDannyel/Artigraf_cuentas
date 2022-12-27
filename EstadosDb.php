@@ -8,6 +8,7 @@ function writeServerLog($msg)
 $conf = include('config.php');
 $UID  = $conf['UID'];
 $PWD  = $conf['PWD'];
+$dataBase = $conf['database'];
 
 $server  = $conf['server'];
 switch ($_POST['tipo']) {

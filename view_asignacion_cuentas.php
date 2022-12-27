@@ -99,7 +99,7 @@ const getCuentasContables = async () => {
             $('#IdEf7Desc').val(cuentascontables[0].EF7Desc);
             $('#IdEf8').val(cuentascontables[0].EF8);
             $('#IdEf8Desc').val(cuentascontables[0].EF8Desc);
-            getCuentasContables_Table();
+            await getCuentasContables_Table();
             } catch (err) 
             {
                 console.log(err)
@@ -268,6 +268,7 @@ const getCuentasContables_Table = async () => {
                 console.log(err);
           }
         }
+
     const handleUpdateCuenta = (filtro,ef1,ef1desc,ef2,ef2desc,ef3,ef3desc,ef4,ef4desc,ef5,ef5desc,ef6,ef6desc,ef7,ef7desc,ef8,ef8desc) => {
         try {
             for (var i = 0; i < cuentascontables.length; i++) {

@@ -30,7 +30,7 @@ switch ($parametro){
         $query = "SELECT * FROM Dim_RangoCuentas where EF4Desc = '$dato' order by Orden";
         break;
     case "EF5":
-        $query = "SELECT * FROM Dim_RangoCuentas where EF5DESC = '$dato' order by Orden";
+        $query = "SELECT * FROM Dim_RangoCuentas where EF5Desc = '$dato' order by Orden";
         break;
     case "EF6":
         $query = "SELECT * FROM Dim_RangoCuentas where EF6Desc = '$dato' order by Orden";
@@ -61,5 +61,6 @@ if (is_array($httpHeaders) && count($httpHeaders)) {
 
 echo json_encode($registros);
 
-exit();
+unset($stmt);
+unset($conn);
 
