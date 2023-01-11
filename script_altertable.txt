@@ -25,3 +25,16 @@ ALTER TABLE dbo.PartidasEspeciales
 ADD
 RangoCuentas_id bigint IDENTITY NOT NULL;
 GO
+
+/*-----Modificar tabla de Partidas Columna Empresa-----*/
+ALTER TABLE dbo.PartidasEspeciales
+ADD
+Empresa nchar(1) NULL;
+GO
+
+
+/*-----Modificar tabla de Fact Saldos Columna Empresa-----*/
+ALTER TABLE dbo.Fact_Saldos
+ADD
+Empresa nchar(1) NULL;
+GO

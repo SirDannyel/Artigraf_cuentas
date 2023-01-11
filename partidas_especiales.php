@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Ejecucion de insert a Partidas especiales
 
     //$sql2="Set nocount on; Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal) values('0','{$_POST['fecha']}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0'); SELECT @@IDENTITY as id; ";
-    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal) values('0','{$_POST['fecha']}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0')";
+    $sql2="Insert into PartidasEspeciales (Id,Fecha,Mayor,CuentaContable,Monto,Descripcion,SaldoAnterior,Cargo,Abono,Movimiento,SaldoFinal,Empresa) values('0','{$_POST['fecha']}','{$_POST['mayor']}','{$_POST['cuenta']}','0','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','{$_POST['emp']}')";
 
         $stmt2 = $conn->query($sql2);
         $lastid = $conn->lastInsertId();
@@ -131,18 +131,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 unset($stmt4);
 
                 //Seguido insertar en fact saldos
-                $sql2="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$lastid}') ";
+                $sql2="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea,Empresa) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$lastid}','{$_POST['emp']}') ";
                 $stmt5 = $conn->query($sql2);
                 unset($stmt5);
 
             } else {
             //Si no insertar directo:
-                    $sql3="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$lastid}') ";
+                    $sql3="Insert into Fact_Saldos (Fecha,Cuenta,Descripcion,SaldoAnterior,Cargos,Abonos,Movimientos,SaldoFinal,Agrupador,PartidasEsp,PartidaLinea,Empresa) values('{$fecha_nueva}','{$_POST['cuenta']}','{$_POST['descripcion']}','0','{$_POST['cargo']}','{$_POST['abono']}','{$_POST['mov']}','0','0','1','{$lastid}','{$_POST['emp']}') ";
                     $stmt6 = $conn->query($sql3);
                     unset($stmt6);
             }
 
-                    unset($conn);
+    $sql4="update A 
+            set CuentaId = B.CuentaId
+            from Fact_Saldos A
+            inner join Dim_CuentaContable B
+            on A.cuenta = B.Cuenta
+            where A.CuentaId is null";
+    $stmt7 = $conn->query($sql4);
+
+    unset($stmt7);
+    unset($conn);
 
 
     }

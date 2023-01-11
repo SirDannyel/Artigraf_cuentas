@@ -74,6 +74,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 unset($stmt2);
         }
 
+    $sql4="update A
+           set CuentaId = B.CuentaId
+           from Fact_Saldos A
+           inner join Dim_CuentaContable B
+           on A.cuenta = B.Cuenta
+           where A.CuentaId is null";
+    $stmt7 = $conn->query($sql4);
+    unset($stmt7);
+
     unset($conn);
 
 }

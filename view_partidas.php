@@ -94,7 +94,7 @@
         });
     }
 
-    const InsertPartidas_Api = (fecha,cuenta,descripcion,cargo,abono,mayor,movimiento) => {
+    const InsertPartidas_Api = (fecha,cuenta,descripcion,cargo,abono,mayor,movimiento,empresa) => {
         return new Promise(function (resolve, reject) {
             const objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.onreadystatechange = function () {
@@ -108,7 +108,7 @@
             }
             objXMLHttpRequest.open('POST','partidas_especiales.php');
             objXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            objXMLHttpRequest.send("fecha="+fecha+"&cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor+"&mov="+movimiento);
+            objXMLHttpRequest.send("fecha="+fecha+"&cuenta="+cuenta+"&descripcion="+descripcion+"&cargo="+cargo+"&abono="+abono+"&mayor="+mayor+"&mov="+movimiento+"&emp="+empresa);
         });
     }
 
@@ -321,10 +321,10 @@
             $("#Mayor").val("");
         }
     }
-    const handleInsertPartida =  async (fecha,cuenta,descripcion,cargo,abono,mayor) => {
+    const handleInsertPartida =  async (fecha,cuenta,descripcion,cargo,abono,mayor,emp) => {
         try {
             var  mov = abono - cargo;
-            const response = await InsertPartidas_Api (fecha,cuenta,descripcion,cargo,abono,mayor,mov);
+            const response = await InsertPartidas_Api (fecha,cuenta,descripcion,cargo,abono,mayor,mov,emp);
             const myArr = JSON.parse(response);
             //console.log(myArr);
             //console.log(myArr.id);
@@ -421,30 +421,38 @@
         <div class="w-100"></div>
             <div class="col flex-column">
                 <label for="InputFecha">Fecha</label>
-                <input type="date" id="Fecha" class="form-control"></input>
+                <input type="date" id="Fecha" class="form-control form-control-sm"></input>
+            </div>
+            <div class="col flex-column">
+                <label >Empresa</label>
+                <select class="form-select form-select-sm" id="empresa" >
+                    <option selected></option>
+                    <option value="1" >Artigraf</option>
+                    <option value="2" >Papeles Ultra</option>
+                </select>
             </div>
             <div class="col flex-column">
                 <label for="InputCuenta">Cuenta</label>
-                <input type="text" id="Cuenta" class="form-control" placeholder="####,####,####,####"  onchange="handleSelectChange(this.value)"></input>
+                <input type="text" id="Cuenta" class="form-control form-control-sm" placeholder="####,####,####,####"  onchange="handleSelectChange(this.value)"></input>
             </div>
             <div class="col-md-4">
                 <label for="InputDescripcion">Descripción</label>
-                <input id="Descripcion" class="form-control" ></input>
+                <input id="Descripcion" class="form-control form-control-sm" ></input>
             </div>
             <div class="col-md-1">
                 <label for="InputMayor">Mayor</label>
-                <input id="Mayor" class="form-control" ></input>
+                <input id="Mayor" class="form-control form-control-sm" ></input>
             </div>
             <div class="col flex-column">
                 <label for="InputCargo">Cargo</label>
-                <input type=number id="Cargo" class="form-control" value="0.00" onkeyup="toggleButton()"></input>
+                <input type=number id="Cargo" class="form-control form-control-sm" value="0.00" onkeyup="toggleButton()"></input>
             </div>
             <div class="col flex-column">
                 <label for="InputAbono">Abono</label>
-                <input type=number id="Abono" class="form-control" value="0.00"  onkeyup="toggleButton()"></input>
+                <input type=number id="Abono" class="form-control form-control-sm" value="0.00"  onkeyup="toggleButton()"></input>
             </div>
             <div class="col mt-4 flex-column">
-                <button id="submitButton" class="btn btn-success" onclick="handleInsertPartida($('#Fecha').val(),$('#Cuenta').val(),$('#Descripcion').val(),$('#Cargo').val(),$('#Abono').val(),$('#Mayor').val())" disabled>Agregar</button>
+                <button id="submitButton" class="btn btn-success form-control-sm" onclick="handleInsertPartida($('#Fecha').val(),$('#Cuenta').val(),$('#Descripcion').val(),$('#Cargo').val(),$('#Abono').val(),$('#Mayor').val(),$('#empresa').val())" disabled>Agregar</button>
             </div>
         </div>
     </div>
