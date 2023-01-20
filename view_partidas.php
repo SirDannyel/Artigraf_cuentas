@@ -308,6 +308,48 @@
             $("#submitButton").attr("disabled", "disabled");
         }
     }
+
+    /******* Funciones de Lista Desplegable con mediante filtros array: *******/
+/*
+
+    const handleCuentaChange = (mayor) => {
+
+        if (mayor) {
+            const result2 = cuentascontables.filter( ({ Mayor }) => Mayor.includes(mayor));
+            console.log("getCuentas2:", result2);
+
+            $("#Descripcion").val("");
+            $("#Cuenta2").val("");
+            $("#interes_list option").remove();
+            var search = document.getElementById("interes_list");
+            for (let cuenta of result2) {
+                var option_Search = document.createElement("option");
+                option_Search.value = cuenta.Cuenta;
+                search.appendChild(option_Search);
+            }
+
+        } else {
+            $("#Cuenta2").val("");
+            $("#interes_list option").remove();
+            $("#Descripcion").val("");
+        }
+    }
+
+    const handleSelectCuenta = (data) => {
+
+        if (data) {
+            $("#Descripcion").val("");
+            const result = cuentascontables.find( ({ Cuenta }) => Cuenta === data);
+            //const result2 = cuentascontables.filter( ({ Cuenta }) => Cuenta.includes(cuenta));
+            //console.log("getCuentas2", result);
+            $("#Descripcion").val(result.CuentaDesc);
+            //$("#Mayor").val(result.Mayor);
+        } else {
+            $("#Descripcion").val("");
+            //$("#Mayor").val("");
+        }
+    }
+*/
     const handleSelectChange = (cuenta) => {
 
         if (cuenta) {
@@ -431,6 +473,19 @@
                     <option value="2" >Papeles Ultra</option>
                 </select>
             </div>
+            <!-- Lista desplegables mediante funciones filter array -->
+            <!--
+            <div class="col-md-1">
+                <label for="Mayor2">Mayor2</label>
+                <input id="Mayor2" class="form-control form-control-sm" onkeyup="handleCuentaChange(this.value)"></input>
+            </div>
+            <div class="col flex-column">
+                <label for="InputCuenta">Cuenta2</label>
+                <input type="text" id="Cuenta2" class="form-control form-control-sm" placeholder="####,####,####,####" required list="interes_list" onkeyup="handleSelectCuenta(this.value)">
+                <datalist id="interes_list">
+                </datalist>
+            </div>
+            -->
             <div class="col flex-column">
                 <label for="InputCuenta">Cuenta</label>
                 <input type="text" id="Cuenta" class="form-control form-control-sm" placeholder="####,####,####,####"  onchange="handleSelectChange(this.value)"></input>
