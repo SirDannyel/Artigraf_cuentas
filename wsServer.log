@@ -1936,3 +1936,8 @@ bios", "ER", "ER Interno", "ERI", "ERPU", "Flujo"]
 2023-01-12 16:16:48 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
 2023-01-12 16:16:48 :: param: - Admin
 2023-01-12 16:16:48 :: Admin
+2023-02-20 18:15:41 :: Tipo: - get
+2023-02-20 18:15:41 :: EjecutaSQL - Login
+2023-02-20 18:15:41 :: Query: - Select Username from Usuario Where Username = 'Admin' and Password = 'admin'  
+2023-02-20 18:15:41 :: param: - Admin
+2023-02-20 18:15:41 :: Admin
