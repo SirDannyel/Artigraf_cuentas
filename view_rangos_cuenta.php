@@ -525,11 +525,11 @@
                         }
                     });
                 };
-                boton.setAttribute("class", "btn btn-outline-danger px-3");
+                boton.setAttribute("class", "btn btn-outline-warning px-3");
                 boton.setAttribute("type", "button");
                 linea.appendChild(boton);
                 var icon = document.createElement("i");
-                icon.setAttribute("class", "fa-solid fa-close");
+                icon.setAttribute("class", "fa-solid fa-minus");
                 boton.appendChild(icon);
             }
 
